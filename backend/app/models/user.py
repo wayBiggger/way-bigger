@@ -30,4 +30,9 @@ class User(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
-    # Relationships intentionally omitted in development to avoid mapper errors
+    # Relationships
+    skills = relationship("UserSkill", back_populates="user")
+    submissions = relationship("Submission", back_populates="user")
+    reviews = relationship("Review", back_populates="reviewer")
+    team_memberships = relationship("TeamMember", back_populates="user")
+    badges = relationship("UserBadge", back_populates="user")

@@ -37,7 +37,10 @@ class Project(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
-    # Relationships intentionally omitted in development to avoid mapper errors
+    # Relationships
+    submissions = relationship("Submission", back_populates="project")
+    hints = relationship("Hint", back_populates="project")
+    teams = relationship("Team", back_populates="project")
 
 
 class Track(Base):

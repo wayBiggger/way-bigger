@@ -1,144 +1,138 @@
-# Way Bigger - Project-Based Learning Platform
+# Project Learning Platform
 
-A platform where students learn by building real projects instead of just reading theory.
-
-## 🚀 Features
-
-- **Skill-Based Learning Paths**: Choose your field and skill level to get personalized project tracks
-- **Progressive Difficulty**: Start with easier projects and gradually tackle harder ones
-- **Portfolio Building**: Every completed project adds to your public profile
-- **Collaboration Unlock**: Earn points to team up with other students on bigger projects
-- **Built-in Mentorship**: Get helpful tips and resources while working
-- **Community Projects**: Submit and build on project ideas from other students
-- **Resume-Ready Profiles**: Showcase your skills with verified project badges
+A full-stack platform where students learn by building real projects. Built with FastAPI (backend) and Next.js (frontend).
 
 ## 🏗️ Architecture
 
-- **Frontend**: Next.js 14 with TypeScript and Tailwind CSS
-- **Backend**: FastAPI with Python for robust APIs
+- **Backend**: FastAPI with PostgreSQL and Redis
+- **Frontend**: Next.js 15 with TypeScript and Tailwind CSS
 - **Database**: PostgreSQL with SQLAlchemy ORM
-- **Authentication**: OAuth (GitHub/Google) + JWT
-- **Real-time**: WebSocket support for collaboration
-- **Testing**: Docker-based sandbox for project submissions
-- **AI Integration**: LLM-powered hints and review assistance
+- **Authentication**: JWT-based auth system
+- **Containerization**: Docker Compose for easy setup
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ and npm
-- Python 3.11+
-- Docker and Docker Compose (recommended)
-- Or PostgreSQL 14+ and Redis 7+ (manual setup)
 
-### Option 1: Docker (Recommended)
-```bash
-# Start all services
-docker-compose up -d
+- Docker and Docker Compose
+- Node.js 18+ (for frontend development)
+- Python 3.11+ (for backend development, optional)
 
-# Backend will be available at http://localhost:8000
-# Frontend will be available at http://localhost:3000
-# PostgreSQL at localhost:5432
-# Redis at localhost:6379
-```
+### Option 1: Full Docker Setup (Recommended)
 
-### Option 2: Manual Setup
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd demo
+   ```
 
-### Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev
-```
+2. **Start all services**
+   ```bash
+   docker compose up --build
+   ```
 
-### Backend Setup
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
+3. **Access the application**
+   - Backend API: http://localhost:8000
+   - Frontend: http://localhost:3000
+   - API Docs: http://localhost:8000/docs
 
-### Database Setup
-```bash
-# Create database
-createdb project_learning_platform
+### Option 2: Mixed Setup (Backend in Docker, Frontend locally)
 
-# Run migrations
-cd backend
-alembic upgrade head
-```
+1. **Start backend services only**
+   ```bash
+   docker compose up postgres redis backend
+   ```
+
+2. **Start frontend locally**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
 
 ## 📁 Project Structure
 
 ```
-├── frontend/                 # Next.js frontend application
-│   ├── components/          # Reusable UI components
-│   ├── pages/              # Application pages
-│   ├── hooks/              # Custom React hooks
-│   └── styles/             # Tailwind CSS styles
-├── backend/                 # FastAPI backend application
-│   ├── app/                # Main application code
-│   ├── models/             # Database models
-│   ├── services/           # Business logic services
-│   └── api/                # API endpoints
-├── docs/                   # Documentation and specifications
-└── docker/                 # Docker configuration files
+demo/
+├── backend/                 # FastAPI backend
+│   ├── app/
+│   │   ├── api/v1/         # API endpoints
+│   │   ├── core/           # Configuration, database, security
+│   │   ├── models/         # Database models
+│   │   └── schemas/        # Pydantic schemas
+│   ├── requirements.txt    # Python dependencies
+│   └── main.py            # FastAPI application entry point
+├── frontend/               # Next.js frontend
+│   ├── src/
+│   │   ├── app/           # App router pages
+│   │   └── components/    # React components
+│   └── package.json       # Node.js dependencies
+├── docker-compose.yml      # Docker services configuration
+└── .gitignore             # Git ignore rules
 ```
-
-## 🎯 MVP Roadmap
-
-### Sprint 1: Foundations
-- [x] Project structure setup
-- [x] Backend API foundation (FastAPI)
-- [x] Database models (User, Project, Track)
-- [x] Authentication endpoints (signup/login)
-- [x] Frontend landing page (Next.js)
-- [x] Docker setup for development
-- [x] User profiles and skill assessment (signup form)
-- [x] Basic project listing and detail pages
-- [x] Learning tracks and community features
-- [ ] Submission pipeline (backend integration)
-
-### Sprint 2: Core Features
-- [ ] Project submission and testing
-- [ ] Peer review system
-- [ ] Scoring and points
-- [ ] Portfolio pages
-
-### Sprint 3: Collaboration
-- [ ] Team formation
-- [ ] Collaborative workspaces
-- [ ] Real-time communication
-
-### Sprint 4: Community
-- [ ] Project idea submissions
-- [ ] Admin moderation tools
-- [ ] Public profiles and badges
 
 ## 🔧 Development
 
-### Running Tests
-```bash
-# Frontend
-cd frontend
-npm test
+### Backend Development
 
-# Backend
-cd backend
-pytest
+The backend automatically creates database tables on startup for development. In production, use Alembic migrations.
+
+**Key endpoints:**
+- `POST /api/v1/auth/signup` - User registration
+- `POST /api/v1/auth/login` - User authentication
+- `GET /api/v1/users` - List users
+- `GET /api/v1/projects` - List projects
+- `GET /api/v1/tracks` - List learning tracks
+
+### Frontend Development
+
+The frontend connects to the backend via environment variables.
+
+**Environment setup:**
+```bash
+# frontend/.env.local
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
 ```
 
-### Code Quality
-```bash
-# Frontend
-npm run lint
-npm run type-check
+**Key features:**
+- Dark/light theme support
+- Responsive design with Tailwind CSS
+- Form validation and error handling
+- JWT token storage for authentication
 
-# Backend
-black .
-flake8 .
-mypy .
+## 🐳 Docker Services
+
+- **postgres**: PostgreSQL 15 database
+- **redis**: Redis 7 cache
+- **backend**: FastAPI application with auto-reload
+
+## 📝 Environment Variables
+
+### Backend (.env)
+```bash
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/project_learning_platform
+REDIS_URL=redis://localhost:6379
+SECRET_KEY=your-secret-key-change-in-production
+DEBUG=true
+```
+
+### Frontend (.env.local)
+```bash
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
+```
+
+## 🧪 Testing
+
+### Backend Tests
+```bash
+cd backend
+python -m pytest
+```
+
+### Frontend Tests
+```bash
+cd frontend
+npm test
 ```
 
 ## 📚 API Documentation
@@ -147,16 +141,47 @@ Once the backend is running, visit:
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
+## 🔒 Security Notes
+
+- Change default database passwords in production
+- Use strong SECRET_KEY for JWT tokens
+- Enable HTTPS in production
+- Implement rate limiting for production use
+
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
+1. Create a feature branch
+2. Make your changes
+3. Test locally with Docker
+4. Submit a pull request
+
+## 📋 TODO
+
+- [ ] Add user profile management
+- [ ] Implement project submission system
+- [ ] Add review and feedback system
+- [ ] Create learning track progression
+- [ ] Add team collaboration features
+- [ ] Implement file upload system
+- [ ] Add email verification
+- [ ] Create admin dashboard
+
+## 🆘 Troubleshooting
+
+### Common Issues
+
+1. **Port conflicts**: Ensure ports 8000, 3000, 5432, and 6379 are available
+2. **Database connection**: Wait for PostgreSQL to be healthy before starting backend
+3. **Frontend not connecting**: Check `NEXT_PUBLIC_API_BASE_URL` in `.env.local`
+
+### Reset Everything
+```bash
+docker compose down -v
+docker compose up --build
+```
 
 ## 📄 License
 
-MIT License - see LICENSE file for details
+[MIT license]
 
 

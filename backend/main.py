@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.api.v1.api import api_router
 from app.core.database import Base, engine
+# Import all models so they get created in the database
+from app.models import *
 
 app = FastAPI(
     title=settings.app_name,
