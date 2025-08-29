@@ -12,7 +12,7 @@ export default function AuthCallbackPage() {
       if (token) {
         localStorage.setItem('access_token', token)
         setMessage('Login successful. Redirecting...')
-        setTimeout(() => { window.location.href = '/' }, 1000)
+        setTimeout(() => { window.location.href = '/profile' }, 1000)
       } else {
         setMessage('No token provided. Please try logging in again.')
       }

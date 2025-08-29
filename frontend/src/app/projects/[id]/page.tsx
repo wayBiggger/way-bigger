@@ -81,6 +81,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
     console.log('Starting project:', params.id)
   }
 
+  const handleStartCoding = () => {
+    // Redirect to code editor with project context
+    window.location.href = `/code-editor?project=${params.id}`
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -141,7 +146,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   { id: 'overview', label: 'Overview' },
                   { id: 'milestones', label: 'Milestones' },
                   { id: 'resources', label: 'Resources' },
-                  { id: 'submission', label: 'Submission' }
+                  { id: 'submission', label: 'Code Editor' }
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -268,11 +273,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
 
             {activeTab === 'submission' && (
               <div className="space-y-6">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Submit Your Project</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-4">Integrated Code Editor</h3>
                 
                 {!started ? (
                   <div className="text-center py-8">
-                    <p className="text-gray-600 mb-4">You need to start the project before you can submit it.</p>
+                    <p className="text-gray-600 mb-4">You need to start the project before you can begin coding.</p>
                     <button
                       onClick={handleStartProject}
                       className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
@@ -281,43 +286,34 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                     </button>
                   </div>
                 ) : (
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        GitHub Repository URL
-                      </label>
-                      <input
-                        type="url"
-                        placeholder="https://github.com/username/todo-app"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                      />
+                  <div className="text-center py-8">
+                    <div className="max-w-md mx-auto">
+                      <div className="mb-6">
+                        <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-4">
+                          <svg className="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                          </svg>
+                        </div>
+                        <h4 className="text-lg font-medium text-gray-900 mb-2">Ready to Code?</h4>
+                        <p className="text-gray-600 mb-6">
+                          Click the button below to open our integrated code editor and start building your project directly in the browser.
+                        </p>
+                      </div>
+                      
+                      <button
+                        onClick={handleStartCoding}
+                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
+                      >
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span>Start Coding Now</span>
+                      </button>
+                      
+                      <p className="text-sm text-gray-500 mt-4">
+                        Our code editor supports multiple programming languages and provides a complete development environment.
+                      </p>
                     </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Live Demo URL (optional)
-                      </label>
-                      <input
-                        type="url"
-                        placeholder="https://your-todo-app.vercel.app"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Project Description
-                      </label>
-                      <textarea
-                        rows={4}
-                        placeholder="Describe what you built, any challenges you faced, and what you learned..."
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                      />
-                    </div>
-                    
-                    <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
-                      Submit Project
-                    </button>
                   </div>
                 )}
               </div>

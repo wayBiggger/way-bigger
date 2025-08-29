@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, field_validator
-from typing import Optional, List
+from typing import Optional, List, Union
 from datetime import datetime
 
 class NewsletterBase(BaseModel):
@@ -25,22 +25,27 @@ class NewsletterUpdate(BaseModel):
             raise ValueError('Status must be one of: draft, published, archived')
         return v
 
-class NewsletterResponse(NewsletterBase):
-    id: int
-    author_id: int
+class NewsletterResponse(BaseModel):
+    id: Union[int, str]
+    title: str
+    content: str
+    field_id: Optional[int]
+    tags: List[str]
+    author_id: Optional[int]
     is_ai_generated: bool
     status: str
     views: int
     likes: int
-    created_at: datetime
-    published_at: Optional[datetime]
-    updated_at: Optional[datetime]
-    
-    # Nested objects
-    author_name: Optional[str] = None
-    field_name: Optional[str] = None
-    is_liked: Optional[bool] = None
-    comments_count: Optional[int] = None
+    created_at: Union[str, datetime]
+    published_at: Optional[Union[str, datetime]]
+    updated_at: Union[str, datetime]
+    author_name: str
+    field_name: str
+    is_liked: bool
+    comments_count: int
+    is_external: bool = False
+    external_url: Optional[str] = None
+    source_description: Optional[str] = None
 
     class Config:
         from_attributes = True

@@ -100,8 +100,8 @@ export default function LoginPage() {
       }
       
       // After login, route user based on onboarding status
-      // Redirect to dashboard by default; onboarding pages are accessible from nav
-      setTimeout(() => { window.location.href = '/dashboard' }, 800)
+      // Redirect to profile by default; onboarding pages are accessible from nav
+      setTimeout(() => { window.location.href = '/profile' }, 800)
       
     } catch (err: any) {
       setServerError(err?.message || 'Something went wrong')

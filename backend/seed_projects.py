@@ -17,6 +17,162 @@ def seed_projects():
         fields = {field.name: field.id for field in db.query(Field).all()}
         
         projects_data = [
+            # BEGINNER PROJECTS
+            {
+                "title": "Personal Portfolio Website",
+                "brief": "Create a beautiful, responsive portfolio website to showcase your work",
+                "description": "Build a modern, responsive portfolio website using HTML, CSS, and JavaScript. Include sections for about, projects, skills, and contact. Make it mobile-friendly and add smooth animations.",
+                "difficulty": ProjectDifficulty.BEGINNER,
+                "tags": ["HTML", "CSS", "JavaScript", "Responsive Design", "Portfolio"],
+                "required_skills": ["html", "css", "javascript"],
+                "milestones": [
+                    {"title": "HTML Structure", "description": "Create the basic HTML structure", "estimated_hours": 2},
+                    {"title": "CSS Styling", "description": "Add responsive CSS styling", "estimated_hours": 4},
+                    {"title": "JavaScript Functionality", "description": "Add interactive features", "estimated_hours": 3},
+                    {"title": "Responsive Design", "description": "Make it mobile-friendly", "estimated_hours": 2},
+                    {"title": "Deployment", "description": "Deploy to GitHub Pages or Netlify", "estimated_hours": 1}
+                ],
+                "estimated_hours": 12,
+                "max_team_size": 1,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+            {
+                "title": "Todo List Application",
+                "brief": "Build a simple but functional todo list app with local storage",
+                "description": "Create a todo list application that allows users to add, edit, delete, and mark tasks as complete. Use local storage to persist data and add basic filtering options.",
+                "difficulty": ProjectDifficulty.BEGINNER,
+                "tags": ["JavaScript", "HTML", "CSS", "Local Storage", "CRUD"],
+                "required_skills": ["javascript", "html", "css"],
+                "milestones": [
+                    {"title": "Basic Structure", "description": "Create HTML and CSS layout", "estimated_hours": 2},
+                    {"title": "Add/Delete Tasks", "description": "Implement basic CRUD operations", "estimated_hours": 3},
+                    {"title": "Edit Tasks", "description": "Add editing functionality", "estimated_hours": 2},
+                    {"title": "Local Storage", "description": "Implement data persistence", "estimated_hours": 2},
+                    {"title": "Filtering", "description": "Add filter by status", "estimated_hours": 1}
+                ],
+                "estimated_hours": 10,
+                "max_team_size": 1,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+            {
+                "title": "Weather App",
+                "brief": "Create a weather application that fetches data from a weather API",
+                "description": "Build a weather app that displays current weather conditions and forecasts. Use a free weather API, implement search by city, and show temperature, humidity, wind speed, and weather icons.",
+                "difficulty": ProjectDifficulty.BEGINNER,
+                "tags": ["JavaScript", "API", "Weather", "Fetch", "CSS"],
+                "required_skills": ["javascript", "api", "css"],
+                "milestones": [
+                    {"title": "API Setup", "description": "Set up weather API integration", "estimated_hours": 2},
+                    {"title": "Basic Display", "description": "Show current weather data", "estimated_hours": 3},
+                    {"title": "Search Functionality", "description": "Add city search", "estimated_hours": 2},
+                    {"title": "Forecast Display", "description": "Show 5-day forecast", "estimated_hours": 2},
+                    {"title": "Styling", "description": "Add responsive design", "estimated_hours": 1}
+                ],
+                "estimated_hours": 10,
+                "max_team_size": 1,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+            {
+                "title": "Calculator App",
+                "brief": "Build a functional calculator with basic arithmetic operations",
+                "description": "Create a calculator application that performs basic arithmetic operations (+, -, *, /). Include a clear function, decimal point support, and a clean, user-friendly interface.",
+                "difficulty": ProjectDifficulty.BEGINNER,
+                "tags": ["JavaScript", "HTML", "CSS", "Calculator", "Math"],
+                "required_skills": ["javascript", "html", "css"],
+                "milestones": [
+                    {"title": "Layout Design", "description": "Create calculator grid layout", "estimated_hours": 2},
+                    {"title": "Basic Operations", "description": "Implement arithmetic functions", "estimated_hours": 3},
+                    {"title": "Display Logic", "description": "Add number display and input", "estimated_hours": 2},
+                    {"title": "Error Handling", "description": "Add division by zero protection", "estimated_hours": 1},
+                    {"title": "Styling", "description": "Add attractive design", "estimated_hours": 2}
+                ],
+                "estimated_hours": 10,
+                "max_team_size": 1,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+
+            # INTERMEDIATE PROJECTS
+            {
+                "title": "React Task Manager",
+                "brief": "Build a full-featured task management app using React",
+                "description": "Create a comprehensive task management application with React. Include features like task categories, due dates, priority levels, search, and filtering. Use local storage or a simple backend.",
+                "difficulty": ProjectDifficulty.INTERMEDIATE,
+                "tags": ["React", "JavaScript", "Task Management", "Local Storage", "Components"],
+                "required_skills": ["javascript", "react", "state-management"],
+                "milestones": [
+                    {"title": "React Setup", "description": "Set up React project structure", "estimated_hours": 2},
+                    {"title": "Task Components", "description": "Create task list and form components", "estimated_hours": 4},
+                    {"title": "State Management", "description": "Implement task state logic", "estimated_hours": 4},
+                    {"title": "Categories & Priority", "description": "Add task organization features", "estimated_hours": 3},
+                    {"title": "Search & Filter", "description": "Implement search and filtering", "estimated_hours": 3}
+                ],
+                "estimated_hours": 16,
+                "max_team_size": 2,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+            {
+                "title": "E-commerce Product Page",
+                "brief": "Create a product listing page with shopping cart functionality",
+                "description": "Build a product listing page with product cards, shopping cart, and basic checkout flow. Include product images, descriptions, pricing, and a cart that persists data.",
+                "difficulty": ProjectDifficulty.INTERMEDIATE,
+                "tags": ["React", "Shopping Cart", "E-commerce", "Local Storage", "CSS"],
+                "required_skills": ["javascript", "react", "state-management"],
+                "milestones": [
+                    {"title": "Product Data", "description": "Set up product data structure", "estimated_hours": 2},
+                    {"title": "Product Cards", "description": "Create product display components", "estimated_hours": 4},
+                    {"title": "Shopping Cart", "description": "Implement cart functionality", "estimated_hours": 4},
+                    {"title": "Cart Persistence", "description": "Add local storage for cart", "estimated_hours": 2},
+                    {"title": "Checkout Flow", "description": "Create basic checkout process", "estimated_hours": 4}
+                ],
+                "estimated_hours": 16,
+                "max_team_size": 2,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+            {
+                "title": "Blog Platform",
+                "brief": "Develop a simple blog platform with CRUD operations",
+                "description": "Create a blog platform where users can create, read, update, and delete blog posts. Include a rich text editor, post categories, and a clean reading interface.",
+                "difficulty": ProjectDifficulty.INTERMEDIATE,
+                "tags": ["React", "Blog", "CRUD", "Rich Text", "Categories"],
+                "required_skills": ["javascript", "react", "api"],
+                "milestones": [
+                    {"title": "Post Management", "description": "Create post CRUD operations", "estimated_hours": 6},
+                    {"title": "Rich Text Editor", "description": "Add text editing capabilities", "estimated_hours": 4},
+                    {"title": "Categories", "description": "Implement post categorization", "estimated_hours": 3},
+                    {"title": "Reading Interface", "description": "Create post display components", "estimated_hours": 3},
+                    {"title": "Styling", "description": "Add responsive design", "estimated_hours": 2}
+                ],
+                "estimated_hours": 18,
+                "max_team_size": 2,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+            {
+                "title": "Social Media Dashboard",
+                "brief": "Build a dashboard to display social media analytics",
+                "description": "Create a dashboard that displays social media metrics like followers, engagement, and post performance. Use charts and graphs to visualize data, and include filtering options.",
+                "difficulty": ProjectDifficulty.INTERMEDIATE,
+                "tags": ["React", "Dashboard", "Charts", "Analytics", "Data Visualization"],
+                "required_skills": ["javascript", "react", "data-visualization"],
+                "milestones": [
+                    {"title": "Dashboard Layout", "description": "Create dashboard grid structure", "estimated_hours": 3},
+                    {"title": "Data Components", "description": "Build metric display components", "estimated_hours": 4},
+                    {"title": "Charts Integration", "description": "Add chart libraries and visualization", "estimated_hours": 5},
+                    {"title": "Filtering", "description": "Implement date and metric filters", "estimated_hours": 3},
+                    {"title": "Responsive Design", "description": "Make dashboard mobile-friendly", "estimated_hours": 3}
+                ],
+                "estimated_hours": 18,
+                "max_team_size": 2,
+                "is_community": False,
+                "status": ProjectStatus.PUBLISHED
+            },
+
             # AI & Machine Learning Projects
             {
                 "title": "AI-Powered Content Recommendation Engine",
@@ -280,7 +436,7 @@ def seed_projects():
             db.add(project)
         
         db.commit()
-        print(f"✅ Successfully seeded {len(projects_data)} advanced projects!")
+        print(f"✅ Successfully seeded {len(projects_data)} projects across all difficulty levels!")
         
     except Exception as e:
         print(f"❌ Error seeding projects: {e}")
@@ -292,5 +448,5 @@ if __name__ == "__main__":
     # Ensure all tables exist
     Base.metadata.create_all(bind=engine)
     
-    print("🌱 Seeding advanced projects...")
+    print("🌱 Seeding projects across all difficulty levels...")
     seed_projects()

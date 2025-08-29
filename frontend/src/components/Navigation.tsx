@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDark, setIsDark] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const pathname = usePathname()
 
   // Check for saved theme preference or default to light
@@ -18,6 +19,12 @@ export default function Navigation() {
       setIsDark(true)
       document.documentElement.classList.add('dark')
     }
+  }, [])
+
+  // Check authentication status
+  useEffect(() => {
+    const token = localStorage.getItem('access_token')
+    setIsAuthenticated(!!token)
   }, [])
 
   const toggleTheme = () => {
@@ -35,7 +42,6 @@ export default function Navigation() {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Dashboard', href: '/dashboard' },
     { name: 'Projects', href: '/projects' },
     { name: 'Tracks', href: '/tracks' },
     { name: 'Community', href: '/community' },
@@ -108,26 +114,42 @@ export default function Navigation() {
               )}
             </button>
             
-            <Link
-              href="/auth/login"
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                isDark 
-                  ? 'text-gray-300 hover:text-white hover:bg-gray-700' 
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
-              }`}
-            >
-              Sign In
-            </Link>
-            <Link
-              href="/auth/signup"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105 ${
-                isDark 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                  : 'bg-blue-600 hover:bg-blue-700 text-white'
-              }`}
-            >
-              Create Account
-            </Link>
+            {/* Conditional rendering based on authentication */}
+            {isAuthenticated ? (
+              <Link
+                href="/profile"
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105 ${
+                  isDark 
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                }`}
+              >
+                Profile
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/auth/login"
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    isDark 
+                      ? 'text-gray-300 hover:text-white hover:bg-gray-700' 
+                      : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105 ${
+                    isDark 
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  }`}
+                >
+                  Create Account
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -199,33 +221,66 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            {isAuthenticated && (
+              <Link
+                href="/profile"
+                className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors duration-200 ${
+                  isActive('/profile')
+                    ? isDark
+                      ? 'bg-blue-900 border-blue-400 text-blue-300'
+                      : 'bg-blue-50 border-blue-500 text-blue-700'
+                    : isDark
+                      ? 'border-transparent text-gray-300 hover:bg-gray-700 hover:border-gray-600'
+                      : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Profile
+              </Link>
+            )}
           </div>
           <div className={`pt-4 pb-3 border-t transition-colors duration-300 ${
             isDark ? 'border-gray-700' : 'border-gray-200'
           }`}>
             <div className="space-y-1">
-              <Link
-                href="/auth/login"
-                className={`block pl-3 pr-4 py-2 text-base font-medium transition-colors duration-200 ${
-                  isDark 
-                    ? 'text-gray-300 hover:text-white hover:bg-gray-700' 
-                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/auth/signup"
-                className={`block pl-3 pr-4 py-2 text-base font-medium transition-colors duration-200 ${
-                  isDark 
-                    ? 'text-blue-400 hover:text-blue-300 hover:bg-gray-700' 
-                    : 'text-blue-600 hover:text-blue-700 hover:bg-blue-50'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Create Account
-              </Link>
+              {isAuthenticated ? (
+                <Link
+                  href="/profile"
+                  className={`block pl-3 pr-4 py-2 text-base font-medium transition-colors duration-200 ${
+                    isDark 
+                      ? 'text-blue-400 hover:text-blue-300 hover:bg-gray-700' 
+                      : 'text-blue-600 hover:text-blue-700 hover:bg-blue-50'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Profile
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    href="/auth/login"
+                    className={`block pl-3 pr-4 py-2 text-base font-medium transition-colors duration-200 ${
+                      isDark 
+                        ? 'text-gray-300 hover:text-white hover:bg-gray-700' 
+                        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/auth/signup"
+                    className={`block pl-3 pr-4 py-2 text-base font-medium transition-colors duration-200 ${
+                      isDark 
+                        ? 'text-blue-400 hover:text-blue-300 hover:bg-gray-700' 
+                        : 'text-blue-600 hover:text-blue-700 hover:bg-blue-50'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Create Account
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

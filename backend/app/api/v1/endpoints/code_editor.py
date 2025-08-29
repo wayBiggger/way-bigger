@@ -106,7 +106,7 @@ async def execute_code(
         }
 
 async def execute_code_safely(code: str, language: str, input_data: str = "") -> Dict[str, Any]:
-    """Execute code in a Docker container for safety"""
+    
     lang_config = SUPPORTED_LANGUAGES[language]
     
     # Create temporary directory for code
@@ -125,7 +125,7 @@ async def execute_code_safely(code: str, language: str, input_data: str = "") ->
             cpu_period=100000,
             cpu_quota=25000,  # 25% CPU limit
             network_disabled=True,  # Disable network access
-            read_only=True,  # Read-only filesystem
+            read_only=False,  # Allow writing to mounted volume
             volumes={
                 temp_dir: {
                     'bind': '/workspace',
@@ -136,9 +136,6 @@ async def execute_code_safely(code: str, language: str, input_data: str = "") ->
         )
         
         try:
-            # Copy code file to container
-            container.exec_run(f"cp /workspace/code{lang_config['extension']} .")
-            
             # Compile if needed
             if "compile_command" in lang_config:
                 compile_result = container.exec_run(lang_config["compile_command"])
@@ -149,12 +146,53 @@ async def execute_code_safely(code: str, language: str, input_data: str = "") ->
                         "execution_time": 0
                     }
             
-            # Execute code
+            # Execute code with proper input handling
             start_time = datetime.now()
-            exec_result = container.exec_run(
-                lang_config["run_command"],
-                input=input_data.encode() if input_data else None
-            )
+            
+            # For Python, ensure we capture both stdout and stderr
+            if language == "python":
+                # Create a wrapper script to handle input properly
+                wrapper_script = f"""import sys
+import io
+import contextlib
+
+# Redirect stdout and stderr to capture output
+stdout_capture = io.StringIO()
+stderr_capture = io.StringIO()
+
+with contextlib.redirect_stdout(stdout_capture), contextlib.redirect_stderr(stderr_capture):
+    try:
+        # Execute the user code
+        exec(open('code.py').read())
+    except Exception as e:
+        print(f"Error: {{e}}", file=sys.stderr)
+
+# Get captured output
+stdout_output = stdout_capture.getvalue()
+stderr_output = stderr_capture.getvalue()
+
+# Print output to actual stdout/stderr for container capture
+if stdout_output:
+    print(stdout_output, end='')
+if stderr_output:
+    print(stderr_output, end='', file=sys.stderr)
+"""
+                
+                wrapper_file = os.path.join(temp_dir, "wrapper.py")
+                with open(wrapper_file, 'w') as f:
+                    f.write(wrapper_script)
+                
+                exec_result = container.exec_run(
+                    ["python", "wrapper.py"],
+                    input=input_data.encode() if input_data else None
+                )
+            else:
+                # For other languages, use the standard approach
+                exec_result = container.exec_run(
+                    lang_config["run_command"],
+                    input=input_data.encode() if input_data else None
+                )
+            
             execution_time = (datetime.now() - start_time).total_seconds()
             
             output = exec_result.output.decode('utf-8')
@@ -163,6 +201,18 @@ async def execute_code_safely(code: str, language: str, input_data: str = "") ->
             if exec_result.exit_code != 0:
                 error = output
                 output = ""
+            
+            # For Python, ensure we show the actual output even if there are warnings
+            if language == "python" and output.strip():
+                # Filter out common Python warnings that might interfere with output
+                lines = output.split('\n')
+                filtered_lines = []
+                for line in lines:
+                    if not any(warning in line.lower() for warning in [
+                        'deprecation', 'warning', 'future', 'import', 'urllib'
+                    ]):
+                        filtered_lines.append(line)
+                output = '\n'.join(filtered_lines).strip()
             
             return {
                 "output": output,
@@ -209,7 +259,17 @@ async def get_code_templates(language: str):
 
 # Your code here
 name = input("Enter your name: ")
-print(f"Hello, {name}!")'''
+print(f"Hello, {name}!")
+
+# Demonstrate some output
+numbers = [1, 2, 3, 4, 5]
+print("Numbers:", numbers)
+print("Sum:", sum(numbers))
+
+# Show current time
+from datetime import datetime
+now = datetime.now()
+print(f"Current time: {now.strftime('%H:%M:%S')}")'''
         },
         "javascript": {
             "name": "Hello World",
@@ -274,19 +334,33 @@ async def execute_python_locally(code: str, input_data: str = "") -> Dict[str, A
                 check=False
             )
             execution_time = (datetime.now() - start_time).total_seconds()
+            
             if proc.returncode == 0:
+                output = proc.stdout.decode('utf-8')
+                # Filter out common Python warnings
+                if output.strip():
+                    lines = output.split('\n')
+                    filtered_lines = []
+                    for line in lines:
+                        if not any(warning in line.lower() for warning in [
+                            'deprecation', 'warning', 'future', 'import', 'urllib'
+                        ]):
+                            filtered_lines.append(line)
+                    output = '\n'.join(filtered_lines).strip()
+                
                 return {
-                    "output": proc.stdout.decode('utf-8'),
+                    "output": output,
                     "error": None,
                     "execution_time": execution_time,
                     "memory_used": "N/A"
                 }
-            return {
-                "output": "",
-                "error": proc.stderr.decode('utf-8') or proc.stdout.decode('utf-8'),
-                "execution_time": execution_time,
-                "memory_used": "N/A"
-            }
+            else:
+                return {
+                    "output": "",
+                    "error": proc.stderr.decode('utf-8') or proc.stdout.decode('utf-8') or "Execution failed",
+                    "execution_time": execution_time,
+                    "memory_used": "N/A"
+                }
         except subprocess.TimeoutExpired:
             return {
                 "output": "",

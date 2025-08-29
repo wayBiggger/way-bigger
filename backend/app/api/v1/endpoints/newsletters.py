@@ -114,7 +114,12 @@ async def get_newsletters(
     # Add external newsletters if requested
     if include_external:
         try:
-            external_newsletters = await fetch_external_newsletters("tech", 5)
+            # Get user's tech stack if available
+            user_tech_stack = None
+            if current_user and current_user.selected_field:
+                user_tech_stack = current_user.selected_field
+            
+            external_newsletters = await fetch_external_newsletters("tech", 5, user_tech_stack)
             for ext_newsletter in external_newsletters:
                 newsletter_responses.append(NewsletterResponse(**ext_newsletter))
         except Exception:

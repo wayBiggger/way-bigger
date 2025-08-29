@@ -9,6 +9,36 @@ from app.core.security import get_current_user
 
 router = APIRouter()
 
+@router.get("/profile", response_model=UserProfile)
+async def get_user_profile(current_user: User = Depends(get_current_user)):
+    """Get current user's profile"""
+    return current_user
+
+@router.put("/profile", response_model=UserProfile)
+async def update_user_profile(
+    profile_update: dict,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Update current user's profile"""
+    # Update allowed fields
+    if "bio" in profile_update:
+        current_user.bio = profile_update["bio"]
+    if "selected_field" in profile_update:
+        current_user.selected_field = profile_update["selected_field"]
+    if "proficiency_level" in profile_update:
+        current_user.proficiency_level = profile_update["proficiency_level"]
+    if "full_name" in profile_update:
+        current_user.full_name = profile_update["full_name"]
+    
+    # Mark onboarding as completed if both field and level are set
+    if current_user.selected_field and current_user.proficiency_level:
+        current_user.onboarding_completed = True
+    
+    db.commit()
+    db.refresh(current_user)
+    return current_user
+
 @router.get("/", response_model=list[dict])
 async def get_users(db: Session = Depends(get_db)):
     """Get all users"""
@@ -87,10 +117,7 @@ async def delete_user(user_id: int, db: Session = Depends(get_db)):
     
     return {"message": "User deleted successfully"}
 
-@router.get("/profile", response_model=UserProfile)
-async def get_user_profile(current_user: User = Depends(get_current_user)):
-    """Get current user's profile"""
-    return current_user
+
 
 @router.get("/onboarding/status", response_model=OnboardingStatus)
 async def get_onboarding_status(current_user: User = Depends(get_current_user)):

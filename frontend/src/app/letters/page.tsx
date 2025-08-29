@@ -23,6 +23,7 @@ type Newsletter = {
   comments_count: number
   is_external?: boolean
   external_url?: string
+  source_description?: string
 }
 
 type NewsletterListResponse = {
@@ -39,8 +40,17 @@ export default function LettersPage() {
   const [error, setError] = useState<string>('')
   const [data, setData] = useState<NewsletterListResponse | null>(null)
   const [includeExternal, setIncludeExternal] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState<string>('tech')
 
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8001/api/v1'
+
+  const categories = [
+    { id: 'tech', name: 'Technology', description: 'General tech news and startups' },
+    { id: 'ai', name: 'AI & ML', description: 'Artificial intelligence and machine learning' },
+    { id: 'webdev', name: 'Web Development', description: 'Frontend, backend, and web technologies' },
+    { id: 'mobile', name: 'Mobile Development', description: 'iOS, Android, and mobile apps' },
+    { id: 'data-science', name: 'Data Science', description: 'Data analysis and visualization' }
+  ]
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
@@ -70,24 +80,58 @@ export default function LettersPage() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-10">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold mb-2">Newsletters</h1>
+          <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            Stay updated with the latest insights from top tech companies and influential developers
+          </p>
+        </div>
+
+        {/* Category Filter */}
+        <div className="mb-6">
+          <h2 className={`text-lg font-semibold mb-3 ${isDark ? 'text-gray-200' : 'text-gray-800'}`}>
+            Filter by Category
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  selectedCategory === category.id
+                    ? isDark
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-blue-600 text-white'
+                    : isDark
+                    ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Controls */}
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold">Newsletters</h1>
-          <div className="flex gap-2 items-center">
-            <label className="flex items-center gap-2 text-sm">
+          <div className="flex items-center space-x-4">
+            <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
                 checked={includeExternal}
                 onChange={(e) => setIncludeExternal(e.target.checked)}
                 className="rounded"
               />
-              Include External News
+              <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                Include external newsletters
+              </span>
             </label>
-            <Link href="/letters/ai" className="px-3 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 text-sm">Generate AI Letter</Link>
           </div>
         </div>
 
-        {loading && <div>Loading...</div>}
+        {loading && <div className="text-center py-8">Loading newsletters...</div>}
         {error && <div className="text-red-600">{error}</div>}
 
         {!loading && !error && (
@@ -98,6 +142,11 @@ export default function LettersPage() {
                   <div>
                     <h2 className="text-lg font-semibold">{n.title}</h2>
                     <p className="text-sm opacity-70">By {n.author_name} • {n.field_name}</p>
+                    {n.is_external && (
+                      <p className="text-xs text-blue-600 mt-1">
+                        {n.source_description || 'External source'}
+                      </p>
+                    )}
                   </div>
                   <div className="text-xs opacity-70">
                     {n.likes} likes • {n.comments_count} comments
