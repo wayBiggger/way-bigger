@@ -200,3 +200,6 @@ dmypy.json
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Ignore large binaries
+backend/Docker.dmg
