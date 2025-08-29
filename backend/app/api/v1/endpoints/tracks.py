@@ -2,25 +2,27 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.project import Track
+from app.models.entities import Field
 
 router = APIRouter()
 
 @router.get("/", response_model=list[dict])
 async def get_tracks(db: Session = Depends(get_db)):
-    """Get all tracks"""
-    tracks = db.query(Track).filter(Track.is_active == True).all()
+    """Get all tracks/fields"""
+    # Return fields data since that's what we have populated
+    fields = db.query(Field).filter(Field.is_active == True).all()
     return [
         {
-            "id": track.id,
-            "name": track.name,
-            "domain": track.domain,
-            "description": track.description,
-            "levels": track.levels,
-            "ordering": track.ordering,
-            "is_active": track.is_active,
-            "created_at": track.created_at
+            "id": field.id,
+            "name": field.name,
+            "domain": field.name,  # Map name to domain for frontend compatibility
+            "description": field.description,
+            "levels": ["beginner", "intermediate", "advanced"],  # Default levels
+            "ordering": [],
+            "is_active": field.is_active,
+            "created_at": field.created_at
         }
-        for track in tracks
+        for field in fields
     ]
 
 @router.get("/{track_id}", response_model=dict)

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Project Learning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .welcome h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .welcome p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .field-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .field-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .field-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .field-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .field-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .field-card p {
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .proficiency-levels {
+            margin: 30px 0;
+        }
+
+        .level-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .level-card:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .level-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .level-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .level-card p {
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .level-card .time-estimate {
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .step-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .step-dot.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+
+        .step-dot.completed {
+            background: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Step Indicators -->
+        <div class="step-indicator">
+            <div class="step-dot active" id="step1"></div>
+            <div class="step-dot" id="step2"></div>
+            <div class="step-dot" id="step3"></div>
+        </div>
+
+        <!-- Step 1: Welcome -->
+        <div class="step active" id="welcome">
+            <div class="welcome">
+                <h1>🎉 Welcome!</h1>
+                <p>Hi <span id="userName">there</span>! We're excited to have you on the Project Learning Platform.</p>
+                <p>Let's get you set up with the perfect learning path. We'll help you choose your field of interest and skill level to show you the most relevant projects.</p>
+                <button class="btn" onclick="nextStep()">Get Started</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Field Selection -->
+        <div class="step" id="fieldSelection">
+            <h2>Choose Your Field</h2>
+            <p>What would you like to learn and build projects in?</p>
+            <div class="field-grid" id="fieldGrid">
+                <!-- Fields will be populated here -->
+            </div>
+            <button class="btn" id="fieldNextBtn" onclick="nextStep()" disabled>Continue</button>
+        </div>
+
+        <!-- Step 3: Proficiency Level -->
+        <div class="step" id="proficiencySelection">
+            <h2>What's Your Experience Level?</h2>
+            <p>Choose the level that best describes your current skills in <span id="selectedFieldName">your field</span>:</p>
+            <div class="proficiency-levels" id="proficiencyLevels">
+                <!-- Proficiency levels will be populated here -->
+            </div>
+            <button class="btn" id="proficiencyNextBtn" onclick="completeOnboarding()" disabled>Complete Setup</button>
+        </div>
+
+        <!-- Step 4: Completion -->
+        <div class="step" id="completion">
+            <h2>🎯 You're All Set!</h2>
+            <p>Perfect! We've customized your learning experience based on your preferences.</p>
+            <p>You'll now see <span id="finalLevelName">beginner</span> level projects in <span id="finalFieldName">your field</span>.</p>
+            <button class="btn" onclick="goToProjects()">Start Learning</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        let selectedField = null;
+        let selectedProficiency = null;
+        let fields = [];
+        let proficiencyLevels = [];
+
+        // Mock data for demonstration (in real app, this would come from API)
+        const mockFields = [
+            {
+                id: 1,
+                name: "web-dev",
+                display_name: "Web Development",
+                description: "Build modern websites and web applications using HTML, CSS, JavaScript, and popular frameworks.",
+                icon: "🌐"
+            },
+            {
+                id: 2,
+                name: "ai-ml",
+                display_name: "AI & Machine Learning",
+                description: "Create intelligent systems, machine learning models, and AI-powered applications.",
+                icon: "🤖"
+            },
+            {
+                id: 3,
+                name: "mobile",
+                display_name: "Mobile Development",
+                description: "Develop mobile applications for iOS and Android platforms.",
+                icon: "📱"
+            },
+            {
+                id: 4,
+                name: "data-science",
+                display_name: "Data Science",
+                description: "Analyze data, create visualizations, and build predictive models.",
+                icon: "📊"
+            },
+            {
+                id: 5,
+                name: "cybersecurity",
+                display_name: "Cybersecurity",
+                description: "Learn about security, ethical hacking, and protecting digital systems.",
+                icon: "🔒"
+            }
+        ];
+
+        const mockProficiencyLevels = {
+            "web-dev": [
+                {
+                    id: 1,
+                    level: "beginner",
+                    display_name: "Beginner",
+                    description: "New to web development? Start here! Learn HTML, CSS basics, and create your first webpage. Perfect for those with no prior coding experience.",
+                    estimated_weeks: 4
+                },
+                {
+                    id: 2,
+                    level: "intermediate",
+                    display_name: "Intermediate",
+                    description: "Ready to build dynamic websites? Master JavaScript, responsive design, and popular frameworks like React or Vue.js.",
+                    estimated_weeks: 8
+                },
+                {
+                    id: 3,
+                    level: "advanced",
+                    display_name: "Advanced",
+                    description: "Build full-stack applications! Learn backend development, databases, APIs, and deployment strategies.",
+                    estimated_weeks: 12
+                }
+            ]
+        };
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set user name (in real app, this would come from login)
+            document.getElementById('userName').textContent = 'Developer';
+            
+            // Populate fields
+            populateFields();
+            
+            // Update progress
+            updateProgress();
+        });
+
+        function populateFields() {
+            const fieldGrid = document.getElementById('fieldGrid');
+            fields = mockFields;
+            
+            fields.forEach(field => {
+                const fieldCard = document.createElement('div');
+                fieldCard.className = 'field-card';
+                fieldCard.onclick = () => selectField(field);
+                
+                fieldCard.innerHTML = `
+                    <div class="icon">${field.icon}</div>
+                    <h3>${field.display_name}</h3>
+                    <p>${field.description}</p>
+                `;
+                
+                fieldGrid.appendChild(fieldCard);
+            });
+        }
+
+        function selectField(field) {
+            // Remove previous selection
+            document.querySelectorAll('.field-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Select new field
+            event.target.closest('.field-card').classList.add('selected');
+            selectedField = field;
+            
+            // Enable continue button
+            document.getElementById('fieldNextBtn').disabled = false;
+        }
+
+        function populateProficiencyLevels() {
+            const proficiencyContainer = document.getElementById('proficiencyLevels');
+            const fieldNameSpan = document.getElementById('selectedFieldName');
+            
+            if (selectedField) {
+                fieldNameSpan.textContent = selectedField.display_name;
+                proficiencyLevels = mockProficiencyLevels[selectedField.name] || [];
+                
+                proficiencyContainer.innerHTML = '';
+                
+                proficiencyLevels.forEach(level => {
+                    const levelCard = document.createElement('div');
+                    levelCard.className = 'level-card';
+                    levelCard.onclick = () => selectProficiency(level);
+                    
+                    levelCard.innerHTML = `
+                        <h3>${level.display_name}</h3>
+                        <p>${level.description}</p>
+                        <div class="time-estimate">Estimated time: ${level.estimated_weeks} weeks</div>
+                    `;
+                    
+                    proficiencyContainer.appendChild(levelCard);
+                });
+            }
+        }
+
+        function selectProficiency(level) {
+            // Remove previous selection
+            document.querySelectorAll('.level-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Select new level
+            event.target.closest('.level-card').classList.add('selected');
+            selectedProficiency = level;
+            
+            // Enable continue button
+            document.getElementById('proficiencyNextBtn').disabled = false;
+        }
+
+        function nextStep() {
+            if (currentStep === 1) {
+                // Moving to field selection
+                currentStep = 2;
+                showStep(2);
+                updateProgress();
+            } else if (currentStep === 2) {
+                // Moving to proficiency selection
+                if (selectedField) {
+                    currentStep = 3;
+                    showStep(3);
+                    populateProficiencyLevels();
+                    updateProgress();
+                }
+            }
+        }
+
+        function showStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Show current step
+            document.getElementById(getStepId(stepNumber)).classList.add('active');
+            
+            // Update step indicators
+            updateStepIndicators(stepNumber);
+        }
+
+        function getStepId(stepNumber) {
+            switch(stepNumber) {
+                case 1: return 'welcome';
+                case 2: return 'fieldSelection';
+                case 3: return 'proficiencySelection';
+                case 4: return 'completion';
+                default: return 'welcome';
+            }
+        }
+
+        function updateStepIndicators(stepNumber) {
+            document.querySelectorAll('.step-dot').forEach((dot, index) => {
+                dot.classList.remove('active', 'completed');
+                if (index + 1 === stepNumber) {
+                    dot.classList.add('active');
+                } else if (index + 1 < stepNumber) {
+                    dot.classList.add('completed');
+                }
+            });
+        }
+
+        function updateProgress() {
+            const progress = (currentStep - 1) / 3 * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function completeOnboarding() {
+            if (selectedField && selectedProficiency) {
+                currentStep = 4;
+                showStep(4);
+                updateProgress();
+                
+                // Update completion text
+                document.getElementById('finalFieldName').textContent = selectedField.display_name;
+                document.getElementById('finalLevelName').textContent = selectedProficiency.display_name;
+                
+                // In real app, send data to backend
+                console.log('Onboarding completed:', {
+                    field: selectedField,
+                    proficiency: selectedProficiency
+                });
+            }
+        }
+
+        function goToProjects() {
+            // In real app, redirect to projects page
+            alert('Redirecting to projects page...');
+        }
+    </script>
+</body>
+</html>

@@ -1,16 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Home() {
   const [isDark, setIsDark] = useState(false)
 
-  const toggleTheme = () => {
-    setIsDark(!isDark)
-    // Toggle body class for global dark mode
-    document.documentElement.classList.toggle('dark')
-  }
+  // Sync with navigation theme
+  useEffect(() => {
+    const checkTheme = () => {
+      const isDarkMode = document.documentElement.classList.contains('dark')
+      setIsDark(isDarkMode)
+    }
+    
+    checkTheme()
+    // Listen for theme changes
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
@@ -18,28 +27,6 @@ export default function Home() {
         ? 'bg-gray-900 text-white' 
         : 'bg-gradient-to-br from-blue-50 to-indigo-100'
     }`}>
-      {/* Theme Toggle */}
-      <div className="absolute top-6 right-6 z-10">
-        <button
-          onClick={toggleTheme}
-          className={`p-3 rounded-full shadow-lg transition-all duration-200 ${
-            isDark 
-              ? 'bg-gray-700 hover:bg-gray-600 text-yellow-300' 
-              : 'bg-white hover:bg-gray-50 text-gray-700'
-          }`}
-        >
-          {isDark ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-            </svg>
-          )}
-        </button>
-      </div>
-
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">

@@ -21,9 +21,17 @@ def create_database_tables() -> None:
     Base.metadata.create_all(bind=engine)
 
 # CORS middleware
+# Expand CORS for common local dev hosts and allow-all when debug is true
+allowed_origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3001",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],  # Frontend URLs
+    allow_origins=["*"] if settings.debug else allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

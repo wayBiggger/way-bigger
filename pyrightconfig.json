@@ -1,0 +1,12 @@
+{
+  "venvPath": "/Users/dhruv/Documents/wayBigger/backend",
+  "venv": "venv",
+  "include": [
+    "backend/app"
+  ],
+  "exclude": [
+    "**/__pycache__",
+    "backend/venv"
+  ],
+  "pythonVersion": "3.9"
+}

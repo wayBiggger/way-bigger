@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, Text, Enum
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, Text, Enum, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import enum
@@ -27,6 +27,12 @@ class User(Base):
     total_points = Column(Integer, default=0)
     is_active = Column(Boolean, default=True)
     email_verified = Column(Boolean, default=False)
+    
+    # Onboarding fields
+    selected_field = Column(String, nullable=True)  # e.g., "web-dev", "ai-ml", "mobile", "data-science"
+    proficiency_level = Column(String, nullable=True)  # "beginner", "intermediate", "advanced"
+    onboarding_completed = Column(Boolean, default=False)
+    
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
@@ -36,3 +42,7 @@ class User(Base):
     reviews = relationship("Review", back_populates="reviewer")
     team_memberships = relationship("TeamMember", back_populates="user")
     badges = relationship("UserBadge", back_populates="user")
+    newsletters = relationship("Newsletter", back_populates="author")
+    newsletter_subscriptions = relationship("NewsletterSubscription", back_populates="user")
+    newsletter_likes = relationship("NewsletterLike", back_populates="user")
+    newsletter_comments = relationship("NewsletterComment", back_populates="user")

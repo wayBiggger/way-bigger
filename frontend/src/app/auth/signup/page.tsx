@@ -98,7 +98,10 @@ export default function SignupPage() {
         throw new Error(message)
       }
 
-      setServerSuccess('Account created successfully! You can now log in.')
+      setServerSuccess('Account created successfully! Redirecting to dashboard...')
+      setTimeout(() => {
+        window.location.href = '/dashboard'
+      }, 800)
       setFormData(prev => ({
         ...prev,
         password: '',
@@ -313,7 +316,10 @@ export default function SignupPage() {
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <button className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
+              <button
+                type="button"
+                onClick={() => { window.location.href = `${API_BASE_URL}/auth/oauth/google/login` }}
+                className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                 isDark 
                   ? 'border-gray-600 bg-gray-700 text-gray-300 hover:bg-gray-600' 
                   : 'border-gray-300 bg-white text-gray-500 hover:bg-gray-50'
@@ -324,7 +330,10 @@ export default function SignupPage() {
                 <span className="ml-2">Google</span>
               </button>
 
-              <button className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
+              <button
+                type="button"
+                onClick={() => { window.location.href = `${API_BASE_URL}/auth/oauth/github/login` }}
+                className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                 isDark 
                   ? 'border-gray-600 bg-gray-700 text-gray-300 hover:bg-gray-600' 
                   : 'border-gray-300 bg-white text-gray-500 hover:bg-gray-50'

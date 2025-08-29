@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.core.database import get_db
-from app.models.project import Project, Track
+from app.models.project import Project, Track, ProjectStatus
 from app.models.user import User
 
 router = APIRouter()
@@ -9,7 +9,7 @@ router = APIRouter()
 @router.get("/", response_model=list[dict])
 async def get_projects(db: Session = Depends(get_db)):
     """Get all projects"""
-    projects = db.query(Project).filter(Project.status == "published").all()
+    projects = db.query(Project).filter(Project.status == ProjectStatus.PUBLISHED).all()
     return [
         {
             "id": project.id,

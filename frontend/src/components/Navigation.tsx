@@ -35,9 +35,13 @@ export default function Navigation() {
 
   const navigation = [
     { name: 'Home', href: '/' },
+    { name: 'Dashboard', href: '/dashboard' },
     { name: 'Projects', href: '/projects' },
     { name: 'Tracks', href: '/tracks' },
     { name: 'Community', href: '/community' },
+    { name: 'Newsletter', href: '/letters' },
+    { name: 'AI', href: '/letters/ai' },
+    { name: 'Code Editor', href: '/code-editor' },
   ]
 
   const isActive = (href: string) => {
@@ -64,7 +68,7 @@ export default function Navigation() {
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               {navigation.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200 ${
                     isActive(item.href)
@@ -122,7 +126,7 @@ export default function Navigation() {
                   : 'bg-blue-600 hover:bg-blue-700 text-white'
               }`}
             >
-              Get Started
+              Create Account
             </Link>
           </div>
 
@@ -179,7 +183,7 @@ export default function Navigation() {
           <div className="pt-2 pb-3 space-y-1">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors duration-200 ${
                   isActive(item.href)
@@ -220,7 +224,7 @@ export default function Navigation() {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Get Started
+                Create Account
               </Link>
             </div>
           </div>

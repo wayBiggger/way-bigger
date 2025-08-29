@@ -3,49 +3,19 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-// Mock data for demonstration
-const mockProjects = [
-  {
-    id: 1,
-    title: "Build a Todo App",
-    difficulty: "beginner",
-    domain: "web-dev",
-    description: "Create a full-stack todo application with React and Node.js",
-    estimatedHours: 8,
-    tags: ["React", "Node.js", "MongoDB"],
-    points: 100
-  },
-  {
-    id: 2,
-    title: "Weather Dashboard",
-    difficulty: "beginner",
-    domain: "web-dev",
-    description: "Build a weather app using external APIs and modern CSS",
-    estimatedHours: 6,
-    tags: ["JavaScript", "CSS", "API"],
-    points: 80
-  },
-  {
-    id: 3,
-    title: "Chat Application",
-    difficulty: "intermediate",
-    domain: "web-dev",
-    description: "Real-time chat app with WebSockets and user authentication",
-    estimatedHours: 15,
-    tags: ["WebSockets", "Authentication", "Real-time"],
-    points: 200
-  },
-  {
-    id: 4,
-    title: "Machine Learning Model",
-    difficulty: "advanced",
-    domain: "ai",
-    description: "Train and deploy a machine learning model for image classification",
-    estimatedHours: 25,
-    tags: ["Python", "TensorFlow", "ML"],
-    points: 400
-  }
-]
+type Project = {
+  id: number
+  title: string
+  brief: string
+  description: string
+  difficulty: string
+  tags: string[]
+  required_skills: string[]
+  estimated_hours: number
+  max_team_size: number
+  is_community: boolean
+  created_at: string
+}
 
 const difficultyColors = {
   beginner: "bg-green-100 text-green-800",
@@ -61,182 +31,198 @@ const darkDifficultyColors = {
 
 export default function ProjectsPage() {
   const [isDark, setIsDark] = useState(false)
+  const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string>('')
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all')
+  const [selectedDomain, setSelectedDomain] = useState<string>('all')
+
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDark(true)
-    }
-
-    // Listen for theme changes
-    const handleStorageChange = () => {
-      const currentTheme = localStorage.getItem('theme')
-      setIsDark(currentTheme === 'dark')
-    }
-
-    window.addEventListener('storage', handleStorageChange)
-    return () => window.removeEventListener('storage', handleStorageChange)
+    setIsDark(savedTheme === 'dark')
   }, [])
 
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true)
+        setError('')
+        const token = typeof window !== 'undefined' ? localStorage.getItem('access_token') : null
+        const res = await fetch(`${API_BASE_URL}/projects`, {
+          headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+        })
+        if (!res.ok) throw new Error('Failed to load projects')
+        const data = await res.json()
+        setProjects(data)
+      } catch (e: any) {
+        setError(e?.message || 'Something went wrong')
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchProjects()
+  }, [API_BASE_URL])
+
+  const filteredProjects = projects.filter(project => {
+    const difficultyMatch = selectedDifficulty === 'all' || project.difficulty === selectedDifficulty
+    const domainMatch = selectedDomain === 'all' || project.required_skills.some(skill => skill.includes(selectedDomain))
+    return difficultyMatch && domainMatch
+  })
+
+  const domains = [
+    { id: 'all', name: 'All Domains' },
+    { id: 'web-dev', name: 'Web Development' },
+    { id: 'ai-ml', name: 'AI & Machine Learning' },
+    { id: 'mobile', name: 'Mobile Development' },
+    { id: 'cybersecurity', name: 'Cybersecurity' },
+    { id: 'creative', name: 'Creative Industry' }
+  ]
+
+  const difficulties = [
+    { id: 'all', name: 'All Levels' },
+    { id: 'beginner', name: 'Beginner' },
+    { id: 'intermediate', name: 'Intermediate' },
+    { id: 'advanced', name: 'Advanced' }
+  ]
+
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-white' : 'bg-gray-50'
-    }`}>
-      {/* Header */}
-      <div className={`transition-colors duration-300 ${
-        isDark ? 'bg-gray-800 shadow-gray-900' : 'bg-white shadow'
-      } shadow-lg`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-between items-center">
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold mb-4">Advanced Projects</h1>
+          <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            Build real-world applications and gain hands-on experience with cutting-edge technologies
+          </p>
+        </div>
+
+        {/* Filters */}
+        <div className={`mb-8 p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-sm`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h1 className={`text-3xl font-bold mb-2 ${
-                isDark ? 'text-white' : 'text-gray-900'
-              }`}>
-                Learning Projects
-              </h1>
-              <p className={`${
-                isDark ? 'text-gray-300' : 'text-gray-600'
-              }`}>
-                Choose your next project and start building
+              <label className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                Domain
+              </label>
+              <select
+                value={selectedDomain}
+                onChange={(e) => setSelectedDomain(e.target.value)}
+                className={`w-full p-2 border rounded-md ${isDark ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'}`}
+              >
+                {domains.map(domain => (
+                  <option key={domain.id} value={domain.id}>{domain.name}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                Difficulty Level
+              </label>
+              <select
+                value={selectedDifficulty}
+                onChange={(e) => setSelectedDifficulty(e.target.value)}
+                className={`w-full p-2 border rounded-md ${isDark ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'}`}
+              >
+                {difficulties.map(difficulty => (
+                  <option key={difficulty.id} value={difficulty.id}>{difficulty.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {loading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <p className={`mt-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Loading projects...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="text-center py-12">
+            <div className="text-red-600 bg-red-50 p-4 rounded-lg">
+              {error}
+            </div>
+          </div>
+        )}
+
+        {!loading && !error && (
+          <>
+            <div className="mb-6">
+              <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                Showing {filteredProjects.length} of {projects.length} projects
               </p>
             </div>
-            <Link
-              href="/auth/signup"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </div>
 
-      {/* Filters */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className={`rounded-lg shadow p-6 mb-8 transition-colors duration-300 ${
-          isDark ? 'bg-gray-800' : 'bg-white'
-        }`}>
-          <h2 className={`text-lg font-semibold mb-4 ${
-            isDark ? 'text-white' : 'text-gray-900'
-          }`}>
-            Filter Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <select className={`border rounded-md px-3 py-2 transition-colors duration-300 ${
-              isDark 
-                ? 'bg-gray-700 border-gray-600 text-white' 
-                : 'border-gray-300 bg-white text-gray-900'
-            }`}>
-              <option value="">All Domains</option>
-              <option value="web-dev">Web Development</option>
-              <option value="ai">Artificial Intelligence</option>
-              <option value="mobile">Mobile Development</option>
-              <option value="data">Data Science</option>
-            </select>
-            <select className={`border rounded-md px-3 py-2 transition-colors duration-300 ${
-              isDark 
-                ? 'bg-gray-700 border-gray-600 text-white' 
-                : 'border-gray-300 bg-white text-gray-900'
-            }`}>
-              <option value="">All Difficulties</option>
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="advanced">Advanced</option>
-            </select>
-            <select className={`border rounded-md px-3 py-2 transition-colors duration-300 ${
-              isDark 
-                ? 'bg-gray-700 border-gray-600 text-white' 
-                : 'border-gray-300 bg-white text-gray-900'
-            }`}>
-              <option value="">All Time Ranges</option>
-              <option value="0-5">0-5 hours</option>
-              <option value="5-15">5-15 hours</option>
-              <option value="15+">15+ hours</option>
-            </select>
-            <button className={`font-medium py-2 px-4 rounded-md transition-colors duration-200 ${
-              isDark 
-                ? 'bg-gray-700 hover:bg-gray-600 text-gray-200' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-            }`}>
-              Clear Filters
-            </button>
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mockProjects.map((project) => (
-            <div key={project.id} className={`rounded-lg shadow hover:shadow-lg transition-all duration-300 ${
-              isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:shadow-xl'
-            }`}>
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    isDark 
-                      ? darkDifficultyColors[project.difficulty as keyof typeof darkDifficultyColors]
-                      : difficultyColors[project.difficulty as keyof typeof difficultyColors]
-                  }`}>
-                    {project.difficulty}
-                  </span>
-                  <span className={`text-sm ${
-                    isDark ? 'text-gray-400' : 'text-gray-500'
-                  }`}>
-                    {project.estimatedHours}h
-                  </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className={`rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 ${isDark ? 'bg-gray-800' : 'bg-white'}`}
+                >
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        isDark ? darkDifficultyColors[project.difficulty as keyof typeof darkDifficultyColors] : difficultyColors[project.difficulty as keyof typeof difficultyColors]
+                      }`}>
+                        {project.difficulty}
+                      </span>
+                    </div>
+                    
+                    <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                      {project.brief}
+                    </p>
+                    
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.slice(0, 3).map((tag, index) => (
+                          <span
+                            key={index}
+                            className={`px-2 py-1 rounded text-xs ${isDark ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'}`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {project.tags.length > 3 && (
+                          <span className={`px-2 py-1 rounded text-xs ${isDark ? 'bg-gray-700 text-gray-200' : 'bg-gray-100 text-gray-700'}`}>
+                            +{project.tags.length - 3} more
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div className={`flex items-center justify-between text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                      <span>⏱️ {project.estimated_hours}h</span>
+                      <span>👥 Up to {project.max_team_size}</span>
+                    </div>
+                    
+                    <div className="mt-4">
+                      <Link
+                        href={`/projects/${project.id}`}
+                        className={`block w-full text-center py-2 px-4 rounded-md font-medium transition-colors ${
+                          isDark
+                            ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                            : 'bg-blue-600 hover:bg-blue-700 text-white'
+                        }`}
+                      >
+                        View Project
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                
-                <h3 className={`text-xl font-semibold mb-2 ${
-                  isDark ? 'text-white' : 'text-gray-900'
-                }`}>
-                  {project.title}
-                </h3>
-                <p className={`mb-4 ${
-                  isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className={`text-xs px-2 py-1 rounded ${
-                      isDark 
-                        ? 'bg-blue-900 text-blue-200' 
-                        : 'bg-blue-100 text-blue-800'
-                    }`}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className={`text-sm ${
-                    isDark ? 'text-gray-400' : 'text-gray-500'
-                  }`}>
-                    {project.points} points
-                  </span>
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
-                  >
-                    Start Project
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Load More */}
-        <div className="text-center mt-12">
-          <button className={`font-medium py-3 px-6 rounded-lg transition-colors duration-200 ${
-            isDark 
-              ? 'bg-gray-700 hover:bg-gray-600 text-gray-200' 
-              : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-          }`}>
-            Load More Projects
-          </button>
-        </div>
+            {filteredProjects.length === 0 && (
+              <div className="text-center py-12">
+                <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                  No projects match your current filters. Try adjusting your selection.
+                </p>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   )

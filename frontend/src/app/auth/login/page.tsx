@@ -65,19 +65,28 @@ export default function LoginPage() {
     setIsSubmitting(true)
     
     try {
-      // Create form data for the login endpoint
-      const formDataToSend = new FormData()
-      formDataToSend.append('username', formData.email) // OAuth2 expects 'username' field
-      formDataToSend.append('password', formData.password)
+      // Send as application/x-www-form-urlencoded for OAuth2PasswordRequestForm
+      const urlEncoded = new URLSearchParams()
+      urlEncoded.append('username', formData.email)
+      urlEncoded.append('password', formData.password)
 
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
-        body: formDataToSend
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: urlEncoded.toString()
       })
 
       if (!response.ok) {
-        const data = await response.json().catch(() => null)
-        const message = data?.detail || 'Login failed'
+        const text = await response.text().catch(() => '')
+        let message = 'Login failed'
+        try {
+          const data = JSON.parse(text)
+          message = data?.detail || message
+        } catch (_) {
+          if (text) message = text
+        }
         throw new Error(message)
       }
 
@@ -86,11 +95,13 @@ export default function LoginPage() {
       
       // Store the token (in a real app, you'd use a secure method)
       localStorage.setItem('access_token', data.access_token)
+      if (data?.user?.full_name) {
+        localStorage.setItem('user_full_name', data.user.full_name)
+      }
       
-      // Redirect to home page after successful login
-      setTimeout(() => {
-        window.location.href = '/'
-      }, 1500)
+      // After login, route user based on onboarding status
+      // Redirect to dashboard by default; onboarding pages are accessible from nav
+      setTimeout(() => { window.location.href = '/dashboard' }, 800)
       
     } catch (err: any) {
       setServerError(err?.message || 'Something went wrong')
@@ -217,7 +228,12 @@ export default function LoginPage() {
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <button className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
+              <button
+                type="button"
+                onClick={() => {
+                  window.location.href = `${API_BASE_URL}/auth/oauth/google/login`
+                }}
+                className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                 isDark 
                   ? 'border-gray-600 bg-gray-700 text-gray-300 hover:bg-gray-600' 
                   : 'border-gray-300 bg-white text-gray-500 hover:bg-gray-50'
@@ -228,7 +244,12 @@ export default function LoginPage() {
                 <span className="ml-2">Google</span>
               </button>
 
-              <button className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
+              <button
+                type="button"
+                onClick={() => {
+                  window.location.href = `${API_BASE_URL}/auth/oauth/github/login`
+                }}
+                className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                 isDark 
                   ? 'border-gray-600 bg-gray-700 text-gray-300 hover:bg-gray-600' 
                   : 'border-gray-300 bg-white text-gray-500 hover:bg-gray-50'
