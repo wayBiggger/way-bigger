@@ -1,12 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
+from typing import List, Dict, Any
 from app.core.database import get_db
 from app.models.project import Project, Track, ProjectStatus
 from app.models.user import User
 
 router = APIRouter()
 
-@router.get("/", response_model=list[dict])
+@router.get("/", response_model=List[Dict[str, Any]])
 async def get_projects(db: Session = Depends(get_db)):
     """Get all projects"""
     projects = db.query(Project).filter(Project.status == ProjectStatus.PUBLISHED).all()
@@ -27,7 +28,7 @@ async def get_projects(db: Session = Depends(get_db)):
         for project in projects
     ]
 
-@router.get("/{project_id}", response_model=dict)
+@router.get("/{project_id}", response_model=Dict[str, Any])
 async def get_project(project_id: int, db: Session = Depends(get_db)):
     """Get project by ID"""
     project = db.query(Project).filter(Project.id == project_id).first()
@@ -54,8 +55,8 @@ async def get_project(project_id: int, db: Session = Depends(get_db)):
         "created_at": project.created_at
     }
 
-@router.post("/", response_model=dict)
-async def create_project(project_data: dict, db: Session = Depends(get_db)):
+@router.post("/", response_model=Dict[str, Any])
+async def create_project(project_data: Dict[str, Any], db: Session = Depends(get_db)):
     """Create new project"""
     # For now, create a basic project
     # In production, you'd want proper validation and user authentication
@@ -78,7 +79,7 @@ async def create_project(project_data: dict, db: Session = Depends(get_db)):
     
     return {"message": "Project created successfully", "project_id": project.id}
 
-@router.get("/tracks", response_model=list[dict])
+@router.get("/tracks", response_model=List[Dict[str, Any]])
 async def get_tracks(db: Session = Depends(get_db)):
     """Get all tracks"""
     tracks = db.query(Track).filter(Track.is_active == True).all()

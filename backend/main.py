@@ -25,8 +25,10 @@ def create_database_tables() -> None:
 allowed_origins = [
     "http://localhost:3000",
     "http://localhost:3001",
+    "http://localhost:3002",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:3001",
+    "http://127.0.0.1:3002",
 ]
 
 app.add_middleware(
@@ -51,6 +53,14 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "timestamp": "2024-01-01T00:00:00Z"}
+
+@app.get("/test")
+async def test_endpoint():
+    return {"message": "Test endpoint working"}
+
+@app.get("/simple")
+async def simple_endpoint():
+    return {"message": "Simple endpoint working", "data": [1, 2, 3]}
 
 if __name__ == "__main__":
     import uvicorn

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from .endpoints import auth, users, projects, submissions, tracks, newsletters, code_editor
+from .endpoints import auth, users, projects, submissions, tracks, newsletters, code_editor, ai_assistant
 
 api_router = APIRouter()
 
@@ -10,3 +10,4 @@ api_router.include_router(submissions.router, prefix="/submissions", tags=["subm
 api_router.include_router(tracks.router, prefix="/tracks", tags=["tracks"])
 api_router.include_router(newsletters.router, prefix="/newsletters", tags=["newsletters"])
 api_router.include_router(code_editor.router, prefix="/code-editor", tags=["code-editor"])
+api_router.include_router(ai_assistant.router, prefix="/ai-assistant", tags=["ai-assistant"])

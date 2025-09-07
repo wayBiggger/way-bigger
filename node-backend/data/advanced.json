@@ -1,0 +1,2252 @@
+[
+  {
+    "id": 1,
+    "title": "Microservices Architecture 1",
+    "description": "Design and implement a microservices architecture with Docker",
+    "tech_stack": "Docker, Kubernetes, Node.js, PostgreSQL, Redis",
+    "difficulty": "advanced",
+    "outcome": "A scalable microservices application",
+    "domain": "web-development"
+  },
+  {
+    "id": 2,
+    "title": "Real-time Analytics Platform 2",
+    "description": "Build a platform for real-time data processing and analytics",
+    "tech_stack": "Apache Kafka, Apache Spark, Python, React, D3.js",
+    "difficulty": "advanced",
+    "outcome": "A high-performance analytics platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 3,
+    "title": "Distributed System 3",
+    "description": "Create a distributed system with load balancing and fault tolerance",
+    "tech_stack": "Docker, Nginx, Redis, PostgreSQL, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A resilient distributed application",
+    "domain": "web-development"
+  },
+  {
+    "id": 4,
+    "title": "Performance Monitoring Tool 4",
+    "description": "Build a comprehensive application performance monitoring system",
+    "tech_stack": "Node.js, WebSockets, MongoDB, Grafana",
+    "difficulty": "advanced",
+    "outcome": "A professional APM solution",
+    "domain": "web-development"
+  },
+  {
+    "id": 5,
+    "title": "API Gateway 5",
+    "description": "Create an API gateway with rate limiting, authentication, and routing",
+    "tech_stack": "Node.js, Express, Redis, JWT, Rate Limiting",
+    "difficulty": "advanced",
+    "outcome": "A production-ready API gateway",
+    "domain": "web-development"
+  },
+  {
+    "id": 6,
+    "title": "Event Sourcing System 6",
+    "description": "Implement an event sourcing architecture with CQRS pattern",
+    "tech_stack": "Node.js, PostgreSQL, EventStore, CQRS",
+    "difficulty": "advanced",
+    "outcome": "A scalable event-driven architecture",
+    "domain": "web-development"
+  },
+  {
+    "id": 7,
+    "title": "Multi-tenant SaaS Platform 7",
+    "description": "Build a multi-tenant SaaS application with tenant isolation",
+    "tech_stack": "Node.js, PostgreSQL, Redis, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A scalable multi-tenant platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 8,
+    "title": "Real-time Collaboration Tool 8",
+    "description": "Create a real-time collaborative editing platform",
+    "tech_stack": "WebSockets, Operational Transform, React, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A collaborative editing platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 9,
+    "title": "Blockchain Integration 9",
+    "description": "Integrate blockchain technology with smart contracts",
+    "tech_stack": "Web3.js, Solidity, Node.js, Ethereum",
+    "difficulty": "advanced",
+    "outcome": "A blockchain-integrated application",
+    "domain": "web-development"
+  },
+  {
+    "id": 10,
+    "title": "Machine Learning Pipeline 10",
+    "description": "Build an end-to-end ML pipeline with model training and deployment",
+    "tech_stack": "Python, TensorFlow, Docker, Kubernetes, React",
+    "difficulty": "advanced",
+    "outcome": "A complete ML operations platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 11,
+    "title": "Microservices Architecture 11",
+    "description": "Design and implement a microservices architecture with Docker",
+    "tech_stack": "Docker, Kubernetes, Node.js, PostgreSQL, Redis",
+    "difficulty": "advanced",
+    "outcome": "A scalable microservices application",
+    "domain": "web-development"
+  },
+  {
+    "id": 12,
+    "title": "Real-time Analytics Platform 12",
+    "description": "Build a platform for real-time data processing and analytics",
+    "tech_stack": "Apache Kafka, Apache Spark, Python, React, D3.js",
+    "difficulty": "advanced",
+    "outcome": "A high-performance analytics platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 13,
+    "title": "Distributed System 13",
+    "description": "Create a distributed system with load balancing and fault tolerance",
+    "tech_stack": "Docker, Nginx, Redis, PostgreSQL, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A resilient distributed application",
+    "domain": "web-development"
+  },
+  {
+    "id": 14,
+    "title": "Performance Monitoring Tool 14",
+    "description": "Build a comprehensive application performance monitoring system",
+    "tech_stack": "Node.js, WebSockets, MongoDB, Grafana",
+    "difficulty": "advanced",
+    "outcome": "A professional APM solution",
+    "domain": "web-development"
+  },
+  {
+    "id": 15,
+    "title": "API Gateway 15",
+    "description": "Create an API gateway with rate limiting, authentication, and routing",
+    "tech_stack": "Node.js, Express, Redis, JWT, Rate Limiting",
+    "difficulty": "advanced",
+    "outcome": "A production-ready API gateway",
+    "domain": "web-development"
+  },
+  {
+    "id": 16,
+    "title": "Event Sourcing System 16",
+    "description": "Implement an event sourcing architecture with CQRS pattern",
+    "tech_stack": "Node.js, PostgreSQL, EventStore, CQRS",
+    "difficulty": "advanced",
+    "outcome": "A scalable event-driven architecture",
+    "domain": "web-development"
+  },
+  {
+    "id": 17,
+    "title": "Multi-tenant SaaS Platform 17",
+    "description": "Build a multi-tenant SaaS application with tenant isolation",
+    "tech_stack": "Node.js, PostgreSQL, Redis, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A scalable multi-tenant platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 18,
+    "title": "Real-time Collaboration Tool 18",
+    "description": "Create a real-time collaborative editing platform",
+    "tech_stack": "WebSockets, Operational Transform, React, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A collaborative editing platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 19,
+    "title": "Blockchain Integration 19",
+    "description": "Integrate blockchain technology with smart contracts",
+    "tech_stack": "Web3.js, Solidity, Node.js, Ethereum",
+    "difficulty": "advanced",
+    "outcome": "A blockchain-integrated application",
+    "domain": "web-development"
+  },
+  {
+    "id": 20,
+    "title": "Machine Learning Pipeline 20",
+    "description": "Build an end-to-end ML pipeline with model training and deployment",
+    "tech_stack": "Python, TensorFlow, Docker, Kubernetes, React",
+    "difficulty": "advanced",
+    "outcome": "A complete ML operations platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 21,
+    "title": "Microservices Architecture 21",
+    "description": "Design and implement a microservices architecture with Docker",
+    "tech_stack": "Docker, Kubernetes, Node.js, PostgreSQL, Redis",
+    "difficulty": "advanced",
+    "outcome": "A scalable microservices application",
+    "domain": "web-development"
+  },
+  {
+    "id": 22,
+    "title": "Real-time Analytics Platform 22",
+    "description": "Build a platform for real-time data processing and analytics",
+    "tech_stack": "Apache Kafka, Apache Spark, Python, React, D3.js",
+    "difficulty": "advanced",
+    "outcome": "A high-performance analytics platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 23,
+    "title": "Distributed System 23",
+    "description": "Create a distributed system with load balancing and fault tolerance",
+    "tech_stack": "Docker, Nginx, Redis, PostgreSQL, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A resilient distributed application",
+    "domain": "web-development"
+  },
+  {
+    "id": 24,
+    "title": "Performance Monitoring Tool 24",
+    "description": "Build a comprehensive application performance monitoring system",
+    "tech_stack": "Node.js, WebSockets, MongoDB, Grafana",
+    "difficulty": "advanced",
+    "outcome": "A professional APM solution",
+    "domain": "web-development"
+  },
+  {
+    "id": 25,
+    "title": "API Gateway 25",
+    "description": "Create an API gateway with rate limiting, authentication, and routing",
+    "tech_stack": "Node.js, Express, Redis, JWT, Rate Limiting",
+    "difficulty": "advanced",
+    "outcome": "A production-ready API gateway",
+    "domain": "web-development"
+  },
+  {
+    "id": 26,
+    "title": "Event Sourcing System 26",
+    "description": "Implement an event sourcing architecture with CQRS pattern",
+    "tech_stack": "Node.js, PostgreSQL, EventStore, CQRS",
+    "difficulty": "advanced",
+    "outcome": "A scalable event-driven architecture",
+    "domain": "web-development"
+  },
+  {
+    "id": 27,
+    "title": "Multi-tenant SaaS Platform 27",
+    "description": "Build a multi-tenant SaaS application with tenant isolation",
+    "tech_stack": "Node.js, PostgreSQL, Redis, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A scalable multi-tenant platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 28,
+    "title": "Real-time Collaboration Tool 28",
+    "description": "Create a real-time collaborative editing platform",
+    "tech_stack": "WebSockets, Operational Transform, React, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A collaborative editing platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 29,
+    "title": "Blockchain Integration 29",
+    "description": "Integrate blockchain technology with smart contracts",
+    "tech_stack": "Web3.js, Solidity, Node.js, Ethereum",
+    "difficulty": "advanced",
+    "outcome": "A blockchain-integrated application",
+    "domain": "web-development"
+  },
+  {
+    "id": 30,
+    "title": "Machine Learning Pipeline 30",
+    "description": "Build an end-to-end ML pipeline with model training and deployment",
+    "tech_stack": "Python, TensorFlow, Docker, Kubernetes, React",
+    "difficulty": "advanced",
+    "outcome": "A complete ML operations platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 31,
+    "title": "Microservices Architecture 31",
+    "description": "Design and implement a microservices architecture with Docker",
+    "tech_stack": "Docker, Kubernetes, Node.js, PostgreSQL, Redis",
+    "difficulty": "advanced",
+    "outcome": "A scalable microservices application",
+    "domain": "web-development"
+  },
+  {
+    "id": 32,
+    "title": "Real-time Analytics Platform 32",
+    "description": "Build a platform for real-time data processing and analytics",
+    "tech_stack": "Apache Kafka, Apache Spark, Python, React, D3.js",
+    "difficulty": "advanced",
+    "outcome": "A high-performance analytics platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 33,
+    "title": "Distributed System 33",
+    "description": "Create a distributed system with load balancing and fault tolerance",
+    "tech_stack": "Docker, Nginx, Redis, PostgreSQL, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A resilient distributed application",
+    "domain": "web-development"
+  },
+  {
+    "id": 34,
+    "title": "Performance Monitoring Tool 34",
+    "description": "Build a comprehensive application performance monitoring system",
+    "tech_stack": "Node.js, WebSockets, MongoDB, Grafana",
+    "difficulty": "advanced",
+    "outcome": "A professional APM solution",
+    "domain": "web-development"
+  },
+  {
+    "id": 35,
+    "title": "API Gateway 35",
+    "description": "Create an API gateway with rate limiting, authentication, and routing",
+    "tech_stack": "Node.js, Express, Redis, JWT, Rate Limiting",
+    "difficulty": "advanced",
+    "outcome": "A production-ready API gateway",
+    "domain": "web-development"
+  },
+  {
+    "id": 36,
+    "title": "Event Sourcing System 36",
+    "description": "Implement an event sourcing architecture with CQRS pattern",
+    "tech_stack": "Node.js, PostgreSQL, EventStore, CQRS",
+    "difficulty": "advanced",
+    "outcome": "A scalable event-driven architecture",
+    "domain": "web-development"
+  },
+  {
+    "id": 37,
+    "title": "Multi-tenant SaaS Platform 37",
+    "description": "Build a multi-tenant SaaS application with tenant isolation",
+    "tech_stack": "Node.js, PostgreSQL, Redis, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A scalable multi-tenant platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 38,
+    "title": "Real-time Collaboration Tool 38",
+    "description": "Create a real-time collaborative editing platform",
+    "tech_stack": "WebSockets, Operational Transform, React, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A collaborative editing platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 39,
+    "title": "Blockchain Integration 39",
+    "description": "Integrate blockchain technology with smart contracts",
+    "tech_stack": "Web3.js, Solidity, Node.js, Ethereum",
+    "difficulty": "advanced",
+    "outcome": "A blockchain-integrated application",
+    "domain": "web-development"
+  },
+  {
+    "id": 40,
+    "title": "Machine Learning Pipeline 40",
+    "description": "Build an end-to-end ML pipeline with model training and deployment",
+    "tech_stack": "Python, TensorFlow, Docker, Kubernetes, React",
+    "difficulty": "advanced",
+    "outcome": "A complete ML operations platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 41,
+    "title": "Microservices Architecture 41",
+    "description": "Design and implement a microservices architecture with Docker",
+    "tech_stack": "Docker, Kubernetes, Node.js, PostgreSQL, Redis",
+    "difficulty": "advanced",
+    "outcome": "A scalable microservices application",
+    "domain": "web-development"
+  },
+  {
+    "id": 42,
+    "title": "Real-time Analytics Platform 42",
+    "description": "Build a platform for real-time data processing and analytics",
+    "tech_stack": "Apache Kafka, Apache Spark, Python, React, D3.js",
+    "difficulty": "advanced",
+    "outcome": "A high-performance analytics platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 43,
+    "title": "Distributed System 43",
+    "description": "Create a distributed system with load balancing and fault tolerance",
+    "tech_stack": "Docker, Nginx, Redis, PostgreSQL, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A resilient distributed application",
+    "domain": "web-development"
+  },
+  {
+    "id": 44,
+    "title": "Performance Monitoring Tool 44",
+    "description": "Build a comprehensive application performance monitoring system",
+    "tech_stack": "Node.js, WebSockets, MongoDB, Grafana",
+    "difficulty": "advanced",
+    "outcome": "A professional APM solution",
+    "domain": "web-development"
+  },
+  {
+    "id": 45,
+    "title": "API Gateway 45",
+    "description": "Create an API gateway with rate limiting, authentication, and routing",
+    "tech_stack": "Node.js, Express, Redis, JWT, Rate Limiting",
+    "difficulty": "advanced",
+    "outcome": "A production-ready API gateway",
+    "domain": "web-development"
+  },
+  {
+    "id": 46,
+    "title": "Event Sourcing System 46",
+    "description": "Implement an event sourcing architecture with CQRS pattern",
+    "tech_stack": "Node.js, PostgreSQL, EventStore, CQRS",
+    "difficulty": "advanced",
+    "outcome": "A scalable event-driven architecture",
+    "domain": "web-development"
+  },
+  {
+    "id": 47,
+    "title": "Multi-tenant SaaS Platform 47",
+    "description": "Build a multi-tenant SaaS application with tenant isolation",
+    "tech_stack": "Node.js, PostgreSQL, Redis, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A scalable multi-tenant platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 48,
+    "title": "Real-time Collaboration Tool 48",
+    "description": "Create a real-time collaborative editing platform",
+    "tech_stack": "WebSockets, Operational Transform, React, Node.js",
+    "difficulty": "advanced",
+    "outcome": "A collaborative editing platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 49,
+    "title": "Blockchain Integration 49",
+    "description": "Integrate blockchain technology with smart contracts",
+    "tech_stack": "Web3.js, Solidity, Node.js, Ethereum",
+    "difficulty": "advanced",
+    "outcome": "A blockchain-integrated application",
+    "domain": "web-development"
+  },
+  {
+    "id": 50,
+    "title": "Machine Learning Pipeline 50",
+    "description": "Build an end-to-end ML pipeline with model training and deployment",
+    "tech_stack": "Python, TensorFlow, Docker, Kubernetes, React",
+    "difficulty": "advanced",
+    "outcome": "A complete ML operations platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 51,
+    "title": "AI-Powered Recommendation System 1",
+    "description": "Build a sophisticated recommendation engine using deep learning",
+    "tech_stack": "Python, TensorFlow, PyTorch, PostgreSQL, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "An intelligent recommendation system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 52,
+    "title": "Computer Vision Platform 2",
+    "description": "Create a comprehensive computer vision platform with multiple models",
+    "tech_stack": "Python, OpenCV, YOLO, Detectron2, Docker",
+    "difficulty": "advanced",
+    "outcome": "A computer vision platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 53,
+    "title": "Natural Language Understanding 3",
+    "description": "Build an advanced NLU system with multiple language support",
+    "tech_stack": "Python, Transformers, BERT, spaCy, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A multilingual NLU system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 54,
+    "title": "Reinforcement Learning Agent 4",
+    "description": "Create an RL agent for complex decision-making tasks",
+    "tech_stack": "Python, OpenAI Gym, PyTorch, Stable Baselines",
+    "difficulty": "advanced",
+    "outcome": "An intelligent RL agent",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 55,
+    "title": "Federated Learning System 5",
+    "description": "Build a federated learning system for privacy-preserving ML",
+    "tech_stack": "Python, PyTorch, TensorFlow Federated, Docker",
+    "difficulty": "advanced",
+    "outcome": "A federated learning platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 56,
+    "title": "MLOps Pipeline 6",
+    "description": "Create a complete MLOps pipeline with CI/CD for ML models",
+    "tech_stack": "Python, MLflow, Kubeflow, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A production MLOps platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 57,
+    "title": "Real-time ML Inference 7",
+    "description": "Build a real-time ML inference system with low latency",
+    "tech_stack": "Python, TensorFlow Serving, Redis, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A real-time ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 58,
+    "title": "Multi-modal AI System 8",
+    "description": "Create an AI system that processes text, images, and audio",
+    "tech_stack": "Python, Transformers, OpenCV, librosa, PyTorch",
+    "difficulty": "advanced",
+    "outcome": "A multi-modal AI platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 59,
+    "title": "AI Ethics Framework 9",
+    "description": "Build a framework for ethical AI with bias detection and fairness",
+    "tech_stack": "Python, Fairlearn, SHAP, scikit-learn",
+    "difficulty": "advanced",
+    "outcome": "An ethical AI framework",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 60,
+    "title": "Quantum Machine Learning 10",
+    "description": "Explore quantum machine learning algorithms and applications",
+    "tech_stack": "Python, Qiskit, Cirq, TensorFlow Quantum",
+    "difficulty": "advanced",
+    "outcome": "A quantum ML research platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 61,
+    "title": "AI-Powered Recommendation System 11",
+    "description": "Build a sophisticated recommendation engine using deep learning",
+    "tech_stack": "Python, TensorFlow, PyTorch, PostgreSQL, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "An intelligent recommendation system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 62,
+    "title": "Computer Vision Platform 12",
+    "description": "Create a comprehensive computer vision platform with multiple models",
+    "tech_stack": "Python, OpenCV, YOLO, Detectron2, Docker",
+    "difficulty": "advanced",
+    "outcome": "A computer vision platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 63,
+    "title": "Natural Language Understanding 13",
+    "description": "Build an advanced NLU system with multiple language support",
+    "tech_stack": "Python, Transformers, BERT, spaCy, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A multilingual NLU system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 64,
+    "title": "Reinforcement Learning Agent 14",
+    "description": "Create an RL agent for complex decision-making tasks",
+    "tech_stack": "Python, OpenAI Gym, PyTorch, Stable Baselines",
+    "difficulty": "advanced",
+    "outcome": "An intelligent RL agent",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 65,
+    "title": "Federated Learning System 15",
+    "description": "Build a federated learning system for privacy-preserving ML",
+    "tech_stack": "Python, PyTorch, TensorFlow Federated, Docker",
+    "difficulty": "advanced",
+    "outcome": "A federated learning platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 66,
+    "title": "MLOps Pipeline 16",
+    "description": "Create a complete MLOps pipeline with CI/CD for ML models",
+    "tech_stack": "Python, MLflow, Kubeflow, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A production MLOps platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 67,
+    "title": "Real-time ML Inference 17",
+    "description": "Build a real-time ML inference system with low latency",
+    "tech_stack": "Python, TensorFlow Serving, Redis, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A real-time ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 68,
+    "title": "Multi-modal AI System 18",
+    "description": "Create an AI system that processes text, images, and audio",
+    "tech_stack": "Python, Transformers, OpenCV, librosa, PyTorch",
+    "difficulty": "advanced",
+    "outcome": "A multi-modal AI platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 69,
+    "title": "AI Ethics Framework 19",
+    "description": "Build a framework for ethical AI with bias detection and fairness",
+    "tech_stack": "Python, Fairlearn, SHAP, scikit-learn",
+    "difficulty": "advanced",
+    "outcome": "An ethical AI framework",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 70,
+    "title": "Quantum Machine Learning 20",
+    "description": "Explore quantum machine learning algorithms and applications",
+    "tech_stack": "Python, Qiskit, Cirq, TensorFlow Quantum",
+    "difficulty": "advanced",
+    "outcome": "A quantum ML research platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 71,
+    "title": "AI-Powered Recommendation System 21",
+    "description": "Build a sophisticated recommendation engine using deep learning",
+    "tech_stack": "Python, TensorFlow, PyTorch, PostgreSQL, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "An intelligent recommendation system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 72,
+    "title": "Computer Vision Platform 22",
+    "description": "Create a comprehensive computer vision platform with multiple models",
+    "tech_stack": "Python, OpenCV, YOLO, Detectron2, Docker",
+    "difficulty": "advanced",
+    "outcome": "A computer vision platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 73,
+    "title": "Natural Language Understanding 23",
+    "description": "Build an advanced NLU system with multiple language support",
+    "tech_stack": "Python, Transformers, BERT, spaCy, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A multilingual NLU system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 74,
+    "title": "Reinforcement Learning Agent 24",
+    "description": "Create an RL agent for complex decision-making tasks",
+    "tech_stack": "Python, OpenAI Gym, PyTorch, Stable Baselines",
+    "difficulty": "advanced",
+    "outcome": "An intelligent RL agent",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 75,
+    "title": "Federated Learning System 25",
+    "description": "Build a federated learning system for privacy-preserving ML",
+    "tech_stack": "Python, PyTorch, TensorFlow Federated, Docker",
+    "difficulty": "advanced",
+    "outcome": "A federated learning platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 76,
+    "title": "MLOps Pipeline 26",
+    "description": "Create a complete MLOps pipeline with CI/CD for ML models",
+    "tech_stack": "Python, MLflow, Kubeflow, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A production MLOps platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 77,
+    "title": "Real-time ML Inference 27",
+    "description": "Build a real-time ML inference system with low latency",
+    "tech_stack": "Python, TensorFlow Serving, Redis, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A real-time ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 78,
+    "title": "Multi-modal AI System 28",
+    "description": "Create an AI system that processes text, images, and audio",
+    "tech_stack": "Python, Transformers, OpenCV, librosa, PyTorch",
+    "difficulty": "advanced",
+    "outcome": "A multi-modal AI platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 79,
+    "title": "AI Ethics Framework 29",
+    "description": "Build a framework for ethical AI with bias detection and fairness",
+    "tech_stack": "Python, Fairlearn, SHAP, scikit-learn",
+    "difficulty": "advanced",
+    "outcome": "An ethical AI framework",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 80,
+    "title": "Quantum Machine Learning 30",
+    "description": "Explore quantum machine learning algorithms and applications",
+    "tech_stack": "Python, Qiskit, Cirq, TensorFlow Quantum",
+    "difficulty": "advanced",
+    "outcome": "A quantum ML research platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 81,
+    "title": "AI-Powered Recommendation System 31",
+    "description": "Build a sophisticated recommendation engine using deep learning",
+    "tech_stack": "Python, TensorFlow, PyTorch, PostgreSQL, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "An intelligent recommendation system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 82,
+    "title": "Computer Vision Platform 32",
+    "description": "Create a comprehensive computer vision platform with multiple models",
+    "tech_stack": "Python, OpenCV, YOLO, Detectron2, Docker",
+    "difficulty": "advanced",
+    "outcome": "A computer vision platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 83,
+    "title": "Natural Language Understanding 33",
+    "description": "Build an advanced NLU system with multiple language support",
+    "tech_stack": "Python, Transformers, BERT, spaCy, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A multilingual NLU system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 84,
+    "title": "Reinforcement Learning Agent 34",
+    "description": "Create an RL agent for complex decision-making tasks",
+    "tech_stack": "Python, OpenAI Gym, PyTorch, Stable Baselines",
+    "difficulty": "advanced",
+    "outcome": "An intelligent RL agent",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 85,
+    "title": "Federated Learning System 35",
+    "description": "Build a federated learning system for privacy-preserving ML",
+    "tech_stack": "Python, PyTorch, TensorFlow Federated, Docker",
+    "difficulty": "advanced",
+    "outcome": "A federated learning platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 86,
+    "title": "MLOps Pipeline 36",
+    "description": "Create a complete MLOps pipeline with CI/CD for ML models",
+    "tech_stack": "Python, MLflow, Kubeflow, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A production MLOps platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 87,
+    "title": "Real-time ML Inference 37",
+    "description": "Build a real-time ML inference system with low latency",
+    "tech_stack": "Python, TensorFlow Serving, Redis, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A real-time ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 88,
+    "title": "Multi-modal AI System 38",
+    "description": "Create an AI system that processes text, images, and audio",
+    "tech_stack": "Python, Transformers, OpenCV, librosa, PyTorch",
+    "difficulty": "advanced",
+    "outcome": "A multi-modal AI platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 89,
+    "title": "AI Ethics Framework 39",
+    "description": "Build a framework for ethical AI with bias detection and fairness",
+    "tech_stack": "Python, Fairlearn, SHAP, scikit-learn",
+    "difficulty": "advanced",
+    "outcome": "An ethical AI framework",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 90,
+    "title": "Quantum Machine Learning 40",
+    "description": "Explore quantum machine learning algorithms and applications",
+    "tech_stack": "Python, Qiskit, Cirq, TensorFlow Quantum",
+    "difficulty": "advanced",
+    "outcome": "A quantum ML research platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 91,
+    "title": "AI-Powered Recommendation System 41",
+    "description": "Build a sophisticated recommendation engine using deep learning",
+    "tech_stack": "Python, TensorFlow, PyTorch, PostgreSQL, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "An intelligent recommendation system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 92,
+    "title": "Computer Vision Platform 42",
+    "description": "Create a comprehensive computer vision platform with multiple models",
+    "tech_stack": "Python, OpenCV, YOLO, Detectron2, Docker",
+    "difficulty": "advanced",
+    "outcome": "A computer vision platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 93,
+    "title": "Natural Language Understanding 43",
+    "description": "Build an advanced NLU system with multiple language support",
+    "tech_stack": "Python, Transformers, BERT, spaCy, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A multilingual NLU system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 94,
+    "title": "Reinforcement Learning Agent 44",
+    "description": "Create an RL agent for complex decision-making tasks",
+    "tech_stack": "Python, OpenAI Gym, PyTorch, Stable Baselines",
+    "difficulty": "advanced",
+    "outcome": "An intelligent RL agent",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 95,
+    "title": "Federated Learning System 45",
+    "description": "Build a federated learning system for privacy-preserving ML",
+    "tech_stack": "Python, PyTorch, TensorFlow Federated, Docker",
+    "difficulty": "advanced",
+    "outcome": "A federated learning platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 96,
+    "title": "MLOps Pipeline 46",
+    "description": "Create a complete MLOps pipeline with CI/CD for ML models",
+    "tech_stack": "Python, MLflow, Kubeflow, Docker, Kubernetes",
+    "difficulty": "advanced",
+    "outcome": "A production MLOps platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 97,
+    "title": "Real-time ML Inference 47",
+    "description": "Build a real-time ML inference system with low latency",
+    "tech_stack": "Python, TensorFlow Serving, Redis, FastAPI",
+    "difficulty": "advanced",
+    "outcome": "A real-time ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 98,
+    "title": "Multi-modal AI System 48",
+    "description": "Create an AI system that processes text, images, and audio",
+    "tech_stack": "Python, Transformers, OpenCV, librosa, PyTorch",
+    "difficulty": "advanced",
+    "outcome": "A multi-modal AI platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 99,
+    "title": "AI Ethics Framework 49",
+    "description": "Build a framework for ethical AI with bias detection and fairness",
+    "tech_stack": "Python, Fairlearn, SHAP, scikit-learn",
+    "difficulty": "advanced",
+    "outcome": "An ethical AI framework",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 100,
+    "title": "Quantum Machine Learning 50",
+    "description": "Explore quantum machine learning algorithms and applications",
+    "tech_stack": "Python, Qiskit, Cirq, TensorFlow Quantum",
+    "difficulty": "advanced",
+    "outcome": "A quantum ML research platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 101,
+    "title": "AR Mobile Application 1",
+    "description": "Create an augmented reality mobile app with 3D objects",
+    "tech_stack": "React Native, ARCore, ARKit, Three.js",
+    "difficulty": "advanced",
+    "outcome": "An AR mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 102,
+    "title": "IoT Mobile Dashboard 2",
+    "description": "Build a mobile dashboard for IoT device management",
+    "tech_stack": "React Native, Node.js, MQTT, Real-time Data",
+    "difficulty": "advanced",
+    "outcome": "An IoT mobile management platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 103,
+    "title": "Blockchain Mobile Wallet 3",
+    "description": "Create a mobile cryptocurrency wallet with trading features",
+    "tech_stack": "React Native, Web3.js, Blockchain APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile blockchain wallet",
+    "domain": "mobile"
+  },
+  {
+    "id": 104,
+    "title": "AI-Powered Mobile App 4",
+    "description": "Build a mobile app with integrated AI features",
+    "tech_stack": "React Native, TensorFlow Lite, AI APIs, On-device ML",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 105,
+    "title": "Cross-platform Mobile App 5",
+    "description": "Create a cross-platform app with native performance",
+    "tech_stack": "Flutter, Dart, Native Modules, Platform Channels",
+    "difficulty": "advanced",
+    "outcome": "A high-performance cross-platform app",
+    "domain": "mobile"
+  },
+  {
+    "id": 106,
+    "title": "Mobile Game Development 6",
+    "description": "Build a mobile game with physics and multiplayer features",
+    "tech_stack": "Unity, C#, Multiplayer, Game Physics",
+    "difficulty": "advanced",
+    "outcome": "A mobile multiplayer game",
+    "domain": "mobile"
+  },
+  {
+    "id": 107,
+    "title": "Healthcare Mobile App 7",
+    "description": "Create a HIPAA-compliant healthcare mobile application",
+    "tech_stack": "React Native, Node.js, HIPAA Compliance, Security",
+    "difficulty": "advanced",
+    "outcome": "A secure healthcare mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 108,
+    "title": "Fintech Mobile App 8",
+    "description": "Build a mobile financial services application",
+    "tech_stack": "React Native, Node.js, Banking APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile fintech platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 109,
+    "title": "Enterprise Mobile App 9",
+    "description": "Create an enterprise mobile app with offline capabilities",
+    "tech_stack": "React Native, Node.js, Offline Sync, Enterprise Security",
+    "difficulty": "advanced",
+    "outcome": "An enterprise mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 110,
+    "title": "Mobile DevOps Platform 10",
+    "description": "Build a mobile app deployment and monitoring platform",
+    "tech_stack": "React Native, CI/CD, Analytics, Crash Reporting",
+    "difficulty": "advanced",
+    "outcome": "A mobile DevOps platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 111,
+    "title": "AR Mobile Application 11",
+    "description": "Create an augmented reality mobile app with 3D objects",
+    "tech_stack": "React Native, ARCore, ARKit, Three.js",
+    "difficulty": "advanced",
+    "outcome": "An AR mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 112,
+    "title": "IoT Mobile Dashboard 12",
+    "description": "Build a mobile dashboard for IoT device management",
+    "tech_stack": "React Native, Node.js, MQTT, Real-time Data",
+    "difficulty": "advanced",
+    "outcome": "An IoT mobile management platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 113,
+    "title": "Blockchain Mobile Wallet 13",
+    "description": "Create a mobile cryptocurrency wallet with trading features",
+    "tech_stack": "React Native, Web3.js, Blockchain APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile blockchain wallet",
+    "domain": "mobile"
+  },
+  {
+    "id": 114,
+    "title": "AI-Powered Mobile App 14",
+    "description": "Build a mobile app with integrated AI features",
+    "tech_stack": "React Native, TensorFlow Lite, AI APIs, On-device ML",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 115,
+    "title": "Cross-platform Mobile App 15",
+    "description": "Create a cross-platform app with native performance",
+    "tech_stack": "Flutter, Dart, Native Modules, Platform Channels",
+    "difficulty": "advanced",
+    "outcome": "A high-performance cross-platform app",
+    "domain": "mobile"
+  },
+  {
+    "id": 116,
+    "title": "Mobile Game Development 16",
+    "description": "Build a mobile game with physics and multiplayer features",
+    "tech_stack": "Unity, C#, Multiplayer, Game Physics",
+    "difficulty": "advanced",
+    "outcome": "A mobile multiplayer game",
+    "domain": "mobile"
+  },
+  {
+    "id": 117,
+    "title": "Healthcare Mobile App 17",
+    "description": "Create a HIPAA-compliant healthcare mobile application",
+    "tech_stack": "React Native, Node.js, HIPAA Compliance, Security",
+    "difficulty": "advanced",
+    "outcome": "A secure healthcare mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 118,
+    "title": "Fintech Mobile App 18",
+    "description": "Build a mobile financial services application",
+    "tech_stack": "React Native, Node.js, Banking APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile fintech platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 119,
+    "title": "Enterprise Mobile App 19",
+    "description": "Create an enterprise mobile app with offline capabilities",
+    "tech_stack": "React Native, Node.js, Offline Sync, Enterprise Security",
+    "difficulty": "advanced",
+    "outcome": "An enterprise mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 120,
+    "title": "Mobile DevOps Platform 20",
+    "description": "Build a mobile app deployment and monitoring platform",
+    "tech_stack": "React Native, CI/CD, Analytics, Crash Reporting",
+    "difficulty": "advanced",
+    "outcome": "A mobile DevOps platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 121,
+    "title": "AR Mobile Application 21",
+    "description": "Create an augmented reality mobile app with 3D objects",
+    "tech_stack": "React Native, ARCore, ARKit, Three.js",
+    "difficulty": "advanced",
+    "outcome": "An AR mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 122,
+    "title": "IoT Mobile Dashboard 22",
+    "description": "Build a mobile dashboard for IoT device management",
+    "tech_stack": "React Native, Node.js, MQTT, Real-time Data",
+    "difficulty": "advanced",
+    "outcome": "An IoT mobile management platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 123,
+    "title": "Blockchain Mobile Wallet 23",
+    "description": "Create a mobile cryptocurrency wallet with trading features",
+    "tech_stack": "React Native, Web3.js, Blockchain APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile blockchain wallet",
+    "domain": "mobile"
+  },
+  {
+    "id": 124,
+    "title": "AI-Powered Mobile App 24",
+    "description": "Build a mobile app with integrated AI features",
+    "tech_stack": "React Native, TensorFlow Lite, AI APIs, On-device ML",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 125,
+    "title": "Cross-platform Mobile App 25",
+    "description": "Create a cross-platform app with native performance",
+    "tech_stack": "Flutter, Dart, Native Modules, Platform Channels",
+    "difficulty": "advanced",
+    "outcome": "A high-performance cross-platform app",
+    "domain": "mobile"
+  },
+  {
+    "id": 126,
+    "title": "Mobile Game Development 26",
+    "description": "Build a mobile game with physics and multiplayer features",
+    "tech_stack": "Unity, C#, Multiplayer, Game Physics",
+    "difficulty": "advanced",
+    "outcome": "A mobile multiplayer game",
+    "domain": "mobile"
+  },
+  {
+    "id": 127,
+    "title": "Healthcare Mobile App 27",
+    "description": "Create a HIPAA-compliant healthcare mobile application",
+    "tech_stack": "React Native, Node.js, HIPAA Compliance, Security",
+    "difficulty": "advanced",
+    "outcome": "A secure healthcare mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 128,
+    "title": "Fintech Mobile App 28",
+    "description": "Build a mobile financial services application",
+    "tech_stack": "React Native, Node.js, Banking APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile fintech platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 129,
+    "title": "Enterprise Mobile App 29",
+    "description": "Create an enterprise mobile app with offline capabilities",
+    "tech_stack": "React Native, Node.js, Offline Sync, Enterprise Security",
+    "difficulty": "advanced",
+    "outcome": "An enterprise mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 130,
+    "title": "Mobile DevOps Platform 30",
+    "description": "Build a mobile app deployment and monitoring platform",
+    "tech_stack": "React Native, CI/CD, Analytics, Crash Reporting",
+    "difficulty": "advanced",
+    "outcome": "A mobile DevOps platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 131,
+    "title": "AR Mobile Application 31",
+    "description": "Create an augmented reality mobile app with 3D objects",
+    "tech_stack": "React Native, ARCore, ARKit, Three.js",
+    "difficulty": "advanced",
+    "outcome": "An AR mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 132,
+    "title": "IoT Mobile Dashboard 32",
+    "description": "Build a mobile dashboard for IoT device management",
+    "tech_stack": "React Native, Node.js, MQTT, Real-time Data",
+    "difficulty": "advanced",
+    "outcome": "An IoT mobile management platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 133,
+    "title": "Blockchain Mobile Wallet 33",
+    "description": "Create a mobile cryptocurrency wallet with trading features",
+    "tech_stack": "React Native, Web3.js, Blockchain APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile blockchain wallet",
+    "domain": "mobile"
+  },
+  {
+    "id": 134,
+    "title": "AI-Powered Mobile App 34",
+    "description": "Build a mobile app with integrated AI features",
+    "tech_stack": "React Native, TensorFlow Lite, AI APIs, On-device ML",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 135,
+    "title": "Cross-platform Mobile App 35",
+    "description": "Create a cross-platform app with native performance",
+    "tech_stack": "Flutter, Dart, Native Modules, Platform Channels",
+    "difficulty": "advanced",
+    "outcome": "A high-performance cross-platform app",
+    "domain": "mobile"
+  },
+  {
+    "id": 136,
+    "title": "Mobile Game Development 36",
+    "description": "Build a mobile game with physics and multiplayer features",
+    "tech_stack": "Unity, C#, Multiplayer, Game Physics",
+    "difficulty": "advanced",
+    "outcome": "A mobile multiplayer game",
+    "domain": "mobile"
+  },
+  {
+    "id": 137,
+    "title": "Healthcare Mobile App 37",
+    "description": "Create a HIPAA-compliant healthcare mobile application",
+    "tech_stack": "React Native, Node.js, HIPAA Compliance, Security",
+    "difficulty": "advanced",
+    "outcome": "A secure healthcare mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 138,
+    "title": "Fintech Mobile App 38",
+    "description": "Build a mobile financial services application",
+    "tech_stack": "React Native, Node.js, Banking APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile fintech platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 139,
+    "title": "Enterprise Mobile App 39",
+    "description": "Create an enterprise mobile app with offline capabilities",
+    "tech_stack": "React Native, Node.js, Offline Sync, Enterprise Security",
+    "difficulty": "advanced",
+    "outcome": "An enterprise mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 140,
+    "title": "Mobile DevOps Platform 40",
+    "description": "Build a mobile app deployment and monitoring platform",
+    "tech_stack": "React Native, CI/CD, Analytics, Crash Reporting",
+    "difficulty": "advanced",
+    "outcome": "A mobile DevOps platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 141,
+    "title": "AR Mobile Application 41",
+    "description": "Create an augmented reality mobile app with 3D objects",
+    "tech_stack": "React Native, ARCore, ARKit, Three.js",
+    "difficulty": "advanced",
+    "outcome": "An AR mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 142,
+    "title": "IoT Mobile Dashboard 42",
+    "description": "Build a mobile dashboard for IoT device management",
+    "tech_stack": "React Native, Node.js, MQTT, Real-time Data",
+    "difficulty": "advanced",
+    "outcome": "An IoT mobile management platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 143,
+    "title": "Blockchain Mobile Wallet 43",
+    "description": "Create a mobile cryptocurrency wallet with trading features",
+    "tech_stack": "React Native, Web3.js, Blockchain APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile blockchain wallet",
+    "domain": "mobile"
+  },
+  {
+    "id": 144,
+    "title": "AI-Powered Mobile App 44",
+    "description": "Build a mobile app with integrated AI features",
+    "tech_stack": "React Native, TensorFlow Lite, AI APIs, On-device ML",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered mobile application",
+    "domain": "mobile"
+  },
+  {
+    "id": 145,
+    "title": "Cross-platform Mobile App 45",
+    "description": "Create a cross-platform app with native performance",
+    "tech_stack": "Flutter, Dart, Native Modules, Platform Channels",
+    "difficulty": "advanced",
+    "outcome": "A high-performance cross-platform app",
+    "domain": "mobile"
+  },
+  {
+    "id": 146,
+    "title": "Mobile Game Development 46",
+    "description": "Build a mobile game with physics and multiplayer features",
+    "tech_stack": "Unity, C#, Multiplayer, Game Physics",
+    "difficulty": "advanced",
+    "outcome": "A mobile multiplayer game",
+    "domain": "mobile"
+  },
+  {
+    "id": 147,
+    "title": "Healthcare Mobile App 47",
+    "description": "Create a HIPAA-compliant healthcare mobile application",
+    "tech_stack": "React Native, Node.js, HIPAA Compliance, Security",
+    "difficulty": "advanced",
+    "outcome": "A secure healthcare mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 148,
+    "title": "Fintech Mobile App 48",
+    "description": "Build a mobile financial services application",
+    "tech_stack": "React Native, Node.js, Banking APIs, Security",
+    "difficulty": "advanced",
+    "outcome": "A mobile fintech platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 149,
+    "title": "Enterprise Mobile App 49",
+    "description": "Create an enterprise mobile app with offline capabilities",
+    "tech_stack": "React Native, Node.js, Offline Sync, Enterprise Security",
+    "difficulty": "advanced",
+    "outcome": "An enterprise mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 150,
+    "title": "Mobile DevOps Platform 50",
+    "description": "Build a mobile app deployment and monitoring platform",
+    "tech_stack": "React Native, CI/CD, Analytics, Crash Reporting",
+    "difficulty": "advanced",
+    "outcome": "A mobile DevOps platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 151,
+    "title": "Blockchain Voting System 1",
+    "description": "Create a secure voting system using blockchain technology",
+    "tech_stack": "Solidity, Web3.js, React, Ethereum, Smart Contracts",
+    "difficulty": "advanced",
+    "outcome": "A decentralized voting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 152,
+    "title": "Zero Trust Security Architecture 2",
+    "description": "Build a zero trust security framework",
+    "tech_stack": "Python, Identity Management, Micro-segmentation, Continuous Verification",
+    "difficulty": "advanced",
+    "outcome": "A zero trust security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 153,
+    "title": "Advanced Persistent Threat Detection 3",
+    "description": "Create an APT detection and response system",
+    "tech_stack": "Python, Machine Learning, Behavioral Analysis, Threat Hunting",
+    "difficulty": "advanced",
+    "outcome": "An APT detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 154,
+    "title": "Quantum Cryptography System 4",
+    "description": "Build a quantum-resistant cryptographic system",
+    "tech_stack": "Python, Quantum Computing, Post-Quantum Cryptography, Security",
+    "difficulty": "advanced",
+    "outcome": "A quantum-resistant security system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 155,
+    "title": "Security AI Platform 5",
+    "description": "Create an AI-powered security platform",
+    "tech_stack": "Python, Machine Learning, Deep Learning, Security Analytics",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 156,
+    "title": "Honeypot Network 6",
+    "description": "Build a sophisticated honeypot network for threat research",
+    "tech_stack": "Python, Network Simulation, Threat Intelligence, Data Collection",
+    "difficulty": "advanced",
+    "outcome": "A threat research honeypot network",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 157,
+    "title": "Security Automation Platform 7",
+    "description": "Create a comprehensive security automation platform",
+    "tech_stack": "Python, Automation, Orchestration, API Integration, Workflow",
+    "difficulty": "advanced",
+    "outcome": "A security automation platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 158,
+    "title": "Privacy-Preserving Analytics 8",
+    "description": "Build a platform for privacy-preserving data analytics",
+    "tech_stack": "Python, Differential Privacy, Homomorphic Encryption, Data Analysis",
+    "difficulty": "advanced",
+    "outcome": "A privacy-preserving analytics platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 159,
+    "title": "Security Mesh Architecture 9",
+    "description": "Create a security mesh for distributed systems",
+    "tech_stack": "Python, Microservices, Service Mesh, Security Policies",
+    "difficulty": "advanced",
+    "outcome": "A security mesh platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 160,
+    "title": "Cyber Threat Hunting Platform 10",
+    "description": "Build an advanced threat hunting and investigation platform",
+    "tech_stack": "Python, Threat Intelligence, Behavioral Analysis, Investigation Tools",
+    "difficulty": "advanced",
+    "outcome": "A threat hunting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 161,
+    "title": "Blockchain Voting System 11",
+    "description": "Create a secure voting system using blockchain technology",
+    "tech_stack": "Solidity, Web3.js, React, Ethereum, Smart Contracts",
+    "difficulty": "advanced",
+    "outcome": "A decentralized voting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 162,
+    "title": "Zero Trust Security Architecture 12",
+    "description": "Build a zero trust security framework",
+    "tech_stack": "Python, Identity Management, Micro-segmentation, Continuous Verification",
+    "difficulty": "advanced",
+    "outcome": "A zero trust security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 163,
+    "title": "Advanced Persistent Threat Detection 13",
+    "description": "Create an APT detection and response system",
+    "tech_stack": "Python, Machine Learning, Behavioral Analysis, Threat Hunting",
+    "difficulty": "advanced",
+    "outcome": "An APT detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 164,
+    "title": "Quantum Cryptography System 14",
+    "description": "Build a quantum-resistant cryptographic system",
+    "tech_stack": "Python, Quantum Computing, Post-Quantum Cryptography, Security",
+    "difficulty": "advanced",
+    "outcome": "A quantum-resistant security system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 165,
+    "title": "Security AI Platform 15",
+    "description": "Create an AI-powered security platform",
+    "tech_stack": "Python, Machine Learning, Deep Learning, Security Analytics",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 166,
+    "title": "Honeypot Network 16",
+    "description": "Build a sophisticated honeypot network for threat research",
+    "tech_stack": "Python, Network Simulation, Threat Intelligence, Data Collection",
+    "difficulty": "advanced",
+    "outcome": "A threat research honeypot network",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 167,
+    "title": "Security Automation Platform 17",
+    "description": "Create a comprehensive security automation platform",
+    "tech_stack": "Python, Automation, Orchestration, API Integration, Workflow",
+    "difficulty": "advanced",
+    "outcome": "A security automation platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 168,
+    "title": "Privacy-Preserving Analytics 18",
+    "description": "Build a platform for privacy-preserving data analytics",
+    "tech_stack": "Python, Differential Privacy, Homomorphic Encryption, Data Analysis",
+    "difficulty": "advanced",
+    "outcome": "A privacy-preserving analytics platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 169,
+    "title": "Security Mesh Architecture 19",
+    "description": "Create a security mesh for distributed systems",
+    "tech_stack": "Python, Microservices, Service Mesh, Security Policies",
+    "difficulty": "advanced",
+    "outcome": "A security mesh platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 170,
+    "title": "Cyber Threat Hunting Platform 20",
+    "description": "Build an advanced threat hunting and investigation platform",
+    "tech_stack": "Python, Threat Intelligence, Behavioral Analysis, Investigation Tools",
+    "difficulty": "advanced",
+    "outcome": "A threat hunting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 171,
+    "title": "Blockchain Voting System 21",
+    "description": "Create a secure voting system using blockchain technology",
+    "tech_stack": "Solidity, Web3.js, React, Ethereum, Smart Contracts",
+    "difficulty": "advanced",
+    "outcome": "A decentralized voting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 172,
+    "title": "Zero Trust Security Architecture 22",
+    "description": "Build a zero trust security framework",
+    "tech_stack": "Python, Identity Management, Micro-segmentation, Continuous Verification",
+    "difficulty": "advanced",
+    "outcome": "A zero trust security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 173,
+    "title": "Advanced Persistent Threat Detection 23",
+    "description": "Create an APT detection and response system",
+    "tech_stack": "Python, Machine Learning, Behavioral Analysis, Threat Hunting",
+    "difficulty": "advanced",
+    "outcome": "An APT detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 174,
+    "title": "Quantum Cryptography System 24",
+    "description": "Build a quantum-resistant cryptographic system",
+    "tech_stack": "Python, Quantum Computing, Post-Quantum Cryptography, Security",
+    "difficulty": "advanced",
+    "outcome": "A quantum-resistant security system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 175,
+    "title": "Security AI Platform 25",
+    "description": "Create an AI-powered security platform",
+    "tech_stack": "Python, Machine Learning, Deep Learning, Security Analytics",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 176,
+    "title": "Honeypot Network 26",
+    "description": "Build a sophisticated honeypot network for threat research",
+    "tech_stack": "Python, Network Simulation, Threat Intelligence, Data Collection",
+    "difficulty": "advanced",
+    "outcome": "A threat research honeypot network",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 177,
+    "title": "Security Automation Platform 27",
+    "description": "Create a comprehensive security automation platform",
+    "tech_stack": "Python, Automation, Orchestration, API Integration, Workflow",
+    "difficulty": "advanced",
+    "outcome": "A security automation platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 178,
+    "title": "Privacy-Preserving Analytics 28",
+    "description": "Build a platform for privacy-preserving data analytics",
+    "tech_stack": "Python, Differential Privacy, Homomorphic Encryption, Data Analysis",
+    "difficulty": "advanced",
+    "outcome": "A privacy-preserving analytics platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 179,
+    "title": "Security Mesh Architecture 29",
+    "description": "Create a security mesh for distributed systems",
+    "tech_stack": "Python, Microservices, Service Mesh, Security Policies",
+    "difficulty": "advanced",
+    "outcome": "A security mesh platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 180,
+    "title": "Cyber Threat Hunting Platform 30",
+    "description": "Build an advanced threat hunting and investigation platform",
+    "tech_stack": "Python, Threat Intelligence, Behavioral Analysis, Investigation Tools",
+    "difficulty": "advanced",
+    "outcome": "A threat hunting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 181,
+    "title": "Blockchain Voting System 31",
+    "description": "Create a secure voting system using blockchain technology",
+    "tech_stack": "Solidity, Web3.js, React, Ethereum, Smart Contracts",
+    "difficulty": "advanced",
+    "outcome": "A decentralized voting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 182,
+    "title": "Zero Trust Security Architecture 32",
+    "description": "Build a zero trust security framework",
+    "tech_stack": "Python, Identity Management, Micro-segmentation, Continuous Verification",
+    "difficulty": "advanced",
+    "outcome": "A zero trust security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 183,
+    "title": "Advanced Persistent Threat Detection 33",
+    "description": "Create an APT detection and response system",
+    "tech_stack": "Python, Machine Learning, Behavioral Analysis, Threat Hunting",
+    "difficulty": "advanced",
+    "outcome": "An APT detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 184,
+    "title": "Quantum Cryptography System 34",
+    "description": "Build a quantum-resistant cryptographic system",
+    "tech_stack": "Python, Quantum Computing, Post-Quantum Cryptography, Security",
+    "difficulty": "advanced",
+    "outcome": "A quantum-resistant security system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 185,
+    "title": "Security AI Platform 35",
+    "description": "Create an AI-powered security platform",
+    "tech_stack": "Python, Machine Learning, Deep Learning, Security Analytics",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 186,
+    "title": "Honeypot Network 36",
+    "description": "Build a sophisticated honeypot network for threat research",
+    "tech_stack": "Python, Network Simulation, Threat Intelligence, Data Collection",
+    "difficulty": "advanced",
+    "outcome": "A threat research honeypot network",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 187,
+    "title": "Security Automation Platform 37",
+    "description": "Create a comprehensive security automation platform",
+    "tech_stack": "Python, Automation, Orchestration, API Integration, Workflow",
+    "difficulty": "advanced",
+    "outcome": "A security automation platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 188,
+    "title": "Privacy-Preserving Analytics 38",
+    "description": "Build a platform for privacy-preserving data analytics",
+    "tech_stack": "Python, Differential Privacy, Homomorphic Encryption, Data Analysis",
+    "difficulty": "advanced",
+    "outcome": "A privacy-preserving analytics platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 189,
+    "title": "Security Mesh Architecture 39",
+    "description": "Create a security mesh for distributed systems",
+    "tech_stack": "Python, Microservices, Service Mesh, Security Policies",
+    "difficulty": "advanced",
+    "outcome": "A security mesh platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 190,
+    "title": "Cyber Threat Hunting Platform 40",
+    "description": "Build an advanced threat hunting and investigation platform",
+    "tech_stack": "Python, Threat Intelligence, Behavioral Analysis, Investigation Tools",
+    "difficulty": "advanced",
+    "outcome": "A threat hunting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 191,
+    "title": "Blockchain Voting System 41",
+    "description": "Create a secure voting system using blockchain technology",
+    "tech_stack": "Solidity, Web3.js, React, Ethereum, Smart Contracts",
+    "difficulty": "advanced",
+    "outcome": "A decentralized voting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 192,
+    "title": "Zero Trust Security Architecture 42",
+    "description": "Build a zero trust security framework",
+    "tech_stack": "Python, Identity Management, Micro-segmentation, Continuous Verification",
+    "difficulty": "advanced",
+    "outcome": "A zero trust security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 193,
+    "title": "Advanced Persistent Threat Detection 43",
+    "description": "Create an APT detection and response system",
+    "tech_stack": "Python, Machine Learning, Behavioral Analysis, Threat Hunting",
+    "difficulty": "advanced",
+    "outcome": "An APT detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 194,
+    "title": "Quantum Cryptography System 44",
+    "description": "Build a quantum-resistant cryptographic system",
+    "tech_stack": "Python, Quantum Computing, Post-Quantum Cryptography, Security",
+    "difficulty": "advanced",
+    "outcome": "A quantum-resistant security system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 195,
+    "title": "Security AI Platform 45",
+    "description": "Create an AI-powered security platform",
+    "tech_stack": "Python, Machine Learning, Deep Learning, Security Analytics",
+    "difficulty": "advanced",
+    "outcome": "An AI-powered security platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 196,
+    "title": "Honeypot Network 46",
+    "description": "Build a sophisticated honeypot network for threat research",
+    "tech_stack": "Python, Network Simulation, Threat Intelligence, Data Collection",
+    "difficulty": "advanced",
+    "outcome": "A threat research honeypot network",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 197,
+    "title": "Security Automation Platform 47",
+    "description": "Create a comprehensive security automation platform",
+    "tech_stack": "Python, Automation, Orchestration, API Integration, Workflow",
+    "difficulty": "advanced",
+    "outcome": "A security automation platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 198,
+    "title": "Privacy-Preserving Analytics 48",
+    "description": "Build a platform for privacy-preserving data analytics",
+    "tech_stack": "Python, Differential Privacy, Homomorphic Encryption, Data Analysis",
+    "difficulty": "advanced",
+    "outcome": "A privacy-preserving analytics platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 199,
+    "title": "Security Mesh Architecture 49",
+    "description": "Create a security mesh for distributed systems",
+    "tech_stack": "Python, Microservices, Service Mesh, Security Policies",
+    "difficulty": "advanced",
+    "outcome": "A security mesh platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 200,
+    "title": "Cyber Threat Hunting Platform 50",
+    "description": "Build an advanced threat hunting and investigation platform",
+    "tech_stack": "Python, Threat Intelligence, Behavioral Analysis, Investigation Tools",
+    "difficulty": "advanced",
+    "outcome": "A threat hunting platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 201,
+    "title": "AI Art Generator 1",
+    "description": "Create an AI-powered art generation system",
+    "tech_stack": "Python, GANs, TensorFlow, Computer Vision, Creative AI",
+    "difficulty": "advanced",
+    "outcome": "An AI art generation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 202,
+    "title": "Procedural Content Generator 2",
+    "description": "Build a system for procedural content generation",
+    "tech_stack": "C++, Algorithms, Procedural Generation, Game Development",
+    "difficulty": "advanced",
+    "outcome": "A procedural content platform",
+    "domain": "creative"
+  },
+  {
+    "id": 203,
+    "title": "Real-time Rendering Engine 3",
+    "description": "Create a real-time 3D rendering engine",
+    "tech_stack": "C++, Vulkan, OpenGL, Ray Tracing, Graphics Programming",
+    "difficulty": "advanced",
+    "outcome": "A real-time rendering engine",
+    "domain": "creative"
+  },
+  {
+    "id": 204,
+    "title": "Virtual Production Studio 4",
+    "description": "Build a virtual production and filmmaking platform",
+    "tech_stack": "C++, Unreal Engine, Real-time Rendering, Virtual Cinematography",
+    "difficulty": "advanced",
+    "outcome": "A virtual production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 205,
+    "title": "Haptic Feedback System 5",
+    "description": "Create a haptic feedback system for immersive experiences",
+    "tech_stack": "C++, Hardware Integration, Real-time Systems, Sensory Design",
+    "difficulty": "advanced",
+    "outcome": "A haptic feedback platform",
+    "domain": "creative"
+  },
+  {
+    "id": 206,
+    "title": "Neural Style Transfer 6",
+    "description": "Build a neural style transfer system for artistic effects",
+    "tech_stack": "Python, Deep Learning, Computer Vision, Style Transfer",
+    "difficulty": "advanced",
+    "outcome": "A neural style transfer platform",
+    "domain": "creative"
+  },
+  {
+    "id": 207,
+    "title": "Interactive Storytelling Platform 7",
+    "description": "Create a platform for interactive and branching narratives",
+    "tech_stack": "JavaScript, Narrative Design, User Experience, Storytelling",
+    "difficulty": "advanced",
+    "outcome": "An interactive storytelling platform",
+    "domain": "creative"
+  },
+  {
+    "id": 208,
+    "title": "Digital Twin Creator 8",
+    "description": "Build a system for creating digital twins of physical objects",
+    "tech_stack": "Python, 3D Scanning, Computer Vision, Digital Twin Technology",
+    "difficulty": "advanced",
+    "outcome": "A digital twin creation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 209,
+    "title": "Immersive Sound Design 9",
+    "description": "Create a spatial audio and sound design platform",
+    "tech_stack": "Python, Audio Processing, Spatial Audio, 3D Sound",
+    "difficulty": "advanced",
+    "outcome": "A spatial audio platform",
+    "domain": "creative"
+  },
+  {
+    "id": 210,
+    "title": "Creative AI Assistant 10",
+    "description": "Build an AI assistant for creative professionals",
+    "tech_stack": "Python, NLP, Computer Vision, Creative AI, Workflow Automation",
+    "difficulty": "advanced",
+    "outcome": "A creative AI assistant platform",
+    "domain": "creative"
+  },
+  {
+    "id": 211,
+    "title": "AI Art Generator 11",
+    "description": "Create an AI-powered art generation system",
+    "tech_stack": "Python, GANs, TensorFlow, Computer Vision, Creative AI",
+    "difficulty": "advanced",
+    "outcome": "An AI art generation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 212,
+    "title": "Procedural Content Generator 12",
+    "description": "Build a system for procedural content generation",
+    "tech_stack": "C++, Algorithms, Procedural Generation, Game Development",
+    "difficulty": "advanced",
+    "outcome": "A procedural content platform",
+    "domain": "creative"
+  },
+  {
+    "id": 213,
+    "title": "Real-time Rendering Engine 13",
+    "description": "Create a real-time 3D rendering engine",
+    "tech_stack": "C++, Vulkan, OpenGL, Ray Tracing, Graphics Programming",
+    "difficulty": "advanced",
+    "outcome": "A real-time rendering engine",
+    "domain": "creative"
+  },
+  {
+    "id": 214,
+    "title": "Virtual Production Studio 14",
+    "description": "Build a virtual production and filmmaking platform",
+    "tech_stack": "C++, Unreal Engine, Real-time Rendering, Virtual Cinematography",
+    "difficulty": "advanced",
+    "outcome": "A virtual production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 215,
+    "title": "Haptic Feedback System 15",
+    "description": "Create a haptic feedback system for immersive experiences",
+    "tech_stack": "C++, Hardware Integration, Real-time Systems, Sensory Design",
+    "difficulty": "advanced",
+    "outcome": "A haptic feedback platform",
+    "domain": "creative"
+  },
+  {
+    "id": 216,
+    "title": "Neural Style Transfer 16",
+    "description": "Build a neural style transfer system for artistic effects",
+    "tech_stack": "Python, Deep Learning, Computer Vision, Style Transfer",
+    "difficulty": "advanced",
+    "outcome": "A neural style transfer platform",
+    "domain": "creative"
+  },
+  {
+    "id": 217,
+    "title": "Interactive Storytelling Platform 17",
+    "description": "Create a platform for interactive and branching narratives",
+    "tech_stack": "JavaScript, Narrative Design, User Experience, Storytelling",
+    "difficulty": "advanced",
+    "outcome": "An interactive storytelling platform",
+    "domain": "creative"
+  },
+  {
+    "id": 218,
+    "title": "Digital Twin Creator 18",
+    "description": "Build a system for creating digital twins of physical objects",
+    "tech_stack": "Python, 3D Scanning, Computer Vision, Digital Twin Technology",
+    "difficulty": "advanced",
+    "outcome": "A digital twin creation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 219,
+    "title": "Immersive Sound Design 19",
+    "description": "Create a spatial audio and sound design platform",
+    "tech_stack": "Python, Audio Processing, Spatial Audio, 3D Sound",
+    "difficulty": "advanced",
+    "outcome": "A spatial audio platform",
+    "domain": "creative"
+  },
+  {
+    "id": 220,
+    "title": "Creative AI Assistant 20",
+    "description": "Build an AI assistant for creative professionals",
+    "tech_stack": "Python, NLP, Computer Vision, Creative AI, Workflow Automation",
+    "difficulty": "advanced",
+    "outcome": "A creative AI assistant platform",
+    "domain": "creative"
+  },
+  {
+    "id": 221,
+    "title": "AI Art Generator 21",
+    "description": "Create an AI-powered art generation system",
+    "tech_stack": "Python, GANs, TensorFlow, Computer Vision, Creative AI",
+    "difficulty": "advanced",
+    "outcome": "An AI art generation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 222,
+    "title": "Procedural Content Generator 22",
+    "description": "Build a system for procedural content generation",
+    "tech_stack": "C++, Algorithms, Procedural Generation, Game Development",
+    "difficulty": "advanced",
+    "outcome": "A procedural content platform",
+    "domain": "creative"
+  },
+  {
+    "id": 223,
+    "title": "Real-time Rendering Engine 23",
+    "description": "Create a real-time 3D rendering engine",
+    "tech_stack": "C++, Vulkan, OpenGL, Ray Tracing, Graphics Programming",
+    "difficulty": "advanced",
+    "outcome": "A real-time rendering engine",
+    "domain": "creative"
+  },
+  {
+    "id": 224,
+    "title": "Virtual Production Studio 24",
+    "description": "Build a virtual production and filmmaking platform",
+    "tech_stack": "C++, Unreal Engine, Real-time Rendering, Virtual Cinematography",
+    "difficulty": "advanced",
+    "outcome": "A virtual production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 225,
+    "title": "Haptic Feedback System 25",
+    "description": "Create a haptic feedback system for immersive experiences",
+    "tech_stack": "C++, Hardware Integration, Real-time Systems, Sensory Design",
+    "difficulty": "advanced",
+    "outcome": "A haptic feedback platform",
+    "domain": "creative"
+  },
+  {
+    "id": 226,
+    "title": "Neural Style Transfer 26",
+    "description": "Build a neural style transfer system for artistic effects",
+    "tech_stack": "Python, Deep Learning, Computer Vision, Style Transfer",
+    "difficulty": "advanced",
+    "outcome": "A neural style transfer platform",
+    "domain": "creative"
+  },
+  {
+    "id": 227,
+    "title": "Interactive Storytelling Platform 27",
+    "description": "Create a platform for interactive and branching narratives",
+    "tech_stack": "JavaScript, Narrative Design, User Experience, Storytelling",
+    "difficulty": "advanced",
+    "outcome": "An interactive storytelling platform",
+    "domain": "creative"
+  },
+  {
+    "id": 228,
+    "title": "Digital Twin Creator 28",
+    "description": "Build a system for creating digital twins of physical objects",
+    "tech_stack": "Python, 3D Scanning, Computer Vision, Digital Twin Technology",
+    "difficulty": "advanced",
+    "outcome": "A digital twin creation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 229,
+    "title": "Immersive Sound Design 29",
+    "description": "Create a spatial audio and sound design platform",
+    "tech_stack": "Python, Audio Processing, Spatial Audio, 3D Sound",
+    "difficulty": "advanced",
+    "outcome": "A spatial audio platform",
+    "domain": "creative"
+  },
+  {
+    "id": 230,
+    "title": "Creative AI Assistant 30",
+    "description": "Build an AI assistant for creative professionals",
+    "tech_stack": "Python, NLP, Computer Vision, Creative AI, Workflow Automation",
+    "difficulty": "advanced",
+    "outcome": "A creative AI assistant platform",
+    "domain": "creative"
+  },
+  {
+    "id": 231,
+    "title": "AI Art Generator 31",
+    "description": "Create an AI-powered art generation system",
+    "tech_stack": "Python, GANs, TensorFlow, Computer Vision, Creative AI",
+    "difficulty": "advanced",
+    "outcome": "An AI art generation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 232,
+    "title": "Procedural Content Generator 32",
+    "description": "Build a system for procedural content generation",
+    "tech_stack": "C++, Algorithms, Procedural Generation, Game Development",
+    "difficulty": "advanced",
+    "outcome": "A procedural content platform",
+    "domain": "creative"
+  },
+  {
+    "id": 233,
+    "title": "Real-time Rendering Engine 33",
+    "description": "Create a real-time 3D rendering engine",
+    "tech_stack": "C++, Vulkan, OpenGL, Ray Tracing, Graphics Programming",
+    "difficulty": "advanced",
+    "outcome": "A real-time rendering engine",
+    "domain": "creative"
+  },
+  {
+    "id": 234,
+    "title": "Virtual Production Studio 34",
+    "description": "Build a virtual production and filmmaking platform",
+    "tech_stack": "C++, Unreal Engine, Real-time Rendering, Virtual Cinematography",
+    "difficulty": "advanced",
+    "outcome": "A virtual production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 235,
+    "title": "Haptic Feedback System 35",
+    "description": "Create a haptic feedback system for immersive experiences",
+    "tech_stack": "C++, Hardware Integration, Real-time Systems, Sensory Design",
+    "difficulty": "advanced",
+    "outcome": "A haptic feedback platform",
+    "domain": "creative"
+  },
+  {
+    "id": 236,
+    "title": "Neural Style Transfer 36",
+    "description": "Build a neural style transfer system for artistic effects",
+    "tech_stack": "Python, Deep Learning, Computer Vision, Style Transfer",
+    "difficulty": "advanced",
+    "outcome": "A neural style transfer platform",
+    "domain": "creative"
+  },
+  {
+    "id": 237,
+    "title": "Interactive Storytelling Platform 37",
+    "description": "Create a platform for interactive and branching narratives",
+    "tech_stack": "JavaScript, Narrative Design, User Experience, Storytelling",
+    "difficulty": "advanced",
+    "outcome": "An interactive storytelling platform",
+    "domain": "creative"
+  },
+  {
+    "id": 238,
+    "title": "Digital Twin Creator 38",
+    "description": "Build a system for creating digital twins of physical objects",
+    "tech_stack": "Python, 3D Scanning, Computer Vision, Digital Twin Technology",
+    "difficulty": "advanced",
+    "outcome": "A digital twin creation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 239,
+    "title": "Immersive Sound Design 39",
+    "description": "Create a spatial audio and sound design platform",
+    "tech_stack": "Python, Audio Processing, Spatial Audio, 3D Sound",
+    "difficulty": "advanced",
+    "outcome": "A spatial audio platform",
+    "domain": "creative"
+  },
+  {
+    "id": 240,
+    "title": "Creative AI Assistant 40",
+    "description": "Build an AI assistant for creative professionals",
+    "tech_stack": "Python, NLP, Computer Vision, Creative AI, Workflow Automation",
+    "difficulty": "advanced",
+    "outcome": "A creative AI assistant platform",
+    "domain": "creative"
+  },
+  {
+    "id": 241,
+    "title": "AI Art Generator 41",
+    "description": "Create an AI-powered art generation system",
+    "tech_stack": "Python, GANs, TensorFlow, Computer Vision, Creative AI",
+    "difficulty": "advanced",
+    "outcome": "An AI art generation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 242,
+    "title": "Procedural Content Generator 42",
+    "description": "Build a system for procedural content generation",
+    "tech_stack": "C++, Algorithms, Procedural Generation, Game Development",
+    "difficulty": "advanced",
+    "outcome": "A procedural content platform",
+    "domain": "creative"
+  },
+  {
+    "id": 243,
+    "title": "Real-time Rendering Engine 43",
+    "description": "Create a real-time 3D rendering engine",
+    "tech_stack": "C++, Vulkan, OpenGL, Ray Tracing, Graphics Programming",
+    "difficulty": "advanced",
+    "outcome": "A real-time rendering engine",
+    "domain": "creative"
+  },
+  {
+    "id": 244,
+    "title": "Virtual Production Studio 44",
+    "description": "Build a virtual production and filmmaking platform",
+    "tech_stack": "C++, Unreal Engine, Real-time Rendering, Virtual Cinematography",
+    "difficulty": "advanced",
+    "outcome": "A virtual production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 245,
+    "title": "Haptic Feedback System 45",
+    "description": "Create a haptic feedback system for immersive experiences",
+    "tech_stack": "C++, Hardware Integration, Real-time Systems, Sensory Design",
+    "difficulty": "advanced",
+    "outcome": "A haptic feedback platform",
+    "domain": "creative"
+  },
+  {
+    "id": 246,
+    "title": "Neural Style Transfer 46",
+    "description": "Build a neural style transfer system for artistic effects",
+    "tech_stack": "Python, Deep Learning, Computer Vision, Style Transfer",
+    "difficulty": "advanced",
+    "outcome": "A neural style transfer platform",
+    "domain": "creative"
+  },
+  {
+    "id": 247,
+    "title": "Interactive Storytelling Platform 47",
+    "description": "Create a platform for interactive and branching narratives",
+    "tech_stack": "JavaScript, Narrative Design, User Experience, Storytelling",
+    "difficulty": "advanced",
+    "outcome": "An interactive storytelling platform",
+    "domain": "creative"
+  },
+  {
+    "id": 248,
+    "title": "Digital Twin Creator 48",
+    "description": "Build a system for creating digital twins of physical objects",
+    "tech_stack": "Python, 3D Scanning, Computer Vision, Digital Twin Technology",
+    "difficulty": "advanced",
+    "outcome": "A digital twin creation platform",
+    "domain": "creative"
+  },
+  {
+    "id": 249,
+    "title": "Immersive Sound Design 49",
+    "description": "Create a spatial audio and sound design platform",
+    "tech_stack": "Python, Audio Processing, Spatial Audio, 3D Sound",
+    "difficulty": "advanced",
+    "outcome": "A spatial audio platform",
+    "domain": "creative"
+  },
+  {
+    "id": 250,
+    "title": "Creative AI Assistant 50",
+    "description": "Build an AI assistant for creative professionals",
+    "tech_stack": "Python, NLP, Computer Vision, Creative AI, Workflow Automation",
+    "difficulty": "advanced",
+    "outcome": "A creative AI assistant platform",
+    "domain": "creative"
+  }
+]

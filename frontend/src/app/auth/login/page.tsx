@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { auth } from '@/utils/auth'
 
 export default function LoginPage() {
   const [isDark, setIsDark] = useState(false)
@@ -14,7 +15,7 @@ export default function LoginPage() {
   const [serverError, setServerError] = useState<string>('')
   const [serverSuccess, setServerSuccess] = useState<string>('')
 
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
@@ -65,39 +66,11 @@ export default function LoginPage() {
     setIsSubmitting(true)
     
     try {
-      // Send as application/x-www-form-urlencoded for OAuth2PasswordRequestForm
-      const urlEncoded = new URLSearchParams()
-      urlEncoded.append('username', formData.email)
-      urlEncoded.append('password', formData.password)
-
-      const response = await fetch(`${API_BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: urlEncoded.toString()
-      })
-
-      if (!response.ok) {
-        const text = await response.text().catch(() => '')
-        let message = 'Login failed'
-        try {
-          const data = JSON.parse(text)
-          message = data?.detail || message
-        } catch (_) {
-          if (text) message = text
-        }
-        throw new Error(message)
-      }
-
-      const data = await response.json()
+      const data = await auth.login(formData.email, formData.password)
       setServerSuccess('Login successful! Redirecting...')
       
-      // Store the token (in a real app, you'd use a secure method)
-      localStorage.setItem('access_token', data.access_token)
-      if (data?.user?.full_name) {
-        localStorage.setItem('user_full_name', data.user.full_name)
-      }
+      // Store auth data using the utility
+      auth.setAuth(data.access_token, data.user)
       
       // After login, route user based on onboarding status
       // Redirect to profile by default; onboarding pages are accessible from nav
@@ -231,7 +204,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => {
-                  window.location.href = `${API_BASE_URL}/auth/oauth/google/login`
+                  window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'}/auth/oauth/google/login`
                 }}
                 className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                 isDark 
@@ -247,7 +220,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => {
-                  window.location.href = `${API_BASE_URL}/auth/oauth/github/login`
+                  window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'}/auth/oauth/github/login`
                 }}
                 className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                 isDark 

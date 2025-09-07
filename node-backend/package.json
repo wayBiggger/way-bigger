@@ -1,0 +1,28 @@
+{
+  "name": "waybigger-node-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.17.0",
+    "@google/generative-ai": "^0.16.0",
+    "@pinecone-database/pinecone": "^2.2.0",
+    "axios": "^1.7.2",
+    "dayjs": "^1.11.12",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "openai": "^4.53.2",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "nodemon": "^3.1.4"
+  }
+}

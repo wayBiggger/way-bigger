@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from datetime import timedelta
-from typing import Optional
+from datetime import timedelta, datetime
+from typing import Optional, Dict
 import httpx
+import time
 from app.core.config import settings
 from app.core.database import get_db
 from app.core.security import create_access_token, get_password_hash, verify_password, get_current_user
@@ -11,64 +12,159 @@ from app.models.user import User
 from app.schemas.auth import UserCreate, UserLogin, Token, UserProfile
 from fastapi.responses import RedirectResponse
 
+# Simple in-memory rate limiting (use Redis in production)
+login_attempts: Dict[str, list] = {}
+MAX_LOGIN_ATTEMPTS = 5
+LOCKOUT_DURATION = 300  # 5 minutes
+
 router = APIRouter()
 
 
 @router.post("/signup", response_model=dict)
 async def signup(user_data: UserCreate, db: Session = Depends(get_db)):
     """User registration endpoint"""
-    # Check if user already exists
-    if db.query(User).filter(User.email == user_data.email).first():
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Email already registered"
+    try:
+        # Check if user already exists
+        existing_user = db.query(User).filter(User.email == user_data.email).first()
+        if existing_user:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Email already registered"
+            )
+        
+        existing_username = db.query(User).filter(User.username == user_data.username).first()
+        if existing_username:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Username already taken"
+            )
+        
+        # Create new user
+        hashed_password = get_password_hash(user_data.password)
+        db_user = User(
+            email=user_data.email,
+            username=user_data.username,
+            full_name=user_data.full_name,
+            hashed_password=hashed_password
         )
+        
+        db.add(db_user)
+        db.commit()
+        db.refresh(db_user)
+        
+        return {"message": "User created successfully", "user_id": db_user.id}
     
-    if db.query(User).filter(User.username == user_data.username).first():
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Username already taken"
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to create user account"
         )
-    
-    # Create new user
-    hashed_password = get_password_hash(user_data.password)
-    db_user = User(
-        email=user_data.email,
-        username=user_data.username,
-        full_name=user_data.full_name,
-        hashed_password=hashed_password
-    )
-    
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    
-    return {"message": "User created successfully", "user_id": db_user.id}
 
 
-@router.post("/login", response_model=Token)
+def check_rate_limit(email: str) -> bool:
+    """Check if user is rate limited"""
+    current_time = time.time()
+    
+    # Clean old attempts
+    if email in login_attempts:
+        login_attempts[email] = [
+            attempt_time for attempt_time in login_attempts[email]
+            if current_time - attempt_time < LOCKOUT_DURATION
+        ]
+    else:
+        login_attempts[email] = []
+    
+    # Check if user is locked out
+    if len(login_attempts[email]) >= MAX_LOGIN_ATTEMPTS:
+        return False
+    
+    return True
+
+def record_failed_attempt(email: str):
+    """Record a failed login attempt"""
+    current_time = time.time()
+    if email not in login_attempts:
+        login_attempts[email] = []
+    login_attempts[email].append(current_time)
+
+def clear_failed_attempts(email: str):
+    """Clear failed attempts on successful login"""
+    if email in login_attempts:
+        del login_attempts[email]
+
+@router.post("/login", response_model=dict)
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     """User login endpoint"""
-    user = db.query(User).filter(User.email == form_data.username).first()
-    if not user or not verify_password(form_data.password, user.hashed_password):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect email or password",
-            headers={"WWW-Authenticate": "Bearer"},
+    try:
+        # Check rate limiting
+        if not check_rate_limit(form_data.username):
+            raise HTTPException(
+                status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                detail="Too many failed login attempts. Please try again later.",
+                headers={"Retry-After": str(LOCKOUT_DURATION)},
+            )
+        
+        user = db.query(User).filter(User.email == form_data.username).first()
+        if not user or not verify_password(form_data.password, user.hashed_password):
+            # Record failed attempt
+            record_failed_attempt(form_data.username)
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Incorrect email or password",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+        
+        # Clear failed attempts on successful login
+        clear_failed_attempts(form_data.username)
+        
+        access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+        access_token = create_access_token(
+            data={"sub": user.email}, expires_delta=access_token_expires
         )
+        
+        return {
+            "access_token": access_token, 
+            "token_type": "bearer",
+            "user": {
+                "id": user.id,
+                "email": user.email,
+                "username": user.username,
+                "full_name": user.full_name
+            }
+        }
     
-    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
-    access_token = create_access_token(
-        data={"sub": user.email}, expires_delta=access_token_expires
-    )
-    
-    return {"access_token": access_token, "token_type": "bearer"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Login failed due to server error"
+        )
 
 
 @router.get("/me", response_model=UserProfile)
 async def get_current_user_info(current_user: User = Depends(get_current_user)):
     """Get current user information"""
     return current_user
+
+@router.get("/profile", response_model=dict)
+async def get_user_profile(current_user: User = Depends(get_current_user)):
+    """Get user profile with selected field"""
+    return {
+        "id": current_user.id,
+        "email": current_user.email,
+        "username": current_user.username,
+        "full_name": current_user.full_name,
+        "selected_field": getattr(current_user, 'selected_field', None)
+    }
+
+@router.post("/logout")
+async def logout():
+    """Logout endpoint - client should clear local storage"""
+    return {"message": "Logged out successfully"}
 
 
 # -------------------- OAuth2 (Google & GitHub) --------------------
@@ -84,15 +180,26 @@ async def oauth_login(provider: str, request: Request):
     if provider == "google":
         if not settings.google_client_id or not settings.google_client_secret:
             raise HTTPException(status_code=400, detail="Google OAuth not configured")
-        params = {
-            "client_id": settings.google_client_id,
-            "redirect_uri": str(callback_url),
-            "response_type": "code",
-            "scope": "openid email profile",
-            "access_type": "offline",
-            "prompt": "consent",
-        }
-        url = "https://accounts.google.com/o/oauth2/v2/auth"
+        
+        # Build Google OAuth URL manually to ensure no extra parameters
+        base_url = "https://accounts.google.com/o/oauth2/v2/auth"
+        params = [
+            ("client_id", settings.google_client_id),
+            ("redirect_uri", str(callback_url)),
+            ("response_type", "code"),
+            ("scope", "email profile"),
+            ("access_type", "offline")
+        ]
+        
+        # Manual URL construction
+        query_string = "&".join([f"{k}={v}" for k, v in params])
+        redirect_url = f"{base_url}?{query_string}"
+        
+        print(f"DEBUG: Google OAuth URL: {redirect_url}")
+        print(f"DEBUG: Callback URL: {callback_url}")
+        
+        return RedirectResponse(url=redirect_url)
+        
     else:  # github
         if not settings.github_client_id or not settings.github_client_secret:
             raise HTTPException(status_code=400, detail="GitHub OAuth not configured")
@@ -102,16 +209,22 @@ async def oauth_login(provider: str, request: Request):
             "scope": "read:user user:email",
         }
         url = "https://github.com/login/oauth/authorize"
-
-    # Build a safe, properly encoded redirect URL
-    try:
+        
+        # Build a safe, properly encoded redirect URL
         from urllib.parse import urlencode
         query = urlencode(params)
         redirect_url = f"{url}?{query}"
-    except Exception:
-        # Fallback using httpx utilities
-        redirect_url = str(httpx.URL(url).include_query_params(**params))
-    return RedirectResponse(url=redirect_url)
+        
+        return RedirectResponse(url=redirect_url)
+
+@router.get("/oauth/test")
+async def oauth_test():
+    """Test OAuth endpoint to debug the issue"""
+    return {
+        "message": "OAuth test endpoint",
+        "google_client_id": settings.google_client_id,
+        "frontend_url": settings.frontend_url
+    }
 
 
 @router.get("/oauth/{provider}/callback", name="oauth_callback")
@@ -209,5 +322,14 @@ async def oauth_callback(provider: str, request: Request, code: Optional[str] = 
     access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
     jwt_token = create_access_token(data={"sub": db_user.email}, expires_delta=access_token_expires)
 
-    redirect_to = f"{settings.frontend_url}/auth/callback?token={jwt_token}"
+    # For development, redirect to frontend with token and user data
+    import urllib.parse
+    user_data = {
+        "id": db_user.id,
+        "email": db_user.email,
+        "username": db_user.username,
+        "full_name": db_user.full_name
+    }
+    user_data_encoded = urllib.parse.quote(urllib.parse.urlencode(user_data))
+    redirect_to = f"{settings.frontend_url}/auth/callback?token={jwt_token}&user={user_data_encoded}"
     return RedirectResponse(url=redirect_to)

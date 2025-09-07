@@ -62,5 +62,5 @@ class NewsletterComment(Base):
     
     # Relationships
     newsletter = relationship("Newsletter", backref="comments")
-    user = relationship("User", back_populates="newsletter_comments")
+    user = relationship("User", back_populates="newsletter_comments") 
     parent = relationship("NewsletterComment", remote_side=[id], backref="replies")

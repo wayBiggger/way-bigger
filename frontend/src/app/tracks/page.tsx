@@ -3,275 +3,280 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-// Mock tracks data
-const mockTracks = [
-  {
-    id: 1,
-    name: "Web Development Fundamentals",
-    domain: "web-dev",
-    description: "Start your journey into web development with HTML, CSS, and JavaScript. Build responsive websites and learn modern frameworks.",
-    levels: ["beginner", "intermediate"],
-    projectCount: 8,
-    estimatedWeeks: 12,
-    skills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
-    color: "blue"
-  },
-  {
-    id: 2,
-    name: "AI & Machine Learning",
-    domain: "ai",
-    description: "Dive into artificial intelligence and machine learning. Learn Python, data science, and build intelligent applications.",
-    levels: ["intermediate", "advanced"],
-    projectCount: 6,
-    estimatedWeeks: 16,
-    skills: ["Python", "TensorFlow", "Pandas", "Scikit-learn", "Deep Learning"],
-    color: "purple"
-  },
-  {
-    id: 3,
-    name: "Mobile App Development",
-    domain: "mobile",
-    description: "Create mobile applications for iOS and Android. Learn React Native, Flutter, or native development.",
-    levels: ["intermediate", "advanced"],
-    projectCount: 5,
-    estimatedWeeks: 14,
-    skills: ["React Native", "Flutter", "Mobile UI/UX", "App Store", "APIs"],
-    color: "green"
-  },
-  {
-    id: 4,
-    name: "Data Science & Analytics",
-    domain: "data",
-    description: "Master data analysis, visualization, and statistical modeling. Work with real datasets and build data-driven solutions.",
-    levels: ["beginner", "intermediate", "advanced"],
-    projectCount: 7,
-    estimatedWeeks: 18,
-    skills: ["Python", "SQL", "Statistics", "Data Visualization", "Machine Learning"],
-    color: "orange"
-  },
-  {
-    id: 5,
-    name: "Cybersecurity",
-    domain: "cybersecurity",
-    description: "Learn to protect systems, networks, and programs from digital attacks. Understand ethical hacking and security best practices.",
-    levels: ["intermediate", "advanced"],
-    projectCount: 6,
-    estimatedWeeks: 20,
-    skills: ["Network Security", "Penetration Testing", "Cryptography", "Forensics", "Security Tools"],
-    color: "red"
-  },
-  {
-    id: 6,
-    name: "Game Development",
-    domain: "game-dev",
-    description: "Create engaging games using Unity, Unreal Engine, or web technologies. Learn game design principles and programming.",
-    levels: ["beginner", "intermediate", "advanced"],
-    projectCount: 9,
-    estimatedWeeks: 24,
-    skills: ["Unity", "C#", "Game Design", "3D Modeling", "Physics"],
-    color: "indigo"
-  }
-]
-
-const colorClasses = {
-  blue: "bg-blue-100 text-blue-800 border-blue-200",
-  purple: "bg-purple-100 text-purple-800 border-purple-200",
-  green: "bg-green-100 text-green-800 border-green-200",
-  orange: "bg-orange-100 text-orange-800 border-orange-200",
-  red: "bg-red-100 text-red-800 border-red-200",
-  indigo: "bg-indigo-100 text-indigo-800 border-indigo-200"
+type Track = {
+  id: number
+  name: string
+  domain: string
+  description: string
+  levels: string[]
+  projectCount: number
+  estimatedDuration: string
+  difficulty: 'beginner' | 'intermediate' | 'advanced'
 }
 
-const darkColorClasses = {
-  blue: "bg-blue-900 text-blue-200 border-blue-700",
-  purple: "bg-purple-900 text-purple-200 border-purple-700",
-  green: "bg-green-900 text-green-200 border-green-700",
-  orange: "bg-orange-900 text-orange-200 border-orange-700",
-  red: "bg-red-900 text-red-200 border-red-700",
-  indigo: "bg-indigo-900 text-indigo-200 border-indigo-700"
+const difficultyColors = {
+  beginner: "bg-green-100 text-green-800",
+  intermediate: "bg-yellow-100 text-yellow-800",
+  advanced: "bg-red-100 text-red-800"
+}
+
+const darkDifficultyColors = {
+  beginner: "bg-green-900 text-green-200",
+  intermediate: "bg-yellow-900 text-yellow-200",
+  advanced: "bg-red-900 text-red-200"
+}
+
+const difficultyIcons = {
+  beginner: "🌱",
+  intermediate: "🚀",
+  advanced: "🔥"
 }
 
 export default function TracksPage() {
   const [isDark, setIsDark] = useState(false)
+  const [tracks, setTracks] = useState<Track[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string>('')
+  const [selectedDomain, setSelectedDomain] = useState<string>('all')
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDark(true)
-    }
-
-    // Listen for theme changes
-    const handleStorageChange = () => {
-      const currentTheme = localStorage.getItem('theme')
-      setIsDark(currentTheme === 'dark')
-    }
-
-    window.addEventListener('storage', handleStorageChange)
-    return () => window.removeEventListener('storage', handleStorageChange)
+    setIsDark(savedTheme === 'dark')
   }, [])
+
+  useEffect(() => {
+    const fetchTracks = async () => {
+      try {
+        setLoading(true)
+        setError('')
+        
+        // Mock tracks data - in a real app, this would come from an API
+        const mockTracks = [
+          {
+            id: 1,
+            name: "Full-Stack Web Development",
+            domain: "web-development",
+            description: "Master modern web development with React, Node.js, and databases. Build complete web applications from frontend to backend.",
+            levels: ["Beginner", "Intermediate", "Advanced"],
+            projectCount: 25,
+            estimatedDuration: "6-8 months",
+            difficulty: "beginner" as const
+          },
+          {
+            id: 2,
+            name: "AI & Machine Learning",
+            domain: "ai-ml",
+            description: "Dive into artificial intelligence, machine learning, and data science. Learn Python, TensorFlow, and build intelligent applications.",
+            levels: ["Beginner", "Intermediate", "Advanced"],
+            projectCount: 20,
+            estimatedDuration: "8-10 months",
+            difficulty: "intermediate" as const
+          },
+          {
+            id: 3,
+            name: "Mobile App Development",
+            domain: "mobile",
+            description: "Create mobile applications for iOS and Android using React Native, Flutter, and native development.",
+            levels: ["Beginner", "Intermediate", "Advanced"],
+            projectCount: 18,
+            estimatedDuration: "5-7 months",
+            difficulty: "intermediate" as const
+          },
+          {
+            id: 4,
+            name: "Cybersecurity & Ethical Hacking",
+            domain: "cybersecurity",
+            description: "Learn cybersecurity fundamentals, penetration testing, and ethical hacking techniques to protect systems.",
+            levels: ["Beginner", "Intermediate", "Advanced"],
+            projectCount: 15,
+            estimatedDuration: "6-9 months",
+            difficulty: "advanced" as const
+          },
+          {
+            id: 5,
+            name: "Game Development & Creative Coding",
+            domain: "creative",
+            description: "Create games, interactive art, and creative applications using Unity, Unreal Engine, and creative coding tools.",
+            levels: ["Beginner", "Intermediate", "Advanced"],
+            projectCount: 22,
+            estimatedDuration: "7-9 months",
+            difficulty: "intermediate" as const
+          },
+          {
+            id: 6,
+            name: "DevOps & Cloud Engineering",
+            domain: "web-development",
+            description: "Master cloud platforms, containerization, CI/CD, and infrastructure as code for scalable applications.",
+            levels: ["Intermediate", "Advanced"],
+            projectCount: 12,
+            estimatedDuration: "4-6 months",
+            difficulty: "advanced" as const
+          }
+        ]
+
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        setTracks(mockTracks)
+      } catch (e: any) {
+        setError(e?.message || 'Something went wrong')
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchTracks()
+  }, [])
+
+  const filteredTracks = tracks.filter(track => {
+    const domainMatch = selectedDomain === 'all' || track.domain === selectedDomain
+    return domainMatch
+  })
+
+  const domains = [
+    { id: 'all', name: 'All Domains' },
+    { id: 'web-development', name: 'Web Development' },
+    { id: 'ai-ml', name: 'AI & Machine Learning' },
+    { id: 'mobile', name: 'Mobile Development' },
+    { id: 'cybersecurity', name: 'Cybersecurity' },
+    { id: 'creative', name: 'Creative Industry' }
+  ]
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-white' : 'bg-gray-50'
+      isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
     }`}>
-      {/* Header */}
-      <div className={`transition-colors duration-300 ${
-        isDark ? 'bg-gray-800' : 'bg-white'
-      } shadow-lg`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center">
-            <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}>
-              Choose Your Learning Path
-            </h1>
-            <p className={`text-xl max-w-3xl mx-auto ${
-              isDark ? 'text-gray-300' : 'text-gray-600'
-            }`}>
-              Follow structured learning tracks designed by industry experts. Each track includes 
-              carefully curated projects that build upon each other to develop real-world skills.
-            </p>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold mb-4">Learning Tracks</h1>
+          <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            Structured learning paths designed to take you from beginner to expert in your chosen field
+          </p>
         </div>
-      </div>
 
-      {/* Tracks Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {mockTracks.map((track) => (
-            <div key={track.id} className={`rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
-              isDark ? 'bg-gray-800' : 'bg-white'
-            }`}>
-              <div className={`p-6 border-l-4 ${
-                isDark 
-                  ? darkColorClasses[track.color as keyof typeof darkColorClasses]
-                  : colorClasses[track.color as keyof typeof colorClasses]
+        {/* Domain Filter */}
+        <div className={`mb-8 p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-sm`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                Domain
+              </label>
+              <select
+                value={selectedDomain}
+                onChange={(e) => setSelectedDomain(e.target.value)}
+                className={`w-full p-3 border rounded-lg ${
+                  isDark ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'
+                } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              >
+                {domains.map(domain => (
+                  <option key={domain.id} value={domain.id}>{domain.name}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                Results
+              </label>
+              <div className={`p-3 rounded-lg ${
+                isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
               }`}>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className={`text-xl font-semibold ${
-                    isDark ? 'text-white' : 'text-gray-900'
-                  }`}>
-                    {track.name}
-                  </h3>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    isDark 
-                      ? darkColorClasses[track.color as keyof typeof darkColorClasses]
-                      : colorClasses[track.color as keyof typeof colorClasses]
-                  }`}>
-                    {track.domain}
-                  </span>
-                </div>
-                
-                <p className={`mb-6 ${
-                  isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                  {track.description}
-                </p>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className={`${
-                      isDark ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
-                      Projects:
-                    </span>
-                    <span className={`font-medium ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
-                      {track.projectCount}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className={`${
-                      isDark ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
-                      Duration:
-                    </span>
-                    <span className={`font-medium ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
-                      {track.estimatedWeeks} weeks
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className={`${
-                      isDark ? 'text-gray-400' : 'text-gray-500'
-                    }`}>
-                      Level:
-                    </span>
-                    <span className={`font-medium ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
-                      {track.levels.join(' - ')}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className={`text-sm font-medium mb-2 ${
-                    isDark ? 'text-gray-300' : 'text-gray-900'
-                  }`}>
-                    Skills You'll Learn:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {track.skills.slice(0, 4).map((skill) => (
-                      <span key={skill} className={`text-xs px-2 py-1 rounded ${
-                        isDark 
-                          ? 'bg-gray-700 text-gray-300' 
-                          : 'bg-gray-100 text-gray-700'
-                      }`}>
-                        {skill}
-                      </span>
-                    ))}
-                    {track.skills.length > 4 && (
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        isDark 
-                          ? 'bg-gray-700 text-gray-300' 
-                          : 'bg-gray-100 text-gray-700'
-                      }`}>
-                        +{track.skills.length - 4} more
-                      </span>
-                    )}
-                  </div>
-                </div>
-                
-                <Link
-                  href={`/tracks/${track.id}`}
-                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center font-medium py-3 px-4 rounded-lg transition-colors duration-200"
-                >
-                  Start Track
-                </Link>
+                {filteredTracks.length} of {tracks.length} tracks
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <div className={`rounded-lg shadow-lg p-8 transition-colors duration-300 ${
-            isDark ? 'bg-gray-800' : 'bg-white'
-          }`}>
-            <h2 className={`text-2xl font-bold mb-4 ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}>
-              Not Sure Where to Start?
-            </h2>
-            <p className={`mb-6 max-w-2xl mx-auto ${
-              isDark ? 'text-gray-300' : 'text-gray-600'
-            }`}>
-              Take our skill assessment quiz to get personalized recommendations based on your 
-              current knowledge and learning goals.
-            </p>
-            <Link
-              href="/assessment"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
-            >
-              Take Skill Assessment
-            </Link>
           </div>
         </div>
+
+        {loading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <p className={`mt-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Loading tracks...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="text-center py-12">
+            <div className="text-red-600 bg-red-50 p-4 rounded-lg">
+              {error}
+            </div>
+          </div>
+        )}
+
+        {!loading && !error && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredTracks.map((track) => (
+              <div
+                key={track.id}
+                className={`rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 ${
+                  isDark ? 'bg-gray-800' : 'bg-white'
+                }`}
+              >
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-semibold mb-2">{track.name}</h3>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      isDark ? darkDifficultyColors[track.difficulty] : difficultyColors[track.difficulty]
+                    }`}>
+                      {difficultyIcons[track.difficulty]} {track.difficulty}
+                    </span>
+                  </div>
+                  
+                  <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                    {track.description}
+                  </p>
+                  
+                  <div className="mb-4">
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {track.levels.map((level, index) => (
+                        <span
+                          key={index}
+                          className={`px-2 py-1 rounded text-xs ${
+                            isDark ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-800'
+                          }`}
+                        >
+                          {level}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className={`flex items-center justify-between text-sm mb-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <span>📚 {track.projectCount} projects</span>
+                    <span>⏱️ {track.estimatedDuration}</span>
+                  </div>
+                  
+                  <div className="flex gap-2">
+                    <Link
+                      href={`/tracks/${track.id}`}
+                      className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
+                        isDark
+                          ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                          : 'bg-blue-600 hover:bg-blue-700 text-white'
+                      }`}
+                    >
+                      View Track
+                    </Link>
+                    <Link
+                      href={`/projects?domain=${track.domain}`}
+                      className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
+                        isDark
+                          ? 'bg-gray-600 hover:bg-gray-700 text-white'
+                          : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
+                      }`}
+                    >
+                      View Projects
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {!loading && !error && filteredTracks.length === 0 && (
+          <div className="text-center py-12">
+            <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+              No tracks match your current filter. Try adjusting your selection.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )

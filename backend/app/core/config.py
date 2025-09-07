@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     github_client_secret: Optional[str] = None
     google_client_id: Optional[str] = None
     google_client_secret: Optional[str] = None
-    frontend_url: str = "http://localhost:3000"
+    frontend_url: str = "http://localhost:3001"
     
     # Redis - Disable for local development without Docker
     redis_url: str = "redis://localhost:6379"

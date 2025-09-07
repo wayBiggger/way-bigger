@@ -1,0 +1,2252 @@
+[
+  {
+    "id": 1,
+    "title": "E-commerce Product Catalog 1",
+    "description": "Build a product catalog with search, filtering, and shopping cart",
+    "tech_stack": "React, Node.js, MongoDB, Express",
+    "difficulty": "intermediate",
+    "outcome": "A full-stack e-commerce application",
+    "domain": "web-development"
+  },
+  {
+    "id": 2,
+    "title": "Real-time Chat Application 2",
+    "description": "Create a chat app with real-time messaging using WebSockets",
+    "tech_stack": "Socket.io, Node.js, React, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A real-time messaging platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 3,
+    "title": "API Integration Dashboard 3",
+    "description": "Build a dashboard that integrates multiple APIs and displays data",
+    "tech_stack": "React, REST APIs, Chart.js, Axios",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive data visualization dashboard",
+    "domain": "web-development"
+  },
+  {
+    "id": 4,
+    "title": "Blog Management System 4",
+    "description": "Create a full-featured blog with admin panel and user authentication",
+    "tech_stack": "React, Node.js, PostgreSQL, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A complete blog management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 5,
+    "title": "Task Management Board 5",
+    "description": "Build a Kanban-style task management board with drag-and-drop",
+    "tech_stack": "React, Redux, HTML5 Drag API",
+    "difficulty": "intermediate",
+    "outcome": "A collaborative project management tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 6,
+    "title": "Social Media Dashboard 6",
+    "description": "Create a dashboard to manage multiple social media accounts",
+    "tech_stack": "React, Node.js, Social Media APIs",
+    "difficulty": "intermediate",
+    "outcome": "A unified social media management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 7,
+    "title": "File Upload System 7",
+    "description": "Build a secure file upload system with progress tracking",
+    "tech_stack": "React, Node.js, Multer, AWS S3",
+    "difficulty": "intermediate",
+    "outcome": "A robust file management system",
+    "domain": "web-development"
+  },
+  {
+    "id": 8,
+    "title": "User Authentication System 8",
+    "description": "Create a complete auth system with registration, login, and password reset",
+    "tech_stack": "React, Node.js, JWT, bcrypt",
+    "difficulty": "intermediate",
+    "outcome": "A secure authentication platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 9,
+    "title": "Data Visualization Tool 9",
+    "description": "Build an interactive data visualization tool with multiple chart types",
+    "tech_stack": "React, D3.js, Chart.js, CSV Parser",
+    "difficulty": "intermediate",
+    "outcome": "A powerful data analysis tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 10,
+    "title": "Content Management System 10",
+    "description": "Create a CMS with rich text editor and media management",
+    "tech_stack": "React, Node.js, MongoDB, Quill.js",
+    "difficulty": "intermediate",
+    "outcome": "A flexible content management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 11,
+    "title": "E-commerce Product Catalog 11",
+    "description": "Build a product catalog with search, filtering, and shopping cart",
+    "tech_stack": "React, Node.js, MongoDB, Express",
+    "difficulty": "intermediate",
+    "outcome": "A full-stack e-commerce application",
+    "domain": "web-development"
+  },
+  {
+    "id": 12,
+    "title": "Real-time Chat Application 12",
+    "description": "Create a chat app with real-time messaging using WebSockets",
+    "tech_stack": "Socket.io, Node.js, React, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A real-time messaging platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 13,
+    "title": "API Integration Dashboard 13",
+    "description": "Build a dashboard that integrates multiple APIs and displays data",
+    "tech_stack": "React, REST APIs, Chart.js, Axios",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive data visualization dashboard",
+    "domain": "web-development"
+  },
+  {
+    "id": 14,
+    "title": "Blog Management System 14",
+    "description": "Create a full-featured blog with admin panel and user authentication",
+    "tech_stack": "React, Node.js, PostgreSQL, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A complete blog management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 15,
+    "title": "Task Management Board 15",
+    "description": "Build a Kanban-style task management board with drag-and-drop",
+    "tech_stack": "React, Redux, HTML5 Drag API",
+    "difficulty": "intermediate",
+    "outcome": "A collaborative project management tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 16,
+    "title": "Social Media Dashboard 16",
+    "description": "Create a dashboard to manage multiple social media accounts",
+    "tech_stack": "React, Node.js, Social Media APIs",
+    "difficulty": "intermediate",
+    "outcome": "A unified social media management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 17,
+    "title": "File Upload System 17",
+    "description": "Build a secure file upload system with progress tracking",
+    "tech_stack": "React, Node.js, Multer, AWS S3",
+    "difficulty": "intermediate",
+    "outcome": "A robust file management system",
+    "domain": "web-development"
+  },
+  {
+    "id": 18,
+    "title": "User Authentication System 18",
+    "description": "Create a complete auth system with registration, login, and password reset",
+    "tech_stack": "React, Node.js, JWT, bcrypt",
+    "difficulty": "intermediate",
+    "outcome": "A secure authentication platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 19,
+    "title": "Data Visualization Tool 19",
+    "description": "Build an interactive data visualization tool with multiple chart types",
+    "tech_stack": "React, D3.js, Chart.js, CSV Parser",
+    "difficulty": "intermediate",
+    "outcome": "A powerful data analysis tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 20,
+    "title": "Content Management System 20",
+    "description": "Create a CMS with rich text editor and media management",
+    "tech_stack": "React, Node.js, MongoDB, Quill.js",
+    "difficulty": "intermediate",
+    "outcome": "A flexible content management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 21,
+    "title": "E-commerce Product Catalog 21",
+    "description": "Build a product catalog with search, filtering, and shopping cart",
+    "tech_stack": "React, Node.js, MongoDB, Express",
+    "difficulty": "intermediate",
+    "outcome": "A full-stack e-commerce application",
+    "domain": "web-development"
+  },
+  {
+    "id": 22,
+    "title": "Real-time Chat Application 22",
+    "description": "Create a chat app with real-time messaging using WebSockets",
+    "tech_stack": "Socket.io, Node.js, React, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A real-time messaging platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 23,
+    "title": "API Integration Dashboard 23",
+    "description": "Build a dashboard that integrates multiple APIs and displays data",
+    "tech_stack": "React, REST APIs, Chart.js, Axios",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive data visualization dashboard",
+    "domain": "web-development"
+  },
+  {
+    "id": 24,
+    "title": "Blog Management System 24",
+    "description": "Create a full-featured blog with admin panel and user authentication",
+    "tech_stack": "React, Node.js, PostgreSQL, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A complete blog management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 25,
+    "title": "Task Management Board 25",
+    "description": "Build a Kanban-style task management board with drag-and-drop",
+    "tech_stack": "React, Redux, HTML5 Drag API",
+    "difficulty": "intermediate",
+    "outcome": "A collaborative project management tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 26,
+    "title": "Social Media Dashboard 26",
+    "description": "Create a dashboard to manage multiple social media accounts",
+    "tech_stack": "React, Node.js, Social Media APIs",
+    "difficulty": "intermediate",
+    "outcome": "A unified social media management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 27,
+    "title": "File Upload System 27",
+    "description": "Build a secure file upload system with progress tracking",
+    "tech_stack": "React, Node.js, Multer, AWS S3",
+    "difficulty": "intermediate",
+    "outcome": "A robust file management system",
+    "domain": "web-development"
+  },
+  {
+    "id": 28,
+    "title": "User Authentication System 28",
+    "description": "Create a complete auth system with registration, login, and password reset",
+    "tech_stack": "React, Node.js, JWT, bcrypt",
+    "difficulty": "intermediate",
+    "outcome": "A secure authentication platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 29,
+    "title": "Data Visualization Tool 29",
+    "description": "Build an interactive data visualization tool with multiple chart types",
+    "tech_stack": "React, D3.js, Chart.js, CSV Parser",
+    "difficulty": "intermediate",
+    "outcome": "A powerful data analysis tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 30,
+    "title": "Content Management System 30",
+    "description": "Create a CMS with rich text editor and media management",
+    "tech_stack": "React, Node.js, MongoDB, Quill.js",
+    "difficulty": "intermediate",
+    "outcome": "A flexible content management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 31,
+    "title": "E-commerce Product Catalog 31",
+    "description": "Build a product catalog with search, filtering, and shopping cart",
+    "tech_stack": "React, Node.js, MongoDB, Express",
+    "difficulty": "intermediate",
+    "outcome": "A full-stack e-commerce application",
+    "domain": "web-development"
+  },
+  {
+    "id": 32,
+    "title": "Real-time Chat Application 32",
+    "description": "Create a chat app with real-time messaging using WebSockets",
+    "tech_stack": "Socket.io, Node.js, React, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A real-time messaging platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 33,
+    "title": "API Integration Dashboard 33",
+    "description": "Build a dashboard that integrates multiple APIs and displays data",
+    "tech_stack": "React, REST APIs, Chart.js, Axios",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive data visualization dashboard",
+    "domain": "web-development"
+  },
+  {
+    "id": 34,
+    "title": "Blog Management System 34",
+    "description": "Create a full-featured blog with admin panel and user authentication",
+    "tech_stack": "React, Node.js, PostgreSQL, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A complete blog management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 35,
+    "title": "Task Management Board 35",
+    "description": "Build a Kanban-style task management board with drag-and-drop",
+    "tech_stack": "React, Redux, HTML5 Drag API",
+    "difficulty": "intermediate",
+    "outcome": "A collaborative project management tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 36,
+    "title": "Social Media Dashboard 36",
+    "description": "Create a dashboard to manage multiple social media accounts",
+    "tech_stack": "React, Node.js, Social Media APIs",
+    "difficulty": "intermediate",
+    "outcome": "A unified social media management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 37,
+    "title": "File Upload System 37",
+    "description": "Build a secure file upload system with progress tracking",
+    "tech_stack": "React, Node.js, Multer, AWS S3",
+    "difficulty": "intermediate",
+    "outcome": "A robust file management system",
+    "domain": "web-development"
+  },
+  {
+    "id": 38,
+    "title": "User Authentication System 38",
+    "description": "Create a complete auth system with registration, login, and password reset",
+    "tech_stack": "React, Node.js, JWT, bcrypt",
+    "difficulty": "intermediate",
+    "outcome": "A secure authentication platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 39,
+    "title": "Data Visualization Tool 39",
+    "description": "Build an interactive data visualization tool with multiple chart types",
+    "tech_stack": "React, D3.js, Chart.js, CSV Parser",
+    "difficulty": "intermediate",
+    "outcome": "A powerful data analysis tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 40,
+    "title": "Content Management System 40",
+    "description": "Create a CMS with rich text editor and media management",
+    "tech_stack": "React, Node.js, MongoDB, Quill.js",
+    "difficulty": "intermediate",
+    "outcome": "A flexible content management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 41,
+    "title": "E-commerce Product Catalog 41",
+    "description": "Build a product catalog with search, filtering, and shopping cart",
+    "tech_stack": "React, Node.js, MongoDB, Express",
+    "difficulty": "intermediate",
+    "outcome": "A full-stack e-commerce application",
+    "domain": "web-development"
+  },
+  {
+    "id": 42,
+    "title": "Real-time Chat Application 42",
+    "description": "Create a chat app with real-time messaging using WebSockets",
+    "tech_stack": "Socket.io, Node.js, React, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A real-time messaging platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 43,
+    "title": "API Integration Dashboard 43",
+    "description": "Build a dashboard that integrates multiple APIs and displays data",
+    "tech_stack": "React, REST APIs, Chart.js, Axios",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive data visualization dashboard",
+    "domain": "web-development"
+  },
+  {
+    "id": 44,
+    "title": "Blog Management System 44",
+    "description": "Create a full-featured blog with admin panel and user authentication",
+    "tech_stack": "React, Node.js, PostgreSQL, JWT",
+    "difficulty": "intermediate",
+    "outcome": "A complete blog management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 45,
+    "title": "Task Management Board 45",
+    "description": "Build a Kanban-style task management board with drag-and-drop",
+    "tech_stack": "React, Redux, HTML5 Drag API",
+    "difficulty": "intermediate",
+    "outcome": "A collaborative project management tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 46,
+    "title": "Social Media Dashboard 46",
+    "description": "Create a dashboard to manage multiple social media accounts",
+    "tech_stack": "React, Node.js, Social Media APIs",
+    "difficulty": "intermediate",
+    "outcome": "A unified social media management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 47,
+    "title": "File Upload System 47",
+    "description": "Build a secure file upload system with progress tracking",
+    "tech_stack": "React, Node.js, Multer, AWS S3",
+    "difficulty": "intermediate",
+    "outcome": "A robust file management system",
+    "domain": "web-development"
+  },
+  {
+    "id": 48,
+    "title": "User Authentication System 48",
+    "description": "Create a complete auth system with registration, login, and password reset",
+    "tech_stack": "React, Node.js, JWT, bcrypt",
+    "difficulty": "intermediate",
+    "outcome": "A secure authentication platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 49,
+    "title": "Data Visualization Tool 49",
+    "description": "Build an interactive data visualization tool with multiple chart types",
+    "tech_stack": "React, D3.js, Chart.js, CSV Parser",
+    "difficulty": "intermediate",
+    "outcome": "A powerful data analysis tool",
+    "domain": "web-development"
+  },
+  {
+    "id": 50,
+    "title": "Content Management System 50",
+    "description": "Create a CMS with rich text editor and media management",
+    "tech_stack": "React, Node.js, MongoDB, Quill.js",
+    "difficulty": "intermediate",
+    "outcome": "A flexible content management platform",
+    "domain": "web-development"
+  },
+  {
+    "id": 51,
+    "title": "Computer Vision Pipeline 1",
+    "description": "Build a complete computer vision pipeline for object detection",
+    "tech_stack": "Python, OpenCV, YOLO, TensorFlow",
+    "difficulty": "intermediate",
+    "outcome": "A computer vision system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 52,
+    "title": "Natural Language Processing API 2",
+    "description": "Create an NLP API with multiple text processing features",
+    "tech_stack": "Python, spaCy, FastAPI, Docker",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive NLP service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 53,
+    "title": "Time Series Forecasting 3",
+    "description": "Build a time series forecasting model for business metrics",
+    "tech_stack": "Python, Prophet, ARIMA, Pandas",
+    "difficulty": "intermediate",
+    "outcome": "A forecasting system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 54,
+    "title": "Deep Learning Model 4",
+    "description": "Create a deep neural network for complex pattern recognition",
+    "tech_stack": "Python, TensorFlow, Keras, NumPy",
+    "difficulty": "intermediate",
+    "outcome": "A deep learning model",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 55,
+    "title": "ML Model Deployment 5",
+    "description": "Deploy a machine learning model as a web service",
+    "tech_stack": "Python, Flask, Docker, AWS, scikit-learn",
+    "difficulty": "intermediate",
+    "outcome": "A production ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 56,
+    "title": "Data Pipeline 6",
+    "description": "Build an ETL pipeline for machine learning data processing",
+    "tech_stack": "Python, Apache Airflow, Pandas, PostgreSQL",
+    "difficulty": "intermediate",
+    "outcome": "A data processing pipeline",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 57,
+    "title": "A/B Testing Framework 7",
+    "description": "Create a statistical framework for A/B testing ML models",
+    "tech_stack": "Python, scipy, Pandas, Jupyter",
+    "difficulty": "intermediate",
+    "outcome": "An A/B testing platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 58,
+    "title": "Feature Engineering Tool 8",
+    "description": "Build an automated feature engineering system",
+    "tech_stack": "Python, Pandas, scikit-learn, Featuretools",
+    "difficulty": "intermediate",
+    "outcome": "A feature engineering platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 59,
+    "title": "Model Monitoring System 9",
+    "description": "Create a system to monitor ML model performance in production",
+    "tech_stack": "Python, Prometheus, Grafana, MLflow",
+    "difficulty": "intermediate",
+    "outcome": "A model monitoring platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 60,
+    "title": "AutoML Platform 10",
+    "description": "Build an automated machine learning platform",
+    "tech_stack": "Python, TPOT, Auto-sklearn, Flask",
+    "difficulty": "intermediate",
+    "outcome": "An automated ML platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 61,
+    "title": "Computer Vision Pipeline 11",
+    "description": "Build a complete computer vision pipeline for object detection",
+    "tech_stack": "Python, OpenCV, YOLO, TensorFlow",
+    "difficulty": "intermediate",
+    "outcome": "A computer vision system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 62,
+    "title": "Natural Language Processing API 12",
+    "description": "Create an NLP API with multiple text processing features",
+    "tech_stack": "Python, spaCy, FastAPI, Docker",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive NLP service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 63,
+    "title": "Time Series Forecasting 13",
+    "description": "Build a time series forecasting model for business metrics",
+    "tech_stack": "Python, Prophet, ARIMA, Pandas",
+    "difficulty": "intermediate",
+    "outcome": "A forecasting system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 64,
+    "title": "Deep Learning Model 14",
+    "description": "Create a deep neural network for complex pattern recognition",
+    "tech_stack": "Python, TensorFlow, Keras, NumPy",
+    "difficulty": "intermediate",
+    "outcome": "A deep learning model",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 65,
+    "title": "ML Model Deployment 15",
+    "description": "Deploy a machine learning model as a web service",
+    "tech_stack": "Python, Flask, Docker, AWS, scikit-learn",
+    "difficulty": "intermediate",
+    "outcome": "A production ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 66,
+    "title": "Data Pipeline 16",
+    "description": "Build an ETL pipeline for machine learning data processing",
+    "tech_stack": "Python, Apache Airflow, Pandas, PostgreSQL",
+    "difficulty": "intermediate",
+    "outcome": "A data processing pipeline",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 67,
+    "title": "A/B Testing Framework 17",
+    "description": "Create a statistical framework for A/B testing ML models",
+    "tech_stack": "Python, scipy, Pandas, Jupyter",
+    "difficulty": "intermediate",
+    "outcome": "An A/B testing platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 68,
+    "title": "Feature Engineering Tool 18",
+    "description": "Build an automated feature engineering system",
+    "tech_stack": "Python, Pandas, scikit-learn, Featuretools",
+    "difficulty": "intermediate",
+    "outcome": "A feature engineering platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 69,
+    "title": "Model Monitoring System 19",
+    "description": "Create a system to monitor ML model performance in production",
+    "tech_stack": "Python, Prometheus, Grafana, MLflow",
+    "difficulty": "intermediate",
+    "outcome": "A model monitoring platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 70,
+    "title": "AutoML Platform 20",
+    "description": "Build an automated machine learning platform",
+    "tech_stack": "Python, TPOT, Auto-sklearn, Flask",
+    "difficulty": "intermediate",
+    "outcome": "An automated ML platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 71,
+    "title": "Computer Vision Pipeline 21",
+    "description": "Build a complete computer vision pipeline for object detection",
+    "tech_stack": "Python, OpenCV, YOLO, TensorFlow",
+    "difficulty": "intermediate",
+    "outcome": "A computer vision system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 72,
+    "title": "Natural Language Processing API 22",
+    "description": "Create an NLP API with multiple text processing features",
+    "tech_stack": "Python, spaCy, FastAPI, Docker",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive NLP service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 73,
+    "title": "Time Series Forecasting 23",
+    "description": "Build a time series forecasting model for business metrics",
+    "tech_stack": "Python, Prophet, ARIMA, Pandas",
+    "difficulty": "intermediate",
+    "outcome": "A forecasting system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 74,
+    "title": "Deep Learning Model 24",
+    "description": "Create a deep neural network for complex pattern recognition",
+    "tech_stack": "Python, TensorFlow, Keras, NumPy",
+    "difficulty": "intermediate",
+    "outcome": "A deep learning model",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 75,
+    "title": "ML Model Deployment 25",
+    "description": "Deploy a machine learning model as a web service",
+    "tech_stack": "Python, Flask, Docker, AWS, scikit-learn",
+    "difficulty": "intermediate",
+    "outcome": "A production ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 76,
+    "title": "Data Pipeline 26",
+    "description": "Build an ETL pipeline for machine learning data processing",
+    "tech_stack": "Python, Apache Airflow, Pandas, PostgreSQL",
+    "difficulty": "intermediate",
+    "outcome": "A data processing pipeline",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 77,
+    "title": "A/B Testing Framework 27",
+    "description": "Create a statistical framework for A/B testing ML models",
+    "tech_stack": "Python, scipy, Pandas, Jupyter",
+    "difficulty": "intermediate",
+    "outcome": "An A/B testing platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 78,
+    "title": "Feature Engineering Tool 28",
+    "description": "Build an automated feature engineering system",
+    "tech_stack": "Python, Pandas, scikit-learn, Featuretools",
+    "difficulty": "intermediate",
+    "outcome": "A feature engineering platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 79,
+    "title": "Model Monitoring System 29",
+    "description": "Create a system to monitor ML model performance in production",
+    "tech_stack": "Python, Prometheus, Grafana, MLflow",
+    "difficulty": "intermediate",
+    "outcome": "A model monitoring platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 80,
+    "title": "AutoML Platform 30",
+    "description": "Build an automated machine learning platform",
+    "tech_stack": "Python, TPOT, Auto-sklearn, Flask",
+    "difficulty": "intermediate",
+    "outcome": "An automated ML platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 81,
+    "title": "Computer Vision Pipeline 31",
+    "description": "Build a complete computer vision pipeline for object detection",
+    "tech_stack": "Python, OpenCV, YOLO, TensorFlow",
+    "difficulty": "intermediate",
+    "outcome": "A computer vision system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 82,
+    "title": "Natural Language Processing API 32",
+    "description": "Create an NLP API with multiple text processing features",
+    "tech_stack": "Python, spaCy, FastAPI, Docker",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive NLP service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 83,
+    "title": "Time Series Forecasting 33",
+    "description": "Build a time series forecasting model for business metrics",
+    "tech_stack": "Python, Prophet, ARIMA, Pandas",
+    "difficulty": "intermediate",
+    "outcome": "A forecasting system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 84,
+    "title": "Deep Learning Model 34",
+    "description": "Create a deep neural network for complex pattern recognition",
+    "tech_stack": "Python, TensorFlow, Keras, NumPy",
+    "difficulty": "intermediate",
+    "outcome": "A deep learning model",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 85,
+    "title": "ML Model Deployment 35",
+    "description": "Deploy a machine learning model as a web service",
+    "tech_stack": "Python, Flask, Docker, AWS, scikit-learn",
+    "difficulty": "intermediate",
+    "outcome": "A production ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 86,
+    "title": "Data Pipeline 36",
+    "description": "Build an ETL pipeline for machine learning data processing",
+    "tech_stack": "Python, Apache Airflow, Pandas, PostgreSQL",
+    "difficulty": "intermediate",
+    "outcome": "A data processing pipeline",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 87,
+    "title": "A/B Testing Framework 37",
+    "description": "Create a statistical framework for A/B testing ML models",
+    "tech_stack": "Python, scipy, Pandas, Jupyter",
+    "difficulty": "intermediate",
+    "outcome": "An A/B testing platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 88,
+    "title": "Feature Engineering Tool 38",
+    "description": "Build an automated feature engineering system",
+    "tech_stack": "Python, Pandas, scikit-learn, Featuretools",
+    "difficulty": "intermediate",
+    "outcome": "A feature engineering platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 89,
+    "title": "Model Monitoring System 39",
+    "description": "Create a system to monitor ML model performance in production",
+    "tech_stack": "Python, Prometheus, Grafana, MLflow",
+    "difficulty": "intermediate",
+    "outcome": "A model monitoring platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 90,
+    "title": "AutoML Platform 40",
+    "description": "Build an automated machine learning platform",
+    "tech_stack": "Python, TPOT, Auto-sklearn, Flask",
+    "difficulty": "intermediate",
+    "outcome": "An automated ML platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 91,
+    "title": "Computer Vision Pipeline 41",
+    "description": "Build a complete computer vision pipeline for object detection",
+    "tech_stack": "Python, OpenCV, YOLO, TensorFlow",
+    "difficulty": "intermediate",
+    "outcome": "A computer vision system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 92,
+    "title": "Natural Language Processing API 42",
+    "description": "Create an NLP API with multiple text processing features",
+    "tech_stack": "Python, spaCy, FastAPI, Docker",
+    "difficulty": "intermediate",
+    "outcome": "A comprehensive NLP service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 93,
+    "title": "Time Series Forecasting 43",
+    "description": "Build a time series forecasting model for business metrics",
+    "tech_stack": "Python, Prophet, ARIMA, Pandas",
+    "difficulty": "intermediate",
+    "outcome": "A forecasting system",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 94,
+    "title": "Deep Learning Model 44",
+    "description": "Create a deep neural network for complex pattern recognition",
+    "tech_stack": "Python, TensorFlow, Keras, NumPy",
+    "difficulty": "intermediate",
+    "outcome": "A deep learning model",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 95,
+    "title": "ML Model Deployment 45",
+    "description": "Deploy a machine learning model as a web service",
+    "tech_stack": "Python, Flask, Docker, AWS, scikit-learn",
+    "difficulty": "intermediate",
+    "outcome": "A production ML service",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 96,
+    "title": "Data Pipeline 46",
+    "description": "Build an ETL pipeline for machine learning data processing",
+    "tech_stack": "Python, Apache Airflow, Pandas, PostgreSQL",
+    "difficulty": "intermediate",
+    "outcome": "A data processing pipeline",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 97,
+    "title": "A/B Testing Framework 47",
+    "description": "Create a statistical framework for A/B testing ML models",
+    "tech_stack": "Python, scipy, Pandas, Jupyter",
+    "difficulty": "intermediate",
+    "outcome": "An A/B testing platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 98,
+    "title": "Feature Engineering Tool 48",
+    "description": "Build an automated feature engineering system",
+    "tech_stack": "Python, Pandas, scikit-learn, Featuretools",
+    "difficulty": "intermediate",
+    "outcome": "A feature engineering platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 99,
+    "title": "Model Monitoring System 49",
+    "description": "Create a system to monitor ML model performance in production",
+    "tech_stack": "Python, Prometheus, Grafana, MLflow",
+    "difficulty": "intermediate",
+    "outcome": "A model monitoring platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 100,
+    "title": "AutoML Platform 50",
+    "description": "Build an automated machine learning platform",
+    "tech_stack": "Python, TPOT, Auto-sklearn, Flask",
+    "difficulty": "intermediate",
+    "outcome": "An automated ML platform",
+    "domain": "ai-ml"
+  },
+  {
+    "id": 101,
+    "title": "Social Media Mobile App 1",
+    "description": "Create a social media app with posts, likes, and comments",
+    "tech_stack": "React Native, Node.js, MongoDB, Socket.io",
+    "difficulty": "intermediate",
+    "outcome": "A social media mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 102,
+    "title": "E-commerce Mobile App 2",
+    "description": "Build a mobile e-commerce app with shopping cart and payments",
+    "tech_stack": "React Native, Node.js, Stripe, MongoDB",
+    "difficulty": "intermediate",
+    "outcome": "A mobile e-commerce platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 103,
+    "title": "Real-time Chat Mobile App 3",
+    "description": "Create a mobile chat app with real-time messaging",
+    "tech_stack": "React Native, Socket.io, Node.js, Push Notifications",
+    "difficulty": "intermediate",
+    "outcome": "A real-time mobile chat app",
+    "domain": "mobile"
+  },
+  {
+    "id": 104,
+    "title": "Food Delivery Mobile App 4",
+    "description": "Build a food delivery app with restaurant listings and orders",
+    "tech_stack": "React Native, Node.js, MongoDB, Maps API",
+    "difficulty": "intermediate",
+    "outcome": "A food delivery mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 105,
+    "title": "Ride Sharing Mobile App 5",
+    "description": "Create a ride-sharing app with location tracking",
+    "tech_stack": "React Native, Node.js, Maps API, Real-time Location",
+    "difficulty": "intermediate",
+    "outcome": "A ride-sharing mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 106,
+    "title": "Fitness Social App 6",
+    "description": "Build a social fitness app with workout sharing",
+    "tech_stack": "React Native, Node.js, MongoDB, Camera API",
+    "difficulty": "intermediate",
+    "outcome": "A social fitness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 107,
+    "title": "Language Learning App 7",
+    "description": "Create a mobile language learning app with gamification",
+    "tech_stack": "React Native, Node.js, Audio API, Gamification",
+    "difficulty": "intermediate",
+    "outcome": "A language learning mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 108,
+    "title": "Event Management App 8",
+    "description": "Build a mobile app for event discovery and management",
+    "tech_stack": "React Native, Node.js, MongoDB, Calendar API",
+    "difficulty": "intermediate",
+    "outcome": "An event management mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 109,
+    "title": "Meditation App 9",
+    "description": "Create a mobile meditation and wellness app",
+    "tech_stack": "React Native, Audio API, Timer, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A wellness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 110,
+    "title": "News Mobile App 10",
+    "description": "Build a mobile news aggregator with personalization",
+    "tech_stack": "React Native, Node.js, News API, Personalization",
+    "difficulty": "intermediate",
+    "outcome": "A personalized news mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 111,
+    "title": "Social Media Mobile App 11",
+    "description": "Create a social media app with posts, likes, and comments",
+    "tech_stack": "React Native, Node.js, MongoDB, Socket.io",
+    "difficulty": "intermediate",
+    "outcome": "A social media mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 112,
+    "title": "E-commerce Mobile App 12",
+    "description": "Build a mobile e-commerce app with shopping cart and payments",
+    "tech_stack": "React Native, Node.js, Stripe, MongoDB",
+    "difficulty": "intermediate",
+    "outcome": "A mobile e-commerce platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 113,
+    "title": "Real-time Chat Mobile App 13",
+    "description": "Create a mobile chat app with real-time messaging",
+    "tech_stack": "React Native, Socket.io, Node.js, Push Notifications",
+    "difficulty": "intermediate",
+    "outcome": "A real-time mobile chat app",
+    "domain": "mobile"
+  },
+  {
+    "id": 114,
+    "title": "Food Delivery Mobile App 14",
+    "description": "Build a food delivery app with restaurant listings and orders",
+    "tech_stack": "React Native, Node.js, MongoDB, Maps API",
+    "difficulty": "intermediate",
+    "outcome": "A food delivery mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 115,
+    "title": "Ride Sharing Mobile App 15",
+    "description": "Create a ride-sharing app with location tracking",
+    "tech_stack": "React Native, Node.js, Maps API, Real-time Location",
+    "difficulty": "intermediate",
+    "outcome": "A ride-sharing mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 116,
+    "title": "Fitness Social App 16",
+    "description": "Build a social fitness app with workout sharing",
+    "tech_stack": "React Native, Node.js, MongoDB, Camera API",
+    "difficulty": "intermediate",
+    "outcome": "A social fitness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 117,
+    "title": "Language Learning App 17",
+    "description": "Create a mobile language learning app with gamification",
+    "tech_stack": "React Native, Node.js, Audio API, Gamification",
+    "difficulty": "intermediate",
+    "outcome": "A language learning mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 118,
+    "title": "Event Management App 18",
+    "description": "Build a mobile app for event discovery and management",
+    "tech_stack": "React Native, Node.js, MongoDB, Calendar API",
+    "difficulty": "intermediate",
+    "outcome": "An event management mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 119,
+    "title": "Meditation App 19",
+    "description": "Create a mobile meditation and wellness app",
+    "tech_stack": "React Native, Audio API, Timer, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A wellness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 120,
+    "title": "News Mobile App 20",
+    "description": "Build a mobile news aggregator with personalization",
+    "tech_stack": "React Native, Node.js, News API, Personalization",
+    "difficulty": "intermediate",
+    "outcome": "A personalized news mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 121,
+    "title": "Social Media Mobile App 21",
+    "description": "Create a social media app with posts, likes, and comments",
+    "tech_stack": "React Native, Node.js, MongoDB, Socket.io",
+    "difficulty": "intermediate",
+    "outcome": "A social media mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 122,
+    "title": "E-commerce Mobile App 22",
+    "description": "Build a mobile e-commerce app with shopping cart and payments",
+    "tech_stack": "React Native, Node.js, Stripe, MongoDB",
+    "difficulty": "intermediate",
+    "outcome": "A mobile e-commerce platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 123,
+    "title": "Real-time Chat Mobile App 23",
+    "description": "Create a mobile chat app with real-time messaging",
+    "tech_stack": "React Native, Socket.io, Node.js, Push Notifications",
+    "difficulty": "intermediate",
+    "outcome": "A real-time mobile chat app",
+    "domain": "mobile"
+  },
+  {
+    "id": 124,
+    "title": "Food Delivery Mobile App 24",
+    "description": "Build a food delivery app with restaurant listings and orders",
+    "tech_stack": "React Native, Node.js, MongoDB, Maps API",
+    "difficulty": "intermediate",
+    "outcome": "A food delivery mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 125,
+    "title": "Ride Sharing Mobile App 25",
+    "description": "Create a ride-sharing app with location tracking",
+    "tech_stack": "React Native, Node.js, Maps API, Real-time Location",
+    "difficulty": "intermediate",
+    "outcome": "A ride-sharing mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 126,
+    "title": "Fitness Social App 26",
+    "description": "Build a social fitness app with workout sharing",
+    "tech_stack": "React Native, Node.js, MongoDB, Camera API",
+    "difficulty": "intermediate",
+    "outcome": "A social fitness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 127,
+    "title": "Language Learning App 27",
+    "description": "Create a mobile language learning app with gamification",
+    "tech_stack": "React Native, Node.js, Audio API, Gamification",
+    "difficulty": "intermediate",
+    "outcome": "A language learning mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 128,
+    "title": "Event Management App 28",
+    "description": "Build a mobile app for event discovery and management",
+    "tech_stack": "React Native, Node.js, MongoDB, Calendar API",
+    "difficulty": "intermediate",
+    "outcome": "An event management mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 129,
+    "title": "Meditation App 29",
+    "description": "Create a mobile meditation and wellness app",
+    "tech_stack": "React Native, Audio API, Timer, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A wellness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 130,
+    "title": "News Mobile App 30",
+    "description": "Build a mobile news aggregator with personalization",
+    "tech_stack": "React Native, Node.js, News API, Personalization",
+    "difficulty": "intermediate",
+    "outcome": "A personalized news mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 131,
+    "title": "Social Media Mobile App 31",
+    "description": "Create a social media app with posts, likes, and comments",
+    "tech_stack": "React Native, Node.js, MongoDB, Socket.io",
+    "difficulty": "intermediate",
+    "outcome": "A social media mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 132,
+    "title": "E-commerce Mobile App 32",
+    "description": "Build a mobile e-commerce app with shopping cart and payments",
+    "tech_stack": "React Native, Node.js, Stripe, MongoDB",
+    "difficulty": "intermediate",
+    "outcome": "A mobile e-commerce platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 133,
+    "title": "Real-time Chat Mobile App 33",
+    "description": "Create a mobile chat app with real-time messaging",
+    "tech_stack": "React Native, Socket.io, Node.js, Push Notifications",
+    "difficulty": "intermediate",
+    "outcome": "A real-time mobile chat app",
+    "domain": "mobile"
+  },
+  {
+    "id": 134,
+    "title": "Food Delivery Mobile App 34",
+    "description": "Build a food delivery app with restaurant listings and orders",
+    "tech_stack": "React Native, Node.js, MongoDB, Maps API",
+    "difficulty": "intermediate",
+    "outcome": "A food delivery mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 135,
+    "title": "Ride Sharing Mobile App 35",
+    "description": "Create a ride-sharing app with location tracking",
+    "tech_stack": "React Native, Node.js, Maps API, Real-time Location",
+    "difficulty": "intermediate",
+    "outcome": "A ride-sharing mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 136,
+    "title": "Fitness Social App 36",
+    "description": "Build a social fitness app with workout sharing",
+    "tech_stack": "React Native, Node.js, MongoDB, Camera API",
+    "difficulty": "intermediate",
+    "outcome": "A social fitness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 137,
+    "title": "Language Learning App 37",
+    "description": "Create a mobile language learning app with gamification",
+    "tech_stack": "React Native, Node.js, Audio API, Gamification",
+    "difficulty": "intermediate",
+    "outcome": "A language learning mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 138,
+    "title": "Event Management App 38",
+    "description": "Build a mobile app for event discovery and management",
+    "tech_stack": "React Native, Node.js, MongoDB, Calendar API",
+    "difficulty": "intermediate",
+    "outcome": "An event management mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 139,
+    "title": "Meditation App 39",
+    "description": "Create a mobile meditation and wellness app",
+    "tech_stack": "React Native, Audio API, Timer, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A wellness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 140,
+    "title": "News Mobile App 40",
+    "description": "Build a mobile news aggregator with personalization",
+    "tech_stack": "React Native, Node.js, News API, Personalization",
+    "difficulty": "intermediate",
+    "outcome": "A personalized news mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 141,
+    "title": "Social Media Mobile App 41",
+    "description": "Create a social media app with posts, likes, and comments",
+    "tech_stack": "React Native, Node.js, MongoDB, Socket.io",
+    "difficulty": "intermediate",
+    "outcome": "A social media mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 142,
+    "title": "E-commerce Mobile App 42",
+    "description": "Build a mobile e-commerce app with shopping cart and payments",
+    "tech_stack": "React Native, Node.js, Stripe, MongoDB",
+    "difficulty": "intermediate",
+    "outcome": "A mobile e-commerce platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 143,
+    "title": "Real-time Chat Mobile App 43",
+    "description": "Create a mobile chat app with real-time messaging",
+    "tech_stack": "React Native, Socket.io, Node.js, Push Notifications",
+    "difficulty": "intermediate",
+    "outcome": "A real-time mobile chat app",
+    "domain": "mobile"
+  },
+  {
+    "id": 144,
+    "title": "Food Delivery Mobile App 44",
+    "description": "Build a food delivery app with restaurant listings and orders",
+    "tech_stack": "React Native, Node.js, MongoDB, Maps API",
+    "difficulty": "intermediate",
+    "outcome": "A food delivery mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 145,
+    "title": "Ride Sharing Mobile App 45",
+    "description": "Create a ride-sharing app with location tracking",
+    "tech_stack": "React Native, Node.js, Maps API, Real-time Location",
+    "difficulty": "intermediate",
+    "outcome": "A ride-sharing mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 146,
+    "title": "Fitness Social App 46",
+    "description": "Build a social fitness app with workout sharing",
+    "tech_stack": "React Native, Node.js, MongoDB, Camera API",
+    "difficulty": "intermediate",
+    "outcome": "A social fitness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 147,
+    "title": "Language Learning App 47",
+    "description": "Create a mobile language learning app with gamification",
+    "tech_stack": "React Native, Node.js, Audio API, Gamification",
+    "difficulty": "intermediate",
+    "outcome": "A language learning mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 148,
+    "title": "Event Management App 48",
+    "description": "Build a mobile app for event discovery and management",
+    "tech_stack": "React Native, Node.js, MongoDB, Calendar API",
+    "difficulty": "intermediate",
+    "outcome": "An event management mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 149,
+    "title": "Meditation App 49",
+    "description": "Create a mobile meditation and wellness app",
+    "tech_stack": "React Native, Audio API, Timer, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A wellness mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 150,
+    "title": "News Mobile App 50",
+    "description": "Build a mobile news aggregator with personalization",
+    "tech_stack": "React Native, Node.js, News API, Personalization",
+    "difficulty": "intermediate",
+    "outcome": "A personalized news mobile platform",
+    "domain": "mobile"
+  },
+  {
+    "id": 151,
+    "title": "Intrusion Detection System 1",
+    "description": "Build an IDS to detect network intrusions",
+    "tech_stack": "Python, Machine Learning, Network Monitoring, Snort",
+    "difficulty": "intermediate",
+    "outcome": "An intrusion detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 152,
+    "title": "Security Information System 2",
+    "description": "Create a SIEM for security event management",
+    "tech_stack": "Python, Elasticsearch, Logstash, Kibana, Security Analytics",
+    "difficulty": "intermediate",
+    "outcome": "A security information management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 153,
+    "title": "Penetration Testing Framework 3",
+    "description": "Build a framework for automated penetration testing",
+    "tech_stack": "Python, Metasploit, Nmap, Vulnerability Scanning",
+    "difficulty": "intermediate",
+    "outcome": "A penetration testing platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 154,
+    "title": "Threat Intelligence Platform 4",
+    "description": "Create a platform for threat intelligence gathering",
+    "tech_stack": "Python, Threat Feeds, Data Analysis, Machine Learning",
+    "difficulty": "intermediate",
+    "outcome": "A threat intelligence system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 155,
+    "title": "Security Orchestration Tool 5",
+    "description": "Build a SOAR platform for security automation",
+    "tech_stack": "Python, Automation, API Integration, Workflow Engine",
+    "difficulty": "intermediate",
+    "outcome": "A security orchestration platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 156,
+    "title": "Vulnerability Management System 6",
+    "description": "Create a system for vulnerability assessment and management",
+    "tech_stack": "Python, Vulnerability Databases, Risk Assessment, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A vulnerability management platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 157,
+    "title": "Security Compliance Checker 7",
+    "description": "Build a tool for security compliance auditing",
+    "tech_stack": "Python, Compliance Frameworks, Policy Management, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A compliance management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 158,
+    "title": "Incident Response Platform 8",
+    "description": "Create a platform for security incident response",
+    "tech_stack": "Python, Incident Management, Workflow, Notification System",
+    "difficulty": "intermediate",
+    "outcome": "An incident response platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 159,
+    "title": "Security Training Platform 9",
+    "description": "Build a platform for cybersecurity training and awareness",
+    "tech_stack": "Python, Educational Content, Gamification, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A security training platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 160,
+    "title": "Cryptographic Library 10",
+    "description": "Create a library for cryptographic operations",
+    "tech_stack": "Python, Cryptography, Key Management, Digital Signatures",
+    "difficulty": "intermediate",
+    "outcome": "A cryptographic toolkit",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 161,
+    "title": "Intrusion Detection System 11",
+    "description": "Build an IDS to detect network intrusions",
+    "tech_stack": "Python, Machine Learning, Network Monitoring, Snort",
+    "difficulty": "intermediate",
+    "outcome": "An intrusion detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 162,
+    "title": "Security Information System 12",
+    "description": "Create a SIEM for security event management",
+    "tech_stack": "Python, Elasticsearch, Logstash, Kibana, Security Analytics",
+    "difficulty": "intermediate",
+    "outcome": "A security information management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 163,
+    "title": "Penetration Testing Framework 13",
+    "description": "Build a framework for automated penetration testing",
+    "tech_stack": "Python, Metasploit, Nmap, Vulnerability Scanning",
+    "difficulty": "intermediate",
+    "outcome": "A penetration testing platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 164,
+    "title": "Threat Intelligence Platform 14",
+    "description": "Create a platform for threat intelligence gathering",
+    "tech_stack": "Python, Threat Feeds, Data Analysis, Machine Learning",
+    "difficulty": "intermediate",
+    "outcome": "A threat intelligence system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 165,
+    "title": "Security Orchestration Tool 15",
+    "description": "Build a SOAR platform for security automation",
+    "tech_stack": "Python, Automation, API Integration, Workflow Engine",
+    "difficulty": "intermediate",
+    "outcome": "A security orchestration platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 166,
+    "title": "Vulnerability Management System 16",
+    "description": "Create a system for vulnerability assessment and management",
+    "tech_stack": "Python, Vulnerability Databases, Risk Assessment, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A vulnerability management platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 167,
+    "title": "Security Compliance Checker 17",
+    "description": "Build a tool for security compliance auditing",
+    "tech_stack": "Python, Compliance Frameworks, Policy Management, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A compliance management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 168,
+    "title": "Incident Response Platform 18",
+    "description": "Create a platform for security incident response",
+    "tech_stack": "Python, Incident Management, Workflow, Notification System",
+    "difficulty": "intermediate",
+    "outcome": "An incident response platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 169,
+    "title": "Security Training Platform 19",
+    "description": "Build a platform for cybersecurity training and awareness",
+    "tech_stack": "Python, Educational Content, Gamification, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A security training platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 170,
+    "title": "Cryptographic Library 20",
+    "description": "Create a library for cryptographic operations",
+    "tech_stack": "Python, Cryptography, Key Management, Digital Signatures",
+    "difficulty": "intermediate",
+    "outcome": "A cryptographic toolkit",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 171,
+    "title": "Intrusion Detection System 21",
+    "description": "Build an IDS to detect network intrusions",
+    "tech_stack": "Python, Machine Learning, Network Monitoring, Snort",
+    "difficulty": "intermediate",
+    "outcome": "An intrusion detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 172,
+    "title": "Security Information System 22",
+    "description": "Create a SIEM for security event management",
+    "tech_stack": "Python, Elasticsearch, Logstash, Kibana, Security Analytics",
+    "difficulty": "intermediate",
+    "outcome": "A security information management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 173,
+    "title": "Penetration Testing Framework 23",
+    "description": "Build a framework for automated penetration testing",
+    "tech_stack": "Python, Metasploit, Nmap, Vulnerability Scanning",
+    "difficulty": "intermediate",
+    "outcome": "A penetration testing platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 174,
+    "title": "Threat Intelligence Platform 24",
+    "description": "Create a platform for threat intelligence gathering",
+    "tech_stack": "Python, Threat Feeds, Data Analysis, Machine Learning",
+    "difficulty": "intermediate",
+    "outcome": "A threat intelligence system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 175,
+    "title": "Security Orchestration Tool 25",
+    "description": "Build a SOAR platform for security automation",
+    "tech_stack": "Python, Automation, API Integration, Workflow Engine",
+    "difficulty": "intermediate",
+    "outcome": "A security orchestration platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 176,
+    "title": "Vulnerability Management System 26",
+    "description": "Create a system for vulnerability assessment and management",
+    "tech_stack": "Python, Vulnerability Databases, Risk Assessment, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A vulnerability management platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 177,
+    "title": "Security Compliance Checker 27",
+    "description": "Build a tool for security compliance auditing",
+    "tech_stack": "Python, Compliance Frameworks, Policy Management, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A compliance management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 178,
+    "title": "Incident Response Platform 28",
+    "description": "Create a platform for security incident response",
+    "tech_stack": "Python, Incident Management, Workflow, Notification System",
+    "difficulty": "intermediate",
+    "outcome": "An incident response platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 179,
+    "title": "Security Training Platform 29",
+    "description": "Build a platform for cybersecurity training and awareness",
+    "tech_stack": "Python, Educational Content, Gamification, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A security training platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 180,
+    "title": "Cryptographic Library 30",
+    "description": "Create a library for cryptographic operations",
+    "tech_stack": "Python, Cryptography, Key Management, Digital Signatures",
+    "difficulty": "intermediate",
+    "outcome": "A cryptographic toolkit",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 181,
+    "title": "Intrusion Detection System 31",
+    "description": "Build an IDS to detect network intrusions",
+    "tech_stack": "Python, Machine Learning, Network Monitoring, Snort",
+    "difficulty": "intermediate",
+    "outcome": "An intrusion detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 182,
+    "title": "Security Information System 32",
+    "description": "Create a SIEM for security event management",
+    "tech_stack": "Python, Elasticsearch, Logstash, Kibana, Security Analytics",
+    "difficulty": "intermediate",
+    "outcome": "A security information management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 183,
+    "title": "Penetration Testing Framework 33",
+    "description": "Build a framework for automated penetration testing",
+    "tech_stack": "Python, Metasploit, Nmap, Vulnerability Scanning",
+    "difficulty": "intermediate",
+    "outcome": "A penetration testing platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 184,
+    "title": "Threat Intelligence Platform 34",
+    "description": "Create a platform for threat intelligence gathering",
+    "tech_stack": "Python, Threat Feeds, Data Analysis, Machine Learning",
+    "difficulty": "intermediate",
+    "outcome": "A threat intelligence system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 185,
+    "title": "Security Orchestration Tool 35",
+    "description": "Build a SOAR platform for security automation",
+    "tech_stack": "Python, Automation, API Integration, Workflow Engine",
+    "difficulty": "intermediate",
+    "outcome": "A security orchestration platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 186,
+    "title": "Vulnerability Management System 36",
+    "description": "Create a system for vulnerability assessment and management",
+    "tech_stack": "Python, Vulnerability Databases, Risk Assessment, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A vulnerability management platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 187,
+    "title": "Security Compliance Checker 37",
+    "description": "Build a tool for security compliance auditing",
+    "tech_stack": "Python, Compliance Frameworks, Policy Management, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A compliance management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 188,
+    "title": "Incident Response Platform 38",
+    "description": "Create a platform for security incident response",
+    "tech_stack": "Python, Incident Management, Workflow, Notification System",
+    "difficulty": "intermediate",
+    "outcome": "An incident response platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 189,
+    "title": "Security Training Platform 39",
+    "description": "Build a platform for cybersecurity training and awareness",
+    "tech_stack": "Python, Educational Content, Gamification, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A security training platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 190,
+    "title": "Cryptographic Library 40",
+    "description": "Create a library for cryptographic operations",
+    "tech_stack": "Python, Cryptography, Key Management, Digital Signatures",
+    "difficulty": "intermediate",
+    "outcome": "A cryptographic toolkit",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 191,
+    "title": "Intrusion Detection System 41",
+    "description": "Build an IDS to detect network intrusions",
+    "tech_stack": "Python, Machine Learning, Network Monitoring, Snort",
+    "difficulty": "intermediate",
+    "outcome": "An intrusion detection system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 192,
+    "title": "Security Information System 42",
+    "description": "Create a SIEM for security event management",
+    "tech_stack": "Python, Elasticsearch, Logstash, Kibana, Security Analytics",
+    "difficulty": "intermediate",
+    "outcome": "A security information management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 193,
+    "title": "Penetration Testing Framework 43",
+    "description": "Build a framework for automated penetration testing",
+    "tech_stack": "Python, Metasploit, Nmap, Vulnerability Scanning",
+    "difficulty": "intermediate",
+    "outcome": "A penetration testing platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 194,
+    "title": "Threat Intelligence Platform 44",
+    "description": "Create a platform for threat intelligence gathering",
+    "tech_stack": "Python, Threat Feeds, Data Analysis, Machine Learning",
+    "difficulty": "intermediate",
+    "outcome": "A threat intelligence system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 195,
+    "title": "Security Orchestration Tool 45",
+    "description": "Build a SOAR platform for security automation",
+    "tech_stack": "Python, Automation, API Integration, Workflow Engine",
+    "difficulty": "intermediate",
+    "outcome": "A security orchestration platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 196,
+    "title": "Vulnerability Management System 46",
+    "description": "Create a system for vulnerability assessment and management",
+    "tech_stack": "Python, Vulnerability Databases, Risk Assessment, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A vulnerability management platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 197,
+    "title": "Security Compliance Checker 47",
+    "description": "Build a tool for security compliance auditing",
+    "tech_stack": "Python, Compliance Frameworks, Policy Management, Reporting",
+    "difficulty": "intermediate",
+    "outcome": "A compliance management system",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 198,
+    "title": "Incident Response Platform 48",
+    "description": "Create a platform for security incident response",
+    "tech_stack": "Python, Incident Management, Workflow, Notification System",
+    "difficulty": "intermediate",
+    "outcome": "An incident response platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 199,
+    "title": "Security Training Platform 49",
+    "description": "Build a platform for cybersecurity training and awareness",
+    "tech_stack": "Python, Educational Content, Gamification, Progress Tracking",
+    "difficulty": "intermediate",
+    "outcome": "A security training platform",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 200,
+    "title": "Cryptographic Library 50",
+    "description": "Create a library for cryptographic operations",
+    "tech_stack": "Python, Cryptography, Key Management, Digital Signatures",
+    "difficulty": "intermediate",
+    "outcome": "A cryptographic toolkit",
+    "domain": "cybersecurity"
+  },
+  {
+    "id": 201,
+    "title": "Game Development Engine 1",
+    "description": "Create a 2D game engine with physics and collision detection",
+    "tech_stack": "C++, OpenGL, SDL2, Lua, Game Physics",
+    "difficulty": "intermediate",
+    "outcome": "A custom game development engine",
+    "domain": "creative"
+  },
+  {
+    "id": 202,
+    "title": "Video Editing Software 2",
+    "description": "Build a video editing application with effects and transitions",
+    "tech_stack": "Python, OpenCV, FFmpeg, Video Processing",
+    "difficulty": "intermediate",
+    "outcome": "A video editing platform",
+    "domain": "creative"
+  },
+  {
+    "id": 203,
+    "title": "3D Modeling Software 3",
+    "description": "Create a 3D modeling and sculpting tool",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Mesh Processing",
+    "difficulty": "intermediate",
+    "outcome": "A 3D modeling application",
+    "domain": "creative"
+  },
+  {
+    "id": 204,
+    "title": "Audio Production Studio 4",
+    "description": "Build a digital audio workstation",
+    "tech_stack": "Python, Audio Processing, MIDI, Real-time Audio",
+    "difficulty": "intermediate",
+    "outcome": "An audio production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 205,
+    "title": "Interactive Art Installation 5",
+    "description": "Create an interactive digital art installation",
+    "tech_stack": "JavaScript, Sensors, Arduino, Interactive Design",
+    "difficulty": "intermediate",
+    "outcome": "An interactive art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 206,
+    "title": "Virtual Reality Experience 6",
+    "description": "Build a VR experience with immersive interactions",
+    "tech_stack": "Unity, C#, VR SDK, 3D Graphics, Interaction Design",
+    "difficulty": "intermediate",
+    "outcome": "A VR experience platform",
+    "domain": "creative"
+  },
+  {
+    "id": 207,
+    "title": "Augmented Reality App 7",
+    "description": "Create an AR application with object recognition",
+    "tech_stack": "Unity, ARCore, ARKit, Computer Vision, 3D Graphics",
+    "difficulty": "intermediate",
+    "outcome": "An AR application platform",
+    "domain": "creative"
+  },
+  {
+    "id": 208,
+    "title": "Motion Graphics Tool 8",
+    "description": "Build a tool for creating motion graphics and animations",
+    "tech_stack": "JavaScript, Canvas API, Animation, Keyframe Animation",
+    "difficulty": "intermediate",
+    "outcome": "A motion graphics platform",
+    "domain": "creative"
+  },
+  {
+    "id": 209,
+    "title": "Digital Sculpting Tool 9",
+    "description": "Create a digital sculpting application",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Sculpting Algorithms",
+    "difficulty": "intermediate",
+    "outcome": "A digital sculpting platform",
+    "domain": "creative"
+  },
+  {
+    "id": 210,
+    "title": "Generative Art Platform 10",
+    "description": "Build a platform for creating generative art",
+    "tech_stack": "Python, Processing, Algorithmic Art, Creative Coding",
+    "difficulty": "intermediate",
+    "outcome": "A generative art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 211,
+    "title": "Game Development Engine 11",
+    "description": "Create a 2D game engine with physics and collision detection",
+    "tech_stack": "C++, OpenGL, SDL2, Lua, Game Physics",
+    "difficulty": "intermediate",
+    "outcome": "A custom game development engine",
+    "domain": "creative"
+  },
+  {
+    "id": 212,
+    "title": "Video Editing Software 12",
+    "description": "Build a video editing application with effects and transitions",
+    "tech_stack": "Python, OpenCV, FFmpeg, Video Processing",
+    "difficulty": "intermediate",
+    "outcome": "A video editing platform",
+    "domain": "creative"
+  },
+  {
+    "id": 213,
+    "title": "3D Modeling Software 13",
+    "description": "Create a 3D modeling and sculpting tool",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Mesh Processing",
+    "difficulty": "intermediate",
+    "outcome": "A 3D modeling application",
+    "domain": "creative"
+  },
+  {
+    "id": 214,
+    "title": "Audio Production Studio 14",
+    "description": "Build a digital audio workstation",
+    "tech_stack": "Python, Audio Processing, MIDI, Real-time Audio",
+    "difficulty": "intermediate",
+    "outcome": "An audio production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 215,
+    "title": "Interactive Art Installation 15",
+    "description": "Create an interactive digital art installation",
+    "tech_stack": "JavaScript, Sensors, Arduino, Interactive Design",
+    "difficulty": "intermediate",
+    "outcome": "An interactive art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 216,
+    "title": "Virtual Reality Experience 16",
+    "description": "Build a VR experience with immersive interactions",
+    "tech_stack": "Unity, C#, VR SDK, 3D Graphics, Interaction Design",
+    "difficulty": "intermediate",
+    "outcome": "A VR experience platform",
+    "domain": "creative"
+  },
+  {
+    "id": 217,
+    "title": "Augmented Reality App 17",
+    "description": "Create an AR application with object recognition",
+    "tech_stack": "Unity, ARCore, ARKit, Computer Vision, 3D Graphics",
+    "difficulty": "intermediate",
+    "outcome": "An AR application platform",
+    "domain": "creative"
+  },
+  {
+    "id": 218,
+    "title": "Motion Graphics Tool 18",
+    "description": "Build a tool for creating motion graphics and animations",
+    "tech_stack": "JavaScript, Canvas API, Animation, Keyframe Animation",
+    "difficulty": "intermediate",
+    "outcome": "A motion graphics platform",
+    "domain": "creative"
+  },
+  {
+    "id": 219,
+    "title": "Digital Sculpting Tool 19",
+    "description": "Create a digital sculpting application",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Sculpting Algorithms",
+    "difficulty": "intermediate",
+    "outcome": "A digital sculpting platform",
+    "domain": "creative"
+  },
+  {
+    "id": 220,
+    "title": "Generative Art Platform 20",
+    "description": "Build a platform for creating generative art",
+    "tech_stack": "Python, Processing, Algorithmic Art, Creative Coding",
+    "difficulty": "intermediate",
+    "outcome": "A generative art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 221,
+    "title": "Game Development Engine 21",
+    "description": "Create a 2D game engine with physics and collision detection",
+    "tech_stack": "C++, OpenGL, SDL2, Lua, Game Physics",
+    "difficulty": "intermediate",
+    "outcome": "A custom game development engine",
+    "domain": "creative"
+  },
+  {
+    "id": 222,
+    "title": "Video Editing Software 22",
+    "description": "Build a video editing application with effects and transitions",
+    "tech_stack": "Python, OpenCV, FFmpeg, Video Processing",
+    "difficulty": "intermediate",
+    "outcome": "A video editing platform",
+    "domain": "creative"
+  },
+  {
+    "id": 223,
+    "title": "3D Modeling Software 23",
+    "description": "Create a 3D modeling and sculpting tool",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Mesh Processing",
+    "difficulty": "intermediate",
+    "outcome": "A 3D modeling application",
+    "domain": "creative"
+  },
+  {
+    "id": 224,
+    "title": "Audio Production Studio 24",
+    "description": "Build a digital audio workstation",
+    "tech_stack": "Python, Audio Processing, MIDI, Real-time Audio",
+    "difficulty": "intermediate",
+    "outcome": "An audio production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 225,
+    "title": "Interactive Art Installation 25",
+    "description": "Create an interactive digital art installation",
+    "tech_stack": "JavaScript, Sensors, Arduino, Interactive Design",
+    "difficulty": "intermediate",
+    "outcome": "An interactive art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 226,
+    "title": "Virtual Reality Experience 26",
+    "description": "Build a VR experience with immersive interactions",
+    "tech_stack": "Unity, C#, VR SDK, 3D Graphics, Interaction Design",
+    "difficulty": "intermediate",
+    "outcome": "A VR experience platform",
+    "domain": "creative"
+  },
+  {
+    "id": 227,
+    "title": "Augmented Reality App 27",
+    "description": "Create an AR application with object recognition",
+    "tech_stack": "Unity, ARCore, ARKit, Computer Vision, 3D Graphics",
+    "difficulty": "intermediate",
+    "outcome": "An AR application platform",
+    "domain": "creative"
+  },
+  {
+    "id": 228,
+    "title": "Motion Graphics Tool 28",
+    "description": "Build a tool for creating motion graphics and animations",
+    "tech_stack": "JavaScript, Canvas API, Animation, Keyframe Animation",
+    "difficulty": "intermediate",
+    "outcome": "A motion graphics platform",
+    "domain": "creative"
+  },
+  {
+    "id": 229,
+    "title": "Digital Sculpting Tool 29",
+    "description": "Create a digital sculpting application",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Sculpting Algorithms",
+    "difficulty": "intermediate",
+    "outcome": "A digital sculpting platform",
+    "domain": "creative"
+  },
+  {
+    "id": 230,
+    "title": "Generative Art Platform 30",
+    "description": "Build a platform for creating generative art",
+    "tech_stack": "Python, Processing, Algorithmic Art, Creative Coding",
+    "difficulty": "intermediate",
+    "outcome": "A generative art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 231,
+    "title": "Game Development Engine 31",
+    "description": "Create a 2D game engine with physics and collision detection",
+    "tech_stack": "C++, OpenGL, SDL2, Lua, Game Physics",
+    "difficulty": "intermediate",
+    "outcome": "A custom game development engine",
+    "domain": "creative"
+  },
+  {
+    "id": 232,
+    "title": "Video Editing Software 32",
+    "description": "Build a video editing application with effects and transitions",
+    "tech_stack": "Python, OpenCV, FFmpeg, Video Processing",
+    "difficulty": "intermediate",
+    "outcome": "A video editing platform",
+    "domain": "creative"
+  },
+  {
+    "id": 233,
+    "title": "3D Modeling Software 33",
+    "description": "Create a 3D modeling and sculpting tool",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Mesh Processing",
+    "difficulty": "intermediate",
+    "outcome": "A 3D modeling application",
+    "domain": "creative"
+  },
+  {
+    "id": 234,
+    "title": "Audio Production Studio 34",
+    "description": "Build a digital audio workstation",
+    "tech_stack": "Python, Audio Processing, MIDI, Real-time Audio",
+    "difficulty": "intermediate",
+    "outcome": "An audio production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 235,
+    "title": "Interactive Art Installation 35",
+    "description": "Create an interactive digital art installation",
+    "tech_stack": "JavaScript, Sensors, Arduino, Interactive Design",
+    "difficulty": "intermediate",
+    "outcome": "An interactive art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 236,
+    "title": "Virtual Reality Experience 36",
+    "description": "Build a VR experience with immersive interactions",
+    "tech_stack": "Unity, C#, VR SDK, 3D Graphics, Interaction Design",
+    "difficulty": "intermediate",
+    "outcome": "A VR experience platform",
+    "domain": "creative"
+  },
+  {
+    "id": 237,
+    "title": "Augmented Reality App 37",
+    "description": "Create an AR application with object recognition",
+    "tech_stack": "Unity, ARCore, ARKit, Computer Vision, 3D Graphics",
+    "difficulty": "intermediate",
+    "outcome": "An AR application platform",
+    "domain": "creative"
+  },
+  {
+    "id": 238,
+    "title": "Motion Graphics Tool 38",
+    "description": "Build a tool for creating motion graphics and animations",
+    "tech_stack": "JavaScript, Canvas API, Animation, Keyframe Animation",
+    "difficulty": "intermediate",
+    "outcome": "A motion graphics platform",
+    "domain": "creative"
+  },
+  {
+    "id": 239,
+    "title": "Digital Sculpting Tool 39",
+    "description": "Create a digital sculpting application",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Sculpting Algorithms",
+    "difficulty": "intermediate",
+    "outcome": "A digital sculpting platform",
+    "domain": "creative"
+  },
+  {
+    "id": 240,
+    "title": "Generative Art Platform 40",
+    "description": "Build a platform for creating generative art",
+    "tech_stack": "Python, Processing, Algorithmic Art, Creative Coding",
+    "difficulty": "intermediate",
+    "outcome": "A generative art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 241,
+    "title": "Game Development Engine 41",
+    "description": "Create a 2D game engine with physics and collision detection",
+    "tech_stack": "C++, OpenGL, SDL2, Lua, Game Physics",
+    "difficulty": "intermediate",
+    "outcome": "A custom game development engine",
+    "domain": "creative"
+  },
+  {
+    "id": 242,
+    "title": "Video Editing Software 42",
+    "description": "Build a video editing application with effects and transitions",
+    "tech_stack": "Python, OpenCV, FFmpeg, Video Processing",
+    "difficulty": "intermediate",
+    "outcome": "A video editing platform",
+    "domain": "creative"
+  },
+  {
+    "id": 243,
+    "title": "3D Modeling Software 43",
+    "description": "Create a 3D modeling and sculpting tool",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Mesh Processing",
+    "difficulty": "intermediate",
+    "outcome": "A 3D modeling application",
+    "domain": "creative"
+  },
+  {
+    "id": 244,
+    "title": "Audio Production Studio 44",
+    "description": "Build a digital audio workstation",
+    "tech_stack": "Python, Audio Processing, MIDI, Real-time Audio",
+    "difficulty": "intermediate",
+    "outcome": "An audio production platform",
+    "domain": "creative"
+  },
+  {
+    "id": 245,
+    "title": "Interactive Art Installation 45",
+    "description": "Create an interactive digital art installation",
+    "tech_stack": "JavaScript, Sensors, Arduino, Interactive Design",
+    "difficulty": "intermediate",
+    "outcome": "An interactive art platform",
+    "domain": "creative"
+  },
+  {
+    "id": 246,
+    "title": "Virtual Reality Experience 46",
+    "description": "Build a VR experience with immersive interactions",
+    "tech_stack": "Unity, C#, VR SDK, 3D Graphics, Interaction Design",
+    "difficulty": "intermediate",
+    "outcome": "A VR experience platform",
+    "domain": "creative"
+  },
+  {
+    "id": 247,
+    "title": "Augmented Reality App 47",
+    "description": "Create an AR application with object recognition",
+    "tech_stack": "Unity, ARCore, ARKit, Computer Vision, 3D Graphics",
+    "difficulty": "intermediate",
+    "outcome": "An AR application platform",
+    "domain": "creative"
+  },
+  {
+    "id": 248,
+    "title": "Motion Graphics Tool 48",
+    "description": "Build a tool for creating motion graphics and animations",
+    "tech_stack": "JavaScript, Canvas API, Animation, Keyframe Animation",
+    "difficulty": "intermediate",
+    "outcome": "A motion graphics platform",
+    "domain": "creative"
+  },
+  {
+    "id": 249,
+    "title": "Digital Sculpting Tool 49",
+    "description": "Create a digital sculpting application",
+    "tech_stack": "C++, OpenGL, 3D Graphics, Sculpting Algorithms",
+    "difficulty": "intermediate",
+    "outcome": "A digital sculpting platform",
+    "domain": "creative"
+  },
+  {
+    "id": 250,
+    "title": "Generative Art Platform 50",
+    "description": "Build a platform for creating generative art",
+    "tech_stack": "Python, Processing, Algorithmic Art, Creative Coding",
+    "difficulty": "intermediate",
+    "outcome": "A generative art platform",
+    "domain": "creative"
+  }
+]

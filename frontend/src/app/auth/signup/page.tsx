@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { auth } from '@/utils/auth'
 
 export default function SignupPage() {
   const [isDark, setIsDark] = useState(false)
@@ -17,7 +18,7 @@ export default function SignupPage() {
   const [serverError, setServerError] = useState<string>('')
   const [serverSuccess, setServerSuccess] = useState<string>('')
 
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8001/api/v1'
+
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
@@ -78,7 +79,7 @@ export default function SignupPage() {
     setIsSubmitting(true)
     
     try {
-      const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+      const response = await fetch(`${auth.API_BASE_URL}/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -312,7 +313,7 @@ export default function SignupPage() {
             <div className="mt-6 grid grid-cols-2 gap-3">
               <button
                 type="button"
-                onClick={() => { window.location.href = `${API_BASE_URL}/auth/oauth/google/login` }}
+                onClick={() => { window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'}/auth/oauth/google/login` }}
                 className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                   isDark 
                     ? 'border-gray-600 bg-gray-700 text-gray-300 hover:bg-gray-600' 
@@ -327,7 +328,7 @@ export default function SignupPage() {
 
               <button
                 type="button"
-                onClick={() => { window.location.href = `${API_BASE_URL}/auth/oauth/github/login` }}
+                onClick={() => { window.location.href = `${process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'}/auth/oauth/github/login` }}
                 className={`w-full inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium transition-colors duration-200 ${
                   isDark 
                     ? 'border-gray-600 bg-gray-700 text-gray-300 hover:bg-gray-600' 
