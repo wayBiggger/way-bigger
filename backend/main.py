@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from app.core.config import settings
 from app.api.v1.api import api_router
 from app.core.database import Base, engine
+from app.middleware.security import SecurityMiddleware, InputValidationMiddleware, CSRFMiddleware, LoggingMiddleware
 # Import all models so they get created in the database
 from app.models import *
 
@@ -20,6 +22,18 @@ app = FastAPI(
 def create_database_tables() -> None:
     Base.metadata.create_all(bind=engine)
 
+# Security middleware (order matters - add in reverse order)
+app.add_middleware(LoggingMiddleware)
+app.add_middleware(CSRFMiddleware)
+app.add_middleware(InputValidationMiddleware)
+app.add_middleware(SecurityMiddleware)
+
+# Trusted host middleware
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=["localhost", "127.0.0.1", "*.waybigger.com", "waybigger.com"]
+)
+
 # CORS middleware
 # Expand CORS for common local dev hosts and allow-all when debug is true
 allowed_origins = [
@@ -35,8 +49,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"] if settings.debug else allowed_origins,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["X-CSRF-Token"]
 )
 
 # Include API router

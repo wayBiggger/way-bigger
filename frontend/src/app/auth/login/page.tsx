@@ -8,7 +8,8 @@ export default function LoginPage() {
   const [isDark, setIsDark] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
+    rememberMe: false
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -36,8 +37,11 @@ export default function LoginPage() {
   }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+    const { name, value, type, checked } = e.target
+    setFormData(prev => ({ 
+      ...prev, 
+      [name]: type === 'checkbox' ? checked : value 
+    }))
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }))
@@ -66,11 +70,11 @@ export default function LoginPage() {
     setIsSubmitting(true)
     
     try {
-      const data = await auth.login(formData.email, formData.password)
+      const data = await auth.login(formData.email, formData.password, formData.rememberMe)
       setServerSuccess('Login successful! Redirecting...')
       
-      // Store auth data using the utility
-      auth.setAuth(data.access_token, data.user)
+      // Store auth data using the utility with remember me preference
+      auth.setAuth(data.access_token, data.user, formData.rememberMe)
       
       // After login, route user based on onboarding status
       // Redirect to profile by default; onboarding pages are accessible from nav
@@ -84,43 +88,31 @@ export default function LoginPage() {
   }
 
   return (
-    <div className={`min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 transition-colors duration-300 ${
-      isDark ? 'bg-gray-900' : 'bg-gray-50'
-    }`}>
+    <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 transition-colors duration-300 relative" style={{background: 'var(--bg-primary)'}}>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className={`mt-6 text-center text-3xl font-extrabold ${
-          isDark ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
           Sign in to your account
         </h2>
-        <p className={`mt-2 text-center text-sm ${
-          isDark ? 'text-gray-400' : 'text-gray-600'
-        }`}>
+        <p className="mt-2 text-center text-sm text-gray-300">
           Or{' '}
-          <Link href="/auth/signup" className={`font-medium ${
-            isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'
-          }`}>
+          <Link href="/auth/signup" className="font-medium text-pink-400 hover:text-pink-300 transition-colors">
             create a new account
           </Link>
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className={`py-8 px-4 shadow sm:rounded-lg sm:px-10 transition-colors duration-300 ${
-          isDark ? 'bg-gray-800' : 'bg-white'
-        }`}>
+        <div className="py-8 px-4 shadow-2xl sm:rounded-lg sm:px-10 transition-colors duration-300 glass-card">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {serverError && (
-              <div className="text-sm text-red-600 bg-red-50 p-3 rounded-md">{serverError}</div>
+              <div className="text-sm text-red-400 bg-red-500/10 border border-red-500/30 p-3 rounded-md">{serverError}</div>
             )}
             {serverSuccess && (
-              <div className="text-sm text-green-600 bg-green-50 p-3 rounded-md">{serverSuccess}</div>
+              <div className="text-sm text-green-400 bg-green-500/10 border border-green-500/30 p-3 rounded-md">{serverSuccess}</div>
             )}
             
             <div>
-              <label htmlFor="email" className={`block text-sm font-medium ${
-                isDark ? 'text-gray-300' : 'text-gray-700'
-              }`}>
+              <label htmlFor="email" className="block text-sm font-medium text-white">
                 Email address
               </label>
               <div className="mt-1">
@@ -132,22 +124,16 @@ export default function LoginPage() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className={`appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-colors duration-300 ${
-                    errors.email 
-                      ? 'border-red-300' 
-                      : isDark 
-                        ? 'border-gray-600 bg-gray-700 text-white' 
-                        : 'border-gray-300'
+                  className={`appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm transition-colors duration-300 bg-black/50 text-white border-pink-500/30 focus:border-pink-400 ${
+                    errors.email ? 'border-red-500' : ''
                   }`}
                 />
-                {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className={`block text-sm font-medium ${
-                isDark ? 'text-gray-300' : 'text-gray-700'
-              }`}>
+              <label htmlFor="password" className="block text-sm font-medium text-white">
                 Password
               </label>
               <div className="mt-1">
@@ -159,15 +145,27 @@ export default function LoginPage() {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className={`appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-colors duration-300 ${
-                    errors.password 
-                      ? 'border-red-300' 
-                      : isDark 
-                        ? 'border-gray-600 bg-gray-700 text-white' 
-                        : 'border-gray-300'
+                  className={`appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm transition-colors duration-300 bg-black/50 text-white border-pink-500/30 focus:border-pink-400 ${
+                    errors.password ? 'border-red-500' : ''
                   }`}
                 />
-                {errors.password && <p className="mt-1 text-sm text-red-600">{errors.password}</p>}
+                {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  id="rememberMe"
+                  name="rememberMe"
+                  type="checkbox"
+                  checked={formData.rememberMe}
+                  onChange={handleChange}
+                  className="h-4 w-4 text-pink-500 focus:ring-pink-500 border-pink-500/30 rounded bg-black/50"
+                />
+                <label htmlFor="rememberMe" className="ml-2 block text-sm text-white">
+                  Remember me
+                </label>
               </div>
             </div>
 
@@ -175,7 +173,10 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition-colors duration-200"
+                style={{
+                  boxShadow: '0 0 20px rgba(255, 0, 128, 0.3)'
+                }}
               >
                 {isSubmitting ? 'Signing In...' : 'Sign In'}
               </button>

@@ -145,6 +145,31 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
         )
 
 
+@router.post("/refresh", response_model=dict)
+async def refresh_token(current_user: User = Depends(get_current_user)):
+    """Refresh access token"""
+    try:
+        access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+        access_token = create_access_token(
+            data={"sub": current_user.email}, expires_delta=access_token_expires
+        )
+        
+        return {
+            "access_token": access_token, 
+            "token_type": "bearer",
+            "user": {
+                "id": current_user.id,
+                "email": current_user.email,
+                "username": current_user.username,
+                "full_name": current_user.full_name
+            }
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Token refresh failed"
+        )
+
 @router.get("/me", response_model=UserProfile)
 async def get_current_user_info(current_user: User = Depends(get_current_user)):
     """Get current user information"""
@@ -229,107 +254,139 @@ async def oauth_test():
 
 @router.get("/oauth/{provider}/callback", name="oauth_callback")
 async def oauth_callback(provider: str, request: Request, code: Optional[str] = None, db: Session = Depends(get_db)):
-    provider = provider.lower()
-    if provider not in {"google", "github"}:
-        raise HTTPException(status_code=404, detail="Unsupported provider")
-    if not code:
-        raise HTTPException(status_code=400, detail="Missing authorization code")
+    try:
+        provider = provider.lower()
+        if provider not in {"google", "github"}:
+            raise HTTPException(status_code=404, detail="Unsupported provider")
+        if not code:
+            raise HTTPException(status_code=400, detail="Missing authorization code")
 
-    callback_url = request.url_for("oauth_callback", provider=provider)
+        callback_url = request.url_for("oauth_callback", provider=provider)
+        print(f"DEBUG: OAuth callback for {provider}, code: {code[:10]}..., callback_url: {callback_url}")
 
-    async with httpx.AsyncClient() as client:
-        if provider == "google":
-            token_resp = await client.post(
-                "https://oauth2.googleapis.com/token",
-                data={
-                    "code": code,
-                    "client_id": settings.google_client_id,
-                    "client_secret": settings.google_client_secret,
-                    "redirect_uri": str(callback_url),
-                    "grant_type": "authorization_code",
-                },
-                headers={"Content-Type": "application/x-www-form-urlencoded"},
-            )
-            token_resp.raise_for_status()
-            token_json = token_resp.json()
-            access_token = token_json.get("access_token")
-            if not access_token:
-                raise HTTPException(status_code=400, detail="Failed to obtain Google token")
+        async with httpx.AsyncClient() as client:
+            if provider == "google":
+                try:
+                    token_resp = await client.post(
+                        "https://oauth2.googleapis.com/token",
+                        data={
+                            "code": code,
+                            "client_id": settings.google_client_id,
+                            "client_secret": settings.google_client_secret,
+                            "redirect_uri": str(callback_url),
+                            "grant_type": "authorization_code",
+                        },
+                        headers={"Content-Type": "application/x-www-form-urlencoded"},
+                    )
+                    print(f"DEBUG: Google token response status: {token_resp.status_code}")
+                    if token_resp.status_code != 200:
+                        print(f"DEBUG: Google token error: {token_resp.text}")
+                        raise HTTPException(status_code=400, detail=f"Google token exchange failed: {token_resp.text}")
+                    
+                    token_json = token_resp.json()
+                    access_token = token_json.get("access_token")
+                    if not access_token:
+                        raise HTTPException(status_code=400, detail="Failed to obtain Google token")
 
-            userinfo_resp = await client.get(
-                "https://www.googleapis.com/oauth2/v3/userinfo",
-                headers={"Authorization": f"Bearer {access_token}"},
-            )
-            userinfo_resp.raise_for_status()
-            info = userinfo_resp.json()
-            email = info.get("email")
-            username = info.get("name") or (email.split("@")[0] if email else None)
-            full_name = info.get("name") or username or ""
+                    userinfo_resp = await client.get(
+                        "https://www.googleapis.com/oauth2/v3/userinfo",
+                        headers={"Authorization": f"Bearer {access_token}"},
+                    )
+                    print(f"DEBUG: Google userinfo response status: {userinfo_resp.status_code}")
+                    if userinfo_resp.status_code != 200:
+                        print(f"DEBUG: Google userinfo error: {userinfo_resp.text}")
+                        raise HTTPException(status_code=400, detail=f"Google userinfo failed: {userinfo_resp.text}")
+                    
+                    info = userinfo_resp.json()
+                    email = info.get("email")
+                    username = info.get("name") or (email.split("@")[0] if email else None)
+                    full_name = info.get("name") or username or ""
+                    print(f"DEBUG: Google user info - email: {email}, username: {username}, full_name: {full_name}")
+                    
+                except httpx.HTTPStatusError as e:
+                    print(f"DEBUG: HTTP error in Google OAuth: {e.response.status_code} - {e.response.text}")
+                    raise HTTPException(status_code=400, detail=f"Google OAuth error: {e.response.text}")
+                except Exception as e:
+                    print(f"DEBUG: Unexpected error in Google OAuth: {str(e)}")
+                    raise HTTPException(status_code=500, detail=f"Google OAuth error: {str(e)}")
 
-        else:  # github
-            token_resp = await client.post(
-                "https://github.com/login/oauth/access_token",
-                data={
-                    "client_id": settings.github_client_id,
-                    "client_secret": settings.github_client_secret,
-                    "code": code,
-                    "redirect_uri": str(callback_url),
-                },
-                headers={"Accept": "application/json"},
-            )
-            token_resp.raise_for_status()
-            token_json = token_resp.json()
-            access_token = token_json.get("access_token")
-            if not access_token:
-                raise HTTPException(status_code=400, detail="Failed to obtain GitHub token")
+            else:  # github
+                token_resp = await client.post(
+                    "https://github.com/login/oauth/access_token",
+                    data={
+                        "client_id": settings.github_client_id,
+                        "client_secret": settings.github_client_secret,
+                        "code": code,
+                        "redirect_uri": str(callback_url),
+                    },
+                    headers={"Accept": "application/json"},
+                )
+                token_resp.raise_for_status()
+                token_json = token_resp.json()
+                access_token = token_json.get("access_token")
+                if not access_token:
+                    raise HTTPException(status_code=400, detail="Failed to obtain GitHub token")
 
-            user_resp = await client.get(
-                "https://api.github.com/user",
-                headers={"Authorization": f"Bearer {access_token}", "Accept": "application/vnd.github+json"},
-            )
-            user_resp.raise_for_status()
-            user = user_resp.json()
-            email = user.get("email")
-            if not email:
-                emails_resp = await client.get(
-                    "https://api.github.com/user/emails",
+                user_resp = await client.get(
+                    "https://api.github.com/user",
                     headers={"Authorization": f"Bearer {access_token}", "Accept": "application/vnd.github+json"},
                 )
-                emails_resp.raise_for_status()
-                emails = emails_resp.json()
-                primary = next((e for e in emails if e.get("primary") and e.get("verified")), None)
-                email = primary.get("email") if primary else (emails[0]["email"] if emails else None)
-            username = user.get("login")
-            full_name = user.get("name") or username or ""
+                user_resp.raise_for_status()
+                user = user_resp.json()
+                email = user.get("email")
+                if not email:
+                    emails_resp = await client.get(
+                        "https://api.github.com/user/emails",
+                        headers={"Authorization": f"Bearer {access_token}", "Accept": "application/vnd.github+json"},
+                    )
+                    emails_resp.raise_for_status()
+                    emails = emails_resp.json()
+                    primary = next((e for e in emails if e.get("primary") and e.get("verified")), None)
+                    email = primary.get("email") if primary else (emails[0]["email"] if emails else None)
+                username = user.get("login")
+                full_name = user.get("name") or username or ""
 
-    if not email:
-        raise HTTPException(status_code=400, detail="Provider did not return an email")
+        if not email:
+            raise HTTPException(status_code=400, detail="Provider did not return an email")
 
-    # Upsert user
-    db_user = db.query(User).filter(User.email == email).first()
-    if not db_user:
-        db_user = User(
-            email=email,
-            username=(username or email.split("@")[0]),
-            full_name=full_name or (username or email.split("@")[0]),
-            hashed_password=get_password_hash("oauth-login-placeholder"),
-        )
-        db.add(db_user)
-        db.commit()
-        db.refresh(db_user)
+        # Upsert user
+        print(f"DEBUG: Creating/updating user - email: {email}, username: {username}, full_name: {full_name}")
+        db_user = db.query(User).filter(User.email == email).first()
+        if not db_user:
+            db_user = User(
+                email=email,
+                username=(username or email.split("@")[0]),
+                full_name=full_name or (username or email.split("@")[0]),
+                hashed_password=get_password_hash("oauth-login-placeholder"),
+            )
+            db.add(db_user)
+            db.commit()
+            db.refresh(db_user)
+            print(f"DEBUG: Created new user with ID: {db_user.id}")
+        else:
+            print(f"DEBUG: Found existing user with ID: {db_user.id}")
 
-    # Issue JWT and redirect back to frontend
-    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
-    jwt_token = create_access_token(data={"sub": db_user.email}, expires_delta=access_token_expires)
+        # Issue JWT and redirect back to frontend
+        access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+        jwt_token = create_access_token(data={"sub": db_user.email}, expires_delta=access_token_expires)
 
-    # For development, redirect to frontend with token and user data
-    import urllib.parse
-    user_data = {
-        "id": db_user.id,
-        "email": db_user.email,
-        "username": db_user.username,
-        "full_name": db_user.full_name
-    }
-    user_data_encoded = urllib.parse.quote(urllib.parse.urlencode(user_data))
-    redirect_to = f"{settings.frontend_url}/auth/callback?token={jwt_token}&user={user_data_encoded}"
-    return RedirectResponse(url=redirect_to)
+        # For development, redirect to frontend with token and user data
+        import urllib.parse
+        user_data = {
+            "id": db_user.id,
+            "email": db_user.email,
+            "username": db_user.username,
+            "full_name": db_user.full_name
+        }
+        user_data_encoded = urllib.parse.quote(urllib.parse.urlencode(user_data))
+        redirect_to = f"{settings.frontend_url}/auth/callback?token={jwt_token}&user={user_data_encoded}"
+        print(f"DEBUG: Redirecting to: {redirect_to}")
+        return RedirectResponse(url=redirect_to)
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"DEBUG: Unexpected error in OAuth callback: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"OAuth callback error: {str(e)}")

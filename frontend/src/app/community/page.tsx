@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Navbar from '@/components/Navbar'
 
 // Mock community data
 const mockProjectIdeas = [
@@ -68,6 +70,7 @@ const mockDiscussions = [
 ]
 
 export default function CommunityPage() {
+  const pathname = usePathname()
   const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
@@ -89,23 +92,20 @@ export default function CommunityPage() {
   }, [])
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-white' : 'bg-gray-50'
-    }`}>
+    <div className="min-h-screen relative" style={{background: 'var(--bg-primary)'}}>
+      {/* Navigation Bar */}
+      <Navbar currentPath={pathname} />
+
       {/* Header */}
-      <div className={`transition-colors duration-300 ${
-        isDark ? 'bg-gray-800' : 'bg-white'
-      } shadow-lg`}>
+      <div className="glass-card mx-4 mt-8" style={{
+        boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
+      }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className={`text-4xl font-bold mb-4 ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}>
-              Join Our Community
+            <h1 className="text-4xl font-bold mb-4 text-white">
+              Join Our <span className="text-gradient">Community</span>
             </h1>
-            <p className={`text-xl max-w-3xl mx-auto ${
-              isDark ? 'text-gray-300' : 'text-gray-600'
-            }`}>
+            <p className="text-xl max-w-3xl mx-auto text-gray-300">
               Connect with fellow learners, share project ideas, and collaborate on exciting new ventures. 
               Together, we can build amazing things and learn from each other.
             </p>
@@ -120,14 +120,15 @@ export default function CommunityPage() {
             {/* Project Ideas Section */}
             <div>
               <div className="flex items-center justify-between mb-6">
-                <h2 className={`text-2xl font-bold ${
-                  isDark ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h2 className="text-2xl font-bold text-white">
                   Project Ideas
                 </h2>
                 <Link
                   href="/community/submit-idea"
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
+                  style={{
+                    boxShadow: '0 0 15px rgba(255, 0, 128, 0.3)'
+                  }}
                 >
                   Submit Idea
                 </Link>
@@ -135,19 +136,15 @@ export default function CommunityPage() {
               
               <div className="space-y-4">
                 {mockProjectIdeas.map((idea) => (
-                  <div key={idea.id} className={`rounded-lg shadow p-6 transition-colors duration-300 ${
-                    isDark ? 'bg-gray-800' : 'bg-white'
-                  }`}>
+                  <div key={idea.id} className="glass-card p-6 transition-all duration-300 hover:glass-hover" style={{
+                    boxShadow: '0 0 15px rgba(255, 0, 128, 0.1)'
+                  }}>
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
-                        <h3 className={`text-lg font-semibold mb-2 ${
-                          isDark ? 'text-white' : 'text-gray-900'
-                        }`}>
+                        <h3 className="text-lg font-semibold mb-2 text-white">
                           {idea.title}
                         </h3>
-                        <p className={`mb-3 ${
-                          isDark ? 'text-gray-300' : 'text-gray-600'
-                        }`}>
+                        <p className="mb-3 text-gray-300">
                           {idea.description}
                         </p>
                         <div className="flex items-center space-x-4 text-sm">

@@ -1,6 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import SmartMentor from '@/components/SmartMentor'
+import LearningStyleAssessment from '@/components/LearningStyleAssessment'
+import { useMentorship } from '@/hooks/useMentorship'
 
 type AIFeature = 'project-ideas' | 'learning-path' | 'code-review' | 'project-description' | 'tutor'
 
@@ -17,6 +21,19 @@ export default function AIAssistantPage() {
   const [result, setResult] = useState<any>(null)
   const [error, setError] = useState<string>('')
   const [aiStatus, setAiStatus] = useState<any>(null)
+  
+  // Mentorship integration
+  const userId = 'user-123' // Mock user ID
+  const { 
+    context: mentorshipContext, 
+    learningProfile, 
+    interventions,
+    chatWithMentor,
+    assessLearningStyle 
+  } = useMentorship(userId)
+  
+  const [showMentor, setShowMentor] = useState(false)
+  const [showLearningAssessment, setShowLearningAssessment] = useState(false)
 
   // Use Node.js backend for project generation
   const NODE_API_BASE_URL = process.env.NEXT_PUBLIC_NODE_API_BASE_URL || 'http://localhost:4000'
@@ -202,17 +219,17 @@ console.log(calculateSum(5, 3));`
       case 'project-ideas':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Generated Project Ideas</h3>
+            <h3 className="text-lg font-semibold text-white">Generated Project Ideas</h3>
             {Array.isArray(result) && result.map((idea: any, index: number) => (
-              <div key={index} className={`p-4 rounded-lg border ${
-                isDark ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
-              }`}>
-                <h4 className="font-medium text-blue-600">{idea.title}</h4>
-                {idea.description && <p className="text-sm mt-2">{idea.description}</p>}
-                {idea.learning_objectives && <p className="text-sm mt-1"><strong>Learning:</strong> {idea.learning_objectives}</p>}
-                {idea.time_commitment && <p className="text-sm mt-1"><strong>Time:</strong> {idea.time_commitment}</p>}
-                {idea.required_skills && <p className="text-sm mt-1"><strong>Skills:</strong> {idea.required_skills}</p>}
-                {idea.value && <p className="text-sm mt-1"><strong>Value:</strong> {idea.value}</p>}
+              <div key={index} className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
+                boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+              }}>
+                <h4 className="font-medium text-pink-400">{idea.title}</h4>
+                {idea.description && <p className="text-sm mt-2 text-gray-300">{idea.description}</p>}
+                {idea.learning_objectives && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Learning:</strong> {idea.learning_objectives}</p>}
+                {idea.time_commitment && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Time:</strong> {idea.time_commitment}</p>}
+                {idea.required_skills && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Skills:</strong> {idea.required_skills}</p>}
+                {idea.value && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Value:</strong> {idea.value}</p>}
               </div>
             ))}
           </div>
@@ -221,11 +238,11 @@ console.log(calculateSum(5, 3));`
       case 'learning-path':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Learning Path</h3>
-            <div className={`p-4 rounded-lg border ${
-              isDark ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
-            }`}>
-              <pre className="whitespace-pre-wrap text-sm">{result.raw_content}</pre>
+            <h3 className="text-lg font-semibold text-white">Learning Path</h3>
+            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
+              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+            }}>
+              <pre className="whitespace-pre-wrap text-sm text-gray-300">{result.raw_content}</pre>
             </div>
           </div>
         )
@@ -233,15 +250,15 @@ console.log(calculateSum(5, 3));`
       case 'code-review':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Code Review</h3>
-            <div className={`p-4 rounded-lg border ${
-              isDark ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
-            }`}>
-              <p className="text-sm"><strong>Language:</strong> {result.language}</p>
-              <p className="text-sm mt-2"><strong>Context:</strong> {result.context}</p>
+            <h3 className="text-lg font-semibold text-white">Code Review</h3>
+            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
+              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+            }}>
+              <p className="text-sm text-gray-300"><strong className="text-pink-400">Language:</strong> {result.language}</p>
+              <p className="text-sm mt-2 text-gray-300"><strong className="text-pink-400">Context:</strong> {result.context}</p>
               <div className="mt-4">
-                <strong>Review:</strong>
-                <pre className="whitespace-pre-wrap text-sm mt-2">{result.review}</pre>
+                <strong className="text-pink-400">Review:</strong>
+                <pre className="whitespace-pre-wrap text-sm mt-2 text-gray-300">{result.review}</pre>
               </div>
             </div>
           </div>
@@ -250,11 +267,11 @@ console.log(calculateSum(5, 3));`
       case 'project-description':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Project Description</h3>
-            <div className={`p-4 rounded-lg border ${
-              isDark ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
-            }`}>
-              <pre className="whitespace-pre-wrap text-sm">{result.raw_content}</pre>
+            <h3 className="text-lg font-semibold text-white">Project Description</h3>
+            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
+              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+            }}>
+              <pre className="whitespace-pre-wrap text-sm text-gray-300">{result.raw_content}</pre>
             </div>
           </div>
         )
@@ -262,14 +279,14 @@ console.log(calculateSum(5, 3));`
       case 'tutor':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">AI Tutor Response</h3>
-            <div className={`p-4 rounded-lg border ${
-              isDark ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
-            }`}>
-              <p className="text-sm"><strong>Level:</strong> {result.user_level}</p>
+            <h3 className="text-lg font-semibold text-white">AI Tutor Response</h3>
+            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
+              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+            }}>
+              <p className="text-sm text-gray-300"><strong className="text-pink-400">Level:</strong> {result.user_level}</p>
               <div className="mt-4">
-                <strong>Answer:</strong>
-                <pre className="whitespace-pre-wrap text-sm mt-2">{result.answer}</pre>
+                <strong className="text-pink-400">Answer:</strong>
+                <pre className="whitespace-pre-wrap text-sm mt-2 text-gray-300">{result.answer}</pre>
               </div>
             </div>
           </div>
@@ -281,26 +298,60 @@ console.log(calculateSum(5, 3));`
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
-    }`}>
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4">🤖 AI Assistant</h1>
-          
-          {/* AI Status */}
-          {aiStatus && (
-            <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mt-4 ${
-              aiStatus.available 
-                ? 'bg-green-100 text-green-800' 
-                : 'bg-red-100 text-red-800'
-            }`}>
-              <span className={`w-2 h-2 rounded-full mr-2 ${
-                aiStatus.available ? 'bg-green-400' : 'bg-red-400'
-              }`}></span>
-              {aiStatus.status === 'active' ? 'AI Service Active' : 'AI Service Inactive'}
+    <div className="min-h-screen" style={{background: 'var(--bg-primary)'}}>
+      {/* Navigation */}
+      <nav className="relative z-20 px-6 py-4 transition-all duration-500" style={{
+        borderBottom: '3px solid rgba(255, 0, 128, 0.8)',
+        boxShadow: '0 4px 30px rgba(255, 0, 128, 0.4), 0 0 60px rgba(255, 0, 128, 0.3), inset 0 -1px 0 rgba(255, 0, 128, 0.2)'
+      }}>
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-60"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-80"></div>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">W</span>
             </div>
-          )}
+            <span className="text-xl font-bold text-white">WayBigger</span>
+          </div>
+          
+          <div className="flex items-center space-x-6">
+            <Link href="/" className="text-white/80 hover:text-pink-400 transition-colors">Home</Link>
+            <Link href="/projects" className="text-white/80 hover:text-pink-400 transition-colors">Projects</Link>
+            <Link href="/tracks" className="text-white/80 hover:text-pink-400 transition-colors">Tracks</Link>
+            <Link href="/community" className="text-white/80 hover:text-pink-400 transition-colors">Community</Link>
+            <Link href="/profile" className="text-white/80 hover:text-pink-400 transition-colors">Profile</Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="glass-card mx-4 mt-8 mb-8" style={{
+          boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
+        }}>
+          <div className="px-6 py-8 text-center">
+            <h1 className="text-4xl font-bold mb-4 text-white">
+              <span className="text-gradient">AI Assistant</span>
+            </h1>
+            
+            {/* AI Status */}
+            {aiStatus && (
+              <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mt-4 ${
+                aiStatus.available 
+                  ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                  : 'bg-red-500/20 text-red-400 border border-red-500/30'
+              }`} style={{
+                boxShadow: aiStatus.available 
+                  ? '0 0 15px rgba(34, 197, 94, 0.3)'
+                  : '0 0 15px rgba(239, 68, 68, 0.3)'
+              }}>
+                <span className={`w-2 h-2 rounded-full mr-2 ${
+                  aiStatus.available ? 'bg-green-400' : 'bg-red-400'
+                }`}></span>
+                {aiStatus.status === 'active' ? 'AI Service Active' : 'AI Service Inactive'}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Feature Selection */}
@@ -317,14 +368,17 @@ console.log(calculateSum(5, 3));`
               onClick={() => setActiveFeature(feature.id as AIFeature)}
               className={`p-4 rounded-lg border-2 transition-all duration-200 ${
                 activeFeature === feature.id
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
-                  : isDark 
-                    ? 'border-gray-600 hover:border-gray-500' 
-                    : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-pink-500/50 bg-pink-500/20'
+                  : 'border-white/20 hover:border-pink-500/30 bg-white/5 hover:bg-white/10'
               }`}
+              style={{
+                boxShadow: activeFeature === feature.id
+                  ? '0 0 20px rgba(255, 0, 128, 0.3)'
+                  : '0 0 15px rgba(255, 255, 255, 0.1)'
+              }}
             >
               <div className="text-2xl mb-2">{feature.icon}</div>
-              <div className="font-medium">{feature.label}</div>
+              <div className="font-medium text-white">{feature.label}</div>
             </button>
           ))}
         </div>
@@ -342,11 +396,14 @@ console.log(calculateSum(5, 3));`
               }
             }}
             disabled={loading}
-            className={`px-8 py-3 rounded-lg font-medium transition-colors duration-200 ${
+            className={`px-8 py-3 rounded-lg font-medium transition-all duration-300 ${
               loading
                 ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700 text-white'
+                : 'bg-pink-500/20 text-pink-400 border border-pink-500/30 hover:bg-pink-500/30 hover:border-pink-400'
             }`}
+            style={{
+              boxShadow: loading ? 'none' : '0 0 20px rgba(255, 0, 128, 0.3)'
+            }}
           >
             {loading ? 'Processing...' : `Generate ${activeFeature.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}`}
           </button>
@@ -354,33 +411,90 @@ console.log(calculateSum(5, 3));`
 
         {/* Error Display */}
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+          <div className="bg-red-500/20 border border-red-500/30 text-red-400 px-4 py-3 rounded mb-6" style={{
+            boxShadow: '0 0 15px rgba(239, 68, 68, 0.3)'
+          }}>
             {error}
           </div>
         )}
 
         {/* Results */}
         {result && (
-          <div className={`p-6 rounded-lg border ${
-            isDark ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
-          }`}>
+          <div className="glass-card p-6" style={{
+            boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
+          }}>
             {renderResult()}
           </div>
         )}
 
         {/* Instructions */}
-        <div className={`mt-8 p-6 rounded-lg border ${
-          isDark ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
-        }`}>
-          <h3 className="text-lg font-semibold mb-4">How to Use</h3>
-          <div className="space-y-2 text-sm">
-            <p><strong>Project Ideas:</strong> Get AI-generated project suggestions based on your field and skill level</p>
-            <p><strong>Learning Path:</strong> Create personalized learning roadmaps for any programming field</p>
-            <p><strong>Code Review:</strong> Get AI feedback on your code with improvement suggestions</p>
-            <p><strong>Project Description:</strong> Generate detailed project descriptions and milestones</p>
-            <p><strong>AI Tutor:</strong> Ask programming questions and get educational responses</p>
+        <div className="glass-card mt-8 p-6" style={{
+          boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
+        }}>
+          <h3 className="text-lg font-semibold mb-4 text-white">How to Use</h3>
+          <div className="space-y-2 text-sm text-gray-300">
+            <p><strong className="text-pink-400">Project Ideas:</strong> Get AI-generated project suggestions based on your field and skill level</p>
+            <p><strong className="text-pink-400">Learning Path:</strong> Create personalized learning roadmaps for any programming field</p>
+            <p><strong className="text-pink-400">Code Review:</strong> Get AI feedback on your code with improvement suggestions</p>
+            <p><strong className="text-pink-400">Project Description:</strong> Generate detailed project descriptions and milestones</p>
+            <p><strong className="text-pink-400">AI Tutor:</strong> Ask programming questions and get educational responses</p>
           </div>
         </div>
+      </div>
+
+      {/* Smart Mentor */}
+      <SmartMentor
+        userId={userId}
+        projectContext={{
+          name: 'AI Assistant',
+          recent_activity: 'using AI features'
+        }}
+        isVisible={showMentor}
+        onToggle={() => setShowMentor(!showMentor)}
+      />
+
+      {/* Learning Style Assessment */}
+      {showLearningAssessment && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <LearningStyleAssessment
+            userId={userId}
+            onComplete={(profile) => {
+              setShowLearningAssessment(false);
+              console.log('Learning style assessed:', profile);
+            }}
+            onSkip={() => setShowLearningAssessment(false)}
+          />
+        </div>
+      )}
+
+      {/* Mentorship Controls */}
+      <div className="fixed top-4 right-4 z-40 flex gap-2">
+        {!learningProfile && (
+          <button
+            onClick={() => setShowLearningAssessment(true)}
+            className="px-4 py-2 text-sm bg-white/10 text-white border border-white/20 hover:bg-white/20 hover:border-white/30 rounded-lg transition-all duration-300"
+            style={{
+              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+            }}
+            title="Take Learning Style Assessment"
+          >
+            🎓 Assess Learning Style
+          </button>
+        )}
+        
+        <button
+          onClick={() => setShowMentor(!showMentor)}
+          className="px-4 py-2 text-sm bg-pink-500/20 text-pink-400 border border-pink-500/30 hover:bg-pink-500/30 hover:border-pink-400 rounded-lg transition-all duration-300"
+          style={{
+            boxShadow: '0 0 15px rgba(255, 0, 128, 0.3)'
+          }}
+          title="Open Smart Mentor"
+        >
+          🤖 Smart Mentor
+          {interventions.length > 0 && (
+            <span className="ml-2 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+          )}
+        </button>
       </div>
     </div>
   )

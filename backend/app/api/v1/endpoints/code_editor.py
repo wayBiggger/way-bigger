@@ -314,6 +314,134 @@ int main() {
     
     return templates.get(language.lower(), {"name": "Empty", "code": ""})
 
+@router.post("/sync")
+async def sync_project(
+    request: Dict[str, Any],
+    db: Session = Depends(get_db),
+    current_user: Optional[User] = Depends(get_optional_user)
+):
+    """Sync project files with backend for portfolio generation"""
+    project_id = request.get("projectId")
+    project_name = request.get("projectName")
+    files = request.get("files", [])
+    last_sync = request.get("lastSync")
+    
+    if not project_id or not project_name:
+        raise HTTPException(status_code=400, detail="Project ID and name are required")
+    
+    try:
+        # Store project data in database or file system
+        # This is a simplified implementation - in production, you'd want to:
+        # 1. Store files in a proper file system or cloud storage
+        # 2. Track file versions and changes
+        # 3. Generate portfolio metadata
+        
+        # For now, we'll just return success with some metadata
+        portfolio_metadata = {
+            "project_id": project_id,
+            "project_name": project_name,
+            "file_count": len(files),
+            "languages": list(set(file.get("language", "unknown") for file in files)),
+            "last_sync": datetime.now().isoformat(),
+            "sync_status": "success"
+        }
+        
+        # Generate portfolio summary
+        portfolio_summary = generate_portfolio_summary(files)
+        
+        return {
+            "success": True,
+            "message": "Project synced successfully",
+            "portfolio_metadata": portfolio_metadata,
+            "portfolio_summary": portfolio_summary,
+            "sync_timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to sync project: {str(e)}")
+
+def generate_portfolio_summary(files: list) -> Dict[str, Any]:
+    """Generate a summary of the project for portfolio display"""
+    if not files:
+        return {
+            "total_files": 0,
+            "languages": [],
+            "complexity_score": 0,
+            "estimated_hours": 0,
+            "skills_demonstrated": []
+        }
+    
+    # Analyze files
+    languages = list(set(file.get("language", "unknown") for file in files))
+    total_lines = sum(len(file.get("content", "").split("\n")) for file in files)
+    
+    # Calculate complexity score based on file count and content
+    complexity_score = min(100, (len(files) * 10) + (total_lines // 10))
+    
+    # Estimate development hours (rough calculation)
+    estimated_hours = max(1, (total_lines // 50) + (len(files) * 2))
+    
+    # Determine skills demonstrated based on languages and content
+    skills_demonstrated = []
+    for lang in languages:
+        if lang == "python":
+            skills_demonstrated.extend(["Python Programming", "Data Analysis", "Backend Development"])
+        elif lang == "javascript":
+            skills_demonstrated.extend(["JavaScript", "Frontend Development", "Web Development"])
+        elif lang == "typescript":
+            skills_demonstrated.extend(["TypeScript", "Type Safety", "Modern JavaScript"])
+        elif lang == "java":
+            skills_demonstrated.extend(["Java Programming", "Object-Oriented Programming", "Enterprise Development"])
+        elif lang == "cpp":
+            skills_demonstrated.extend(["C++ Programming", "System Programming", "Performance Optimization"])
+        elif lang == "html":
+            skills_demonstrated.extend(["HTML", "Web Development", "Frontend Development"])
+        elif lang == "css":
+            skills_demonstrated.extend(["CSS", "Styling", "Responsive Design"])
+    
+    # Remove duplicates
+    skills_demonstrated = list(set(skills_demonstrated))
+    
+    return {
+        "total_files": len(files),
+        "total_lines": total_lines,
+        "languages": languages,
+        "complexity_score": complexity_score,
+        "estimated_hours": estimated_hours,
+        "skills_demonstrated": skills_demonstrated,
+        "project_type": determine_project_type(files),
+        "last_modified": max(
+            (file.get("lastModified", datetime.now().isoformat()) for file in files),
+            default=datetime.now().isoformat()
+        )
+    }
+
+def determine_project_type(files: list) -> str:
+    """Determine the type of project based on files"""
+    if not files:
+        return "Empty Project"
+    
+    file_names = [file.get("name", "").lower() for file in files]
+    languages = [file.get("language", "") for file in files]
+    
+    # Check for common project patterns
+    if any("package.json" in name for name in file_names):
+        return "Node.js Project"
+    elif any("requirements.txt" in name for name in file_names):
+        return "Python Project"
+    elif any("pom.xml" in name for name in file_names):
+        return "Java Maven Project"
+    elif any("makefile" in name for name in file_names):
+        return "C/C++ Project"
+    elif any("index.html" in name for name in file_names):
+        return "Web Project"
+    elif "python" in languages and len(languages) == 1:
+        return "Python Script"
+    elif "javascript" in languages and len(languages) == 1:
+        return "JavaScript Project"
+    else:
+        return "Multi-language Project"
+
 
 async def execute_python_locally(code: str, input_data: str = "") -> Dict[str, Any]:
     """Very limited local Python execution fallback without Docker (for dev only)."""

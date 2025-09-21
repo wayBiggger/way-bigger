@@ -15,6 +15,8 @@ export interface AuthResponse {
 }
 
 export const auth = {
+  API_BASE_URL,
+  
   // Get stored token
   getToken: (): string | null => {
     if (typeof window === 'undefined') return null
@@ -37,6 +39,13 @@ export const auth = {
       // Basic JWT validation - check if token is not expired
       const payload = JSON.parse(atob(token.split('.')[1]))
       const currentTime = Math.floor(Date.now() / 1000)
+      const timeUntilExpiry = payload.exp - currentTime
+      
+      // If token expires in less than 1 hour, try to refresh it proactively
+      if (timeUntilExpiry < 3600 && timeUntilExpiry > 0) {
+        auth.refreshTokenIfNeeded()
+      }
+      
       return payload.exp > currentTime
     } catch (error) {
       // If token is malformed, clear it
@@ -63,10 +72,11 @@ export const auth = {
   },
 
   // Store auth data
-  setAuth: (token: string, user: User): void => {
+  setAuth: (token: string, user: User, rememberMe: boolean = false): void => {
     if (typeof window === 'undefined') return
     localStorage.setItem('access_token', token)
     localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('remember_me', rememberMe.toString())
   },
 
   // Clear auth data
@@ -76,14 +86,29 @@ export const auth = {
     localStorage.removeItem('user')
     localStorage.removeItem('user_full_name')
     localStorage.removeItem('user_id')
+    localStorage.removeItem('remember_me')
+  },
+
+  // Set authentication status (for OAuth callbacks)
+  setAuthenticated: (status: boolean): void => {
+    if (typeof window === 'undefined') return
+    if (status) {
+      // Trigger a custom event to notify components of auth status change
+      window.dispatchEvent(new CustomEvent('authStatusChange', { detail: { authenticated: true } }))
+    } else {
+      auth.clearAuth()
+      window.dispatchEvent(new CustomEvent('authStatusChange', { detail: { authenticated: false } }))
+    }
   },
 
   // Login
-  login: async (email: string, password: string): Promise<AuthResponse> => {
+  login: async (email: string, password: string, rememberMe: boolean = false): Promise<AuthResponse> => {
     const urlEncoded = new URLSearchParams()
     urlEncoded.append('username', email)
     urlEncoded.append('password', password)
 
+    console.log('Login attempt:', { email, API_BASE_URL })
+    
     const response = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
@@ -94,6 +119,7 @@ export const auth = {
 
     if (!response.ok) {
       const text = await response.text().catch(() => '')
+      console.error('Login failed:', response.status, text)
       let message = 'Login failed'
       try {
         const data = JSON.parse(text)
@@ -123,6 +149,31 @@ export const auth = {
     }
 
     return response.json()
+  },
+
+  // Refresh token if needed
+  refreshTokenIfNeeded: async (): Promise<boolean> => {
+    const token = auth.getToken()
+    if (!token) return false
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/refresh`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      
+      if (response.ok) {
+        const data = await response.json()
+        auth.setAuth(data.access_token, data.user)
+        return true
+      }
+    } catch (error) {
+      console.error('Token refresh failed:', error)
+    }
+    
+    return false
   },
 
   // Logout

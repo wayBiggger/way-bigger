@@ -12,17 +12,26 @@ class Settings(BaseSettings):
     # Database - Use SQLite for local development without Docker
     database_url: str = "sqlite:///./local_dev.db"
     
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # Convert relative path to absolute path to avoid working directory issues
+        if self.database_url.startswith("sqlite:///./"):
+            import os
+            db_file = self.database_url.replace("sqlite:///./", "")
+            abs_path = os.path.abspath(db_file)
+            self.database_url = f"sqlite:///{abs_path}"
+    
     # Security
     secret_key: str = "your-secret-key-change-in-production"
     algorithm: str = "HS256"
-    access_token_expire_minutes: int = 30
+    access_token_expire_minutes: int = 10080
     
     # OAuth
     github_client_id: Optional[str] = None
     github_client_secret: Optional[str] = None
     google_client_id: Optional[str] = None
     google_client_secret: Optional[str] = None
-    frontend_url: str = "http://localhost:3001"
+    frontend_url: str = "http://localhost:3000"
     
     # Redis - Disable for local development without Docker
     redis_url: str = "redis://localhost:6379"

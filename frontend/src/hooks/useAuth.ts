@@ -118,8 +118,27 @@ export const useAuth = () => {
       checkAuth()
     }
 
+    // Listen for auth status changes (e.g., from OAuth callbacks)
+    const handleAuthStatusChange = (event: CustomEvent) => {
+      if (event.detail?.authenticated) {
+        checkAuth()
+      } else {
+        setAuthState({
+          isAuthenticated: false,
+          user: null,
+          isLoading: false,
+          error: null
+        })
+      }
+    }
+
     window.addEventListener('storage', handleStorageChange)
-    return () => window.removeEventListener('storage', handleStorageChange)
+    window.addEventListener('authStatusChange', handleAuthStatusChange as EventListener)
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+      window.removeEventListener('authStatusChange', handleAuthStatusChange as EventListener)
+    }
   }, [checkAuth])
 
   return {

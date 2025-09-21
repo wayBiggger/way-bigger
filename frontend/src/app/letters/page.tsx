@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 type Newsletter = {
-  id: number
+  id: number | string
   title: string
   description: string
   author: string
@@ -12,6 +12,10 @@ type Newsletter = {
   readTime: string
   category: string
   featured: boolean
+  isExternal?: boolean
+  externalUrl?: string
+  source?: string
+  icon?: string
 }
 
 const categoryColors = {
@@ -49,95 +53,42 @@ export default function NewslettersPage() {
         setLoading(true)
         setError('')
         
-        // Mock newsletters data
-        const mockNewsletters = [
-          {
-            id: 1,
-            title: "Getting Started with React Hooks",
-            description: "Learn the fundamentals of React Hooks and how to use them effectively in your applications.",
-            author: "Sarah Johnson",
-            publishedAt: "2024-01-15T10:00:00Z",
-            readTime: "5 min read",
-            category: "tutorial",
-            featured: true
+        const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+        const token = typeof window !== 'undefined' ? localStorage.getItem('access_token') : null
+        
+        const response = await fetch(`${API_BASE_URL}/newsletters/?per_page=50&include_external=true`, {
+          headers: {
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
           },
-          {
-            id: 2,
-            title: "The Future of Web Development in 2024",
-            description: "Explore the latest trends and technologies shaping the web development landscape.",
-            author: "Mike Chen",
-            publishedAt: "2024-01-12T14:30:00Z",
-            readTime: "8 min read",
-            category: "industry",
-            featured: true
-          },
-          {
-            id: 3,
-            title: "Essential VS Code Extensions for Developers",
-            description: "Discover the must-have VS Code extensions that will boost your productivity.",
-            author: "Alex Rodriguez",
-            publishedAt: "2024-01-10T09:15:00Z",
-            readTime: "6 min read",
-            category: "tools",
-            featured: false
-          },
-          {
-            id: 4,
-            title: "Building Your First AI Application",
-            description: "Step-by-step guide to creating your first AI-powered application using modern tools.",
-            author: "Dr. Emily Watson",
-            publishedAt: "2024-01-08T16:45:00Z",
-            readTime: "12 min read",
-            category: "ai",
-            featured: true
-          },
-          {
-            id: 5,
-            title: "Career Tips for Junior Developers",
-            description: "Practical advice for junior developers looking to advance their careers.",
-            author: "David Kim",
-            publishedAt: "2024-01-05T11:20:00Z",
-            readTime: "7 min read",
-            category: "career",
-            featured: false
-          },
-          {
-            id: 6,
-            title: "Mastering TypeScript: Advanced Patterns",
-            description: "Deep dive into advanced TypeScript patterns and best practices.",
-            author: "Lisa Wang",
-            publishedAt: "2024-01-03T13:10:00Z",
-            readTime: "10 min read",
-            category: "tutorial",
-            featured: false
-          },
-          {
-            id: 7,
-            title: "The Rise of Edge Computing",
-            description: "Understanding how edge computing is changing the way we build applications.",
-            author: "James Wilson",
-            publishedAt: "2024-01-01T08:30:00Z",
-            readTime: "9 min read",
-            category: "industry",
-            featured: false
-          },
-          {
-            id: 8,
-            title: "Git Workflow Best Practices",
-            description: "Learn professional Git workflows used by top development teams.",
-            author: "Maria Garcia",
-            publishedAt: "2023-12-28T15:00:00Z",
-            readTime: "6 min read",
-            category: "tools",
-            featured: false
-          }
-        ]
+        })
 
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setNewsletters(mockNewsletters)
+        if (!response.ok) {
+          throw new Error('Failed to fetch newsletters')
+        }
+
+        const data = await response.json()
+        
+        // Transform API data to match component expectations
+        const transformedNewsletters = data.newsletters.map((newsletter: any) => ({
+          id: newsletter.id,
+          title: newsletter.title,
+          description: newsletter.content?.substring(0, 150) + '...' || 'No description available',
+          author: newsletter.author_name || 'Unknown Author',
+          publishedAt: newsletter.published_at || newsletter.created_at,
+          readTime: `${Math.ceil((newsletter.content?.length || 0) / 500)} min read`,
+          category: newsletter.field_name?.toLowerCase().replace(/\s+/g, '') || newsletter.tags?.[0] || 'general',
+          featured: newsletter.likes > 5 || newsletter.views > 100, // Simple featured logic
+          isExternal: newsletter.is_external || false,
+          externalUrl: newsletter.external_url,
+          source: newsletter.source,
+          icon: newsletter.icon
+        }))
+        
+        setNewsletters(transformedNewsletters)
       } catch (e: any) {
         setError(e?.message || 'Something went wrong')
+        // Fallback to empty array if API fails
+        setNewsletters([])
       } finally {
         setLoading(false)
       }
@@ -370,11 +321,16 @@ export default function NewslettersPage() {
                       <div className="p-6">
                         <div className="flex items-start justify-between mb-4">
                           <h3 className="text-xl font-semibold mb-2">{newsletter.title}</h3>
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                            isDark ? darkCategoryColors[newsletter.category as keyof typeof darkCategoryColors] : categoryColors[newsletter.category as keyof typeof categoryColors]
-                          }`}>
-                            {newsletter.category}
-                          </span>
+                          <div className="flex items-center gap-2">
+                            {newsletter.icon && (
+                              <span className="text-lg">{newsletter.icon}</span>
+                            )}
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                              isDark ? darkCategoryColors[newsletter.category as keyof typeof darkCategoryColors] : categoryColors[newsletter.category as keyof typeof categoryColors]
+                            }`}>
+                              {newsletter.category}
+                            </span>
+                          </div>
                         </div>
                         
                         <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -382,21 +338,36 @@ export default function NewslettersPage() {
                         </p>
                         
                         <div className={`flex items-center justify-between text-sm mb-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                          <span>👤 {newsletter.author}</span>
+                          <span>👤 {newsletter.isExternal ? newsletter.source : newsletter.author}</span>
                           <span>⏱️ {newsletter.readTime}</span>
                         </div>
                         
                         <div className="flex gap-2">
-                          <Link
-                            href={`/letters/${newsletter.id}`}
-                            className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
-                              isDark
-                                ? 'bg-yellow-600 hover:bg-yellow-700 text-white'
-                                : 'bg-yellow-600 hover:bg-yellow-700 text-white'
-                            }`}
-                          >
-                            Read Article
-                          </Link>
+                          {newsletter.isExternal ? (
+                            <a
+                              href={newsletter.externalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
+                                isDark
+                                  ? 'bg-yellow-600 hover:bg-yellow-700 text-white'
+                                  : 'bg-yellow-600 hover:bg-yellow-700 text-white'
+                              }`}
+                            >
+                              Read Article →
+                            </a>
+                          ) : (
+                            <Link
+                              href={`/letters/${newsletter.id}`}
+                              className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
+                                isDark
+                                  ? 'bg-yellow-600 hover:bg-yellow-700 text-white'
+                                  : 'bg-yellow-600 hover:bg-yellow-700 text-white'
+                              }`}
+                            >
+                              Read Article
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -428,11 +399,16 @@ export default function NewslettersPage() {
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-xl font-semibold mb-2">{newsletter.title}</h3>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        isDark ? darkCategoryColors[newsletter.category as keyof typeof darkCategoryColors] : categoryColors[newsletter.category as keyof typeof categoryColors]
-                      }`}>
-                        {newsletter.category}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        {newsletter.icon && (
+                          <span className="text-lg">{newsletter.icon}</span>
+                        )}
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          isDark ? darkCategoryColors[newsletter.category as keyof typeof darkCategoryColors] : categoryColors[newsletter.category as keyof typeof categoryColors]
+                        }`}>
+                          {newsletter.category}
+                        </span>
+                      </div>
                     </div>
                     
                     <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -440,21 +416,36 @@ export default function NewslettersPage() {
                     </p>
                     
                     <div className={`flex items-center justify-between text-sm mb-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                      <span>👤 {newsletter.author}</span>
+                      <span>👤 {newsletter.isExternal ? newsletter.source : newsletter.author}</span>
                       <span>⏱️ {newsletter.readTime}</span>
                     </div>
                     
                     <div className="flex gap-2">
-                      <Link
-                        href={`/letters/${newsletter.id}`}
-                        className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
-                          isDark
-                            ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                            : 'bg-blue-600 hover:bg-blue-700 text-white'
-                        }`}
-                      >
-                        Read Article
-                      </Link>
+                      {newsletter.isExternal ? (
+                        <a
+                          href={newsletter.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
+                            isDark
+                              ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                              : 'bg-blue-600 hover:bg-blue-700 text-white'
+                          }`}
+                        >
+                          Read Article →
+                        </a>
+                      ) : (
+                        <Link
+                          href={`/letters/${newsletter.id}`}
+                          className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
+                            isDark
+                              ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                              : 'bg-blue-600 hover:bg-blue-700 text-white'
+                          }`}
+                        >
+                          Read Article
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>

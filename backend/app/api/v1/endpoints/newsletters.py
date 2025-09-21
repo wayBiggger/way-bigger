@@ -18,6 +18,7 @@ from ....schemas.newsletter import (
 from ....core.security import get_current_user, get_optional_user
 from ....core.ai import is_gemini_configured, generate_gemini_text
 from ....services.external_newsletters import fetch_external_newsletters
+from ....services.newsletter_fetcher import newsletter_fetcher
 
 router = APIRouter()
 
@@ -33,6 +34,39 @@ async def get_external_newsletters_endpoint(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch external newsletters: {str(e)}")
 
+@router.get("/feeds", response_model=List[dict])
+async def get_newsletter_feeds(
+    category: Optional[str] = Query(None, description="Filter by category: tech, startup, ai, webdev"),
+    limit: int = Query(20, ge=1, le=50, description="Number of articles to fetch")
+):
+    """Get latest newsletter articles from top tech and startup websites"""
+    try:
+        articles = await newsletter_fetcher.fetch_all_newsletters(category)
+        return articles[:limit]
+    except Exception as e:
+        logger.error(f"Error fetching newsletter feeds: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to fetch newsletter feeds: {str(e)}")
+
+@router.get("/categories", response_model=List[dict])
+async def get_newsletter_categories():
+    """Get available newsletter categories"""
+    try:
+        return newsletter_fetcher.get_categories()
+    except Exception as e:
+        logger.error(f"Error fetching categories: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to fetch categories: {str(e)}")
+
+@router.get("/sources", response_model=List[dict])
+async def get_newsletter_sources(
+    category: Optional[str] = Query(None, description="Filter sources by category")
+):
+    """Get newsletter sources"""
+    try:
+        return newsletter_fetcher.get_sources(category)
+    except Exception as e:
+        logger.error(f"Error fetching sources: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to fetch sources: {str(e)}")
+
 @router.get("/", response_model=NewsletterListResponse)
 async def get_newsletters(
     page: int = Query(1, ge=1),
@@ -40,7 +74,8 @@ async def get_newsletters(
     field_id: Optional[int] = Query(None),
     status: str = Query("published"),
     search: Optional[str] = Query(None),
-    include_external: bool = Query(False, description="Include external newsletters"),
+    include_external: bool = Query(True, description="Include external newsletters"),
+    category: Optional[str] = Query(None, description="Filter by category"),
     db: Session = Depends(get_db),
     current_user: Optional[User] = Depends(get_optional_user)
 ):
@@ -114,16 +149,36 @@ async def get_newsletters(
     # Add external newsletters if requested
     if include_external:
         try:
-            # Get user's tech stack if available
-            user_tech_stack = None
-            if current_user and current_user.selected_field:
-                user_tech_stack = current_user.selected_field
-            
-            external_newsletters = await fetch_external_newsletters("tech", 5, user_tech_stack)
-            for ext_newsletter in external_newsletters:
-                newsletter_responses.append(NewsletterResponse(**ext_newsletter))
-        except Exception:
-            pass  # Silently fail if external fetch fails
+            external_articles = await newsletter_fetcher.fetch_all_newsletters(category)
+            # Transform external articles to match our format
+            for article in external_articles:
+                external_dict = {
+                    "id": f"external_{hash(article['url'])}",  # Generate unique ID
+                    "title": article["title"],
+                    "content": article["content"],
+                    "field_id": None,
+                    "tags": [article["category"]],
+                    "author_id": None,
+                    "is_ai_generated": False,
+                    "status": "published",
+                    "views": 0,
+                    "likes": 0,
+                    "created_at": article["published_at"],
+                    "published_at": article["published_at"],
+                    "updated_at": article["published_at"],
+                    "author_name": article["author"],
+                    "field_name": article["category"].title(),
+                    "is_liked": False,
+                    "comments_count": 0,
+                    "is_external": True,
+                    "external_url": article["url"],
+                    "source": article["source"],
+                    "icon": article["icon"]
+                }
+                newsletter_responses.append(NewsletterResponse(**external_dict))
+        except Exception as e:
+            logger.error(f"Error fetching external newsletters: {str(e)}")
+            # Continue without external newsletters if there's an error
     
     total_pages = (total + per_page - 1) // per_page
     

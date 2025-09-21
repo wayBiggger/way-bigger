@@ -4,7 +4,7 @@
     "title": "Personal Portfolio Website 1",
     "description": "Build a responsive portfolio website showcasing your projects and skills",
     "tech_stack": "HTML, CSS, JavaScript, React",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A professional portfolio site to showcase your work",
     "domain": "web-development"
   },
@@ -13,7 +13,7 @@
     "title": "Todo List App 2",
     "description": "Create a task management application with add, edit, delete functionality",
     "tech_stack": "JavaScript, HTML, CSS, Local Storage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fully functional todo application",
     "domain": "web-development"
   },
@@ -22,7 +22,7 @@
     "title": "Weather Dashboard 3",
     "description": "Build a weather app that fetches data from a weather API",
     "tech_stack": "JavaScript, API Integration, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A real-time weather information dashboard",
     "domain": "web-development"
   },
@@ -31,7 +31,7 @@
     "title": "Simple Calculator 4",
     "description": "Build a basic calculator with arithmetic operations and clean UI",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional calculator application",
     "domain": "web-development"
   },
@@ -40,7 +40,7 @@
     "title": "Random Quote Generator 5",
     "description": "Create an app that displays random inspirational quotes",
     "tech_stack": "JavaScript, HTML, CSS, JSON",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An inspirational quote display app",
     "domain": "web-development"
   },
@@ -49,7 +49,7 @@
     "title": "Color Palette Generator 6",
     "description": "Build a tool to generate and preview color palettes",
     "tech_stack": "JavaScript, CSS, Canvas API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative color palette tool",
     "domain": "web-development"
   },
@@ -58,7 +58,7 @@
     "title": "Password Generator 7",
     "description": "Create a secure password generator with customizable options",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password generation tool",
     "domain": "web-development"
   },
@@ -67,7 +67,7 @@
     "title": "BMI Calculator 8",
     "description": "Build a body mass index calculator with health recommendations",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A health assessment calculator",
     "domain": "web-development"
   },
@@ -76,7 +76,7 @@
     "title": "Unit Converter 9",
     "description": "Create a multi-unit converter for length, weight, temperature",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A versatile unit conversion tool",
     "domain": "web-development"
   },
@@ -85,7 +85,7 @@
     "title": "Stopwatch Timer 10",
     "description": "Build a stopwatch and timer application with lap functionality",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A precise timing application",
     "domain": "web-development"
   },
@@ -94,7 +94,7 @@
     "title": "Personal Portfolio Website 11",
     "description": "Build a responsive portfolio website showcasing your projects and skills",
     "tech_stack": "HTML, CSS, JavaScript, React",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A professional portfolio site to showcase your work",
     "domain": "web-development"
   },
@@ -103,7 +103,7 @@
     "title": "Todo List App 12",
     "description": "Create a task management application with add, edit, delete functionality",
     "tech_stack": "JavaScript, HTML, CSS, Local Storage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fully functional todo application",
     "domain": "web-development"
   },
@@ -112,7 +112,7 @@
     "title": "Weather Dashboard 13",
     "description": "Build a weather app that fetches data from a weather API",
     "tech_stack": "JavaScript, API Integration, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A real-time weather information dashboard",
     "domain": "web-development"
   },
@@ -121,7 +121,7 @@
     "title": "Simple Calculator 14",
     "description": "Build a basic calculator with arithmetic operations and clean UI",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional calculator application",
     "domain": "web-development"
   },
@@ -130,7 +130,7 @@
     "title": "Random Quote Generator 15",
     "description": "Create an app that displays random inspirational quotes",
     "tech_stack": "JavaScript, HTML, CSS, JSON",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An inspirational quote display app",
     "domain": "web-development"
   },
@@ -139,7 +139,7 @@
     "title": "Color Palette Generator 16",
     "description": "Build a tool to generate and preview color palettes",
     "tech_stack": "JavaScript, CSS, Canvas API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative color palette tool",
     "domain": "web-development"
   },
@@ -148,7 +148,7 @@
     "title": "Password Generator 17",
     "description": "Create a secure password generator with customizable options",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password generation tool",
     "domain": "web-development"
   },
@@ -157,7 +157,7 @@
     "title": "BMI Calculator 18",
     "description": "Build a body mass index calculator with health recommendations",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A health assessment calculator",
     "domain": "web-development"
   },
@@ -166,7 +166,7 @@
     "title": "Unit Converter 19",
     "description": "Create a multi-unit converter for length, weight, temperature",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A versatile unit conversion tool",
     "domain": "web-development"
   },
@@ -175,7 +175,7 @@
     "title": "Stopwatch Timer 20",
     "description": "Build a stopwatch and timer application with lap functionality",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A precise timing application",
     "domain": "web-development"
   },
@@ -184,7 +184,7 @@
     "title": "Personal Portfolio Website 21",
     "description": "Build a responsive portfolio website showcasing your projects and skills",
     "tech_stack": "HTML, CSS, JavaScript, React",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A professional portfolio site to showcase your work",
     "domain": "web-development"
   },
@@ -193,7 +193,7 @@
     "title": "Todo List App 22",
     "description": "Create a task management application with add, edit, delete functionality",
     "tech_stack": "JavaScript, HTML, CSS, Local Storage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fully functional todo application",
     "domain": "web-development"
   },
@@ -202,7 +202,7 @@
     "title": "Weather Dashboard 23",
     "description": "Build a weather app that fetches data from a weather API",
     "tech_stack": "JavaScript, API Integration, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A real-time weather information dashboard",
     "domain": "web-development"
   },
@@ -211,7 +211,7 @@
     "title": "Simple Calculator 24",
     "description": "Build a basic calculator with arithmetic operations and clean UI",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional calculator application",
     "domain": "web-development"
   },
@@ -220,7 +220,7 @@
     "title": "Random Quote Generator 25",
     "description": "Create an app that displays random inspirational quotes",
     "tech_stack": "JavaScript, HTML, CSS, JSON",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An inspirational quote display app",
     "domain": "web-development"
   },
@@ -229,7 +229,7 @@
     "title": "Color Palette Generator 26",
     "description": "Build a tool to generate and preview color palettes",
     "tech_stack": "JavaScript, CSS, Canvas API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative color palette tool",
     "domain": "web-development"
   },
@@ -238,7 +238,7 @@
     "title": "Password Generator 27",
     "description": "Create a secure password generator with customizable options",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password generation tool",
     "domain": "web-development"
   },
@@ -247,7 +247,7 @@
     "title": "BMI Calculator 28",
     "description": "Build a body mass index calculator with health recommendations",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A health assessment calculator",
     "domain": "web-development"
   },
@@ -256,7 +256,7 @@
     "title": "Unit Converter 29",
     "description": "Create a multi-unit converter for length, weight, temperature",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A versatile unit conversion tool",
     "domain": "web-development"
   },
@@ -265,7 +265,7 @@
     "title": "Stopwatch Timer 30",
     "description": "Build a stopwatch and timer application with lap functionality",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A precise timing application",
     "domain": "web-development"
   },
@@ -274,7 +274,7 @@
     "title": "Personal Portfolio Website 31",
     "description": "Build a responsive portfolio website showcasing your projects and skills",
     "tech_stack": "HTML, CSS, JavaScript, React",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A professional portfolio site to showcase your work",
     "domain": "web-development"
   },
@@ -283,7 +283,7 @@
     "title": "Todo List App 32",
     "description": "Create a task management application with add, edit, delete functionality",
     "tech_stack": "JavaScript, HTML, CSS, Local Storage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fully functional todo application",
     "domain": "web-development"
   },
@@ -292,7 +292,7 @@
     "title": "Weather Dashboard 33",
     "description": "Build a weather app that fetches data from a weather API",
     "tech_stack": "JavaScript, API Integration, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A real-time weather information dashboard",
     "domain": "web-development"
   },
@@ -301,7 +301,7 @@
     "title": "Simple Calculator 34",
     "description": "Build a basic calculator with arithmetic operations and clean UI",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional calculator application",
     "domain": "web-development"
   },
@@ -310,7 +310,7 @@
     "title": "Random Quote Generator 35",
     "description": "Create an app that displays random inspirational quotes",
     "tech_stack": "JavaScript, HTML, CSS, JSON",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An inspirational quote display app",
     "domain": "web-development"
   },
@@ -319,7 +319,7 @@
     "title": "Color Palette Generator 36",
     "description": "Build a tool to generate and preview color palettes",
     "tech_stack": "JavaScript, CSS, Canvas API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative color palette tool",
     "domain": "web-development"
   },
@@ -328,7 +328,7 @@
     "title": "Password Generator 37",
     "description": "Create a secure password generator with customizable options",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password generation tool",
     "domain": "web-development"
   },
@@ -337,7 +337,7 @@
     "title": "BMI Calculator 38",
     "description": "Build a body mass index calculator with health recommendations",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A health assessment calculator",
     "domain": "web-development"
   },
@@ -346,7 +346,7 @@
     "title": "Unit Converter 39",
     "description": "Create a multi-unit converter for length, weight, temperature",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A versatile unit conversion tool",
     "domain": "web-development"
   },
@@ -355,7 +355,7 @@
     "title": "Stopwatch Timer 40",
     "description": "Build a stopwatch and timer application with lap functionality",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A precise timing application",
     "domain": "web-development"
   },
@@ -364,7 +364,7 @@
     "title": "Personal Portfolio Website 41",
     "description": "Build a responsive portfolio website showcasing your projects and skills",
     "tech_stack": "HTML, CSS, JavaScript, React",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A professional portfolio site to showcase your work",
     "domain": "web-development"
   },
@@ -373,7 +373,7 @@
     "title": "Todo List App 42",
     "description": "Create a task management application with add, edit, delete functionality",
     "tech_stack": "JavaScript, HTML, CSS, Local Storage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fully functional todo application",
     "domain": "web-development"
   },
@@ -382,7 +382,7 @@
     "title": "Weather Dashboard 43",
     "description": "Build a weather app that fetches data from a weather API",
     "tech_stack": "JavaScript, API Integration, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A real-time weather information dashboard",
     "domain": "web-development"
   },
@@ -391,7 +391,7 @@
     "title": "Simple Calculator 44",
     "description": "Build a basic calculator with arithmetic operations and clean UI",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional calculator application",
     "domain": "web-development"
   },
@@ -400,7 +400,7 @@
     "title": "Random Quote Generator 45",
     "description": "Create an app that displays random inspirational quotes",
     "tech_stack": "JavaScript, HTML, CSS, JSON",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An inspirational quote display app",
     "domain": "web-development"
   },
@@ -409,7 +409,7 @@
     "title": "Color Palette Generator 46",
     "description": "Build a tool to generate and preview color palettes",
     "tech_stack": "JavaScript, CSS, Canvas API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative color palette tool",
     "domain": "web-development"
   },
@@ -418,7 +418,7 @@
     "title": "Password Generator 47",
     "description": "Create a secure password generator with customizable options",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password generation tool",
     "domain": "web-development"
   },
@@ -427,7 +427,7 @@
     "title": "BMI Calculator 48",
     "description": "Build a body mass index calculator with health recommendations",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A health assessment calculator",
     "domain": "web-development"
   },
@@ -436,7 +436,7 @@
     "title": "Unit Converter 49",
     "description": "Create a multi-unit converter for length, weight, temperature",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A versatile unit conversion tool",
     "domain": "web-development"
   },
@@ -445,7 +445,7 @@
     "title": "Stopwatch Timer 50",
     "description": "Build a stopwatch and timer application with lap functionality",
     "tech_stack": "JavaScript, HTML, CSS",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A precise timing application",
     "domain": "web-development"
   },
@@ -454,7 +454,7 @@
     "title": "Image Classification Model 1",
     "description": "Build a simple image classifier using pre-trained models",
     "tech_stack": "Python, TensorFlow, OpenCV, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An image classification system",
     "domain": "ai-ml"
   },
@@ -463,7 +463,7 @@
     "title": "Text Sentiment Analyzer 2",
     "description": "Create a sentiment analysis tool for social media posts",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A sentiment analysis application",
     "domain": "ai-ml"
   },
@@ -472,7 +472,7 @@
     "title": "Recommendation System 3",
     "description": "Build a basic recommendation engine using collaborative filtering",
     "tech_stack": "Python, scikit-learn, Pandas, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A recommendation system",
     "domain": "ai-ml"
   },
@@ -481,7 +481,7 @@
     "title": "Spam Email Detector 4",
     "description": "Create a spam detection system using machine learning",
     "tech_stack": "Python, scikit-learn, NLTK, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An email spam filter",
     "domain": "ai-ml"
   },
@@ -490,7 +490,7 @@
     "title": "Stock Price Predictor 5",
     "description": "Build a simple stock price prediction model",
     "tech_stack": "Python, Pandas, scikit-learn, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A stock prediction tool",
     "domain": "ai-ml"
   },
@@ -499,7 +499,7 @@
     "title": "Handwriting Recognition 6",
     "description": "Create a system to recognize handwritten digits",
     "tech_stack": "Python, TensorFlow, OpenCV, MNIST",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A handwriting recognition system",
     "domain": "ai-ml"
   },
@@ -508,7 +508,7 @@
     "title": "Fake News Detector 7",
     "description": "Build a model to detect fake news articles",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fake news detection system",
     "domain": "ai-ml"
   },
@@ -517,7 +517,7 @@
     "title": "Customer Segmentation 8",
     "description": "Create a customer segmentation model using clustering",
     "tech_stack": "Python, scikit-learn, Pandas, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A customer analytics tool",
     "domain": "ai-ml"
   },
@@ -526,7 +526,7 @@
     "title": "Language Translator 9",
     "description": "Build a simple language translation tool",
     "tech_stack": "Python, Transformers, Hugging Face",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A language translation system",
     "domain": "ai-ml"
   },
@@ -535,7 +535,7 @@
     "title": "Chatbot 10",
     "description": "Create a basic chatbot using NLP techniques",
     "tech_stack": "Python, NLTK, TensorFlow, Flask",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An intelligent chatbot",
     "domain": "ai-ml"
   },
@@ -544,7 +544,7 @@
     "title": "Image Classification Model 11",
     "description": "Build a simple image classifier using pre-trained models",
     "tech_stack": "Python, TensorFlow, OpenCV, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An image classification system",
     "domain": "ai-ml"
   },
@@ -553,7 +553,7 @@
     "title": "Text Sentiment Analyzer 12",
     "description": "Create a sentiment analysis tool for social media posts",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A sentiment analysis application",
     "domain": "ai-ml"
   },
@@ -562,7 +562,7 @@
     "title": "Recommendation System 13",
     "description": "Build a basic recommendation engine using collaborative filtering",
     "tech_stack": "Python, scikit-learn, Pandas, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A recommendation system",
     "domain": "ai-ml"
   },
@@ -571,7 +571,7 @@
     "title": "Spam Email Detector 14",
     "description": "Create a spam detection system using machine learning",
     "tech_stack": "Python, scikit-learn, NLTK, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An email spam filter",
     "domain": "ai-ml"
   },
@@ -580,7 +580,7 @@
     "title": "Stock Price Predictor 15",
     "description": "Build a simple stock price prediction model",
     "tech_stack": "Python, Pandas, scikit-learn, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A stock prediction tool",
     "domain": "ai-ml"
   },
@@ -589,7 +589,7 @@
     "title": "Handwriting Recognition 16",
     "description": "Create a system to recognize handwritten digits",
     "tech_stack": "Python, TensorFlow, OpenCV, MNIST",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A handwriting recognition system",
     "domain": "ai-ml"
   },
@@ -598,7 +598,7 @@
     "title": "Fake News Detector 17",
     "description": "Build a model to detect fake news articles",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fake news detection system",
     "domain": "ai-ml"
   },
@@ -607,7 +607,7 @@
     "title": "Customer Segmentation 18",
     "description": "Create a customer segmentation model using clustering",
     "tech_stack": "Python, scikit-learn, Pandas, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A customer analytics tool",
     "domain": "ai-ml"
   },
@@ -616,7 +616,7 @@
     "title": "Language Translator 19",
     "description": "Build a simple language translation tool",
     "tech_stack": "Python, Transformers, Hugging Face",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A language translation system",
     "domain": "ai-ml"
   },
@@ -625,7 +625,7 @@
     "title": "Chatbot 20",
     "description": "Create a basic chatbot using NLP techniques",
     "tech_stack": "Python, NLTK, TensorFlow, Flask",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An intelligent chatbot",
     "domain": "ai-ml"
   },
@@ -634,7 +634,7 @@
     "title": "Image Classification Model 21",
     "description": "Build a simple image classifier using pre-trained models",
     "tech_stack": "Python, TensorFlow, OpenCV, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An image classification system",
     "domain": "ai-ml"
   },
@@ -643,7 +643,7 @@
     "title": "Text Sentiment Analyzer 22",
     "description": "Create a sentiment analysis tool for social media posts",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A sentiment analysis application",
     "domain": "ai-ml"
   },
@@ -652,7 +652,7 @@
     "title": "Recommendation System 23",
     "description": "Build a basic recommendation engine using collaborative filtering",
     "tech_stack": "Python, scikit-learn, Pandas, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A recommendation system",
     "domain": "ai-ml"
   },
@@ -661,7 +661,7 @@
     "title": "Spam Email Detector 24",
     "description": "Create a spam detection system using machine learning",
     "tech_stack": "Python, scikit-learn, NLTK, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An email spam filter",
     "domain": "ai-ml"
   },
@@ -670,7 +670,7 @@
     "title": "Stock Price Predictor 25",
     "description": "Build a simple stock price prediction model",
     "tech_stack": "Python, Pandas, scikit-learn, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A stock prediction tool",
     "domain": "ai-ml"
   },
@@ -679,7 +679,7 @@
     "title": "Handwriting Recognition 26",
     "description": "Create a system to recognize handwritten digits",
     "tech_stack": "Python, TensorFlow, OpenCV, MNIST",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A handwriting recognition system",
     "domain": "ai-ml"
   },
@@ -688,7 +688,7 @@
     "title": "Fake News Detector 27",
     "description": "Build a model to detect fake news articles",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fake news detection system",
     "domain": "ai-ml"
   },
@@ -697,7 +697,7 @@
     "title": "Customer Segmentation 28",
     "description": "Create a customer segmentation model using clustering",
     "tech_stack": "Python, scikit-learn, Pandas, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A customer analytics tool",
     "domain": "ai-ml"
   },
@@ -706,7 +706,7 @@
     "title": "Language Translator 29",
     "description": "Build a simple language translation tool",
     "tech_stack": "Python, Transformers, Hugging Face",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A language translation system",
     "domain": "ai-ml"
   },
@@ -715,7 +715,7 @@
     "title": "Chatbot 30",
     "description": "Create a basic chatbot using NLP techniques",
     "tech_stack": "Python, NLTK, TensorFlow, Flask",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An intelligent chatbot",
     "domain": "ai-ml"
   },
@@ -724,7 +724,7 @@
     "title": "Image Classification Model 31",
     "description": "Build a simple image classifier using pre-trained models",
     "tech_stack": "Python, TensorFlow, OpenCV, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An image classification system",
     "domain": "ai-ml"
   },
@@ -733,7 +733,7 @@
     "title": "Text Sentiment Analyzer 32",
     "description": "Create a sentiment analysis tool for social media posts",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A sentiment analysis application",
     "domain": "ai-ml"
   },
@@ -742,7 +742,7 @@
     "title": "Recommendation System 33",
     "description": "Build a basic recommendation engine using collaborative filtering",
     "tech_stack": "Python, scikit-learn, Pandas, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A recommendation system",
     "domain": "ai-ml"
   },
@@ -751,7 +751,7 @@
     "title": "Spam Email Detector 34",
     "description": "Create a spam detection system using machine learning",
     "tech_stack": "Python, scikit-learn, NLTK, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An email spam filter",
     "domain": "ai-ml"
   },
@@ -760,7 +760,7 @@
     "title": "Stock Price Predictor 35",
     "description": "Build a simple stock price prediction model",
     "tech_stack": "Python, Pandas, scikit-learn, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A stock prediction tool",
     "domain": "ai-ml"
   },
@@ -769,7 +769,7 @@
     "title": "Handwriting Recognition 36",
     "description": "Create a system to recognize handwritten digits",
     "tech_stack": "Python, TensorFlow, OpenCV, MNIST",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A handwriting recognition system",
     "domain": "ai-ml"
   },
@@ -778,7 +778,7 @@
     "title": "Fake News Detector 37",
     "description": "Build a model to detect fake news articles",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fake news detection system",
     "domain": "ai-ml"
   },
@@ -787,7 +787,7 @@
     "title": "Customer Segmentation 38",
     "description": "Create a customer segmentation model using clustering",
     "tech_stack": "Python, scikit-learn, Pandas, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A customer analytics tool",
     "domain": "ai-ml"
   },
@@ -796,7 +796,7 @@
     "title": "Language Translator 39",
     "description": "Build a simple language translation tool",
     "tech_stack": "Python, Transformers, Hugging Face",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A language translation system",
     "domain": "ai-ml"
   },
@@ -805,7 +805,7 @@
     "title": "Chatbot 40",
     "description": "Create a basic chatbot using NLP techniques",
     "tech_stack": "Python, NLTK, TensorFlow, Flask",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An intelligent chatbot",
     "domain": "ai-ml"
   },
@@ -814,7 +814,7 @@
     "title": "Image Classification Model 41",
     "description": "Build a simple image classifier using pre-trained models",
     "tech_stack": "Python, TensorFlow, OpenCV, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An image classification system",
     "domain": "ai-ml"
   },
@@ -823,7 +823,7 @@
     "title": "Text Sentiment Analyzer 42",
     "description": "Create a sentiment analysis tool for social media posts",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A sentiment analysis application",
     "domain": "ai-ml"
   },
@@ -832,7 +832,7 @@
     "title": "Recommendation System 43",
     "description": "Build a basic recommendation engine using collaborative filtering",
     "tech_stack": "Python, scikit-learn, Pandas, NumPy",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A recommendation system",
     "domain": "ai-ml"
   },
@@ -841,7 +841,7 @@
     "title": "Spam Email Detector 44",
     "description": "Create a spam detection system using machine learning",
     "tech_stack": "Python, scikit-learn, NLTK, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An email spam filter",
     "domain": "ai-ml"
   },
@@ -850,7 +850,7 @@
     "title": "Stock Price Predictor 45",
     "description": "Build a simple stock price prediction model",
     "tech_stack": "Python, Pandas, scikit-learn, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A stock prediction tool",
     "domain": "ai-ml"
   },
@@ -859,7 +859,7 @@
     "title": "Handwriting Recognition 46",
     "description": "Create a system to recognize handwritten digits",
     "tech_stack": "Python, TensorFlow, OpenCV, MNIST",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A handwriting recognition system",
     "domain": "ai-ml"
   },
@@ -868,7 +868,7 @@
     "title": "Fake News Detector 47",
     "description": "Build a model to detect fake news articles",
     "tech_stack": "Python, NLTK, scikit-learn, Pandas",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A fake news detection system",
     "domain": "ai-ml"
   },
@@ -877,7 +877,7 @@
     "title": "Customer Segmentation 48",
     "description": "Create a customer segmentation model using clustering",
     "tech_stack": "Python, scikit-learn, Pandas, Matplotlib",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A customer analytics tool",
     "domain": "ai-ml"
   },
@@ -886,7 +886,7 @@
     "title": "Language Translator 49",
     "description": "Build a simple language translation tool",
     "tech_stack": "Python, Transformers, Hugging Face",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A language translation system",
     "domain": "ai-ml"
   },
@@ -895,7 +895,7 @@
     "title": "Chatbot 50",
     "description": "Create a basic chatbot using NLP techniques",
     "tech_stack": "Python, NLTK, TensorFlow, Flask",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An intelligent chatbot",
     "domain": "ai-ml"
   },
@@ -904,7 +904,7 @@
     "title": "Mobile Expense Tracker 1",
     "description": "Create a mobile app to track daily expenses and budgets",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional mobile expense tracking app",
     "domain": "mobile"
   },
@@ -913,7 +913,7 @@
     "title": "Weather Mobile App 2",
     "description": "Build a weather app with location-based forecasts",
     "tech_stack": "React Native, JavaScript, Weather API, Geolocation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A location-aware weather app",
     "domain": "mobile"
   },
@@ -922,7 +922,7 @@
     "title": "Todo Mobile App 3",
     "description": "Create a mobile task management application",
     "tech_stack": "React Native, JavaScript, AsyncStorage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile task management app",
     "domain": "mobile"
   },
@@ -931,7 +931,7 @@
     "title": "Photo Gallery App 4",
     "description": "Build a mobile photo gallery with camera integration",
     "tech_stack": "React Native, JavaScript, Camera API, Image Picker",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile photo management app",
     "domain": "mobile"
   },
@@ -940,7 +940,7 @@
     "title": "Notes Mobile App 5",
     "description": "Create a note-taking app with rich text editing",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Rich Text",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile note-taking application",
     "domain": "mobile"
   },
@@ -949,7 +949,7 @@
     "title": "Fitness Tracker 6",
     "description": "Build a simple fitness tracking mobile app",
     "tech_stack": "React Native, JavaScript, Health API, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile fitness tracking app",
     "domain": "mobile"
   },
@@ -958,7 +958,7 @@
     "title": "QR Code Scanner 7",
     "description": "Create a QR code scanner mobile app",
     "tech_stack": "React Native, JavaScript, Camera API, QR Scanner",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A QR code scanning app",
     "domain": "mobile"
   },
@@ -967,7 +967,7 @@
     "title": "Currency Converter 8",
     "description": "Build a mobile currency conversion app",
     "tech_stack": "React Native, JavaScript, Exchange Rate API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile currency converter",
     "domain": "mobile"
   },
@@ -976,7 +976,7 @@
     "title": "Flashcard App 9",
     "description": "Create a mobile flashcard learning app",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Animations",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile learning app",
     "domain": "mobile"
   },
@@ -985,7 +985,7 @@
     "title": "Timer App 10",
     "description": "Build a mobile timer and stopwatch app",
     "tech_stack": "React Native, JavaScript, Notifications",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile timing application",
     "domain": "mobile"
   },
@@ -994,7 +994,7 @@
     "title": "Mobile Expense Tracker 11",
     "description": "Create a mobile app to track daily expenses and budgets",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional mobile expense tracking app",
     "domain": "mobile"
   },
@@ -1003,7 +1003,7 @@
     "title": "Weather Mobile App 12",
     "description": "Build a weather app with location-based forecasts",
     "tech_stack": "React Native, JavaScript, Weather API, Geolocation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A location-aware weather app",
     "domain": "mobile"
   },
@@ -1012,7 +1012,7 @@
     "title": "Todo Mobile App 13",
     "description": "Create a mobile task management application",
     "tech_stack": "React Native, JavaScript, AsyncStorage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile task management app",
     "domain": "mobile"
   },
@@ -1021,7 +1021,7 @@
     "title": "Photo Gallery App 14",
     "description": "Build a mobile photo gallery with camera integration",
     "tech_stack": "React Native, JavaScript, Camera API, Image Picker",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile photo management app",
     "domain": "mobile"
   },
@@ -1030,7 +1030,7 @@
     "title": "Notes Mobile App 15",
     "description": "Create a note-taking app with rich text editing",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Rich Text",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile note-taking application",
     "domain": "mobile"
   },
@@ -1039,7 +1039,7 @@
     "title": "Fitness Tracker 16",
     "description": "Build a simple fitness tracking mobile app",
     "tech_stack": "React Native, JavaScript, Health API, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile fitness tracking app",
     "domain": "mobile"
   },
@@ -1048,7 +1048,7 @@
     "title": "QR Code Scanner 17",
     "description": "Create a QR code scanner mobile app",
     "tech_stack": "React Native, JavaScript, Camera API, QR Scanner",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A QR code scanning app",
     "domain": "mobile"
   },
@@ -1057,7 +1057,7 @@
     "title": "Currency Converter 18",
     "description": "Build a mobile currency conversion app",
     "tech_stack": "React Native, JavaScript, Exchange Rate API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile currency converter",
     "domain": "mobile"
   },
@@ -1066,7 +1066,7 @@
     "title": "Flashcard App 19",
     "description": "Create a mobile flashcard learning app",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Animations",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile learning app",
     "domain": "mobile"
   },
@@ -1075,7 +1075,7 @@
     "title": "Timer App 20",
     "description": "Build a mobile timer and stopwatch app",
     "tech_stack": "React Native, JavaScript, Notifications",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile timing application",
     "domain": "mobile"
   },
@@ -1084,7 +1084,7 @@
     "title": "Mobile Expense Tracker 21",
     "description": "Create a mobile app to track daily expenses and budgets",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional mobile expense tracking app",
     "domain": "mobile"
   },
@@ -1093,7 +1093,7 @@
     "title": "Weather Mobile App 22",
     "description": "Build a weather app with location-based forecasts",
     "tech_stack": "React Native, JavaScript, Weather API, Geolocation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A location-aware weather app",
     "domain": "mobile"
   },
@@ -1102,7 +1102,7 @@
     "title": "Todo Mobile App 23",
     "description": "Create a mobile task management application",
     "tech_stack": "React Native, JavaScript, AsyncStorage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile task management app",
     "domain": "mobile"
   },
@@ -1111,7 +1111,7 @@
     "title": "Photo Gallery App 24",
     "description": "Build a mobile photo gallery with camera integration",
     "tech_stack": "React Native, JavaScript, Camera API, Image Picker",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile photo management app",
     "domain": "mobile"
   },
@@ -1120,7 +1120,7 @@
     "title": "Notes Mobile App 25",
     "description": "Create a note-taking app with rich text editing",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Rich Text",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile note-taking application",
     "domain": "mobile"
   },
@@ -1129,7 +1129,7 @@
     "title": "Fitness Tracker 26",
     "description": "Build a simple fitness tracking mobile app",
     "tech_stack": "React Native, JavaScript, Health API, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile fitness tracking app",
     "domain": "mobile"
   },
@@ -1138,7 +1138,7 @@
     "title": "QR Code Scanner 27",
     "description": "Create a QR code scanner mobile app",
     "tech_stack": "React Native, JavaScript, Camera API, QR Scanner",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A QR code scanning app",
     "domain": "mobile"
   },
@@ -1147,7 +1147,7 @@
     "title": "Currency Converter 28",
     "description": "Build a mobile currency conversion app",
     "tech_stack": "React Native, JavaScript, Exchange Rate API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile currency converter",
     "domain": "mobile"
   },
@@ -1156,7 +1156,7 @@
     "title": "Flashcard App 29",
     "description": "Create a mobile flashcard learning app",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Animations",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile learning app",
     "domain": "mobile"
   },
@@ -1165,7 +1165,7 @@
     "title": "Timer App 30",
     "description": "Build a mobile timer and stopwatch app",
     "tech_stack": "React Native, JavaScript, Notifications",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile timing application",
     "domain": "mobile"
   },
@@ -1174,7 +1174,7 @@
     "title": "Mobile Expense Tracker 31",
     "description": "Create a mobile app to track daily expenses and budgets",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional mobile expense tracking app",
     "domain": "mobile"
   },
@@ -1183,7 +1183,7 @@
     "title": "Weather Mobile App 32",
     "description": "Build a weather app with location-based forecasts",
     "tech_stack": "React Native, JavaScript, Weather API, Geolocation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A location-aware weather app",
     "domain": "mobile"
   },
@@ -1192,7 +1192,7 @@
     "title": "Todo Mobile App 33",
     "description": "Create a mobile task management application",
     "tech_stack": "React Native, JavaScript, AsyncStorage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile task management app",
     "domain": "mobile"
   },
@@ -1201,7 +1201,7 @@
     "title": "Photo Gallery App 34",
     "description": "Build a mobile photo gallery with camera integration",
     "tech_stack": "React Native, JavaScript, Camera API, Image Picker",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile photo management app",
     "domain": "mobile"
   },
@@ -1210,7 +1210,7 @@
     "title": "Notes Mobile App 35",
     "description": "Create a note-taking app with rich text editing",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Rich Text",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile note-taking application",
     "domain": "mobile"
   },
@@ -1219,7 +1219,7 @@
     "title": "Fitness Tracker 36",
     "description": "Build a simple fitness tracking mobile app",
     "tech_stack": "React Native, JavaScript, Health API, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile fitness tracking app",
     "domain": "mobile"
   },
@@ -1228,7 +1228,7 @@
     "title": "QR Code Scanner 37",
     "description": "Create a QR code scanner mobile app",
     "tech_stack": "React Native, JavaScript, Camera API, QR Scanner",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A QR code scanning app",
     "domain": "mobile"
   },
@@ -1237,7 +1237,7 @@
     "title": "Currency Converter 38",
     "description": "Build a mobile currency conversion app",
     "tech_stack": "React Native, JavaScript, Exchange Rate API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile currency converter",
     "domain": "mobile"
   },
@@ -1246,7 +1246,7 @@
     "title": "Flashcard App 39",
     "description": "Create a mobile flashcard learning app",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Animations",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile learning app",
     "domain": "mobile"
   },
@@ -1255,7 +1255,7 @@
     "title": "Timer App 40",
     "description": "Build a mobile timer and stopwatch app",
     "tech_stack": "React Native, JavaScript, Notifications",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile timing application",
     "domain": "mobile"
   },
@@ -1264,7 +1264,7 @@
     "title": "Mobile Expense Tracker 41",
     "description": "Create a mobile app to track daily expenses and budgets",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A functional mobile expense tracking app",
     "domain": "mobile"
   },
@@ -1273,7 +1273,7 @@
     "title": "Weather Mobile App 42",
     "description": "Build a weather app with location-based forecasts",
     "tech_stack": "React Native, JavaScript, Weather API, Geolocation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A location-aware weather app",
     "domain": "mobile"
   },
@@ -1282,7 +1282,7 @@
     "title": "Todo Mobile App 43",
     "description": "Create a mobile task management application",
     "tech_stack": "React Native, JavaScript, AsyncStorage",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile task management app",
     "domain": "mobile"
   },
@@ -1291,7 +1291,7 @@
     "title": "Photo Gallery App 44",
     "description": "Build a mobile photo gallery with camera integration",
     "tech_stack": "React Native, JavaScript, Camera API, Image Picker",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile photo management app",
     "domain": "mobile"
   },
@@ -1300,7 +1300,7 @@
     "title": "Notes Mobile App 45",
     "description": "Create a note-taking app with rich text editing",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Rich Text",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile note-taking application",
     "domain": "mobile"
   },
@@ -1309,7 +1309,7 @@
     "title": "Fitness Tracker 46",
     "description": "Build a simple fitness tracking mobile app",
     "tech_stack": "React Native, JavaScript, Health API, Charts",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile fitness tracking app",
     "domain": "mobile"
   },
@@ -1318,7 +1318,7 @@
     "title": "QR Code Scanner 47",
     "description": "Create a QR code scanner mobile app",
     "tech_stack": "React Native, JavaScript, Camera API, QR Scanner",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A QR code scanning app",
     "domain": "mobile"
   },
@@ -1327,7 +1327,7 @@
     "title": "Currency Converter 48",
     "description": "Build a mobile currency conversion app",
     "tech_stack": "React Native, JavaScript, Exchange Rate API",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile currency converter",
     "domain": "mobile"
   },
@@ -1336,7 +1336,7 @@
     "title": "Flashcard App 49",
     "description": "Create a mobile flashcard learning app",
     "tech_stack": "React Native, JavaScript, AsyncStorage, Animations",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile learning app",
     "domain": "mobile"
   },
@@ -1345,7 +1345,7 @@
     "title": "Timer App 50",
     "description": "Build a mobile timer and stopwatch app",
     "tech_stack": "React Native, JavaScript, Notifications",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A mobile timing application",
     "domain": "mobile"
   },
@@ -1354,7 +1354,7 @@
     "title": "Password Manager 1",
     "description": "Create a secure password manager with encryption",
     "tech_stack": "Python, Cryptography, SQLite, Tkinter",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password management tool",
     "domain": "cybersecurity"
   },
@@ -1363,7 +1363,7 @@
     "title": "Network Scanner 2",
     "description": "Build a network vulnerability scanner",
     "tech_stack": "Python, Scapy, Nmap, Network Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A network security scanner",
     "domain": "cybersecurity"
   },
@@ -1372,7 +1372,7 @@
     "title": "Log Analyzer 3",
     "description": "Create a tool to analyze security logs for threats",
     "tech_stack": "Python, Pandas, Regex, Log Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security log analysis tool",
     "domain": "cybersecurity"
   },
@@ -1381,7 +1381,7 @@
     "title": "Encryption Tool 4",
     "description": "Build a file encryption and decryption tool",
     "tech_stack": "Python, Cryptography, File I/O, AES",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file encryption application",
     "domain": "cybersecurity"
   },
@@ -1390,7 +1390,7 @@
     "title": "Firewall Monitor 5",
     "description": "Create a firewall rule monitoring tool",
     "tech_stack": "Python, Network Monitoring, iptables, Logging",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A firewall monitoring system",
     "domain": "cybersecurity"
   },
@@ -1399,7 +1399,7 @@
     "title": "Security Headers Checker 6",
     "description": "Build a tool to check website security headers",
     "tech_stack": "Python, Requests, Security Headers, Web Scraping",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A web security assessment tool",
     "domain": "cybersecurity"
   },
@@ -1408,7 +1408,7 @@
     "title": "Malware Detector 7",
     "description": "Create a basic malware detection system",
     "tech_stack": "Python, Machine Learning, File Analysis, YARA",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A malware detection system",
     "domain": "cybersecurity"
   },
@@ -1417,7 +1417,7 @@
     "title": "VPN Client 8",
     "description": "Build a simple VPN client application",
     "tech_stack": "Python, OpenVPN, Network Security, Tunneling",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A VPN client application",
     "domain": "cybersecurity"
   },
@@ -1426,7 +1426,7 @@
     "title": "Security Audit Tool 9",
     "description": "Create a tool for basic security auditing",
     "tech_stack": "Python, Security Testing, Vulnerability Assessment",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security audit tool",
     "domain": "cybersecurity"
   },
@@ -1435,7 +1435,7 @@
     "title": "Hash Generator 10",
     "description": "Build a tool to generate and verify file hashes",
     "tech_stack": "Python, Hashing Algorithms, File Integrity",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file integrity verification tool",
     "domain": "cybersecurity"
   },
@@ -1444,7 +1444,7 @@
     "title": "Password Manager 11",
     "description": "Create a secure password manager with encryption",
     "tech_stack": "Python, Cryptography, SQLite, Tkinter",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password management tool",
     "domain": "cybersecurity"
   },
@@ -1453,7 +1453,7 @@
     "title": "Network Scanner 12",
     "description": "Build a network vulnerability scanner",
     "tech_stack": "Python, Scapy, Nmap, Network Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A network security scanner",
     "domain": "cybersecurity"
   },
@@ -1462,7 +1462,7 @@
     "title": "Log Analyzer 13",
     "description": "Create a tool to analyze security logs for threats",
     "tech_stack": "Python, Pandas, Regex, Log Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security log analysis tool",
     "domain": "cybersecurity"
   },
@@ -1471,7 +1471,7 @@
     "title": "Encryption Tool 14",
     "description": "Build a file encryption and decryption tool",
     "tech_stack": "Python, Cryptography, File I/O, AES",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file encryption application",
     "domain": "cybersecurity"
   },
@@ -1480,7 +1480,7 @@
     "title": "Firewall Monitor 15",
     "description": "Create a firewall rule monitoring tool",
     "tech_stack": "Python, Network Monitoring, iptables, Logging",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A firewall monitoring system",
     "domain": "cybersecurity"
   },
@@ -1489,7 +1489,7 @@
     "title": "Security Headers Checker 16",
     "description": "Build a tool to check website security headers",
     "tech_stack": "Python, Requests, Security Headers, Web Scraping",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A web security assessment tool",
     "domain": "cybersecurity"
   },
@@ -1498,7 +1498,7 @@
     "title": "Malware Detector 17",
     "description": "Create a basic malware detection system",
     "tech_stack": "Python, Machine Learning, File Analysis, YARA",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A malware detection system",
     "domain": "cybersecurity"
   },
@@ -1507,7 +1507,7 @@
     "title": "VPN Client 18",
     "description": "Build a simple VPN client application",
     "tech_stack": "Python, OpenVPN, Network Security, Tunneling",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A VPN client application",
     "domain": "cybersecurity"
   },
@@ -1516,7 +1516,7 @@
     "title": "Security Audit Tool 19",
     "description": "Create a tool for basic security auditing",
     "tech_stack": "Python, Security Testing, Vulnerability Assessment",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security audit tool",
     "domain": "cybersecurity"
   },
@@ -1525,7 +1525,7 @@
     "title": "Hash Generator 20",
     "description": "Build a tool to generate and verify file hashes",
     "tech_stack": "Python, Hashing Algorithms, File Integrity",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file integrity verification tool",
     "domain": "cybersecurity"
   },
@@ -1534,7 +1534,7 @@
     "title": "Password Manager 21",
     "description": "Create a secure password manager with encryption",
     "tech_stack": "Python, Cryptography, SQLite, Tkinter",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password management tool",
     "domain": "cybersecurity"
   },
@@ -1543,7 +1543,7 @@
     "title": "Network Scanner 22",
     "description": "Build a network vulnerability scanner",
     "tech_stack": "Python, Scapy, Nmap, Network Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A network security scanner",
     "domain": "cybersecurity"
   },
@@ -1552,7 +1552,7 @@
     "title": "Log Analyzer 23",
     "description": "Create a tool to analyze security logs for threats",
     "tech_stack": "Python, Pandas, Regex, Log Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security log analysis tool",
     "domain": "cybersecurity"
   },
@@ -1561,7 +1561,7 @@
     "title": "Encryption Tool 24",
     "description": "Build a file encryption and decryption tool",
     "tech_stack": "Python, Cryptography, File I/O, AES",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file encryption application",
     "domain": "cybersecurity"
   },
@@ -1570,7 +1570,7 @@
     "title": "Firewall Monitor 25",
     "description": "Create a firewall rule monitoring tool",
     "tech_stack": "Python, Network Monitoring, iptables, Logging",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A firewall monitoring system",
     "domain": "cybersecurity"
   },
@@ -1579,7 +1579,7 @@
     "title": "Security Headers Checker 26",
     "description": "Build a tool to check website security headers",
     "tech_stack": "Python, Requests, Security Headers, Web Scraping",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A web security assessment tool",
     "domain": "cybersecurity"
   },
@@ -1588,7 +1588,7 @@
     "title": "Malware Detector 27",
     "description": "Create a basic malware detection system",
     "tech_stack": "Python, Machine Learning, File Analysis, YARA",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A malware detection system",
     "domain": "cybersecurity"
   },
@@ -1597,7 +1597,7 @@
     "title": "VPN Client 28",
     "description": "Build a simple VPN client application",
     "tech_stack": "Python, OpenVPN, Network Security, Tunneling",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A VPN client application",
     "domain": "cybersecurity"
   },
@@ -1606,7 +1606,7 @@
     "title": "Security Audit Tool 29",
     "description": "Create a tool for basic security auditing",
     "tech_stack": "Python, Security Testing, Vulnerability Assessment",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security audit tool",
     "domain": "cybersecurity"
   },
@@ -1615,7 +1615,7 @@
     "title": "Hash Generator 30",
     "description": "Build a tool to generate and verify file hashes",
     "tech_stack": "Python, Hashing Algorithms, File Integrity",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file integrity verification tool",
     "domain": "cybersecurity"
   },
@@ -1624,7 +1624,7 @@
     "title": "Password Manager 31",
     "description": "Create a secure password manager with encryption",
     "tech_stack": "Python, Cryptography, SQLite, Tkinter",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password management tool",
     "domain": "cybersecurity"
   },
@@ -1633,7 +1633,7 @@
     "title": "Network Scanner 32",
     "description": "Build a network vulnerability scanner",
     "tech_stack": "Python, Scapy, Nmap, Network Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A network security scanner",
     "domain": "cybersecurity"
   },
@@ -1642,7 +1642,7 @@
     "title": "Log Analyzer 33",
     "description": "Create a tool to analyze security logs for threats",
     "tech_stack": "Python, Pandas, Regex, Log Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security log analysis tool",
     "domain": "cybersecurity"
   },
@@ -1651,7 +1651,7 @@
     "title": "Encryption Tool 34",
     "description": "Build a file encryption and decryption tool",
     "tech_stack": "Python, Cryptography, File I/O, AES",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file encryption application",
     "domain": "cybersecurity"
   },
@@ -1660,7 +1660,7 @@
     "title": "Firewall Monitor 35",
     "description": "Create a firewall rule monitoring tool",
     "tech_stack": "Python, Network Monitoring, iptables, Logging",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A firewall monitoring system",
     "domain": "cybersecurity"
   },
@@ -1669,7 +1669,7 @@
     "title": "Security Headers Checker 36",
     "description": "Build a tool to check website security headers",
     "tech_stack": "Python, Requests, Security Headers, Web Scraping",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A web security assessment tool",
     "domain": "cybersecurity"
   },
@@ -1678,7 +1678,7 @@
     "title": "Malware Detector 37",
     "description": "Create a basic malware detection system",
     "tech_stack": "Python, Machine Learning, File Analysis, YARA",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A malware detection system",
     "domain": "cybersecurity"
   },
@@ -1687,7 +1687,7 @@
     "title": "VPN Client 38",
     "description": "Build a simple VPN client application",
     "tech_stack": "Python, OpenVPN, Network Security, Tunneling",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A VPN client application",
     "domain": "cybersecurity"
   },
@@ -1696,7 +1696,7 @@
     "title": "Security Audit Tool 39",
     "description": "Create a tool for basic security auditing",
     "tech_stack": "Python, Security Testing, Vulnerability Assessment",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security audit tool",
     "domain": "cybersecurity"
   },
@@ -1705,7 +1705,7 @@
     "title": "Hash Generator 40",
     "description": "Build a tool to generate and verify file hashes",
     "tech_stack": "Python, Hashing Algorithms, File Integrity",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file integrity verification tool",
     "domain": "cybersecurity"
   },
@@ -1714,7 +1714,7 @@
     "title": "Password Manager 41",
     "description": "Create a secure password manager with encryption",
     "tech_stack": "Python, Cryptography, SQLite, Tkinter",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A secure password management tool",
     "domain": "cybersecurity"
   },
@@ -1723,7 +1723,7 @@
     "title": "Network Scanner 42",
     "description": "Build a network vulnerability scanner",
     "tech_stack": "Python, Scapy, Nmap, Network Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A network security scanner",
     "domain": "cybersecurity"
   },
@@ -1732,7 +1732,7 @@
     "title": "Log Analyzer 43",
     "description": "Create a tool to analyze security logs for threats",
     "tech_stack": "Python, Pandas, Regex, Log Analysis",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security log analysis tool",
     "domain": "cybersecurity"
   },
@@ -1741,7 +1741,7 @@
     "title": "Encryption Tool 44",
     "description": "Build a file encryption and decryption tool",
     "tech_stack": "Python, Cryptography, File I/O, AES",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file encryption application",
     "domain": "cybersecurity"
   },
@@ -1750,7 +1750,7 @@
     "title": "Firewall Monitor 45",
     "description": "Create a firewall rule monitoring tool",
     "tech_stack": "Python, Network Monitoring, iptables, Logging",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A firewall monitoring system",
     "domain": "cybersecurity"
   },
@@ -1759,7 +1759,7 @@
     "title": "Security Headers Checker 46",
     "description": "Build a tool to check website security headers",
     "tech_stack": "Python, Requests, Security Headers, Web Scraping",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A web security assessment tool",
     "domain": "cybersecurity"
   },
@@ -1768,7 +1768,7 @@
     "title": "Malware Detector 47",
     "description": "Create a basic malware detection system",
     "tech_stack": "Python, Machine Learning, File Analysis, YARA",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A malware detection system",
     "domain": "cybersecurity"
   },
@@ -1777,7 +1777,7 @@
     "title": "VPN Client 48",
     "description": "Build a simple VPN client application",
     "tech_stack": "Python, OpenVPN, Network Security, Tunneling",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A VPN client application",
     "domain": "cybersecurity"
   },
@@ -1786,7 +1786,7 @@
     "title": "Security Audit Tool 49",
     "description": "Create a tool for basic security auditing",
     "tech_stack": "Python, Security Testing, Vulnerability Assessment",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A security audit tool",
     "domain": "cybersecurity"
   },
@@ -1795,7 +1795,7 @@
     "title": "Hash Generator 50",
     "description": "Build a tool to generate and verify file hashes",
     "tech_stack": "Python, Hashing Algorithms, File Integrity",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A file integrity verification tool",
     "domain": "cybersecurity"
   },
@@ -1804,7 +1804,7 @@
     "title": "Digital Art Generator 1",
     "description": "Create a tool to generate digital art using algorithms",
     "tech_stack": "Python, PIL, NumPy, Random Generation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A digital art creation tool",
     "domain": "creative"
   },
@@ -1813,7 +1813,7 @@
     "title": "Music Composer 2",
     "description": "Build a simple music composition tool",
     "tech_stack": "Python, MIDI, Music Theory, Audio Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A music composition application",
     "domain": "creative"
   },
@@ -1822,7 +1822,7 @@
     "title": "Story Generator 3",
     "description": "Create a creative writing assistant",
     "tech_stack": "Python, NLP, Text Generation, Creative Writing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative writing tool",
     "domain": "creative"
   },
@@ -1831,7 +1831,7 @@
     "title": "Color Palette Generator 4",
     "description": "Build a tool to generate harmonious color palettes",
     "tech_stack": "JavaScript, Color Theory, CSS, Web Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A color palette generation tool",
     "domain": "creative"
   },
@@ -1840,7 +1840,7 @@
     "title": "Logo Designer 5",
     "description": "Create a simple logo design tool",
     "tech_stack": "JavaScript, Canvas API, SVG, Design Principles",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A logo design application",
     "domain": "creative"
   },
@@ -1849,7 +1849,7 @@
     "title": "Pattern Generator 6",
     "description": "Build a tool to generate geometric patterns",
     "tech_stack": "Python, Matplotlib, Geometry, Pattern Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A pattern generation tool",
     "domain": "creative"
   },
@@ -1858,7 +1858,7 @@
     "title": "Typography Tool 7",
     "description": "Create a tool for typography experimentation",
     "tech_stack": "JavaScript, Web Fonts, CSS, Typography",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A typography design tool",
     "domain": "creative"
   },
@@ -1867,7 +1867,7 @@
     "title": "Animation Creator 8",
     "description": "Build a simple animation creation tool",
     "tech_stack": "JavaScript, Canvas API, Animation, Keyframes",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An animation creation tool",
     "domain": "creative"
   },
@@ -1876,7 +1876,7 @@
     "title": "Photo Filter App 9",
     "description": "Create a photo editing and filtering application",
     "tech_stack": "Python, OpenCV, PIL, Image Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A photo editing application",
     "domain": "creative"
   },
@@ -1885,7 +1885,7 @@
     "title": "3D Model Viewer 10",
     "description": "Build a 3D model viewer and manipulator",
     "tech_stack": "JavaScript, Three.js, WebGL, 3D Graphics",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A 3D model viewing tool",
     "domain": "creative"
   },
@@ -1894,7 +1894,7 @@
     "title": "Digital Art Generator 11",
     "description": "Create a tool to generate digital art using algorithms",
     "tech_stack": "Python, PIL, NumPy, Random Generation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A digital art creation tool",
     "domain": "creative"
   },
@@ -1903,7 +1903,7 @@
     "title": "Music Composer 12",
     "description": "Build a simple music composition tool",
     "tech_stack": "Python, MIDI, Music Theory, Audio Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A music composition application",
     "domain": "creative"
   },
@@ -1912,7 +1912,7 @@
     "title": "Story Generator 13",
     "description": "Create a creative writing assistant",
     "tech_stack": "Python, NLP, Text Generation, Creative Writing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative writing tool",
     "domain": "creative"
   },
@@ -1921,7 +1921,7 @@
     "title": "Color Palette Generator 14",
     "description": "Build a tool to generate harmonious color palettes",
     "tech_stack": "JavaScript, Color Theory, CSS, Web Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A color palette generation tool",
     "domain": "creative"
   },
@@ -1930,7 +1930,7 @@
     "title": "Logo Designer 15",
     "description": "Create a simple logo design tool",
     "tech_stack": "JavaScript, Canvas API, SVG, Design Principles",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A logo design application",
     "domain": "creative"
   },
@@ -1939,7 +1939,7 @@
     "title": "Pattern Generator 16",
     "description": "Build a tool to generate geometric patterns",
     "tech_stack": "Python, Matplotlib, Geometry, Pattern Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A pattern generation tool",
     "domain": "creative"
   },
@@ -1948,7 +1948,7 @@
     "title": "Typography Tool 17",
     "description": "Create a tool for typography experimentation",
     "tech_stack": "JavaScript, Web Fonts, CSS, Typography",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A typography design tool",
     "domain": "creative"
   },
@@ -1957,7 +1957,7 @@
     "title": "Animation Creator 18",
     "description": "Build a simple animation creation tool",
     "tech_stack": "JavaScript, Canvas API, Animation, Keyframes",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An animation creation tool",
     "domain": "creative"
   },
@@ -1966,7 +1966,7 @@
     "title": "Photo Filter App 19",
     "description": "Create a photo editing and filtering application",
     "tech_stack": "Python, OpenCV, PIL, Image Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A photo editing application",
     "domain": "creative"
   },
@@ -1975,7 +1975,7 @@
     "title": "3D Model Viewer 20",
     "description": "Build a 3D model viewer and manipulator",
     "tech_stack": "JavaScript, Three.js, WebGL, 3D Graphics",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A 3D model viewing tool",
     "domain": "creative"
   },
@@ -1984,7 +1984,7 @@
     "title": "Digital Art Generator 21",
     "description": "Create a tool to generate digital art using algorithms",
     "tech_stack": "Python, PIL, NumPy, Random Generation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A digital art creation tool",
     "domain": "creative"
   },
@@ -1993,7 +1993,7 @@
     "title": "Music Composer 22",
     "description": "Build a simple music composition tool",
     "tech_stack": "Python, MIDI, Music Theory, Audio Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A music composition application",
     "domain": "creative"
   },
@@ -2002,7 +2002,7 @@
     "title": "Story Generator 23",
     "description": "Create a creative writing assistant",
     "tech_stack": "Python, NLP, Text Generation, Creative Writing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative writing tool",
     "domain": "creative"
   },
@@ -2011,7 +2011,7 @@
     "title": "Color Palette Generator 24",
     "description": "Build a tool to generate harmonious color palettes",
     "tech_stack": "JavaScript, Color Theory, CSS, Web Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A color palette generation tool",
     "domain": "creative"
   },
@@ -2020,7 +2020,7 @@
     "title": "Logo Designer 25",
     "description": "Create a simple logo design tool",
     "tech_stack": "JavaScript, Canvas API, SVG, Design Principles",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A logo design application",
     "domain": "creative"
   },
@@ -2029,7 +2029,7 @@
     "title": "Pattern Generator 26",
     "description": "Build a tool to generate geometric patterns",
     "tech_stack": "Python, Matplotlib, Geometry, Pattern Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A pattern generation tool",
     "domain": "creative"
   },
@@ -2038,7 +2038,7 @@
     "title": "Typography Tool 27",
     "description": "Create a tool for typography experimentation",
     "tech_stack": "JavaScript, Web Fonts, CSS, Typography",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A typography design tool",
     "domain": "creative"
   },
@@ -2047,7 +2047,7 @@
     "title": "Animation Creator 28",
     "description": "Build a simple animation creation tool",
     "tech_stack": "JavaScript, Canvas API, Animation, Keyframes",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An animation creation tool",
     "domain": "creative"
   },
@@ -2056,7 +2056,7 @@
     "title": "Photo Filter App 29",
     "description": "Create a photo editing and filtering application",
     "tech_stack": "Python, OpenCV, PIL, Image Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A photo editing application",
     "domain": "creative"
   },
@@ -2065,7 +2065,7 @@
     "title": "3D Model Viewer 30",
     "description": "Build a 3D model viewer and manipulator",
     "tech_stack": "JavaScript, Three.js, WebGL, 3D Graphics",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A 3D model viewing tool",
     "domain": "creative"
   },
@@ -2074,7 +2074,7 @@
     "title": "Digital Art Generator 31",
     "description": "Create a tool to generate digital art using algorithms",
     "tech_stack": "Python, PIL, NumPy, Random Generation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A digital art creation tool",
     "domain": "creative"
   },
@@ -2083,7 +2083,7 @@
     "title": "Music Composer 32",
     "description": "Build a simple music composition tool",
     "tech_stack": "Python, MIDI, Music Theory, Audio Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A music composition application",
     "domain": "creative"
   },
@@ -2092,7 +2092,7 @@
     "title": "Story Generator 33",
     "description": "Create a creative writing assistant",
     "tech_stack": "Python, NLP, Text Generation, Creative Writing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative writing tool",
     "domain": "creative"
   },
@@ -2101,7 +2101,7 @@
     "title": "Color Palette Generator 34",
     "description": "Build a tool to generate harmonious color palettes",
     "tech_stack": "JavaScript, Color Theory, CSS, Web Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A color palette generation tool",
     "domain": "creative"
   },
@@ -2110,7 +2110,7 @@
     "title": "Logo Designer 35",
     "description": "Create a simple logo design tool",
     "tech_stack": "JavaScript, Canvas API, SVG, Design Principles",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A logo design application",
     "domain": "creative"
   },
@@ -2119,7 +2119,7 @@
     "title": "Pattern Generator 36",
     "description": "Build a tool to generate geometric patterns",
     "tech_stack": "Python, Matplotlib, Geometry, Pattern Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A pattern generation tool",
     "domain": "creative"
   },
@@ -2128,7 +2128,7 @@
     "title": "Typography Tool 37",
     "description": "Create a tool for typography experimentation",
     "tech_stack": "JavaScript, Web Fonts, CSS, Typography",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A typography design tool",
     "domain": "creative"
   },
@@ -2137,7 +2137,7 @@
     "title": "Animation Creator 38",
     "description": "Build a simple animation creation tool",
     "tech_stack": "JavaScript, Canvas API, Animation, Keyframes",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An animation creation tool",
     "domain": "creative"
   },
@@ -2146,7 +2146,7 @@
     "title": "Photo Filter App 39",
     "description": "Create a photo editing and filtering application",
     "tech_stack": "Python, OpenCV, PIL, Image Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A photo editing application",
     "domain": "creative"
   },
@@ -2155,7 +2155,7 @@
     "title": "3D Model Viewer 40",
     "description": "Build a 3D model viewer and manipulator",
     "tech_stack": "JavaScript, Three.js, WebGL, 3D Graphics",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A 3D model viewing tool",
     "domain": "creative"
   },
@@ -2164,7 +2164,7 @@
     "title": "Digital Art Generator 41",
     "description": "Create a tool to generate digital art using algorithms",
     "tech_stack": "Python, PIL, NumPy, Random Generation",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A digital art creation tool",
     "domain": "creative"
   },
@@ -2173,7 +2173,7 @@
     "title": "Music Composer 42",
     "description": "Build a simple music composition tool",
     "tech_stack": "Python, MIDI, Music Theory, Audio Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A music composition application",
     "domain": "creative"
   },
@@ -2182,7 +2182,7 @@
     "title": "Story Generator 43",
     "description": "Create a creative writing assistant",
     "tech_stack": "Python, NLP, Text Generation, Creative Writing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A creative writing tool",
     "domain": "creative"
   },
@@ -2191,7 +2191,7 @@
     "title": "Color Palette Generator 44",
     "description": "Build a tool to generate harmonious color palettes",
     "tech_stack": "JavaScript, Color Theory, CSS, Web Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A color palette generation tool",
     "domain": "creative"
   },
@@ -2200,7 +2200,7 @@
     "title": "Logo Designer 45",
     "description": "Create a simple logo design tool",
     "tech_stack": "JavaScript, Canvas API, SVG, Design Principles",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A logo design application",
     "domain": "creative"
   },
@@ -2209,7 +2209,7 @@
     "title": "Pattern Generator 46",
     "description": "Build a tool to generate geometric patterns",
     "tech_stack": "Python, Matplotlib, Geometry, Pattern Design",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A pattern generation tool",
     "domain": "creative"
   },
@@ -2218,7 +2218,7 @@
     "title": "Typography Tool 47",
     "description": "Create a tool for typography experimentation",
     "tech_stack": "JavaScript, Web Fonts, CSS, Typography",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A typography design tool",
     "domain": "creative"
   },
@@ -2227,7 +2227,7 @@
     "title": "Animation Creator 48",
     "description": "Build a simple animation creation tool",
     "tech_stack": "JavaScript, Canvas API, Animation, Keyframes",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "An animation creation tool",
     "domain": "creative"
   },
@@ -2236,7 +2236,7 @@
     "title": "Photo Filter App 49",
     "description": "Create a photo editing and filtering application",
     "tech_stack": "Python, OpenCV, PIL, Image Processing",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A photo editing application",
     "domain": "creative"
   },
@@ -2245,7 +2245,7 @@
     "title": "3D Model Viewer 50",
     "description": "Build a 3D model viewer and manipulator",
     "tech_stack": "JavaScript, Three.js, WebGL, 3D Graphics",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "outcome": "A 3D model viewing tool",
     "domain": "creative"
   }

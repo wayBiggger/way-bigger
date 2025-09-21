@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Navbar from '@/components/Navbar'
 
 type Track = {
   id: number
@@ -15,15 +17,9 @@ type Track = {
 }
 
 const difficultyColors = {
-  beginner: "bg-green-100 text-green-800",
-  intermediate: "bg-yellow-100 text-yellow-800",
-  advanced: "bg-red-100 text-red-800"
-}
-
-const darkDifficultyColors = {
-  beginner: "bg-green-900 text-green-200",
-  intermediate: "bg-yellow-900 text-yellow-200",
-  advanced: "bg-red-900 text-red-200"
+  beginner: "bg-green-500/20 text-green-400 border-green-500/30",
+  intermediate: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+  advanced: "bg-red-500/20 text-red-400 border-red-500/30"
 }
 
 const difficultyIcons = {
@@ -33,6 +29,7 @@ const difficultyIcons = {
 }
 
 export default function TracksPage() {
+  const pathname = usePathname()
   const [isDark, setIsDark] = useState(false)
   const [tracks, setTracks] = useState<Track[]>([])
   const [loading, setLoading] = useState(true)
@@ -141,43 +138,54 @@ export default function TracksPage() {
   ]
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
-    }`}>
+    <div className="min-h-screen" style={{background: 'var(--bg-primary)'}}>
+      {/* Navigation */}
+      <Navbar currentPath={pathname} />
+
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-4">Learning Tracks</h1>
-          <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-            Structured learning paths designed to take you from beginner to expert in your chosen field
-          </p>
+        {/* Header */}
+        <div className="glass-card mx-4 mt-8 mb-8" style={{
+          boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
+        }}>
+          <div className="px-6 py-8">
+            <h1 className="text-4xl font-bold mb-4 text-white">
+              Learning <span className="text-gradient">Tracks</span>
+            </h1>
+            <p className="text-xl text-gray-300">
+              Structured learning paths designed to take you from beginner to expert in your chosen field
+            </p>
+          </div>
         </div>
 
         {/* Domain Filter */}
-        <div className={`mb-8 p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-sm`}>
+        <div className="glass-card mb-8 p-6" style={{
+          boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
+        }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className="block text-sm font-medium mb-2 text-white">
                 Domain
               </label>
               <select
                 value={selectedDomain}
                 onChange={(e) => setSelectedDomain(e.target.value)}
-                className={`w-full p-3 border rounded-lg ${
-                  isDark ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300'
-                } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className="w-full p-3 border border-pink-500/30 rounded-lg bg-black/50 text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-400"
+                style={{
+                  boxShadow: '0 0 15px rgba(255, 0, 128, 0.2)'
+                }}
               >
                 {domains.map(domain => (
-                  <option key={domain.id} value={domain.id}>{domain.name}</option>
+                  <option key={domain.id} value={domain.id} className="bg-black text-white">{domain.name}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label className={`block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className="block text-sm font-medium mb-2 text-white">
                 Results
               </label>
-              <div className={`p-3 rounded-lg ${
-                isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
-              }`}>
+              <div className="p-3 rounded-lg bg-black/50 text-gray-300 border border-pink-500/30" style={{
+                boxShadow: '0 0 15px rgba(255, 0, 128, 0.2)'
+              }}>
                 {filteredTracks.length} of {tracks.length} tracks
               </div>
             </div>
@@ -186,14 +194,18 @@ export default function TracksPage() {
 
         {loading && (
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-            <p className={`mt-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Loading tracks...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto" style={{
+              boxShadow: '0 0 20px rgba(255, 0, 128, 0.5)'
+            }}></div>
+            <p className="mt-4 text-gray-300">Loading tracks...</p>
           </div>
         )}
 
         {error && (
           <div className="text-center py-12">
-            <div className="text-red-600 bg-red-50 p-4 rounded-lg">
+            <div className="text-red-400 bg-red-500/20 border border-red-500/30 p-4 rounded-lg" style={{
+              boxShadow: '0 0 20px rgba(239, 68, 68, 0.3)'
+            }}>
               {error}
             </div>
           </div>
@@ -204,21 +216,20 @@ export default function TracksPage() {
             {filteredTracks.map((track) => (
               <div
                 key={track.id}
-                className={`rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 ${
-                  isDark ? 'bg-gray-800' : 'bg-white'
-                }`}
+                className="glass-card overflow-hidden transition-all duration-300 hover:scale-105 hover:border-pink-500/50"
+                style={{
+                  boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
+                }}
               >
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-semibold mb-2">{track.name}</h3>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      isDark ? darkDifficultyColors[track.difficulty] : difficultyColors[track.difficulty]
-                    }`}>
+                    <h3 className="text-xl font-semibold mb-2 text-white">{track.name}</h3>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium border ${difficultyColors[track.difficulty]}`}>
                       {difficultyIcons[track.difficulty]} {track.difficulty}
                     </span>
                   </div>
                   
-                  <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className="mb-4 text-gray-300">
                     {track.description}
                   </p>
                   
@@ -227,9 +238,7 @@ export default function TracksPage() {
                       {track.levels.map((level, index) => (
                         <span
                           key={index}
-                          className={`px-2 py-1 rounded text-xs ${
-                            isDark ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-800'
-                          }`}
+                          className="px-2 py-1 rounded text-xs bg-pink-500/20 text-pink-400 border border-pink-500/30"
                         >
                           {level}
                         </span>
@@ -237,7 +246,7 @@ export default function TracksPage() {
                     </div>
                   </div>
                   
-                  <div className={`flex items-center justify-between text-sm mb-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                  <div className="flex items-center justify-between text-sm mb-4 text-gray-400">
                     <span>📚 {track.projectCount} projects</span>
                     <span>⏱️ {track.estimatedDuration}</span>
                   </div>
@@ -245,21 +254,19 @@ export default function TracksPage() {
                   <div className="flex gap-2">
                     <Link
                       href={`/tracks/${track.id}`}
-                      className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
-                        isDark
-                          ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                          : 'bg-blue-600 hover:bg-blue-700 text-white'
-                      }`}
+                      className="flex-1 text-center py-2 px-4 rounded-md font-medium transition-all duration-300 bg-pink-500/20 text-pink-400 border border-pink-500/30 hover:bg-pink-500/30 hover:border-pink-400"
+                      style={{
+                        boxShadow: '0 0 15px rgba(255, 0, 128, 0.2)'
+                      }}
                     >
                       View Track
                     </Link>
                     <Link
                       href={`/projects?domain=${track.domain}`}
-                      className={`flex-1 text-center py-2 px-4 rounded-md font-medium transition-colors ${
-                        isDark
-                          ? 'bg-gray-600 hover:bg-gray-700 text-white'
-                          : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
-                      }`}
+                      className="flex-1 text-center py-2 px-4 rounded-md font-medium transition-all duration-300 bg-white/10 text-white border border-white/20 hover:bg-white/20 hover:border-white/30"
+                      style={{
+                        boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+                      }}
                     >
                       View Projects
                     </Link>
@@ -272,7 +279,7 @@ export default function TracksPage() {
 
         {!loading && !error && filteredTracks.length === 0 && (
           <div className="text-center py-12">
-            <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className="text-lg text-gray-300">
               No tracks match your current filter. Try adjusting your selection.
             </p>
           </div>

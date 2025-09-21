@@ -26,3 +26,17 @@ def generate_gemini_text(prompt: str, model_name: str = "gemini-1.5-flash") -> T
         return None, str(exc)
 
 
+def generate_ai_content(prompt: str, model_name: str = "gemini-1.5-flash") -> str:
+    """Generate AI content using Gemini. Returns empty string if not configured."""
+    text, error = generate_gemini_text(prompt, model_name)
+    if error:
+        print(f"AI generation error: {error}")
+        return ""
+    return text or ""
+
+
+def get_gemini_response(prompt: str, model_name: str = "gemini-1.5-flash") -> str:
+    """Alias for generate_ai_content for backward compatibility."""
+    return generate_ai_content(prompt, model_name)
+
+
