@@ -73,9 +73,11 @@ export default function ProjectsPage() {
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
     const difficultyMatch = selectedDifficulty === 'all' || project.difficulty.toLowerCase() === selectedDifficulty
+    
+    // Domain filtering based on industry in description
     const domainMatch = selectedDomain === 'all' || 
-        (project.tech_stack && project.tech_stack.toLowerCase().includes(selectedDomain)) ||
-        (project.tags && Array.isArray(project.tags) && project.tags.some(tag => tag.toLowerCase().includes(selectedDomain)))
+        (project.description && project.description.toLowerCase().includes(`in the ${selectedDomain} industry`))
+    
     const searchMatch = searchQuery === '' || 
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -107,11 +109,14 @@ export default function ProjectsPage() {
 
   const domains = [
     { id: 'all', name: 'All Domains' },
-    { id: 'web-development', name: 'Web Development' },
-    { id: 'ai-ml', name: 'AI & Machine Learning' },
-    { id: 'mobile', name: 'Mobile Development' },
-    { id: 'cybersecurity', name: 'Cybersecurity' },
-    { id: 'creative', name: 'Creative Industry' }
+    { id: 'agriculture', name: '🌾 Agriculture' },
+    { id: 'ecommerce', name: '🛒 E-commerce' },
+    { id: 'education', name: '🎓 Education' },
+    { id: 'environment', name: '🌱 Environment' },
+    { id: 'finance', name: '💰 Finance' },
+    { id: 'healthcare', name: '🏥 Healthcare' },
+    { id: 'manufacturing', name: '🏭 Manufacturing' },
+    { id: 'transportation', name: '🚗 Transportation' }
   ]
 
   const difficulties = [
@@ -190,26 +195,22 @@ export default function ProjectsPage() {
               <select
                 value={selectedDomain}
                 onChange={handleDomainChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-black/50 border border-pink-500/30 rounded-lg text-white focus:ring-2 focus:ring-pink-500 focus:border-pink-400 transition-all duration-200 backdrop-blur-sm"
+                style={{ boxShadow: '0 0 15px rgba(255, 0, 128, 0.1)' }}
               >
-                <option value="all">All Domains</option>
-                <option value="web-development">🌐 Web Development</option>
-                <option value="ai-ml">🤖 AI & Machine Learning</option>
-                <option value="mobile">📱 Mobile Development</option>
-                <option value="cybersecurity">🔒 Cybersecurity</option>
-                <option value="data-science">📊 Data Science</option>
-                <option value="blockchain">⛓️ Blockchain</option>
-                <option value="game-development">🎮 Game Development</option>
-                <option value="devops">⚙️ DevOps</option>
-                <option value="creative">🎨 Creative Industry</option>
+                {domains.map(domain => (
+                  <option key={domain.id} value={domain.id} className="bg-black text-white">
+                    {domain.name}
+                  </option>
+                ))}
               </select>
             </div>
 
             {/* Difficulty Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-medium text-white mb-3">
                 <span className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 Difficulty Level
@@ -218,20 +219,22 @@ export default function ProjectsPage() {
               <select
                 value={selectedDifficulty}
                 onChange={handleDifficultyChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-black/50 border border-green-500/30 rounded-lg text-white focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-200 backdrop-blur-sm"
+                style={{ boxShadow: '0 0 15px rgba(34, 197, 94, 0.1)' }}
               >
-                <option value="all">All Levels</option>
-                <option value="beginner">🌱 Beginner</option>
-                <option value="intermediate">🚀 Intermediate</option>
-                <option value="advanced">🔥 Advanced</option>
+                {difficulties.map(difficulty => (
+                  <option key={difficulty.id} value={difficulty.id} className="bg-black text-white">
+                    {difficulty.name}
+                  </option>
+                ))}
               </select>
             </div>
 
             {/* Search Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-medium text-white mb-3">
                 <span className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 mr-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                   Search Projects
@@ -242,7 +245,8 @@ export default function ProjectsPage() {
                 value={searchQuery}
                 onChange={handleSearchChange}
                 placeholder="Search by title, description, or tech stack..."
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full p-3 bg-black/50 border border-purple-500/30 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition-all duration-200 backdrop-blur-sm"
+                style={{ boxShadow: '0 0 15px rgba(168, 85, 247, 0.1)' }}
               />
             </div>
           </div>
