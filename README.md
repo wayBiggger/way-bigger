@@ -22,7 +22,7 @@ A full-stack platform where students learn by building real projects. Built with
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/wayBiggger/way-bigger
    cd demo
    ```
 
