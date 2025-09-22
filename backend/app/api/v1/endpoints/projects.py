@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
-from sqlalchemy import func, desc, asc
+from sqlalchemy import func, desc, asc, cast, String, or_
 from typing import List, Dict, Any, Optional
 from app.core.database import get_db, get_connection_info
 from app.core.cache import cache, cached, invalidate_cache
@@ -54,17 +54,31 @@ async def get_projects(
             query = query.filter(Project.difficulty == ProjectDifficulty(difficulty))
         
         if domain and domain != 'all':
-            # Search in tags for domain match
-            query = query.filter(
-                func.array_to_string(Project.tags, ',').ilike(f'%{domain}%')
-            )
+            # Map domain to relevant technologies (SQLite compatible)
+            domain_keywords = {
+                'web-dev': ['html', 'css', 'javascript', 'react', 'node', 'vue', 'angular', 'web', 'frontend', 'backend'],
+                'ai-ml': ['python', 'tensorflow', 'machine learning', 'ai', 'ml', 'data science', 'pytorch'],
+                'mobile': ['android', 'ios', 'react native', 'flutter', 'mobile', 'app'],
+                'cybersecurity': ['security', 'cyber', 'encryption', 'auth', 'penetration'],
+                'creative-industry': ['design', 'ui', 'ux', 'graphics', 'creative', 'art']
+            }
+            
+            keywords = domain_keywords.get(domain, [domain])
+            conditions = []
+            for keyword in keywords:
+                conditions.append(func.lower(cast(Project.tags, String)).like(f'%{keyword}%'))
+                conditions.append(func.lower(Project.title).like(f'%{keyword}%'))
+                conditions.append(func.lower(Project.description).like(f'%{keyword}%'))
+            
+            if conditions:
+                query = query.filter(or_(*conditions))
         
         if search:
             search_term = f'%{search.lower()}%'
             query = query.filter(
                 func.lower(Project.title).ilike(search_term) |
                 func.lower(Project.description).ilike(search_term) |
-                func.array_to_string(Project.tags, ',').ilike(search_term)
+                func.lower(cast(Project.tags, String)).like(search_term)
             )
         
         # Order by creation date for consistency

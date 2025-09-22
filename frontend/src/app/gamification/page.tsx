@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Navbar from '@/components/Navbar';
 import ProgressDashboard from '../../components/Gamification/ProgressDashboard';
 import BadgeCollection from '../../components/Gamification/BadgeCollection';
 import StreakTracker from '../../components/Gamification/StreakTracker';
@@ -12,6 +14,7 @@ import { useGamification } from '../../hooks/useGamification';
 import { Badge } from '../../types/gamification';
 
 export default function GamificationPage() {
+  const pathname = usePathname();
   const [activeTab, setActiveTab] = useState('progress');
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [newLevel, setNewLevel] = useState(0);
@@ -151,31 +154,8 @@ export default function GamificationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
-      {/* Navigation */}
-      <nav className="relative z-20 px-6 py-4 transition-all duration-500" style={{
-        borderBottom: '3px solid rgba(255, 0, 128, 0.8)',
-        boxShadow: '0 4px 30px rgba(255, 0, 128, 0.4), 0 0 60px rgba(255, 0, 128, 0.3), inset 0 -1px 0 rgba(255, 0, 128, 0.2)'
-      }}>
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-60"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-80"></div>
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">W</span>
-            </div>
-            <span className="text-xl font-bold text-white">WayBigger</span>
-          </div>
-          
-          <div className="flex items-center space-x-6">
-            <Link href="/" className="text-white/80 hover:text-pink-400 transition-colors">Home</Link>
-            <Link href="/projects" className="text-white/80 hover:text-pink-400 transition-colors">Projects</Link>
-            <Link href="/tracks" className="text-white/80 hover:text-pink-400 transition-colors">Tracks</Link>
-            <Link href="/community" className="text-white/80 hover:text-pink-400 transition-colors">Community</Link>
-            <Link href="/profile" className="text-white/80 hover:text-pink-400 transition-colors">Profile</Link>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen relative" style={{background: 'var(--bg-primary)'}}>
+      <Navbar currentPath={pathname} />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}

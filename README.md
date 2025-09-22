@@ -1,3 +1,45 @@
+## Flow Blockchain Integration (Testnet)
+
+This project includes initial Flow integration for wallet linking and asset display.
+
+### Setup
+
+1. Env vars (backend):
+
+```
+FLOW_NETWORK=testnet
+FLOW_ACCESS_NODE=https://rest-testnet.onflow.org
+FLOW_WALLET_DISCOVERY=https://fcl-discovery.onflow.org/testnet/authn
+```
+
+2. Env vars (frontend): add to `.env.local`:
+
+```
+NEXT_PUBLIC_FLOW_ACCESS_NODE=https://rest-testnet.onflow.org
+NEXT_PUBLIC_FLOW_WALLET_DISCOVERY=https://fcl-discovery.onflow.org/testnet/authn
+NEXT_PUBLIC_APP_NAME=Way Bigger
+NEXT_PUBLIC_APP_ICON=/images/logo.svg
+```
+
+3. DB migration:
+
+```
+psql $DATABASE_URL -f backend/migrations/002_flow_integration.sql
+```
+
+### Frontend usage
+
+- Use `<FlowWallet />` to connect a wallet and auto-link it to your account.
+- Use `<FlowNFTGallery />` to display stored Flow assets.
+
+### Backend endpoints
+
+- `POST /api/v1/flow/wallet/link` → link wallet to authenticated user
+- `GET /api/v1/flow/assets` → list assets for authenticated user
+- `POST /api/v1/flow/tx` → record Flow transaction metadata
+
+Note: Smart contract interactions and on-chain minting flows can be added next using Cadence contracts and FCL transactions.
+
 # Project Learning Platform
 
 A full-stack platform where students learn by building real projects. Built with FastAPI (backend) and Next.js (frontend).

@@ -28,22 +28,23 @@ async def get_tracks(db: Session = Depends(get_db)):
 @router.get("/{track_id}", response_model=dict)
 async def get_track(track_id: int, db: Session = Depends(get_db)):
     """Get track by ID"""
-    track = db.query(Track).filter(Track.id == track_id).first()
-    if not track:
+    # Use Field table to match the list endpoint behavior
+    field = db.query(Field).filter(Field.id == track_id, Field.is_active == True).first()
+    if not field:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Track not found"
+            detail=f"Track not found with ID {track_id}"
         )
     
     return {
-        "id": track.id,
-        "name": track.name,
-        "domain": track.domain,
-        "description": track.description,
-        "levels": track.levels,
-        "ordering": track.ordering,
-        "is_active": track.is_active,
-        "created_at": track.created_at
+        "id": field.id,
+        "name": field.name,
+        "domain": field.name,  # Map name to domain for frontend compatibility
+        "description": field.description,
+        "levels": ["beginner", "intermediate", "advanced"],  # Default levels
+        "ordering": [],
+        "is_active": field.is_active,
+        "created_at": field.created_at
     }
 
 @router.post("/", response_model=dict)
