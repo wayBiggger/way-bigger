@@ -1,501 +1,381 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import SmartMentor from '@/components/SmartMentor'
-import LearningStyleAssessment from '@/components/LearningStyleAssessment'
-import { useMentorship } from '@/hooks/useMentorship'
+import { useState, useRef, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import Navbar from '@/components/Navbar'
 
-type AIFeature = 'project-ideas' | 'learning-path' | 'code-review' | 'project-description' | 'tutor'
+type ChatMessage = { id: string; role: 'user' | 'assistant'; text: string; ts: number }
+type ChatSession = { id: string; title: string; createdAt: number; messages: ChatMessage[] }
 
-interface TutorResponse {
-  message: string
-  projects?: any[]
-  timestamp: string
-}
+const makeId = () => `${Date.now()}_${Math.random().toString(36).slice(2)}`
 
 export default function AIAssistantPage() {
-  const [isDark, setIsDark] = useState(false)
-  const [activeFeature, setActiveFeature] = useState<AIFeature>('project-ideas')
+  const pathname = usePathname()
+  const [sessions, setSessions] = useState<ChatSession[]>([])
+  const [currentId, setCurrentId] = useState<string>('')
+  const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
-  const [result, setResult] = useState<any>(null)
-  const [error, setError] = useState<string>('')
-  const [aiStatus, setAiStatus] = useState<any>(null)
-  
-  // Mentorship integration
-  const userId = 'user-123' // Mock user ID
-  const { 
-    context: mentorshipContext, 
-    learningProfile, 
-    interventions,
-    chatWithMentor,
-    assessLearningStyle 
-  } = useMentorship(userId)
-  
-  const [showMentor, setShowMentor] = useState(false)
-  const [showLearningAssessment, setShowLearningAssessment] = useState(false)
+  const endRef = useRef<HTMLDivElement | null>(null)
 
-  // Use Node.js backend for project generation
-  const NODE_API_BASE_URL = process.env.NEXT_PUBLIC_NODE_API_BASE_URL || 'http://localhost:4000'
-  // Use Python backend for other AI features
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+  // Additional AI tools state
+  const [activeTool, setActiveTool] = useState<'chat' | 'ideas' | 'path' | 'review' | 'description'>('chat')
+  const [ideasField, setIdeasField] = useState('Web Development')
+  const [ideasDifficulty, setIdeasDifficulty] = useState('beginner')
+  const [ideasInterests, setIdeasInterests] = useState('react, tailwind')
+  const [ideasResult, setIdeasResult] = useState<any[] | null>(null)
 
+  const [pathField, setPathField] = useState('Web Development')
+  const [pathLevel, setPathLevel] = useState('beginner')
+  const [pathGoal, setPathGoal] = useState('Become job-ready in 3 months')
+  const [pathResult, setPathResult] = useState<any | null>(null)
+
+  const [reviewCode, setReviewCode] = useState<string>('')
+  const [reviewLang, setReviewLang] = useState<string>('typescript')
+  const [reviewContext, setReviewContext] = useState<string>('React component performance')
+  const [reviewResult, setReviewResult] = useState<any | null>(null)
+
+  const [descTitle, setDescTitle] = useState<string>('AI-powered Task Manager')
+  const [descField, setDescField] = useState<string>('Web Development')
+  const [descDifficulty, setDescDifficulty] = useState<string>('intermediate')
+  const [descResult, setDescResult] = useState<any | null>(null)
+
+  // init session from localStorage (safe & simple)
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme')
-    setIsDark(savedTheme === 'dark')
-    
-    // Check AI service status
-    checkAIStatus()
+    try {
+      const raw = localStorage.getItem('ai_sessions_min')
+      if (raw) {
+        const parsed = JSON.parse(raw) as ChatSession[]
+        if (Array.isArray(parsed) && parsed.length) {
+          setSessions(parsed)
+          setCurrentId(parsed[0].id)
+          return
+        }
+      }
+    } catch {}
+    const s: ChatSession = { id: makeId(), title: 'New chat', createdAt: Date.now(), messages: [] }
+    setSessions([s])
+    setCurrentId(s.id)
   }, [])
 
-  const checkAIStatus = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/ai-assistant/status`)
-      if (response.ok) {
-        const status = await response.json()
-        setAiStatus(status)
-      }
-    } catch (e) {
-      console.error('Failed to check AI status:', e)
+  // persist
+  useEffect(() => {
+    try { localStorage.setItem('ai_sessions_min', JSON.stringify(sessions)) } catch {}
+  }, [sessions])
+
+  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [sessions, currentId, loading])
+
+  const current = sessions.find(s => s.id === currentId)
+
+  const newSession = () => {
+    const s: ChatSession = { id: makeId(), title: 'New chat', createdAt: Date.now(), messages: [] }
+    setSessions(prev => [s, ...prev])
+    setCurrentId(s.id)
+  }
+
+  const deleteSession = (id: string) => {
+    const remaining = sessions.filter(s => s.id !== id)
+    if (remaining.length === 0) {
+      const s: ChatSession = { id: makeId(), title: 'New chat', createdAt: Date.now(), messages: [] }
+      setSessions([s])
+      setCurrentId(s.id)
+      return
+    }
+    setSessions(remaining)
+    if (currentId === id) {
+      setCurrentId(remaining[0].id)
     }
   }
 
-  const handleProjectIdeas = async () => {
+  const send = async () => {
+    if (!input.trim() || !current) return
+    const user: ChatMessage = { id: makeId(), role: 'user', text: input.trim(), ts: Date.now() }
+    setInput('')
     setLoading(true)
-    setError('')
-    setResult(null)
+    setSessions(prev => prev.map(s => s.id === current.id ? { ...s, title: s.title === 'New chat' ? user.text.slice(0, 40) : s.title, messages: [...s.messages, user] } : s))
 
+    // call backend (with graceful fallback)
+    let assistantText = ''
     try {
-      // Use Node.js backend for AI project generation
-      const response = await fetch(`${NODE_API_BASE_URL}/projects/generate/Beginner`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+      const res = await fetch(`${API_BASE_URL}/ai-assistant/tutor`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: user.text, context: 'chat', user_level: 'intermediate' })
       })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to generate project ideas')
+      if (res.ok) {
+        const data = await res.json()
+        assistantText = data.answer || data.message || data.raw_content || 'Got it.'
+      } else {
+        assistantText = 'Assistant is temporarily unavailable. Try again later.'
       }
-
-      const data = await response.json()
-      setResult(data?.projects || data)
-    } catch (e: any) {
-      setError(e.message || 'Something went wrong')
-    } finally {
-      setLoading(false)
+    } catch {
+      assistantText = 'Network error. Please try again.'
     }
-  }
-
-  const handleLearningPath = async () => {
-    setLoading(true)
-    setError('')
-    setResult(null)
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/ai-assistant/learning-path`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          field: 'web-development',
-          current_skill_level: 'beginner',
-          goal: 'Build full-stack web applications'
-        })
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.detail || 'Failed to generate learning path')
-      }
-
-      const data = await response.json()
-      setResult(data)
-    } catch (e: any) {
-      setError(e.message || 'Something went wrong')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleCodeReview = async () => {
-    setLoading(true)
-    setError('')
-    setResult(null)
-
-    try {
-      const sampleCode = `function calculateSum(a, b) {
-  return a + b;
-}
-
-console.log(calculateSum(5, 3));`
-
-      const response = await fetch(`${API_BASE_URL}/ai-assistant/code-review`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          code: sampleCode,
-          language: 'JavaScript',
-          context: 'Simple addition function'
-        })
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.detail || 'Failed to get code review')
-      }
-
-      const data = await response.json()
-      setResult(data)
-    } catch (e: any) {
-      setError(e.message || 'Something went wrong')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleProjectDescription = async () => {
-    setLoading(true)
-    setError('')
-    setResult(null)
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/ai-assistant/project-description`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: 'E-commerce Platform',
-          field: 'web-development',
-          difficulty: 'intermediate'
-        })
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.detail || 'Failed to generate project description')
-      }
-
-      const data = await response.json()
-      setResult(data)
-    } catch (e: any) {
-      setError(e.message || 'Something went wrong')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleTutorQuestion = async () => {
-    setLoading(true)
-    setError('')
-    setResult(null)
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/ai-assistant/tutor`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          question: 'What is the difference between let, const, and var in JavaScript?',
-          context: 'Learning JavaScript fundamentals',
-          user_level: 'beginner'
-        })
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.detail || 'Failed to get tutor response')
-      }
-
-      const data = await response.json()
-      setResult(data)
-    } catch (e: any) {
-      setError(e.message || 'Something went wrong')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const renderResult = () => {
-    if (!result) return null
-
-    switch (activeFeature) {
-      case 'project-ideas':
-        return (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Generated Project Ideas</h3>
-            {Array.isArray(result) && result.map((idea: any, index: number) => (
-              <div key={index} className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
-                boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
-              }}>
-                <h4 className="font-medium text-pink-400">{idea.title}</h4>
-                {idea.description && <p className="text-sm mt-2 text-gray-300">{idea.description}</p>}
-                {idea.learning_objectives && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Learning:</strong> {idea.learning_objectives}</p>}
-                {idea.time_commitment && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Time:</strong> {idea.time_commitment}</p>}
-                {idea.required_skills && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Skills:</strong> {idea.required_skills}</p>}
-                {idea.value && <p className="text-sm mt-1 text-gray-300"><strong className="text-pink-400">Value:</strong> {idea.value}</p>}
-              </div>
-            ))}
-          </div>
-        )
-
-      case 'learning-path':
-        return (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Learning Path</h3>
-            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
-              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
-            }}>
-              <pre className="whitespace-pre-wrap text-sm text-gray-300">{result.raw_content}</pre>
-            </div>
-          </div>
-        )
-
-      case 'code-review':
-        return (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Code Review</h3>
-            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
-              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
-            }}>
-              <p className="text-sm text-gray-300"><strong className="text-pink-400">Language:</strong> {result.language}</p>
-              <p className="text-sm mt-2 text-gray-300"><strong className="text-pink-400">Context:</strong> {result.context}</p>
-              <div className="mt-4">
-                <strong className="text-pink-400">Review:</strong>
-                <pre className="whitespace-pre-wrap text-sm mt-2 text-gray-300">{result.review}</pre>
-              </div>
-            </div>
-          </div>
-        )
-
-      case 'project-description':
-        return (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Project Description</h3>
-            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
-              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
-            }}>
-              <pre className="whitespace-pre-wrap text-sm text-gray-300">{result.raw_content}</pre>
-            </div>
-          </div>
-        )
-
-      case 'tutor':
-        return (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">AI Tutor Response</h3>
-            <div className="p-4 rounded-lg border border-white/10 bg-white/5" style={{
-              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
-            }}>
-              <p className="text-sm text-gray-300"><strong className="text-pink-400">Level:</strong> {result.user_level}</p>
-              <div className="mt-4">
-                <strong className="text-pink-400">Answer:</strong>
-                <pre className="whitespace-pre-wrap text-sm mt-2 text-gray-300">{result.answer}</pre>
-              </div>
-            </div>
-          </div>
-        )
-
-      default:
-        return null
-    }
+    const assistant: ChatMessage = { id: makeId(), role: 'assistant', text: assistantText, ts: Date.now() }
+    setSessions(prev => prev.map(s => s.id === current.id ? { ...s, messages: [...s.messages, assistant] } : s))
+    setLoading(false)
   }
 
   return (
-    <div className="min-h-screen" style={{background: 'var(--bg-primary)'}}>
-      {/* Navigation */}
-      <nav className="relative z-20 px-6 py-4 transition-all duration-500" style={{
-        borderBottom: '3px solid rgba(255, 0, 128, 0.8)',
-        boxShadow: '0 4px 30px rgba(255, 0, 128, 0.4), 0 0 60px rgba(255, 0, 128, 0.3), inset 0 -1px 0 rgba(255, 0, 128, 0.2)'
-      }}>
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-60"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-80"></div>
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">W</span>
+    <div className="min-h-screen bg-[#070815]">
+      <Navbar currentPath={pathname} />
+
+      <div className="max-w-7xl mx-auto px-4 py-6 flex gap-6">
+        {/* Sidebar */}
+        <aside className="hidden md:block w-64 shrink-0">
+          <div className="glass-card p-3">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-sm font-semibold text-white">Chats</h3>
+              <button onClick={newSession} className="px-2 py-1 text-xs rounded bg-pink-600 text-white hover:bg-pink-700">New</button>
             </div>
-            <span className="text-xl font-bold text-white">WayBigger</span>
+            <div className="space-y-1 max-h-[70vh] overflow-y-auto pr-1">
+              {sessions.map(s => (
+                <div key={s.id} className={`px-2 py-2 rounded cursor-pointer group ${s.id === currentId ? 'bg-white/10' : 'hover:bg-white/5'}`} onClick={() => setCurrentId(s.id)}>
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="truncate text-sm text-white">{s.title}</div>
+                    <button
+                      title="Delete chat"
+                      aria-label="Delete chat"
+                      onClick={(e) => { e.stopPropagation(); deleteSession(s.id) }}
+                      className="rounded p-1 text-red-500 hover:text-red-600 bg-red-500/10 hover:bg-red-500/20"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                        <path d="M9 3.75A1.5 1.5 0 0 1 10.5 2.25h3A1.5 1.5 0 0 1 15 3.75V4.5h3.75a.75.75 0 0 1 0 1.5H5.25a.75.75 0 0 1 0-1.5H9V3.75z"/>
+                        <path fillRule="evenodd" d="M6.75 7.5h10.5l-.73 11.003A2.25 2.25 0 0 1 14.279 20.75H9.721a2.25 2.25 0 0 1-2.241-2.247L6.75 7.5zm3.75 3.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6zm4.5 0a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z" clipRule="evenodd"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="text-[10px] text-gray-400">{new Date(s.createdAt).toLocaleDateString()}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          
-          <div className="flex items-center space-x-6">
-            <Link href="/" className="text-white/80 hover:text-pink-400 transition-colors">Home</Link>
-            <Link href="/projects" className="text-white/80 hover:text-pink-400 transition-colors">Projects</Link>
-            <Link href="/tracks" className="text-white/80 hover:text-pink-400 transition-colors">Tracks</Link>
-            <Link href="/community" className="text-white/80 hover:text-pink-400 transition-colors">Community</Link>
-            <Link href="/profile" className="text-white/80 hover:text-pink-400 transition-colors">Profile</Link>
-          </div>
-        </div>
-      </nav>
+        </aside>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="glass-card mx-4 mt-8 mb-8" style={{
-          boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
-        }}>
-          <div className="px-6 py-8 text-center">
-            <h1 className="text-4xl font-bold mb-4 text-white">
-              <span className="text-gradient">AI Assistant</span>
-            </h1>
-            
-            {/* AI Status */}
-            {aiStatus && (
-              <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mt-4 ${
-                aiStatus.available 
-                  ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-                  : 'bg-red-500/20 text-red-400 border border-red-500/30'
-              }`} style={{
-                boxShadow: aiStatus.available 
-                  ? '0 0 15px rgba(34, 197, 94, 0.3)'
-                  : '0 0 15px rgba(239, 68, 68, 0.3)'
-              }}>
-                <span className={`w-2 h-2 rounded-full mr-2 ${
-                  aiStatus.available ? 'bg-green-400' : 'bg-red-400'
-                }`}></span>
-                {aiStatus.status === 'active' ? 'AI Service Active' : 'AI Service Inactive'}
+        {/* Main column */}
+        <div className="flex-1">
+          {/* Horizontal tool tabs aligned with main column */}
+          <div className="mb-6">
+            <div className="glass-card bg-black/40 border border-white/10">
+              <div className="px-3 py-2">
+                <div className="flex flex-wrap justify-start gap-2 md:gap-3">
+                  <button aria-selected={activeTool==='chat'} onClick={() => setActiveTool('chat')} className={`inline-flex min-w-[140px] justify-center items-center px-4 md:px-5 py-2.5 rounded-full text-sm border transition ${activeTool==='chat'?'bg-gradient-to-r from-pink-600 to-purple-600 text-white border-transparent shadow-lg':'bg-white/5 text-gray-300 hover:text-white border-white/10'}`}>Chat</button>
+                  <button aria-selected={activeTool==='ideas'} onClick={() => setActiveTool('ideas')} className={`inline-flex min-w-[140px] justify-center items-center px-4 md:px-5 py-2.5 rounded-full text-sm border transition ${activeTool==='ideas'?'bg-gradient-to-r from-pink-600 to-purple-600 text-white border-transparent shadow-lg':'bg-white/5 text-gray-300 hover:text-white border-white/10'}`}>Project Ideas</button>
+                  <button aria-selected={activeTool==='description'} onClick={() => setActiveTool('description')} className={`inline-flex min-w-[140px] justify-center items-center px-4 md:px-5 py-2.5 rounded-full text-sm border transition ${activeTool==='description'?'bg-gradient-to-r from-pink-600 to-purple-600 text-white border-transparent shadow-lg':'bg-white/5 text-gray-300 hover:text-white border-white/10'}`}>Project Description</button>
+                  <button aria-selected={activeTool==='path'} onClick={() => setActiveTool('path')} className={`inline-flex min-w-[140px] justify-center items-center px-4 md:px-5 py-2.5 rounded-full text-sm border transition ${activeTool==='path'?'bg-gradient-to-r from-pink-600 to-purple-600 text-white border-transparent shadow-lg':'bg-white/5 text-gray-300 hover:text-white border-white/10'}`}>Learning Path</button>
+                  <button aria-selected={activeTool==='review'} onClick={() => setActiveTool('review')} className={`inline-flex min-w-[140px] justify-center items-center px-4 md:px-5 py-2.5 rounded-full text-sm border transition ${activeTool==='review'?'bg-gradient-to-r from-pink-600 to-purple-600 text-white border-transparent shadow-lg':'bg-white/5 text-gray-300 hover:text-white border-white/10'}`}>Code Review</button>
+                </div>
               </div>
-            )}
+            </div>
           </div>
-        </div>
 
-        {/* Feature Selection */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
-          {[
-            { id: 'project-ideas', label: 'Project Ideas', icon: '💡' },
-            { id: 'learning-path', label: 'Learning Path', icon: '🛤️' },
-            { id: 'code-review', label: 'Code Review', icon: '🔍' },
-            { id: 'project-description', label: 'Project Description', icon: '📝' },
-            { id: 'tutor', label: 'AI Tutor', icon: '👨‍🏫' }
-          ].map((feature) => (
-            <button
-              key={feature.id}
-              onClick={() => setActiveFeature(feature.id as AIFeature)}
-              className={`p-4 rounded-lg border-2 transition-all duration-200 ${
-                activeFeature === feature.id
-                  ? 'border-pink-500/50 bg-pink-500/20'
-                  : 'border-white/20 hover:border-pink-500/30 bg-white/5 hover:bg-white/10'
-              }`}
-              style={{
-                boxShadow: activeFeature === feature.id
-                  ? '0 0 20px rgba(255, 0, 128, 0.3)'
-                  : '0 0 15px rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <div className="text-2xl mb-2">{feature.icon}</div>
-              <div className="font-medium text-white">{feature.label}</div>
-            </button>
-          ))}
-        </div>
-
-        {/* Action Button */}
-        <div className="text-center mb-8">
-          <button
-            onClick={() => {
-              switch (activeFeature) {
-                case 'project-ideas': handleProjectIdeas(); break
-                case 'learning-path': handleLearningPath(); break
-                case 'code-review': handleCodeReview(); break
-                case 'project-description': handleProjectDescription(); break
-                case 'tutor': handleTutorQuestion(); break
-              }
-            }}
-            disabled={loading}
-            className={`px-8 py-3 rounded-lg font-medium transition-all duration-300 ${
-              loading
-                ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-pink-500/20 text-pink-400 border border-pink-500/30 hover:bg-pink-500/30 hover:border-pink-400'
-            }`}
-            style={{
-              boxShadow: loading ? 'none' : '0 0 20px rgba(255, 0, 128, 0.3)'
-            }}
-          >
-            {loading ? 'Processing...' : `Generate ${activeFeature.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}`}
-          </button>
-        </div>
-
-        {/* Error Display */}
-        {error && (
-          <div className="bg-red-500/20 border border-red-500/30 text-red-400 px-4 py-3 rounded mb-6" style={{
-            boxShadow: '0 0 15px rgba(239, 68, 68, 0.3)'
-          }}>
-            {error}
-          </div>
-        )}
-
-        {/* Results */}
-        {result && (
-          <div className="glass-card p-6" style={{
-            boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
-          }}>
-            {renderResult()}
-          </div>
-        )}
-
-        {/* Instructions */}
-        <div className="glass-card mt-8 p-6" style={{
-          boxShadow: '0 0 20px rgba(255, 0, 128, 0.1)'
-        }}>
-          <h3 className="text-lg font-semibold mb-4 text-white">How to Use</h3>
-          <div className="space-y-2 text-sm text-gray-300">
-            <p><strong className="text-pink-400">Project Ideas:</strong> Get AI-generated project suggestions based on your field and skill level</p>
-            <p><strong className="text-pink-400">Learning Path:</strong> Create personalized learning roadmaps for any programming field</p>
-            <p><strong className="text-pink-400">Code Review:</strong> Get AI feedback on your code with improvement suggestions</p>
-            <p><strong className="text-pink-400">Project Description:</strong> Generate detailed project descriptions and milestones</p>
-            <p><strong className="text-pink-400">AI Tutor:</strong> Ask programming questions and get educational responses</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Smart Mentor */}
-      <SmartMentor
-        userId={userId}
-        projectContext={{
-          name: 'AI Assistant',
-          recent_activity: 'using AI features'
-        }}
-        isVisible={showMentor}
-        onToggle={() => setShowMentor(!showMentor)}
-      />
-
-      {/* Learning Style Assessment */}
-      {showLearningAssessment && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <LearningStyleAssessment
-            userId={userId}
-            onComplete={(profile) => {
-              setShowLearningAssessment(false);
-              console.log('Learning style assessed:', profile);
-            }}
-            onSkip={() => setShowLearningAssessment(false)}
-          />
-        </div>
-      )}
-
-      {/* Mentorship Controls */}
-      <div className="fixed top-4 right-4 z-40 flex gap-2">
-        {!learningProfile && (
-          <button
-            onClick={() => setShowLearningAssessment(true)}
-            className="px-4 py-2 text-sm bg-white/10 text-white border border-white/20 hover:bg-white/20 hover:border-white/30 rounded-lg transition-all duration-300"
-            style={{
-              boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
-            }}
-            title="Take Learning Style Assessment"
-          >
-            🎓 Assess Learning Style
-          </button>
-        )}
-        
-        <button
-          onClick={() => setShowMentor(!showMentor)}
-          className="px-4 py-2 text-sm bg-pink-500/20 text-pink-400 border border-pink-500/30 hover:bg-pink-500/30 hover:border-pink-400 rounded-lg transition-all duration-300"
-          style={{
-            boxShadow: '0 0 15px rgba(255, 0, 128, 0.3)'
-          }}
-          title="Open Smart Mentor"
-        >
-          🤖 Smart Mentor
-          {interventions.length > 0 && (
-            <span className="ml-2 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+          {/* Chat Tutor */}
+          {activeTool === 'chat' && (
+            <div className="glass-card p-0 overflow-hidden">
+              <div className="px-4 py-3 border-b border-white/10 bg-black/40 text-white">WayBigger Assistant</div>
+              <div className="max-h-[70vh] min-h-[50vh] overflow-y-auto p-6 space-y-4">
+                {current?.messages.map(m => (
+                  <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    <div className={`px-4 py-3 rounded-2xl max-w-[80%] ${m.role === 'user' ? 'bg-[#00A884] text-white' : 'bg-white/10 text-gray-100'}`}>{m.text}</div>
+                  </div>
+                ))}
+                {loading && <div className="px-4 py-2 rounded-2xl bg-black/70 text-gray-300 w-fit">Thinking…</div>}
+                <div ref={endRef} />
+              </div>
+              <div className="p-4 border-t border-white/10 bg-black/40">
+                <div className="flex gap-2">
+                  <input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }}
+                    placeholder="Type a message"
+                    className="flex-1 p-3 rounded-full bg-[#2A3942] text-white placeholder-gray-300 border border-transparent focus:outline-none focus:ring-2 focus:ring-[#00A884]"
+                  />
+                  <button onClick={send} disabled={loading} className={`px-6 py-3 rounded-full font-medium ${loading ? 'bg-gray-600 text-gray-300' : 'bg-[#00A884] text-white hover:bg-[#11b995]'}`}>Send</button>
+                </div>
+              </div>
+            </div>
           )}
-        </button>
+
+          {/* Project Ideas */}
+          {activeTool === 'ideas' && (
+            <div className="glass-card p-6">
+              <div className="text-white font-semibold mb-4">Generate Project Ideas</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                <select value={ideasField} onChange={e => setIdeasField(e.target.value)} className="p-3 rounded bg-black/50 border border-white/10 text-white">
+                  <option>Web Development</option>
+                  <option>AI & Machine Learning</option>
+                  <option>Mobile</option>
+                  <option>Cybersecurity</option>
+                  <option>Data Science</option>
+                  <option>Blockchain</option>
+                </select>
+                <select value={ideasDifficulty} onChange={e => setIdeasDifficulty(e.target.value)} className="p-3 rounded bg-black/50 border border-white/10 text-white">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+                <input value={ideasInterests} onChange={e => setIdeasInterests(e.target.value)} placeholder="Interests (comma separated)" className="p-3 rounded bg-black/50 border border-white/10 text-white placeholder-gray-400" />
+              </div>
+              <button
+                onClick={async () => {
+                  try {
+                    const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+                    const res = await fetch(`${API_BASE_URL}/ai-assistant/project-ideas`, {
+                      method: 'POST', headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ field: ideasField, difficulty: ideasDifficulty, user_interests: ideasInterests.split(',').map(s => s.trim()).filter(Boolean) })
+                    })
+                    const data = await res.json()
+                    setIdeasResult(Array.isArray(data) ? data : [])
+                  } catch {
+                    setIdeasResult([])
+                  }
+                }}
+                className="px-4 py-2 rounded bg-pink-600 text-white hover:bg-pink-700"
+              >Generate Ideas</button>
+              <div className="mt-4 space-y-3 max-h-[50vh] overflow-auto">
+                {ideasResult?.map((idea, i) => (
+                  <div key={i} className="p-4 rounded bg-white/5 text-gray-100">
+                    <div className="font-semibold">{idea.title || idea.name || `Idea ${i+1}`}</div>
+                    {idea.description && <div className="text-sm text-gray-300 mt-1">{idea.description}</div>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Project Description */}
+          {activeTool === 'description' && (
+            <div className="glass-card p-6">
+              <div className="text-white font-semibold mb-4">Generate Project Description</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                <input value={descTitle} onChange={e => setDescTitle(e.target.value)} placeholder="Project title" className="p-3 rounded bg-black/50 border border-white/10 text-white placeholder-gray-400" />
+                <select value={descField} onChange={e => setDescField(e.target.value)} className="p-3 rounded bg-black/50 border border-white/10 text-white">
+                  <option>Web Development</option>
+                  <option>AI & Machine Learning</option>
+                  <option>Mobile</option>
+                  <option>Cybersecurity</option>
+                  <option>Data Science</option>
+                  <option>Blockchain</option>
+                </select>
+                <select value={descDifficulty} onChange={e => setDescDifficulty(e.target.value)} className="p-3 rounded bg-black/50 border border-white/10 text-white">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </div>
+              <button
+                onClick={async () => {
+                  try {
+                    const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+                    const res = await fetch(`${API_BASE_URL}/ai-assistant/project-description`, {
+                      method: 'POST', headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ title: descTitle || 'Untitled Project', field: descField, difficulty: descDifficulty })
+                    })
+                    const data = await res.json()
+                    setDescResult(data)
+                  } catch {
+                    setDescResult({ error: 'Failed to generate' })
+                  }
+                }}
+                className="px-4 py-2 rounded bg-purple-600 text-white hover:bg-purple-700"
+              >Generate Description</button>
+              {descResult && (
+                <div className="mt-4 p-4 rounded bg-white/5 text-gray-100 max-h-[50vh] overflow-auto">
+                  <pre className="whitespace-pre-wrap text-sm">{JSON.stringify(descResult, null, 2)}</pre>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Learning Path */}
+          {activeTool === 'path' && (
+            <div className="glass-card p-6">
+              <div className="text-white font-semibold mb-4">Generate Learning Path</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                <select value={pathField} onChange={e => setPathField(e.target.value)} className="p-3 rounded bg-black/50 border border-white/10 text-white">
+                  <option>Web Development</option>
+                  <option>AI & Machine Learning</option>
+                  <option>Mobile</option>
+                  <option>Cybersecurity</option>
+                  <option>Data Science</option>
+                  <option>Blockchain</option>
+                </select>
+                <select value={pathLevel} onChange={e => setPathLevel(e.target.value)} className="p-3 rounded bg-black/50 border border-white/10 text-white">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+                <input value={pathGoal} onChange={e => setPathGoal(e.target.value)} placeholder="Your goal" className="p-3 rounded bg-black/50 border border-white/10 text-white placeholder-gray-400" />
+              </div>
+              <button
+                onClick={async () => {
+                  try {
+                    const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+                    const res = await fetch(`${API_BASE_URL}/ai-assistant/learning-path`, {
+                      method: 'POST', headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ field: pathField, current_skill_level: pathLevel, goal: pathGoal })
+                    })
+                    const data = await res.json()
+                    setPathResult(data)
+                  } catch {
+                    setPathResult({ error: 'Failed to generate' })
+                  }
+                }}
+                className="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700"
+              >Generate Path</button>
+              {pathResult && (
+                <div className="mt-4 p-4 rounded bg-white/5 text-gray-100 max-h-[50vh] overflow-auto">
+                  <pre className="whitespace-pre-wrap text-sm">{JSON.stringify(pathResult, null, 2)}</pre>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Code Review */}
+          {activeTool === 'review' && (
+            <div className="glass-card p-6">
+              <div className="text-white font-semibold mb-4">Code Review & Suggestions</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                <select value={reviewLang} onChange={e => setReviewLang(e.target.value)} className="p-3 rounded bg-black/50 border border-white/10 text-white">
+                  <option value="typescript">TypeScript</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="python">Python</option>
+                  <option value="go">Go</option>
+                  <option value="rust">Rust</option>
+                </select>
+                <input value={reviewContext} onChange={e => setReviewContext(e.target.value)} placeholder="Context (optional)" className="p-3 rounded bg-black/50 border border-white/10 text-white placeholder-gray-400" />
+              </div>
+              <textarea value={reviewCode} onChange={e => setReviewCode(e.target.value)} placeholder="Paste your code here" className="w-full h-56 p-3 rounded bg-black/50 border border-white/10 text-white placeholder-gray-400"></textarea>
+              <div className="mt-3">
+                <button
+                  onClick={async () => {
+                    try {
+                      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
+                      const res = await fetch(`${API_BASE_URL}/ai-assistant/code-review`, {
+                        method: 'POST', headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ code: reviewCode, language: reviewLang, context: reviewContext })
+                      })
+                      const data = await res.json()
+                      setReviewResult(data)
+                    } catch {
+                      setReviewResult({ error: 'Failed to review code' })
+                    }
+                  }}
+                  className="px-4 py-2 rounded bg-cyan-600 text-white hover:bg-cyan-700"
+                >Review Code</button>
+              </div>
+              {reviewResult && (
+                <div className="mt-4 p-4 rounded bg-white/5 text-gray-100 max-h-[50vh] overflow-auto">
+                  <pre className="whitespace-pre-wrap text-sm">{JSON.stringify(reviewResult, null, 2)}</pre>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
 }
+
+
+

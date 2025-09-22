@@ -47,73 +47,27 @@ export default function TracksPage() {
         setLoading(true)
         setError('')
         
-        // Mock tracks data - in a real app, this would come from an API
-        const mockTracks = [
-          {
-            id: 1,
-            name: "Full-Stack Web Development",
-            domain: "web-development",
-            description: "Master modern web development with React, Node.js, and databases. Build complete web applications from frontend to backend.",
-            levels: ["Beginner", "Intermediate", "Advanced"],
-            projectCount: 25,
-            estimatedDuration: "6-8 months",
-            difficulty: "beginner" as const
-          },
-          {
-            id: 2,
-            name: "AI & Machine Learning",
-            domain: "ai-ml",
-            description: "Dive into artificial intelligence, machine learning, and data science. Learn Python, TensorFlow, and build intelligent applications.",
-            levels: ["Beginner", "Intermediate", "Advanced"],
-            projectCount: 20,
-            estimatedDuration: "8-10 months",
-            difficulty: "intermediate" as const
-          },
-          {
-            id: 3,
-            name: "Mobile App Development",
-            domain: "mobile",
-            description: "Create mobile applications for iOS and Android using React Native, Flutter, and native development.",
-            levels: ["Beginner", "Intermediate", "Advanced"],
-            projectCount: 18,
-            estimatedDuration: "5-7 months",
-            difficulty: "intermediate" as const
-          },
-          {
-            id: 4,
-            name: "Cybersecurity & Ethical Hacking",
-            domain: "cybersecurity",
-            description: "Learn cybersecurity fundamentals, penetration testing, and ethical hacking techniques to protect systems.",
-            levels: ["Beginner", "Intermediate", "Advanced"],
-            projectCount: 15,
-            estimatedDuration: "6-9 months",
-            difficulty: "advanced" as const
-          },
-          {
-            id: 5,
-            name: "Game Development & Creative Coding",
-            domain: "creative",
-            description: "Create games, interactive art, and creative applications using Unity, Unreal Engine, and creative coding tools.",
-            levels: ["Beginner", "Intermediate", "Advanced"],
-            projectCount: 22,
-            estimatedDuration: "7-9 months",
-            difficulty: "intermediate" as const
-          },
-          {
-            id: 6,
-            name: "DevOps & Cloud Engineering",
-            domain: "web-development",
-            description: "Master cloud platforms, containerization, CI/CD, and infrastructure as code for scalable applications.",
-            levels: ["Intermediate", "Advanced"],
-            projectCount: 12,
-            estimatedDuration: "4-6 months",
-            difficulty: "advanced" as const
-          }
-        ]
-
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setTracks(mockTracks)
+        const response = await fetch('http://localhost:8000/api/v1/tracks/')
+        if (!response.ok) {
+          throw new Error(`Failed to fetch tracks: ${response.status}`)
+        }
+        
+        const data = await response.json()
+        console.log('Tracks loaded:', data)
+        
+        // Transform API data to match frontend format
+        const transformedTracks = data.map((track: any) => ({
+          id: track.id,
+          name: track.name,
+          domain: track.domain,
+          description: track.description,
+          levels: track.levels || ["Beginner", "Intermediate", "Advanced"],
+          projectCount: Math.floor(Math.random() * 30) + 10, // Random count for now
+          estimatedDuration: "4-8 months", // Default duration
+          difficulty: "intermediate" as const // Default difficulty
+        }))
+        
+        setTracks(transformedTracks)
       } catch (e: any) {
         setError(e?.message || 'Something went wrong')
       } finally {

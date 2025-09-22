@@ -159,7 +159,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
   };
 
   return (
-    <nav className={`relative z-20 px-6 py-4 transition-all duration-500 ${
+    <nav className={`relative z-[100] px-6 py-4 transition-all duration-500 ${
       isScrolled ? 'glass-card shadow-2xl' : 'bg-transparent'
     }`} style={{
       borderBottom: '3px solid rgba(255, 0, 128, 0.8)',
@@ -208,7 +208,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl transition-all duration-200 z-50 ${
+            <div className={`absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl transition-all duration-200 z-[110] ${
               activeDropdown === 'tools' ? 'opacity-100 visible' : 'opacity-0 invisible'
             }`} style={{boxShadow: '0 0 40px rgba(255, 0, 128, 0.3)'}}>
               <div className="py-2">
@@ -241,7 +241,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl transition-all duration-200 z-50 ${
+            <div className={`absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl transition-all duration-200 z-[110] ${
               activeDropdown === 'features' ? 'opacity-100 visible' : 'opacity-0 invisible'
             }`} style={{boxShadow: '0 0 40px rgba(255, 0, 128, 0.3)'}}>
               <div className="py-2">
@@ -274,7 +274,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl transition-all duration-200 z-50 ${
+            <div className={`absolute left-0 mt-2 w-48 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl transition-all duration-200 z-[110] ${
               activeDropdown === 'learning' ? 'opacity-100 visible' : 'opacity-0 invisible'
             }`} style={{boxShadow: '0 0 40px rgba(255, 0, 128, 0.3)'}}>
               <div className="py-2">
@@ -336,7 +336,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
               
               {/* User Dropdown */}
               {showUserMenu && (
-                <div className="absolute right-0 mt-2 w-72 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl z-50" style={{boxShadow: '0 0 40px rgba(255, 0, 128, 0.3)'}}>
+                <div className="absolute right-0 mt-2 w-72 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-lg shadow-2xl z-[110]" style={{boxShadow: '0 0 40px rgba(255, 0, 128, 0.3)'}}>
                   <div className="p-3">
                     <div className="px-4 py-3 border-b border-white/10">
                       <div className="flex items-center space-x-3">

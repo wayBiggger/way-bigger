@@ -45,22 +45,60 @@ export default function ProjectsPage() {
   const [selectedDomain, setSelectedDomain] = useState('all')
   const [selectedDifficulty, setSelectedDifficulty] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage] = useState(30)
+
+  const domains = [
+    { id: 'all', name: 'All Domains' },
+    { id: 'web-development', name: 'Web Development', keywords: ['html', 'css', 'javascript', 'react', 'vue', 'angular', 'node.js', 'express', 'web development'] },
+    { id: 'ai-ml', name: 'AI & Machine Learning', keywords: ['python', 'tensorflow', 'pytorch', 'machine learning', 'ai', 'neural', 'deep learning', 'scikit-learn', 'pandas', 'numpy'] },
+    { id: 'mobile', name: 'Mobile Development', keywords: ['react native', 'flutter', 'swift', 'kotlin', 'android', 'ios', 'mobile development', 'xamarin'] },
+    { id: 'cybersecurity', name: 'Cybersecurity', keywords: ['security', 'penetration testing', 'owasp', 'cybersecurity', 'encryption', 'vulnerability'] },
+    { id: 'data-science', name: 'Data Science', keywords: ['data analytics', 'jupyter', 'pandas', 'numpy', 'matplotlib', 'seaborn', 'r', 'sql', 'data science'] },
+    { id: 'blockchain', name: 'Blockchain', keywords: ['blockchain', 'ethereum', 'solidity', 'web3', 'nft', 'cryptocurrency', 'smart contracts'] }
+  ]
 
   useEffect(() => {
+    console.log('🟢 useEffect is running for projects page')
+    
     const fetchProjects = async () => {
       try {
         setLoading(true)
-        const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1'
-        const response = await fetch(`${API_BASE_URL}/projects`)
+        console.log('🚀 Starting to fetch projects...')
+        
+        const response = await fetch('http://localhost:8000/api/v1/projects/')
+        
+        console.log('📡 Response received:', {
+          status: response.status,
+          ok: response.ok,
+          url: response.url
+        })
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
         
         const data = await response.json()
-        setProjects(data)
-      } catch (error) {
-        console.error('Error fetching projects:', error)
+        console.log('✅ Projects loaded successfully:', {
+          count: data.length,
+          firstProject: data[0]?.title || 'No projects',
+          dataType: typeof data,
+          isArray: Array.isArray(data)
+        })
+        
+        // Ensure data is an array
+        if (Array.isArray(data)) {
+          setProjects(data)
+        } else {
+          console.error('❌ API returned non-array data:', data)
+          setProjects([])
+        }
+      } catch (error: any) {
+        console.error('❌ Error loading projects:', {
+          message: error.message,
+          name: error.name
+        })
+        setProjects([])
       } finally {
         setLoading(false)
       }
@@ -71,28 +109,62 @@ export default function ProjectsPage() {
 
   // Memoized filter and sort functions for better performance
   const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
-    const difficultyMatch = selectedDifficulty === 'all' || project.difficulty.toLowerCase() === selectedDifficulty
-    
-    // Domain filtering based on industry in description
-    const domainMatch = selectedDomain === 'all' || 
-        (project.description && project.description.toLowerCase().includes(`in the ${selectedDomain} industry`))
-    
-    const searchMatch = searchQuery === '' || 
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    const filtered = projects.filter(project => {
+      const difficultyMatch = selectedDifficulty === 'all' || project.difficulty.toLowerCase() === selectedDifficulty
+      
+      // Domain matching with keywords
+      let domainMatch = selectedDomain === 'all'
+      if (selectedDomain !== 'all') {
+        const selectedDomainData = domains.find(d => d.id === selectedDomain)
+        if (selectedDomainData && selectedDomainData.keywords) {
+          const techStackLower = project.tech_stack ? project.tech_stack.toLowerCase() : ''
+          const tagsLower = project.tags && Array.isArray(project.tags) ? project.tags.map(tag => tag.toLowerCase()) : []
+          const allText = [techStackLower, ...tagsLower].join(' ')
+          
+          domainMatch = selectedDomainData.keywords.some(keyword => 
+            allText.includes(keyword.toLowerCase())
+          )
+        }
+      }
+      
+      const searchMatch = searchQuery === '' || 
+        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (project.tech_stack && project.tech_stack.toLowerCase().includes(searchQuery.toLowerCase()))
+      
+      return difficultyMatch && domainMatch && searchMatch
+    })
     
-    return difficultyMatch && domainMatch && searchMatch
-  })
-  }, [projects, selectedDifficulty, selectedDomain, searchQuery])
+    console.log('Filtering results:', {
+      totalProjects: projects.length,
+      filteredCount: filtered.length,
+      selectedDomain,
+      selectedDifficulty,
+      searchQuery,
+      firstProject: projects[0]?.title || 'No projects',
+      sampleProject: filtered[0]?.title || 'No filtered projects'
+    })
+    
+    return filtered
+  }, [projects, selectedDifficulty, selectedDomain, searchQuery, domains])
 
   const sortedProjects = useMemo(() => {
     return [...filteredProjects].sort((a, b) => {
-    const difficultyOrder = { beginner: 1, intermediate: 2, advanced: 3 }
-    return difficultyOrder[a.difficulty.toLowerCase() as keyof typeof difficultyOrder] - difficultyOrder[b.difficulty.toLowerCase() as keyof typeof difficultyOrder]
-  })
+      const difficultyOrder = { beginner: 1, intermediate: 2, advanced: 3 }
+      return difficultyOrder[a.difficulty.toLowerCase() as keyof typeof difficultyOrder] - difficultyOrder[b.difficulty.toLowerCase() as keyof typeof difficultyOrder]
+    })
   }, [filteredProjects])
+
+  // Pagination logic
+  const totalPages = Math.ceil(sortedProjects.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const currentProjects = sortedProjects.slice(startIndex, endIndex)
+
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [selectedDomain, selectedDifficulty, searchQuery])
 
   // Memoized event handlers
   const handleDomainChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -107,17 +179,25 @@ export default function ProjectsPage() {
     setSearchQuery(e.target.value)
   }, [])
 
-  const domains = [
-    { id: 'all', name: 'All Domains' },
-    { id: 'agriculture', name: '🌾 Agriculture' },
-    { id: 'ecommerce', name: '🛒 E-commerce' },
-    { id: 'education', name: '🎓 Education' },
-    { id: 'environment', name: '🌱 Environment' },
-    { id: 'finance', name: '💰 Finance' },
-    { id: 'healthcare', name: '🏥 Healthcare' },
-    { id: 'manufacturing', name: '🏭 Manufacturing' },
-    { id: 'transportation', name: '🚗 Transportation' }
-  ]
+  // Pagination handlers
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
+  const handlePrevPage = useCallback(() => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [currentPage])
+
+  const handleNextPage = useCallback(() => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [currentPage, totalPages])
 
   const difficulties = [
     { id: 'all', name: 'All Levels' },
@@ -143,20 +223,25 @@ export default function ProjectsPage() {
           </p>
         </div>
 
+        
+
         {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="glass-card p-8 text-center hover:glass-hover transition-all duration-300" style={{
             boxShadow: '0 0 20px rgba(255, 0, 128, 0.2)'
           }}>
-            <div className="text-4xl font-bold text-pink-400 mb-2">
-              {loading ? '...' : sortedProjects.length}
-            </div>
-            <div className="text-gray-300 font-medium">
-              {selectedDomain === 'all' && selectedDifficulty === 'all' && searchQuery === '' 
-                ? 'Total Projects' 
-                : 'Filtered Results'
-              }
-            </div>
+               <div className="text-4xl font-bold text-pink-400 mb-2">
+                 {loading ? '...' : sortedProjects.length}
+               </div>
+               <div className="text-gray-300 font-medium">
+                 {selectedDomain === 'all' && selectedDifficulty === 'all' && searchQuery === '' 
+                   ? 'Total Projects' 
+                   : 'Filtered Results'
+                 }
+               </div>
+               <div className="text-sm text-gray-400 mt-1">
+                 Page {currentPage} of {totalPages}
+               </div>
           </div>
           <div className="glass-card p-8 text-center hover:glass-hover transition-all duration-300" style={{
             boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)'
@@ -198,11 +283,16 @@ export default function ProjectsPage() {
                 className="w-full p-3 bg-black/50 border border-pink-500/30 rounded-lg text-white focus:ring-2 focus:ring-pink-500 focus:border-pink-400 transition-all duration-200 backdrop-blur-sm"
                 style={{ boxShadow: '0 0 15px rgba(255, 0, 128, 0.1)' }}
               >
-                {domains.map(domain => (
-                  <option key={domain.id} value={domain.id} className="bg-black text-white">
-                    {domain.name}
-                  </option>
-                ))}
+                <option value="all" className="bg-black text-white">All Domains</option>
+                <option value="web-development" className="bg-black text-white">🌐 Web Development</option>
+                <option value="ai-ml" className="bg-black text-white">🤖 AI & Machine Learning</option>
+                <option value="mobile" className="bg-black text-white">📱 Mobile Development</option>
+                <option value="cybersecurity" className="bg-black text-white">🔒 Cybersecurity</option>
+                <option value="data-science" className="bg-black text-white">📊 Data Science</option>
+                <option value="blockchain" className="bg-black text-white">⛓️ Blockchain</option>
+                <option value="game-development" className="bg-black text-white">🎮 Game Development</option>
+                <option value="devops" className="bg-black text-white">⚙️ DevOps</option>
+                <option value="creative" className="bg-black text-white">🎨 Creative Industry</option>
               </select>
             </div>
 
@@ -264,11 +354,79 @@ export default function ProjectsPage() {
               ))}
             </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sortedProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {currentProjects.length > 0 ? (
+                currentProjects.map((project, index) => (
+                  <ProjectCard key={project.id} project={project} index={index} />
+                ))
+              ) : (
+                <div className="col-span-full text-center text-gray-400 text-lg py-10">
+                  No projects found matching your criteria.
+                </div>
+              )}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="mt-16 flex flex-col items-center">
+                <div className="flex items-center space-x-2 mb-4">
+                  <button
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 bg-black/50 border border-pink-500/30 rounded-lg text-white hover:bg-pink-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  <div className="flex space-x-1">
+                    {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                      let pageNum;
+                      if (totalPages <= 5) {
+                        pageNum = i + 1;
+                      } else if (currentPage <= 3) {
+                        pageNum = i + 1;
+                      } else if (currentPage >= totalPages - 2) {
+                        pageNum = totalPages - 4 + i;
+                      } else {
+                        pageNum = currentPage - 2 + i;
+                      }
+                      
+                      return (
+                        <button
+                          key={pageNum}
+                          onClick={() => handlePageChange(pageNum)}
+                          className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                            currentPage === pageNum
+                              ? 'bg-pink-600 text-white'
+                              : 'bg-black/50 text-gray-300 hover:bg-pink-500/20 border border-pink-500/30'
+                          }`}
+                        >
+                          {pageNum}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  
+                  <button
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 bg-black/50 border border-pink-500/30 rounded-lg text-white hover:bg-pink-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <div className="text-sm text-gray-400">
+                  Showing {startIndex + 1}-{Math.min(endIndex, sortedProjects.length)} of {sortedProjects.length} projects
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         {!loading && sortedProjects.length === 0 && (
@@ -284,6 +442,8 @@ export default function ProjectsPage() {
             </div>
           </div>
         )}
+
+        
 
         {/* Call to Action */}
         <div className="mt-20 text-center">

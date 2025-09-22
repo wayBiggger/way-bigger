@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from .endpoints import (
     auth, users, projects, submissions, tracks, newsletters, 
     code_editor, ai_assistant, portfolio, gamification, 
-    mentorship, collaboration, integrated_features, security
+    mentorship, collaboration, integrated_features, security, flow
 )
 
 api_router = APIRouter()
@@ -34,3 +34,4 @@ api_router.include_router(integrated_features.router, prefix="/integrated-featur
 
 # Security
 api_router.include_router(security.router, prefix="/security", tags=["security"])
+api_router.include_router(flow.router, prefix="/flow", tags=["flow"])

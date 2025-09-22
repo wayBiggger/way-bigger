@@ -30,21 +30,27 @@ const ProjectCard = memo(function ProjectCard({ project, index }: ProjectCardPro
   return (
     <div
       key={project.id}
-      className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200"
-      style={{ animationDelay: `${index * 100}ms` }}
+      className="group relative bg-black/90 backdrop-blur-xl rounded-2xl border border-pink-500/30 hover:border-pink-400/50 transition-all duration-300 overflow-hidden"
+      style={{ 
+        animationDelay: `${index * 100}ms`,
+        boxShadow: '0 0 40px rgba(255, 0, 128, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)'
+      }}
     >
+      {/* Glowing effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/5 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      
       {/* Project Header */}
-      <div className="p-6 pb-4">
+      <div className="relative p-6 pb-4">
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
-            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors line-clamp-2">
               {project.title}
             </h3>
             <div className="flex items-center gap-2">
               <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${
-                project.difficulty === 'beginner' ? 'bg-green-100 text-green-800' :
-                project.difficulty === 'intermediate' ? 'bg-yellow-100 text-yellow-800' :
-                'bg-red-100 text-red-800'
+                project.difficulty === 'beginner' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+                project.difficulty === 'intermediate' ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30' :
+                'bg-red-500/20 text-red-400 border border-red-500/30'
               }`}>
                 {difficultyIcons[project.difficulty as keyof typeof difficultyIcons]}
                 <span className="ml-1 capitalize">{project.difficulty}</span>
@@ -54,24 +60,24 @@ const ProjectCard = memo(function ProjectCard({ project, index }: ProjectCardPro
         </div>
 
         {/* Project Description */}
-        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+        <p className="text-gray-300 text-sm leading-relaxed line-clamp-3 mb-4">
           {project.description}
         </p>
       </div>
 
       {/* Tech Stack */}
-      <div className="px-6 pb-4">
+      <div className="relative px-6 pb-4">
         <div className="flex flex-wrap gap-2">
           {project.tech_stack.split(',').slice(0, 4).map((tag, tagIndex) => (
             <span
               key={tagIndex}
-              className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200"
+              className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-pink-500/20 text-pink-300 border border-pink-500/30"
             >
               {tag.trim()}
             </span>
           ))}
           {project.tech_stack.split(',').length > 4 && (
-            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-400 border border-white/20">
               +{project.tech_stack.split(',').length - 4} more
             </span>
           )}
@@ -79,9 +85,9 @@ const ProjectCard = memo(function ProjectCard({ project, index }: ProjectCardPro
       </div>
 
       {/* Project Footer */}
-      <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
+      <div className="relative px-6 py-4 border-t border-white/10">
         <div className="flex items-center justify-between">
-          <div className="flex items-center text-sm text-gray-500">
+          <div className="flex items-center text-sm text-gray-400">
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -89,7 +95,8 @@ const ProjectCard = memo(function ProjectCard({ project, index }: ProjectCardPro
           </div>
           <Link
             href={`/projects/${project.id}`}
-            className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 group-hover:shadow-md"
+            className="inline-flex items-center px-4 py-2 bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 hover:text-pink-200 text-sm font-medium rounded-lg border border-pink-500/30 hover:border-pink-400/50 transition-all duration-200 group-hover:shadow-lg"
+            style={{ boxShadow: '0 0 15px rgba(255, 0, 128, 0.2)' }}
           >
             View Project
             <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
